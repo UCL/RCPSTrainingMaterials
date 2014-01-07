@@ -38,7 +38,7 @@ High Performance Computing (HPC)
 
 High Throughput Computing (HTC)
 
-AKA *"Supercomputing"*
+AKA **"Supercomputing"**
 
 
 The Computer
