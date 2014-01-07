@@ -15,4 +15,4 @@ env=Environment(tools=['default',rsdpandoc.builders.add_builders],
 env["HaveWebKit"]=False
 
 # Build day1's slides
-rsdpandoc.globbers.reveal_layout('src/day1.md',env,"slides/day1")
+rsdpandoc.globbers.reveal_layout('src/day1.md',env,"slides/day1","src/assets")
