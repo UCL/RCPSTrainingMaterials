@@ -1,4 +1,4 @@
-% High Performance Computing and High Throughput Computing using Legion
+% HPC and HTC using Legion
 % Research Computing and Facilitating Services
 
 Overview
