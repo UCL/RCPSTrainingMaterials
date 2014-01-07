@@ -1,0 +1,18 @@
+# Build all the bits for the course.
+# Owain Kenway 7/Jan/2014
+
+import rsdpandoc.builders
+import rsdpandoc.globbers
+import os
+
+# Fix the environment because scons is broken.
+env=Environment(tools=['default',rsdpandoc.builders.add_builders], 
+                ENV = {'PATH' : os.environ['PATH']})
+
+# Set what tools we have for building stuff
+#env["HavePIL"]=True
+#env["HaveWSD"]=True
+env["HaveWebKit"]=False
+
+# Build day1's slides
+rsdpandoc.globbers.reveal_layout('src/day1.md',env,"slides/day1")
