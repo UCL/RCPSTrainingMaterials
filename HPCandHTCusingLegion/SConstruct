@@ -16,3 +16,4 @@ env["HaveWebKit"]=False
 
 # Build day1's slides
 rsdpandoc.globbers.reveal_layout('src/day1.md',env,"slides/day1","src/assets")
+rsdpandoc.globbers.reveal_layout('src/day2.md',env,"slides/day2","src/assets")
