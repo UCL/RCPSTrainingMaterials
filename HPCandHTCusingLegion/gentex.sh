@@ -21,8 +21,8 @@ pandoc --template=assets/report -V documentclass=scrartcl -V links-as-notes --fi
 
 
 # PDFlatex it (twice to deal with labels).
-pdflatex $a.tex
-pdflatex $a.tex
+xelatex $a.tex
+xelatex $a.tex
 
 mkdir -p handouts
 mv $a.pdf handouts

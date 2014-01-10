@@ -1,4 +1,4 @@
-% HPC and HTC using Legion
+﻿% HPC and HTC using Legion
 % Research Computing and Facilitating Services
 
 Overview
@@ -65,3 +65,59 @@ Pressure from computing requirements
     * "Desktops" need to quickly *communicate to synchronise* work over entire grid,
 
     * Communication between "desktops" can become a bottleneck.
+
+![](assets/worldmap.png)
+
+Pressure from computing requirements
+------------------------------------
+
+**Example:** Searching database of web-sites for some text (i.e. Google)
+
+* Searching sequentially through large volumes of text too time-consuming.
+
+    * Multiple "desktops" hold different pages.
+
+    * Each "desktop" can report the result of each individual search.
+
+    * **The more "desktops" you add the quicker the search is.**
+
+Pressure from physics
+---------------------
+
+* **Serial Process:**
+
+    * A process in which its sub-processes happen sequentially in time.
+
+    * Only one sub-process is active at any given time.
+
+![](assets/serial.png)
+
+* **Parallel Process:**
+
+    * Process in which a number of stages can occur during the same time interval (e.g. trans-parallel process).
+
+![](assets/parallel.png)
+
+
+Pressure from physics
+---------------------
+
+* **Serial Process:**
+
+    * Speed depends only on the rate at which each sub-process will occur (e.g. processing unit clock speed).
+
+* **Parallel Process:**
+
+    * Speed depends on execution rate of each sub-process *AND* how many sub-processes can be made to occur simultaneously.
+
+
+**Physics is limiting serial speed**
+
+**Heat α speed³ **
+
+
+
+Pressure from physics
+---------------------
+### All computers today are designed for parallel execution
+
