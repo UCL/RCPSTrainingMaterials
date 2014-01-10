@@ -15,5 +15,10 @@ env=Environment(tools=['default',rsdpandoc.builders.add_builders],
 env["HaveWebKit"]=False
 
 # Build day1's slides
-rsdpandoc.globbers.reveal_layout('src/day1.md',env,"slides/day1","src/assets")
-rsdpandoc.globbers.reveal_layout('src/day2.md',env,"slides/day2","src/assets")
+rsdpandoc.globbers.reveal_layout('src/1_intro_to_hpc.md',env,"slides/1","src/assets")
+rsdpandoc.globbers.reveal_layout('src/2_intro_to_shell.md',env,"slides/2","src/assets")
+
+# Build day2's slides
+rsdpandoc.globbers.reveal_layout('src/3_legion_overview.md',env,"slides/3","src/assets")
+rsdpandoc.globbers.reveal_layout('src/4_legion_batch.md' ,env,"slides/4","src/assets")
+rsdpandoc.globbers.reveal_layout('src/5_policies.md',env,"slides/5","src/assets")

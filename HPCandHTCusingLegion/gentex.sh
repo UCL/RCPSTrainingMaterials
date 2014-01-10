@@ -14,22 +14,22 @@ cp -R /usr/lib/python2.7/site-packages/rsdpandoc/assets .
 # Get our assets
 cp -R src/assets/* assets
 
+for a in 1_intro_to_hpc  2_intro_to_shell  3_legion_overview  4_legion_batch  5_policies
+do
 # Pandoc it
-pandoc --template=assets/report -V documentclass=scrartcl -V links-as-notes --filter pandoc-citeproc --default-image-extension=png -V linkcolor=uclmidgreen --number-sections src/day1.md -o day1.tex
+pandoc --template=assets/report -V documentclass=scrartcl -V links-as-notes --filter pandoc-citeproc --default-image-extension=png -V linkcolor=uclmidgreen --number-sections src/$a.md -o $a.tex
 
-pandoc --template=assets/report -V documentclass=scrartcl -V links-as-notes --filter pandoc-citeproc --default-image-extension=png -V linkcolor=uclmidgreen --number-sections src/day1.md -o day2.tex
 
 # PDFlatex it (twice to deal with labels).
-pdflatex day1.tex
-pdflatex day1.tex
-pdflatex day2.tex
-pdflatex day2.tex
+pdflatex $a.tex
+pdflatex $a.tex
 
-mkdir -p slides/day1
-mkdir -p slides/day2
-mv day1.pdf slides/day1/slides.pdf
-mv day2.pdf slides/day2
+mkdir -p handouts
+mv $a.pdf handouts
 
 # Tidy up
-rm day1.* day2.*
+rm $a.* 
+
+done
+
 rm -rf assets
