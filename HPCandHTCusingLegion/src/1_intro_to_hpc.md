@@ -121,3 +121,7 @@ Pressure from physics
 ---------------------
 ### All computers today are designed for parallel execution
 
+But...
+
+### Not all computation can be done in parallel!
+
