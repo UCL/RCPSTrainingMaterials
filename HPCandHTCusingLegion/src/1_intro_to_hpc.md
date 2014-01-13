@@ -125,3 +125,39 @@ But...
 
 ### Not all computation can be done in parallel!
 
+Amdahl's Law
+------------
+
+1 Processor
+
+![](assets/amdahl1.png)
+
+Amdahl's Law
+------------
+
+2 Processors
+
+![](assets/amdahl2.png)
+
+Amdahl's Law
+------------
+
+10 Processors
+
+![](assets/amdahl10.png)
+
+Amdahl's Law
+------------
+
+* Amdahl's law will always be a limiting factor
+
+![](assets/amdahl.png)
+
+* Some applications need to be re-written, algorithms re-thought to harness ever more parallel machines.
+
+Amdahl's Law
+------------
+
+![](assets/amdahlscale.png)
+
+* If 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20x, no matter how many processors are used.
