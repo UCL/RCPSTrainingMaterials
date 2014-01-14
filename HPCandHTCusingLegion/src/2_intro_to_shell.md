@@ -78,3 +78,75 @@ Command Prompt
 * **&lt;present directory&gt;** is the directory that the user is currently in.
 
 * Commands are typed after the prompt and executed by pressing return.
+
+Command Line Execution
+----------------------
+
+```
+[ccaaxxx@login06 ~]$ ls
+Scratch
+[ccaaxxx@login06 ~]$
+```
+
+* **ls** lists the contents of the directory
+* **~** is the "home directory"
+
+Unix Directory Basics
+---------------------
+
+```
+[ccaaxxx@login06 ~]$ file ~
+/home/ccaaxx: directory
+[ccaaxxx@login06 ~]$
+```
+* **file** identifies the file type
+* **~** = /home/ccaaxxx - your *home directory*
+
+Unix Directory Basics
+---------------------
+
+```
+/home/ccaaxxx: directory
+
+/home: directory
+
+/: directory
+```
+
+* **/home/ccaaxxxx** - the *full path* to the home directory
+
+Hidden files and directories
+----------------------------
+
+```
+[ccaaxxx@login06 ~]$ ls -a
+.  ..  .bash_history  .bash_logout
+.bash_profile  .bashrc  .cshrc  .emacs
+Scratch  .ssh
+[ccaaxxx@login06 ~]$ 
+```
+
+* Files starting with "." are hidden
+
+* **.** - Present working directory (in this case ~)
+* **..** - Directory above (in this case /home)
+
+Everything is a file
+--------------------
+
+```
+[ccaaxxx@login02 ~]$ file .* *
+.:             directory
+..:            directory
+.bash_history: ASCII text
+.bash_logout:  ASCII English text
+.bash_profile: ASCII English text
+.bashrc:       Bourne-Again shell script text executable
+.cshrc:        C shell script text executable
+.emacs:        Lisp/Scheme program text (Emacs editor)
+.ssh:          directory (for secure shell)
+Scratch:       symbolic link to `/scratch/scratch/ccaaxxx'
+```
+
+* "*" - All visible files
+* ".*" - All invisible files
