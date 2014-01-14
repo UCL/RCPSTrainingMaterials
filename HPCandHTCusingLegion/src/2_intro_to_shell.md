@@ -135,7 +135,7 @@ Everything is a file
 --------------------
 
 ```
-[ccaaxxx@login02 ~]$ file .* *
+[ccaaxxx@login06 ~]$ file .* *
 .:             directory
 ..:            directory
 .bash_history: ASCII text
@@ -150,3 +150,144 @@ Scratch:       symbolic link to `/scratch/scratch/ccaaxxx'
 
 * "*" - All visible files
 * ".*" - All invisible files
+
+Everything is a file
+--------------------
+
+Just to make the point:
+```
+[ccaaxxx@login06 ~]$ which ls
+ /bin/ls
+
+[ccaaxxx@login06 ~]$ file /bin/ls
+/bin/ls: ELF 64-bit LSB executable, AMD x86-64, version 1 (SYSV), for GNU/Linux 2.4.0, 
+dynamically linked (uses shared libs), stripped
+```
+
+* /bin/ls is an executable file (!)
+* **which** - shows the path to the argument, in this case ls
+
+Directory Navigation
+--------------------
+
+```
+[ccaaxxx@login06 ~]$ pwd
+/home/ccaaxxx
+
+[ccaaxxx@login06 ~]$ cd /
+[ccaaxxx@login06 /]$ 
+```
+
+* **cd** - change directory
+* **pwd** - full path to present working directory
+* **/** - the "root" directory
+
+Exercise:
+--------
+
+explore the / directory using ls, cd, ., .., pwd
+
+* If you feel lost, just execute **"cd"** with no arguments (or **"cd ~"**) and you will be returned to your home directory.
+
+* **"cd -"** - will return you to the previous directory you were in.
+
+Filesystem structure
+--------------------
+
+![](assets/directorystructure.png)
+
+Absolute path
+-------------
+
+![](assets/abspath.png)
+
+/home/alice
+
+Relative path
+-------------
+
+![](assets/relpath.png)
+
+../home/alice
+
+
+Directory creation
+------------------
+
+```
+[ccaaxxx@login06 ~]$ mkdir a_directory
+
+[ccaaxxx@login06 ~]$ ls
+a_directory Scratch
+```
+
+* **mkdir** - create a directory
+
+
+Directory creation
+------------------
+
+```
+[ccaaxxx@login06 ~]$ mkdir -p a_directory/inside/the_other
+[ccaaxxx@login06 ~]$ cd a_directory/inside/the_other
+[ccaaxxx@login06 the_other]$ pwd
+/home/ccaaxxx/a_directory/inside/the_other
+```
+
+* **mkdir -p** - creates consecutive sub-directories
+
+Touching a file
+---------------
+
+```
+[ccaaxxx@login06 ~]$ touch a_file
+[ccaaxxx@login06 ~]$ ls
+a_directory a_file Scratch
+```
+
+* **touch** - create or update the date of a file
+* This is **not** usually how files are created
+
+Copying files
+-------------
+
+```
+[ccaaxxx@login06 ~]$ cp a_file copy_of_a_file
+[ccaaxxx@login06 ~]$ ls
+a_directory a_file copy_of_a_file Scratch
+```
+
+* **cp** copy a file (or a directory tree)
+
+Exercise:
+--------
+
+Create and copy a directory tree.  Use the command **"man cp**" for more information
+
+Editing files
+-------------
+
+```
+[ccaaxxx@login06 ~]$ nano a_file
+```
+
+![](assets/nano.png)
+
+* **nano** - simple file editor
+
+
+Nano
+----
+
+![](assets/nano2.png)
+
+* **nano** - simple file editor
+* Commands are along the botton of editor screen
+* ^ - shorthand for control key
+
+Editors
+-------
+
+There are many other (better but more complex) text file editors on the system such as **vim**, **emacs** and **nedit**.
+
+Use the one you feel most comfortable with.
