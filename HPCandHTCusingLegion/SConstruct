@@ -14,6 +14,11 @@ env=Environment(tools=['default',rsdpandoc.builders.add_builders],
 #env["HaveWSD"]=True
 env["HaveWebKit"]=False
 
+rsdpandoc.builders.SlideStyle="solarized"
+rsdpandoc.builders.SlideSyntaxHighlightingStyle="tango"
+#rsdpandoc.builders.SlideExtraCSSFiles=['cake.css', 'bees.css']
+#rsdpandoc.builders.SlideTemplateName="atemplate"
+
 # Build day1's slides
 rsdpandoc.globbers.reveal_layout('src/1_intro_to_hpc.md',env,"slides/1","src/assets")
 rsdpandoc.globbers.reveal_layout('src/2_intro_to_shell.md',env,"slides/2","src/assets")
