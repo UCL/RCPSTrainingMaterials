@@ -591,3 +591,70 @@ Note: remote machine (in this case Socrates) must be running SSH server. So, fro
 
 * **scp** - securely copy files across a network 
 
+Output redirection and piping
+-----------------------------
+
+* Two very important concepts:
+
+    + Standard Output (stdout) - default destination of a program's output.  It is generally the terminal screen.
+
+    + Standard Input (stdin) - default source of a program's input.  It is generally the command line.
+
+
+Output redirection and piping
+-----------------------------
+
+```
+[ccaaxxx@login06 ~]$ ls /home > ls_home.txt
+```
+
+* **&gt;** - redirect stdout to a file
+
+
+```
+[ccaaxxx@login06 ~]$ ls /home | less
+```
+
+* **|** "pipe" stdout to stdin of a command
+
+
+
+Output redirection and piping
+-----------------------------
+
+![](assets/process1.png)
+
+Output redirection and piping
+-----------------------------
+
+![](assets/process2.png)
+
+Output redirection and piping
+-----------------------------
+
+ls -l
+
+![](assets/process3.png)
+
+Output redirection and piping
+-----------------------------
+
+ls -l > list_of_files
+
+![](assets/process4.png)
+
+Output redirection and piping
+-----------------------------
+
+ls -l | grep partial_name > list_of_files
+
+![](assets/process5.png)
+
+Output redirection and piping
+-----------------------------
+
+You can chain any number of programs together to achieve your goal:
+
+![](assets/process6.png)
+
+This allows you to build up fairly complex workflows within one command-line.
