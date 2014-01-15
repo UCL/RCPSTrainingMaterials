@@ -264,6 +264,10 @@ Exercise:
 
 Create and copy a directory tree.  Use the command **"man cp**" for more information
 
+File manipulation
+=================
+
+
 Editing files
 -------------
 
@@ -463,4 +467,127 @@ Exercise:
 * Change the permission of a full directory tree with one single **chmod** command (look in the man pages for more information).
 
 * When typing the command " ls /sh", press the tab key after typing "/sh".  What happens?
+
+Inspecting files
+----------------
+
+```
+[ccaaxxx@login06 ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
+[ccaaxxx@login06 examples]$ less openmp_pi.f90
+```
+
+* **less** - visualise a text file:
+    + use arrow keys
+    + page up/page down
+    + search by typing "/"
+    + quit by typing "q"
+
+Other file inspection tools
+---------------------------
+
+|:-------|:----------------------------------------------------------------------|
+|head    |- visualise the first 10 lines of a file                               |
+|tail    |- visualise the last 10 lines of a file                                |
+|cat     |- concatenate files provided as input and dump the result to *stdout*  |
+|sdiff   |- visualise and compare two files side-by-side                         |
+
+(Use "man &lt;tool&gt;" to see more information)
+
+
+Filtering directory listings
+----------------------------
+
+```
+[cccaaxxx@login06 ~]$ ls /shared/ucl/apps/BLAST/install | grep blast
+blastall
+blast-nr-1.out
+blast-pdb-1.out
+```
+
+* **grep** - prints lines containing a string.  Also searches for strings in text files.
+
+Searching for strings in files
+------------------------------
+
+```
+[cccaaxxx@login06 ~]$ grep SWAP /shared/ucl/apps/BLAST/install/test.faa
+SWGEGCGLLHNYGVYTKVSRYLDWIHGHIRDKEAPQKSWAP
+```
+
+* **grep** - prints lines containing a string.  Also searches for strings in text files.
+
+Archiving and compression
+-------------------------
+
+```
+[ccaaxxx@login06 Scratch]$ tar -zcvf work.tgz work
+work/
+work/program/
+work/calculations/
+work/calculations/control.in
+work/workfile
+
+[ccaaxxx@login06 Scratch]$ ls
+work.tgz work
+```
+
+* **tar -zcvf** - archives and compresses directory trees and files 
+    + **c** - create archive 
+    + **z** - compress
+    + **v** - verbose
+    + **f** - in the following file
+
+Extracting files from a compressed archive
+------------------------------------------
+
+```
+[ccaaxxx@login06 Scratch]$ ls
+work.tgz
+[ccaaxxx@login06 Scratch]$ tar -zxvf work.tgz 
+work/
+work/program/
+work/calculations/
+work/calculations/control.in
+work/workfile
+[ccaaxxx@login06 Scratch]$ ls
+work.tgz work
+```
+
+* **tar -z*x*vf** - extracts and uncompresses directory trees and files 
+    + **x** - extract archive 
+    + **z** - uncompress
+    + **v** - verbose
+    + **f** - from the following file
+
+Transferring files across a network
+-----------------------------------
+
+From Legion:
+
+```
+[ccaaxxx@login06 Scratch]$ scp work.tgz ccaaxxx@socrates.ucl.ac.uk:~/
+...
+Password:
+work.tgz         100%  340     0.3KB/s   00:00
+
+```
+
+To Legion:
+
+```
+[ccaaxxx@login06 Scratch]$ scp ccaaxxx@socrates.ucl.ac.uk:~/work.tgz .
+...
+Password:
+work.tgz         100%  340     0.3KB/s   00:00
+
+```
+
+Note: remote machine (in this case Socrates) must be running SSH server. So, from your destop: 
+
+```
+[you@desktop ~]$ scp work.tgz ccaaxxx@login05.external.legion.ucl.ac.uk:Scratch
+[you@desktop ~]$ scp ccaaxxx@login05.external.legion.ucl.ac.uk:Scratch/work.tgz .
+```
+
+* **scp** - securely copy files across a network 
 
