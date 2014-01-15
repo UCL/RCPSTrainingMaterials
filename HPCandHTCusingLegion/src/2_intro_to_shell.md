@@ -290,4 +290,23 @@ Editors
 
 There are many other (better but more complex) text file editors on the system such as **vim**, **emacs** and **nedit**.
 
-Use the one you feel most comfortable with.
+Use the one you feel most comfortable with (if you don't know any, use nano (or nedit if you have X-Windows)).
+
+Moving/Renaming Files and Directories
+-------------------------------------
+
+```
+[ccaaxxx@login06 ~]$ mv a_file control.in
+[ccaaxxx@login06 ~]$ ls
+a_directory control.in Scratch
+
+[ccaaxxx@login06 ~]$ mv control.in a_directory
+
+[ccaaxxx@login06 ~]$ ls a_directory
+control.in inside
+```
+
+* **mv** - rename or move a file/directory
+
+
+
