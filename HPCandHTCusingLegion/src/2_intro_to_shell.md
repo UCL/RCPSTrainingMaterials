@@ -752,4 +752,286 @@ Updated process diagram
 
 ![](assets/processenvvars.png)
 
- 
+Special environment variables
+-----------------------------
+
+What is the output of this command?
+
+```
+[ccaaxxx@login06 ~]$ echo $PATH
+``` 
+
+Note the structure: \<path1\>:\<path2\>:\<path3\>  
+
+PATH is an environmental variable which Bash uses to search for commands typed on the command line without a full path. 
+
+**Exercise:** Use the command **env** to discover more.
+
+Variables in shell scripts
+--------------------------
+
+```
+#!/bin/bash
+# This is a very simple hello world script
+message='Hello World!'
+echo $message
+echo ${message}
+```
+
+|:---------|:---------------------------------------------------------|
+| #!       | tells the shell that this the interpreter (/bin/bash)    |
+| #        | followed by a blank character is a comment line          |
+| message  | variable to which the string 'Hello World!' is assigned  |
+| echo     | prints to screen the contents of the variable "$message" |
+
+
+Command line arguments
+----------------------
+
+Variables can also be defined through the command line
+
+```
+[ccaaxxx@login06 ~]$ ./script.sh arg another
+```
+
+Within the script:
+$1 contains "arg"
+$2 contains "another"
+
+**Exercise:** Using $1 and $2, write a script that print both variables to the screen.
+
+
+Storing output of commands in variables 
+---------------------------------------
+
+Run commands inside **$( )** and assign the wrapped command to a variable
+
+```
+[ccaaxxx@login06 ~]$ ls 
+a_directory  a_file  Scratch 
+[ccaaxxx@login06 ~]$ dir_contents=$( ls ) 
+[ccaaxxx@login06 ~]$ echo $dir_contents 
+a_directory a_file Scratch
+```
+
+Basic arithmetic
+----------------
+
+```
+[ccaaxxx@login06 ~]$ two=2 
+[ccaaxxx@login06 ~]$ result=$(( $two + 2 )) 
+[ccaaxxx@login06 ~]$ echo $result  
+4 
+[ccaaxxx@login06 ~]$
+```
+
+* Integer arithmetic can be done inside $(( ))
+    * \+  addition
+    * \-   subtraction
+    * /   integer division
+    * \*   multiplication
+
+
+The for loop
+------------
+
+```
+#!/bin/bash
+for i in first second third
+do
+  echo $i iteration
+done
+echo finished!
+```
+
+1. Interpreter definition line.
+2. Definition of the loop in which the variable "i" will take the values "first", "second" and "third" in that order.
+3. Start the loop iteration definition.
+4. Print the string contained by "i" and the string iteration, separated by a space.
+5. End the loop definition.
+6. Print some useful information to the screen.
+
+The for loop using an iterator
+------------------------------
+
+```
+#!/bin/bash 
+for (( i=1 ; i<=5 ; i++ )) 
+do
+    echo iteration$i
+done
+echo finished! 
+```
+
+(Note how it is possible to create number labels)
+
+Exercise:
+--------
+
+Write a script that creates five directories named calculation_?, where ? is a number.
+
+Formatted sequences based on numbers
+------------------------------------
+
+```
+[ccaaxxx@login06 ~]$ seq 1 5
+1
+2
+3
+4 
+5
+```
+
+* **seq** - generates sequences based on numbers
+
+Formatted sequences based on numbers
+------------------------------------
+
+```
+[ccaaxxx@login06 ~]$ seq 1 2 9
+1
+3
+5
+7
+9
+```
+
+* **seq** - generates sequences based on numbers
+
+Formatted sequences based on numbers
+------------------------------------
+
+```
+[ccaaxxx@login06 ~]$ seq -f %03g 1 2 9
+001
+003
+005
+007
+009
+```
+
+* **g** - the number of significant digits is 3 
+* **0** - in front of 3 indicates that the number is padded with zeros if smaller than 100.
+* **%** - start the format definition for the number (place the number)
+
+The for loop revisited
+----------------------
+
+```
+#!/bin/bash 
+for i in $(seq -f %03g 1 4) 
+do
+   echo creating directory calculation$i
+   mkdir calculation$i 
+done 
+echo finished!
+```
+
+You can now create directory trees and files 
+automatically!
+
+Generating scripts with scripts
+-------------------------------
+
+```
+cat <<EOF > child_script.sh 
+#!/bin/bash 
+echo The child script says Hi! 
+EOF 
+```
+
+* **\<\<EOF** - concatenates the text until the string "EOF", redirecting it to cat
+* **\> child_script.sh** - redirects the output of cat to child_script.sh.
+
+**Exercise:** 
+
+* write a parent_script.sh that creates and executes 
+the child_script.sh
+
+* Exercise: write a parent_script.sh that creates and executes 
+10 different child_script.sh that print out their individual number
+
+Process control
+---------------
+
+* A process is in the:
+
+    + **foreground** when it is interacting with the user via an interface (usually the shell).
+
+    + **background** if it is running without interacting with the user. 
+
+    + **suspended** if it is neither interacting nor running.
+
+* To run a process in the background:
+add the symbol "&" at the end of the command line.
+
+* To send a foreground process to the backgound:
+press Ctrl+z and then execute the command "bg"
+
+* To bring a background process to the foreground:
+execute the command "fg"
+
+Which processes are running?
+----------------------------
+
+Use the commands **top** amd **ps**
+
+```
+[ccaaxxx@login06 ~]$ ps aux
+```
+
+|:--------|:-----------------------------------------------------------|
+| USER    | - the user name                                            |
+| PID     | - the process ID                                           |
+| %CPU    | - the percentage of CPU time being used                    |
+| %MEM    | - the percentage of Memory being used                      |
+| VSZ     | - the size of Virtual memory                               |
+| RSS     | - the size of real memory                                  |
+| TTY     | - the virtual teletype terminal this proces is attached to |
+| STAT    | - the state of the process (see "man ps")                  |
+| START   | - the time when the process was started                    |
+| TIME    | - the time the process has been running                    |
+| COMMAND | - the command that was called                              |
+
+```
+[ccaaxxx@login06 ~]$ ps xjf
+```
+
+Why have we been showing you this?
+----------------------------------
+
+* Tomorrow, we will be talking about how to submit your workloads to Legion
+
+* The scripts you submit are bash shell scripts with some special comments read by the scheduler at the top.
+
+```
+#!/bin/bash -l
+#$ -S /bin/bash
+#$ -l h_rt=0:30:0
+#$ -l mem=1G
+#$ -N Analysis
+#$ -P <your_project_id> 
+#$ -wd /home/<your_UCL_id>/Scratch/output 
+
+echo "Copying input files."
+cd $TMPDIR
+cp -R ~/inputdata .
+echo "Analysing data."
+~/bin/analyse -i inputdata/exp.in > exp.out.$JOB_ID
+echo "Copying data back."
+cp exp.out.$JOB_ID ~/Scratch/output
+echo "Done."
+```
+
+More information
+----------------
+
+* Many topics not covered here:
+    + if statements
+    + case switches
+    + defining functions
+    + and many, many more...
+
+* Google and the **man** pages are your friends!
+
+
