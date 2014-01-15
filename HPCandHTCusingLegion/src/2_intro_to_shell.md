@@ -591,6 +591,9 @@ Note: remote machine (in this case Socrates) must be running SSH server. So, fro
 
 * **scp** - securely copy files across a network 
 
+Scripting and workflows
+=======================
+
 Output redirection and piping
 -----------------------------
 
@@ -658,3 +661,95 @@ You can chain any number of programs together to achieve your goal:
 ![](assets/process6.png)
 
 This allows you to build up fairly complex workflows within one command-line.
+
+Shell scripting
+---------------
+
+```
+#!/bin/bash
+# This is a very simple hello world script.
+echo "Hello, world!"
+```
+
+* \#! - tells the shell that it should use /bin/bash as the interpreter
+* \# - a comment (ignored by /bin/bash)
+* echo - a command that prints arguments to stdout
+
+Exercise:
+--------
+
+* Create a "Hello world"-like script using command line tools and execute it.
+
+* Copy and alter your script to redirect output to a file using &gt;.
+
+* Alter your script to use &gt;&gt; instead of &gt;.  What effect does this have on its behaviour?
+
+Exercise Solutions:
+------------------
+
+"." not present in the environment variable $PATH:
+
+```
+[ccaaxxx@login06 ~]$ hello_world.sh
+bash: hello_world.sh: command not found
+```
+
+File permissions not set to executable by user:
+
+```
+[ccaaxxx@login06 ~]$ ./hello_world.sh
+bash: ./hello_world.sh: Permission denied
+```
+
+using ./ and chmod 755:
+
+```
+[ccaaxxx@login06 ~]$ ./hello_world.sh
+Hello World!
+```
+
+Exercise:
+--------
+
+* Use '**seq** 1 75 \> numbers.txt' to 
+generate a file containing a list of 
+numbers. Use the **head**, **tail**, and **less** 
+commands to look at it, then use grep to
+search it for a number.
+
+* Use a combination of head and tail to get an exact line number
+
+Environment Variables
+----------------------
+
+```
+[ccaaxxx@login06 ~]$ variable='string'
+[ccaaxxx@login06 ~]$ variable=$other_variable
+```
+
+* Defined and used within a shell script only.
+
+* No spaces around the assignment symbol "=".
+
+* $ means "the value assigned to the following variable". 
+
+Global Environment Variables
+----------------------------
+
+* defined within a shell and also in scripts called from the shell
+
+```
+[ccaaxxx@login06 ~]$ export ENV_VARIABLE='value'
+```
+
+Exercise
+--------
+
+* Using two nested scripts, show that the value of an exported variable in the environment where you launch the scripts, propagates all the way down to the second script. 
+
+Updated process diagram
+-----------------------
+
+![](assets/processenvvars.png)
+
+ 
