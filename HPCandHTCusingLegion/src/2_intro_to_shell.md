@@ -292,7 +292,7 @@ There are many other (better but more complex) text file editors on the system s
 
 Use the one you feel most comfortable with (if you don't know any, use nano (or nedit if you have X-Windows)).
 
-Moving/Renaming Files and Directories
+Moving/Renaming files and directories
 -------------------------------------
 
 ```
@@ -308,5 +308,159 @@ control.in inside
 
 * **mv** - rename or move a file/directory
 
+Deleting files and directories
+------------------------------
 
+```
+[ccaaxxx@login06 ~]$ rm a_directory/control.in
+
+[ccaaxxx@login06 ~]$ rm a_directory
+rm: cannot remove `a_directory/': Is a directory
+
+[ccaaxxx@login06 ~]$ rm -r a_directory
+[ccaaxxx@login06 ~]$ 
+```
+
+* **rm** - delete a file
+* **rm -r** 0 delete a directory and all its contents
+* **rm operations are irreversible!!!**
+* The -i argument is highly recommended
+
+Exercise:
+--------
+
+In ~/Scratch...
+ 
+* Create the following directory tree:
+```
+    work
+    work/input_data
+    work/results
+    work/program
+```
+
+* Create the file "input.txt" with some random lines in it.
+
+* Move the file to input_data and rename it in the same command to control01.txt
+
+* Create the directory tree in one line only: experiment/results/report
+
+* Delete all directory trees created in one single command without explicit reference to any of the directory and file names.
+
+File properties
+---------------
+
+```
+[ccaaxxx@login06 ~]$ ls -l
+total 8
+drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+-rw-r--r-- 1 ccaaxxx rcops    0 2009-12-08 07:31 a_file
+drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 06:50 Scratch
+
+```
+
+* **ls -l** - list file properties (details)
+
+File properties
+---------------
+
+```
+drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+
+        drwxr-xr-x      - File type and permissions
+        2		- Number of links to the file
+        ccaaxxx         - User name of file owner
+        rcops           - Group to which the file belongs 
+        4096            - size of file in bytes
+        2009-12-08      - last change data
+        07:31           - last change time
+        a_directory     - file name
+```
+
+
+* **ls -l** - list file properties (details)
+
+File permissions
+----------------
+
+* There are three user security classifications that apply to the ownership of a file:
+
+    + **user:** the individual user that has ownership of the file
+
+    + **group:** a group of users to which that user belongs
+
+    + **others:** all other users (not owner or in that group)
+
+* Each of these has three file access classifications:
+
+    + **read:** permission to read the file
+
+    + **write:** permission to write the file
+
+    + **execute:** permission to execute (run) the file
+
+File permissions
+----------------
+
+**drwxr-xrx** has four fields:
+
+|:-----|:----------------------------------------------|
+| d    | - the file is a directory                     |
+| rwx  | - the user has read, write and execute access |
+| r-x  | - the group has read and execute access       |
+| r-x  | - others have read and execute access         |
+
+
+
+| Permissions | read | write | execute |
+|:------------|:----:|:-----:|:-------:|
+| rwx         | yes  | yes   | yes     |
+| rw-         | yes  | yes   | no      |
+| r--         | yes  | no    | no      |
+| r-x         | yes  | no    | yes     |
+| ---         | no   | no    | no      |
+
+File permissions
+----------------
+
+```
+[ccaaxxx@login06 ~]$ ls -l 
+...
+drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+...
+
+[ccaaxxx@login06 ~]$ chmod go-rx a_directory
+
+[ccaaxxx@login06 ~]$ ls -l 
+...
+drwx------ 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+```
+
+* **chmod** - change the permissions of a file
+
+File permissions
+----------------
+
+How did the permissions definition go-rx work?
+
+```
+chmod [ugoa][+/-][rwx] file
+```
+
+* ugoa - user, group, other, all
+
+* +/- - add/remove
+
+* rwx - read, write, execute
+
+If you don't specify u,g,o or a, default is **ALL** (so chmod +x makes file executable for everyone).
+
+* **chmod** - change the permissions of a file
+
+Exercise:
+--------
+
+* Change the permission of a full directory tree with one single **chmod** command (look in the man pages for more information).
+
+* When typing the command " ls /sh", press the tab key after typing "/sh".  What happens?
 
