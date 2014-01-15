@@ -516,6 +516,46 @@ SWGEGCGLLHNYGVYTKVSRYLDWIHGHIRDKEAPQKSWAP
 
 * **grep** - prints lines containing a string.  Also searches for strings in text files.
 
+Links
+-----
+
+* Created with "ln"
+
+* Two types:
+    + "Hard" - indistinguishable from files
+    + "Soft" (or "Symbolic") - like a shortcut
+
+Hard links
+----------
+
+* Inode table keeps track of hard links
+
+* Deleting a file = "unlinking" it
+
+* Can only be used inside a single file system
+
+Soft links
+----------
+
+* Shortcut, e.g.
+
+```
+[cccaaxxx@login06 ~]$ ln -s ~/some_project/2012/part531 ~/current_project
+[cccaaxxx@login06 ~]$ ls -l ~ 
+lrwxr-xr-x  1 ccaaxxx  staff  11 10 Oct 17:56
+               current_project -> /home/ccaaxxx/some_project_2012/part531
+```
+
+Soft links
+----------
+
+* Can use relative or absolute paths!
+
+* Create using absolute paths to make sure they go where you want
+
+* "Scratch" in your home directory is a soft link
+    + Makes it easier to access your scratch area
+
 Archiving and compression
 -------------------------
 
