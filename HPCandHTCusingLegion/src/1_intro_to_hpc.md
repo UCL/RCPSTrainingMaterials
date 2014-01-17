@@ -163,3 +163,56 @@ Amdahl's Law
 (Graph from Wikipedia: http://en.wikipedia.org/wiki/File:AmdahlsLaw.svg)
 
 * If 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20x, no matter how many processors are used.
+
+There are many parallel paradigms
+---------------------------------
+
+Processor farms, pipelining, divide/conquer
+Master/slave, geometric decomposition
+cellular automata, algorithmic parallelism
+
+* From a systems perspective:
+    + Shared memory
+    + Message passing
+
+SMP (Symmetric Multi-Processing)
+-------------------------------
+
+![](assets/smp.png)
+
+
+SMP (Symmetric Multi-Processing)
+-------------------------------
+
+![](assets/smp2.png)
+
+Beowulf Cluster (i.e. Ethernet)
+-------------------------------
+
+![](assets/beowulf.png)
+
+Infiniband Cluster
+------------------
+
+![](assets/cluster.png)
+
+NUMA (Non-Uniform Memory Access)
+--------------------------------
+
+![](assets/numa.png)
+
+Interconnect comparions
+-----------------------
+
+| Interconnect   |  Typical MPI latency (microseconds) | Typical bandwidth (MB/s) |
+|:---------------|:-----------------------------------:|:------------------------:|
+| 1Gbs Ethernet  | 60-90                               | 90                       |
+| 10Gbs Ethernet | 12-20                               | 800                      |
+| Infiniband     | 2-4                                 | 250-1200                 |
+| NUMALink 4     | ~1                                  | 3000                     |
+| QPI            | ~0.5                                | 20000                    |
+
+GPU accelerator
+---------------
+
+![](assets/gpu.png)
