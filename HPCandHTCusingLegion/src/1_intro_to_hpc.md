@@ -44,7 +44,7 @@ AKA **"Supercomputing"**
 The Computer
 ------------
 
-![](assets/thecomputer.png)
+![](assets/thecomputer.svg)
 
 Traditional view of a computer is changing
 ------------------------------------------
