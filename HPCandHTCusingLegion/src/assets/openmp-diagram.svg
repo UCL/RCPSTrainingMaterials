@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="558px" height="258px" viewBox="0 0 558 258" enable-background="new 0 0 558 258" xml:space="preserve">
+<rect x="36" y="33" fill="#cccccc" fill-opacity="0.4" stroke="#cccccc" width="504" height="153"/>
+<text transform="matrix(1 0 0 1 9 24)" fill="#cccccc" stroke="#cccccc" font-family="'Trebuchet MS'" font-size="26.502">Node 0</text>
+<g>
+	<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="54" y1="51" x2="522" y2="51"/>
+	<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" stroke-linecap="round" points="514.521,40.973 531,50.486 514.521,60 	
+		"/>
+</g>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="108" y1="78" x2="261" y2="78"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="180,69 196.479,78.514 180,88.027 "/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="82.457" y1="51" x2="106.543" y2="78"/>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="108" y1="105" x2="261" y2="105"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="180,94.973 196.479,104.486 180,114 "/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="82.457" y1="51" x2="106.543" y2="105"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="82.457" y1="51" x2="106.543" y2="132"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="82.457" y1="51" x2="106.543" y2="159"/>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="108" y1="132" x2="261" y2="132"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="180,121.973 196.479,131.486 180,141 "/>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="108" y1="159" x2="261" y2="159"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="180,148.973 196.479,158.486 180,168 "/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="285.086" y1="51" x2="261" y2="78"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="285.086" y1="51" x2="261" y2="105"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="285.086" y1="51" x2="261" y2="132"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="285.086" y1="51" x2="261" y2="159"/>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="326.914" y1="78" x2="479.914" y2="78"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="398.914,69 415.393,78.514 398.914,88.027 "/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="301.371" y1="51" x2="325.457" y2="78"/>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="326.914" y1="105" x2="479.914" y2="105"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="398.914,94.973 415.393,104.486 398.914,114 "/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="301.371" y1="51" x2="325.457" y2="105"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="301.371" y1="51" x2="325.457" y2="132"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="301.371" y1="51" x2="325.457" y2="159"/>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="326.914" y1="132" x2="479.914" y2="132"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="398.914,121.973 415.393,131.486 398.914,141 "/>
+<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="326.914" y1="159" x2="479.914" y2="159"/>
+<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" points="398.914,148.973 415.393,158.486 398.914,168 "/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="504" y1="51" x2="479.914" y2="78"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="504" y1="51" x2="479.914" y2="105"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="504" y1="51" x2="479.914" y2="132"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="504" y1="51" x2="479.914" y2="159"/>
+</svg>

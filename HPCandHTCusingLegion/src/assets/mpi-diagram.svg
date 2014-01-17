@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="558px" height="261px" viewBox="-4 -3 558 261" enable-background="new -4 -3 558 261" xml:space="preserve">
+<rect x="32.001" y="33"  fill="#cccccc" fill-opacity="0.4" stroke="#cccccc" width="504" height="81"/>
+<rect x="32.001" y="159"  fill="#cccccc" fill-opacity="0.4" stroke="#cccccc" width="504" height="81"/>
+<text transform="matrix(1 0 0 1 5.0002 24)" fill="#cccccc" stroke="#cccccc" font-family="'Trebuchet MS'" font-size="26.502">Node 0</text>
+<text transform="matrix(1 0 0 1 5.0002 150)" fill="#cccccc" stroke="#cccccc" font-family="'Trebuchet MS'" font-size="26.502">Node 1</text>
+<g>
+	<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="50.001" y1="51" x2="518" y2="51"/>
+	<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" stroke-linecap="round" points="510.522,40.973 527,50.486 510.522,60 	
+		"/>
+</g>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="104.001" y1="51" x2="131.001" y2="96"/>
+<g>
+	<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="50" y1="177" x2="518" y2="177"/>
+	<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" stroke-linecap="round" points="510.522,166.973 527,176.485 
+		510.522,186 	"/>
+</g>
+<g>
+	<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="50" y1="222" x2="518" y2="222"/>
+	<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" stroke-linecap="round" points="510.522,211.973 527,221.485 
+		510.522,231 	"/>
+</g>
+<g>
+	<line fill="none" stroke="#39B54A" stroke-width="5" stroke-linecap="round" x1="50" y1="97.027" x2="518" y2="97.027"/>
+	<polygon fill="#39B54A" stroke="#39B54A" stroke-width="3" stroke-linecap="round" points="510.522,87 527,96.513 510.522,106.027 
+			"/>
+</g>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="104" y1="177" x2="131" y2="222"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="51" x2="104" y2="96"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="177" x2="104" y2="222"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="96" x2="104" y2="222"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="51" x2="104" y2="222"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="177" x2="104" y2="51"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="222" x2="104" y2="51"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="177" x2="104" y2="96"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="222" x2="104" y2="96"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="96" x2="104" y2="177"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="131" y1="51" x2="104" y2="177"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="158" y1="51" x2="176" y2="96"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="158" y1="96" x2="176" y2="177"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="158" y1="177" x2="176" y2="222"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="158" y1="222" x2="176" y2="51"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="221" y1="51" x2="239" y2="96"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="221" y1="177" x2="239" y2="222"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="239" y1="222" x2="257" y2="177"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="239" y1="96" x2="257" y2="51"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="311" y1="51" x2="329" y2="96"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="311" y1="177" x2="329" y2="222"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="311" y1="222" x2="329" y2="177"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="311" y1="96" x2="329" y2="51"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="464" y1="222" x2="500" y2="51"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="464" y1="177" x2="500" y2="51"/>
+<line fill="none" stroke="#4798ED" stroke-width="2" stroke-linecap="round" x1="464" y1="96" x2="500" y2="51"/>
+</svg>
