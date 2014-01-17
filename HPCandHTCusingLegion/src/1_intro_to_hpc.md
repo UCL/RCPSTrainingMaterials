@@ -151,7 +151,7 @@ Amdahl's Law
 
 * Amdahl's law will always be a limiting factor
 
-$\frac{1}{\left(1-P)+\frac{P}{N}}$
+$\frac{1}{\left(1-P\right)+\frac{P}{N}}$
 
 * Some applications need to be re-written, algorithms re-thought to harness ever more parallel machines.
 
@@ -354,16 +354,17 @@ Operating system
 * The vast majority of Clusters in the world use some flavour  
 of *Unix* or *Linux* for their OS.
 
-* **The most common form of interaction with these systems is a "shell" or "command line".**
+* The most common form of interaction with these systems is a "shell" or "command line".  
 
-**(Which we are going to learn about using the Legion’s Login nodes)**
+*(Which we are going to learn about using Legion’s Login nodes.)*
 
 Operating system
 ----------------
 
 * Clusters are very frequently used as a shared facility. 
 
-* As such, work needs to be scheduled via a batch system:
-**Jobs are queued and prioritised based on requested resources.**
+* As such, work needs to be scheduled via a batch system.
 
-**(Which the focus of tomorrow’s session)**
+* Jobs are queued and prioritised based on requested resources.
+
+*(These are the focus of tomorrow’s session.)*
