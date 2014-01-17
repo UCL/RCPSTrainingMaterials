@@ -245,8 +245,11 @@ Data storage and Network infrastructure need to keep up with computation and oth
 * re-thinking data storage
 
     * SSD’s
+
     * parallel file systems
+
     * Multi-tiered storage
+
     * Map-Reduce data platforms
 
 
@@ -263,3 +266,104 @@ Applications
 
 ![](assets/applications.png)
 
+The Cluster
+===========
+
+Overview
+--------
+
+![](assets/clusteroverview.png)
+
+The Node
+--------
+
+* Compute Node
+
+    + Just computes - little else
+
+    + Private IP address - no user access
+
+* Login Node
+
+    * User login
+
+    * Interaction with job scheduler
+
+    * Public IP address - connects to external network
+
+
+Generic Software stack
+----------------------
+
+![](assets/stack.png)
+
+Real applications
+-----------------
+
+
+* FEA - Finite Element Analysis
+    + The simulation of hard physical materials, e.g. metal, plastic
+
+    + Crash test, product design, suitability for purpose
+
+    + Examples: MSC Nastran, Ansys, LS-Dyna, Abaqus, ESI PAMCrash, Radioss
+
+* CFD - Computational Fluid Dynamics
+
+    + The simulation of soft physical materials, gases and fluids
+
+    + Engine design, airflow, oil reservoir modelling
+
+    + Examples: Fluent, Star-CD, CFX
+
+* Geophysical Sciences
+
+    + Seismic Imaging - taking echo traces and building a picture of the sub-earth geology
+
+    + Reservoir Simulation - CFD specific to oil asset management
+
+    + Examples: Omega, Landmark VIP and Pro/Max, Geoquest Eclipse
+
+
+Real applications
+-----------------
+
+
+* Life Sciences
+
+    + Understanding the living world - genome matching, protein folding, drug design, bioinformatics, organic chemistry
+
+    + Examples: BLAST, Gaussian, LAMMPS, Trinity, Amber, NAMD
+
++ High Energy Physics
+
+    + Understanding the atomic and sub-atomic world
+
+    + Software from Fermi-Lab or CERN, or home-grown
+
+* Financial Modelling
+    
+    + Meeting internal and external financial targets particularly regarding investment positions
+    + VaR - Value at Risk - assessing the impact of economic and political factors on the bank’s investment portfolio
+    + Trader Risk Analysis - what is the risk on a trader’s position, a group of traders
+
+
+Operating system
+----------------
+
+* The vast majority of Clusters in the world use some flavour  
+of *Unix* or *Linux* for their OS.
+
+* **The most common form of interaction with these systems is a "shell" or "command line".**
+
+**(Which we are going to learn about using the Legion’s Login nodes)**
+
+Operating system
+----------------
+
+* Clusters are very frequently used as a shared facility. 
+
+* As such, work needs to be scheduled via a batch system:
+**Jobs are queued and prioritised based on requested resources.**
+
+**(Which the focus of tomorrow’s session)**
