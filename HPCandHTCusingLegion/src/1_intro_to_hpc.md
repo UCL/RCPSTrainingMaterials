@@ -186,8 +186,8 @@ SMP (Symmetric Multi-Processing)
 
 ![](assets/smp2.png)
 
-Beowulf Cluster (i.e. Ethernet)
--------------------------------
+Beowulf Cluster
+---------------
 
 ![](assets/beowulf.png)
 
@@ -272,7 +272,7 @@ The Cluster
 Overview
 --------
 
-![](assets/clusteroverview.png)
+![](assets/clusteroverview.svg)
 
 The Node
 --------
