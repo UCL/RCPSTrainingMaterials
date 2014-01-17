@@ -248,3 +248,18 @@ Data storage and Network infrastructure need to keep up with computation and oth
     * parallel file systems
     * Multi-tiered storage
     * Map-Reduce data platforms
+
+
+Supercomputing
+--------------
+
+Used efficiently, Supercomputers let you get **more** done **faster**.
+
+They can be useful for a large number of types of work.
+
+
+Applications
+------------
+
+![](assets/applications.png)
+
