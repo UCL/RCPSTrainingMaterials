@@ -295,7 +295,7 @@ The Node
 Generic Software stack
 ----------------------
 
-![](assets/stack.png)
+![](assets/stack.svg)
 
 Real applications
 -----------------
