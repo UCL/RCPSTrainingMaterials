@@ -14,8 +14,8 @@ env=Environment(tools=['default',rsdpandoc.builders.add_builders],
 #env["HaveWSD"]=True
 env["HaveWebKit"]=False
 
-rsdpandoc.builders.SlideStyle="solarized"
-rsdpandoc.builders.SlideSyntaxHighlightingStyle="tango"
+rsdpandoc.builders.SlideStyle="night"
+rsdpandoc.builders.SlideSyntaxHighlightingStyle="zenburn"
 #rsdpandoc.builders.SlideExtraCSSFiles=['cake.css', 'bees.css']
 #rsdpandoc.builders.SlideTemplateName="atemplate"
 
@@ -26,4 +26,5 @@ rsdpandoc.globbers.reveal_layout('src/2_intro_to_shell.md',env,"slides/2","src/a
 # Build day2's slides
 rsdpandoc.globbers.reveal_layout('src/3_legion_overview.md',env,"slides/3","src/assets")
 rsdpandoc.globbers.reveal_layout('src/4_legion_batch.md' ,env,"slides/4","src/assets")
-rsdpandoc.globbers.reveal_layout('src/5_policies.md',env,"slides/5","src/assets")
+rsdpandoc.globbers.reveal_layout('src/5_policies_and_misc.md',env,"slides/5","src/assets")
+
