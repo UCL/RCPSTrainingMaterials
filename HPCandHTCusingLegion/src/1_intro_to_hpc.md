@@ -151,7 +151,7 @@ Amdahl's Law
 
 * Amdahl's law will always be a limiting factor
 
-![](assets/amdahl.png)
+$\frac{1}{\left(1-P)+\frac{P}{N}}$
 
 * Some applications need to be re-written, algorithms re-thought to harness ever more parallel machines.
 
