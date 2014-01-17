@@ -216,3 +216,35 @@ GPU accelerator
 ---------------
 
 ![](assets/gpu.png)
+
+Only a subset of problems can be optimised
+------------------------------------------
+
+* Not all problems can be parallelised
+
+* Not all parallel problems can be ported to accelerators
+
+![](assets/optimisationsets.png)
+
+In summary
+----------
+
+* Developments in CPU architecture still continue: Moore’s law still valid
+
+* Improvements to CPU architecture consist of increasing internal parallelism: hyper-threading, wider SIMD units, more cores per chip
+
+* Accelerators are bringing more computing cycles to the table (albeit of a special type).
+
+And that is just the compute side of the story
+----------------------------------------------
+
+Data storage and Network infrastructure need to keep up with computation and other data producing technologies...
+
+* upgrading network infrastructure
+
+* re-thinking data storage
+
+    * SSD’s
+    * parallel file systems
+    * Multi-tiered storage
+    * Map-Reduce data platforms
