@@ -27,6 +27,17 @@ Objectives
 
         + Issuing useful and successful support queries
 
+Plan
+----
+
+|:------------|:----------------------------|
+| *Day 1* —   | Introduction to HPC and HTC |
+|             | Shell Scripting             |
+| *Day 2* —   | Legion Components           |
+|             | Using the Scheduler         |
+|             | Policies and Support        |
+|             | Individual Issues           |
+
 
 HPC and HTC Concepts
 ====================
