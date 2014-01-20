@@ -326,7 +326,7 @@ rm: cannot remove `a_directory/': Is a directory
 ```
 
 * **rm** - delete a file
-* **rm -r** 0 delete a directory and all its contents
+* **rm -r** - delete a directory and all its contents
 * **rm operations are irreversible!!!**
 * The -i argument is highly recommended
 
@@ -983,12 +983,13 @@ EOF
 * **\<\<EOF** - concatenates the text until the string "EOF", redirecting it to cat
 * **\> child_script.sh** - redirects the output of cat to child_script.sh.
 
-**Exercise:** 
+Exercise:
+--------
 
 * write a parent_script.sh that creates and executes 
 the child_script.sh
 
-* Exercise: write a parent_script.sh that creates and executes 
+* write a parent_script.sh that creates and executes 
 10 different child_script.sh that print out their individual number
 
 Process control
