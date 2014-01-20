@@ -57,7 +57,7 @@ Numbers and Types
 -----------------
 
 | Type | Cores | RAM | Network | Number | Total Cores |
-|:-----|:-----:|:---:|:-------:|:-------|:-----------:|
+|:----:|:-----:|:---:|:-------:|:------:|:-----------:|
 | T | 32 | 1.5TB | Ethernet   | 3    | 96     |
 | U | 16 | 64GB  | Ethernet   | 8    | 128    |
 | V | 12 | 48GB  | Ethernet   | 8    | 96+GPU |
@@ -70,13 +70,13 @@ Numbers and Types
 Topology
 --------
 
-![](placeholder)
+![](placeholder - integrate list from slide 3 after as well)
 
 
 Filesystem Access
 -----------------
 
-![](placeholder - integrate list from slide 3 after as well)
+![](assets/filesystems.svg)
 
 
 
