@@ -8,12 +8,11 @@ Legion Architecture
 Node Types
 ----------
 
-| | 
-|:-|
-| Login Nodes | 
-| Transfer Node |
-| Test Nodes |
-| Compute Nodes |
+* Login Nodes
+* Transfer Node 
+* Test Nodes 
+* Compute Nodes 
+* *(Infrastructure Nodes)*
 
 Login Nodes
 -----------
