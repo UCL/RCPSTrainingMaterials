@@ -239,7 +239,7 @@ Job Script
 #!/bin/bash -l
 #$ -P MyProjectName
 #$ -l h_rt=0:10:00
-#$ -t 4
+#$ -t 1-4
 #$ -cwd
 
 ./calculate_pi ${SGE_TASK_ID}0
@@ -265,7 +265,7 @@ Job Script
 #!/bin/bash -l
 #$ -P MyProjectName
 #$ -l h_rt=0:10:00
-#$ -t 4
+#$ -t 1-4
 #$ -cwd
 
 cd $TMPDIR
