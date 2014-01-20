@@ -58,10 +58,34 @@ Limits
 Data Policies
 -------------
 
-# TODO BY BRUNO
+## Access
 
+* Legion cannot be relied upon for long term storage of data as it may become unavailable
+    * Do not store the only copy of your data on Legion 
 
+## Security
 
+* Legion is not suitable for Highly Restricted data and above [(as per UCL's data security policy)](http://www.ucl.ac.uk/informationsecurity/policy/internal-policy/Guidelines10)
+
+| Classification | Example |
+|:--------------:|:-----------:|
+| Secret | Identifiable patient information, personal financial details, confidential investigations. |
+| Highly Restricted | student profiles, unpublished commercially sensitive material |
+| Restricted | UCL main web page, unpublished research data |
+| Normal | email requesting the location for a meeting on fridge cleaning |
+
+## Security
+
+* Responsibility for the accuracy fo the results of software installed or available on Legion is the sole responsibility of researchers
+    * Test your software
+    * Check your results
+
+## Security
+
+* SSH is the only recommended method to connect to/from Legion from/to other UCL or external systems
+* UCL does not take responsibility for the security of external machines you connect to/from Legion
+    * Please take all steps to check that any systems you are using to connect to/from Legion are secure
+	
 Support Queries
 ===============
 
