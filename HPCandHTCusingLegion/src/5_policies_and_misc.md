@@ -58,34 +58,51 @@ Limits
 Data Policies
 -------------
 
-## Access
 
-* Legion cannot be relied upon for long term storage of data as it may become unavailable
-    * Do not store the only copy of your data on Legion 
+Access
+------
 
-## Security
+* Legion is not a long-term data repository
+* Do not store the only copy of your data on Legion 
 
-* Legion is not suitable for Highly Restricted data and above [(as per UCL's data security policy)](http://www.ucl.ac.uk/informationsecurity/policy/internal-policy/Guidelines10)
 
-| Classification | Example |
-|:--------------:|:-----------:|
-| Secret | Identifiable patient information, personal financial details, confidential investigations. |
-| Highly Restricted | student profiles, unpublished commercially sensitive material |
-| Restricted | UCL main web page, unpublished research data |
-| Normal | email requesting the location for a meeting on fridge cleaning |
+Security
+--------
 
-## Security
+Legion is not suitable for Highly Restricted data and above.
 
-* Responsibility for the accuracy fo the results of software installed or available on Legion is the sole responsibility of researchers
-    * Test your software
-    * Check your results
+|:--------------|:-----------|
+| *Secret:*            | Identifiable patient information            |
+|                     | Personal financial details                  |
+|                     | Confidential investigations                 |
+| *Highly Restricted:* | Student profiles                            |
+|                     | Unpublished commercially sensitive material |
+| *Restricted:*        | UCL main web page                           |
+|                     | Unpublished research data                   |
+| *Normal:*            | Email about fridge-cleaning meeting         |
+|                     |                                             |
 
-## Security
+[(*See: UCL's data security policy*)](http://www.ucl.ac.uk/informationsecurity/policy/internal-policy/Guidelines10)
 
-* SSH is the only recommended method to connect to/from Legion from/to other UCL or external systems
-* UCL does not take responsibility for the security of external machines you connect to/from Legion
-    * Please take all steps to check that any systems you are using to connect to/from Legion are secure
-	
+Security
+--------
+
+Responsibility for the accuracy of the results of software installed or available on Legion is the sole responsibility of researchers.
+
+So:
+
+* Test your software
+* Check your results
+
+
+Security
+--------
+
+* `ssh` is the only recommended method to connect to/from Legion
+* UCL is not responsible for security of non-UCL machines
+* Ensure your machines are reasonably secure
+
+
 Support Queries
 ===============
 
