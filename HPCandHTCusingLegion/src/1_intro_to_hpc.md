@@ -171,8 +171,6 @@ Amdahl's Law
 
 ![](assets/amdahlscale.png)
 
-(Graph from Wikipedia [(*Source*)](http://en.wikipedia.org/wiki/File:AmdahlsLaw.svg) )
-
 * If 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20x, no matter how many processors are used.
 
 There are many parallel paradigms
