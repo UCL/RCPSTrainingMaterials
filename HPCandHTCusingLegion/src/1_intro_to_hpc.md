@@ -101,13 +101,13 @@ Pressure from physics
 
     * Only one sub-process is active at any given time.
 
-![](assets/serial.png)
+![](assets/serial.svg)
 
 * **Parallel Process:**
 
     * Process in which a number of stages can occur during the same time interval (e.g. trans-parallel process).
 
-![](assets/parallel.png)
+![](assets/parallel.svg)
 
 
 Pressure from physics
