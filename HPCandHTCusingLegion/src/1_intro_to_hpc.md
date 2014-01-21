@@ -77,7 +77,7 @@ Pressure from computing requirements
 
     * Communication between "desktops" can become a bottleneck.
 
-![](assets/worldmap.png)
+![](assets/noaaforcast.png)
 
 Pressure from computing requirements
 ------------------------------------
