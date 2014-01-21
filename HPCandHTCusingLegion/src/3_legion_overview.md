@@ -33,7 +33,7 @@ Transfer Node
 
 At `login05.external.legion.ucl.ac.uk`.
 
-Can transfer data around Legion up to 10⨉ faster than normal login nodes.
+Can transfer data around Legion up to 10x faster than normal login nodes.
 
 
 User Test Nodes
@@ -70,7 +70,7 @@ Numbers and Types
 Topology
 --------
 
-![](placeholder - integrate list from slide 3 after as well)
+![](assets/topology.svg)
 
 
 Filesystem Access

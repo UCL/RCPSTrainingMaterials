@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="558px" height="261px" viewBox="0 0 558 261" enable-background="new 0 0 558 261" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#98D6EF" stroke="#808080" d="M351.5,23v72c0,4.97-32.24,9-72,9s-72-4.03-72-9V23H351.5z"/>
+		<ellipse fill="#98D6EF" stroke="#808080" cx="279.5" cy="23" rx="72" ry="9"/>
+	</g>
+	<text transform="matrix(1 0 0 1 242.3279 77)" font-family="'Trebuchet MS'" font-size="24">$HOME</text>
+</g>
+<g>
+	<g>
+		<path fill="#B4D492" stroke="#808080" d="M351.5,158v72c0,4.971-32.24,9-72,9s-72-4.029-72-9v-72H351.5z"/>
+		<ellipse fill="#B4D492" stroke="#808080" cx="279.5" cy="158" rx="72" ry="9"/>
+	</g>
+	<text transform="matrix(1 0 0 1 226.9763 212)" font-family="'Trebuchet MS'" font-size="24">~/Scratch</text>
+</g>
+<g>
+	<g>
+		<path fill="#FDF8CB" stroke="#808080" d="M531.5,192.313v49.5c0,3.417-20.15,6.188-45,6.188s-45-2.771-45-6.188v-49.5H531.5z"/>
+		<ellipse fill="#FDF8CB" stroke="#808080" cx="486.5" cy="192.313" rx="45" ry="6.188"/>
+	</g>
+	<text transform="matrix(1 0 0 1 449.9656 230)" font-family="'Trebuchet MS'" font-size="19">$TMPDIR</text>
+</g>
+<g>
+	<path fill="#FBCCAA" stroke="#808080" d="M540.5,110c0,6.627-4.96,12-11.077,12h-85.846c-6.117,0-11.077-5.373-11.077-12V35
+		c0-6.627,4.96-12,11.077-12h85.846c6.117,0,11.077,5.373,11.077,12V110z"/>
+	<text transform="matrix(1 0 0 1 448.4021 68)"><tspan x="0" y="0" font-family="'Trebuchet MS'" font-size="19">Compute</tspan><tspan x="16.463" y="22.8" font-family="'Trebuchet MS'" font-size="19">Node</tspan></text>
+</g>
+<g>
+	<path fill="#E7B6D5" stroke="#808080" d="M126.5,110c0,6.627-4.959,12-11.077,12H29.577c-6.118,0-11.077-5.373-11.077-12V35
+		c0-6.627,4.959-12,11.077-12h85.846c6.118,0,11.077,5.373,11.077,12V110z"/>
+	<text transform="matrix(1 0 0 1 49.9236 68)"><tspan x="0" y="0" font-family="'Trebuchet MS'" font-size="19">Login</tspan><tspan x="0.941" y="22.8" font-family="'Trebuchet MS'" font-size="19">Node</tspan></text>
+</g>
+<g id="Arrow_25_1_">
+	<rect x="144.5" y="41" fill="none" width="45.72" height="26.28"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="144.5,57.309 167.426,57.309 167.426,67.28 190.22,54.139 167.426,41 
+			167.426,50.97 144.5,50.97 		"/>
+	</g>
+	<rect x="369.5" y="41" fill="none" width="45.721" height="26.28"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="368.779,85.028 391.705,85.028 391.705,95 414.5,81.859 391.705,68.72 
+			391.705,78.689 368.779,78.689 		"/>
+	</g>
+	<rect x="368.78" y="41.72" fill="none" width="45.72" height="26.28"/>
+	<g>
+		<polygon fill="#FFFFFF" stroke="#808080" points="414.5,58.028 391.573,58.028 391.573,68 368.78,54.859 391.573,41.72 
+			391.573,51.689 414.5,51.689 		"/>
+	</g>
+	<rect x="487.219" y="131" fill="none" width="26.279" height="45.721"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="497.19,131 497.19,153.926 487.219,153.926 500.36,176.721 513.499,153.926 
+			503.53,153.926 503.53,131 		"/>
+	</g>
+	<rect x="459.5" y="131" fill="none" width="26.28" height="45.72"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="469.471,176.72 469.471,153.793 459.5,153.793 472.64,131 485.78,153.793 
+			475.81,153.793 475.81,176.72 		"/>
+	</g>
+	<g>
+		<circle fill="none" stroke="#FF0000" stroke-width="3" cx="391.28" cy="54.5" r="13.5"/>
+		<line fill="none" stroke="#FF0000" stroke-width="3" x1="377.78" y1="68" x2="404.78" y2="41"/>
+	</g>
+</g>
+<g id="Arrow_25">
+	<rect x="144.499" y="68.72" fill="none" width="45.72" height="26.28"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="190.219,85.028 167.293,85.028 167.293,95 144.499,81.859 167.293,68.72 
+			167.293,78.689 190.219,78.689 		"/>
+	</g>
+	
+		<rect x="154.301" y="117.06" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 210.3656 347.5371)" fill="none" width="45.721" height="26.28"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="158.756,116.275 174.967,132.487 167.916,139.538 193.326,146.364 
+			186.499,120.955 179.449,128.005 163.238,111.793 		"/>
+	</g>
+	
+		<rect x="134.699" y="136.66" transform="matrix(0.7071 0.7071 -0.7071 0.7071 152.0727 -67.5358)" fill="none" width="45.72" height="26.28"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="171.484,168.205 155.272,151.994 148.221,159.045 141.395,133.636 
+			166.804,140.462 159.755,147.512 175.966,163.723 		"/>
+	</g>
+	
+		<rect x="382.697" y="137.401" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 798.7759 -29.7878)" fill="none" width="45.721" height="26.28"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="387.152,164.466 403.363,148.254 396.312,141.203 421.722,134.377 
+			414.895,159.786 407.845,152.736 391.635,168.948 		"/>
+	</g>
+	
+		<rect x="363.096" y="117.801" transform="matrix(0.7071 -0.7071 0.7071 0.7071 20.4543 311.2638)" fill="none" width="45.72" height="26.28"/>
+	<g>
+		<polygon fill="#90C369" stroke="#808080" points="399.881,112.536 383.669,128.747 376.618,121.696 369.792,147.105 
+			395.201,140.279 388.151,133.229 404.363,117.019 		"/>
+	</g>
+</g>
+</svg>
