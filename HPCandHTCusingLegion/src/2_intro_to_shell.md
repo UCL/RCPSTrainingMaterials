@@ -1016,7 +1016,7 @@ execute the command "fg"
 Which processes are running?
 ----------------------------
 
-Use the commands **top** amd **ps**
+Use the commands **top** and **ps**
 
 ```
 [ccaaxxx@login06 ~]$ ps aux
