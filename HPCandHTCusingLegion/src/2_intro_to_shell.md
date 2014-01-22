@@ -982,6 +982,7 @@ EOF
 
 * **\<\<EOF** - concatenates the text until the string "EOF", redirecting it to cat
 * **\> child_script.sh** - redirects the output of cat to child_script.sh.
+* It may be tempting to indent things.  DON'T.
 
 Exercise:
 --------
