@@ -38,6 +38,34 @@ Access to Legion
 legion.rc.ucl.ac.uk
 ```
 
+Connecting to a computer: 1970s
+-------------------------------
+
+![](assets/terminal-serial.svg)
+
+
+Connecting to a computer: working from home
+-------------------------------------------
+
+![](assets/terminal-phone.svg)
+
+Connecting to a computer: over the Internet
+-------------------------------------------
+
+![](assets/terminal-telnet.svg)
+
+Communication *unencrypted!*
+
+Connecting to a computer: over the Internet
+-------------------------------------------
+
+![](assets/terminal-ssh.svg)
+
+Communication *encrypted!*
+
+Access to Legion
+----------------
+
 * To access one of the login nodes (remotely) from a Unix machine:
 ``` 
 ssh username@legion.rc.ucl.ac.uk
