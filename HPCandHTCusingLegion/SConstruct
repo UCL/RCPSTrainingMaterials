@@ -29,3 +29,5 @@ rsdpandoc.globbers.reveal_layout('src/3_legion_overview.md',env,"slides/3","src/
 rsdpandoc.globbers.reveal_layout('src/4_legion_batch.md' ,env,"slides/4","src/assets")
 rsdpandoc.globbers.reveal_layout('src/5_policies_and_misc.md',env,"slides/5","src/assets")
 
+# Build extras.
+rsdpandoc.globbers.reveal_layout('src/6_extras.md',env,"slides/6"    ,"src/assets")
