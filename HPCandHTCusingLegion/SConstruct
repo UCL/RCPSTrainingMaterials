@@ -20,7 +20,7 @@ rsdpandoc.builders.SlideSyntaxHighlightingStyle="zenburn"
 #rsdpandoc.builders.SlideTemplateName="atemplate"
 
 # Build day1's slides
-rsdpandoc.globbers.web_layout('src/0_index_and_glossary.md',env,"slides/","src/assets")
+#rsdpandoc.globbers.web_layout('src/0_index_and_glossary.md',env,"slides/","src/assets")
 rsdpandoc.globbers.reveal_layout('src/1_intro_to_hpc.md',env,"slides/1","src/assets")
 rsdpandoc.globbers.reveal_layout('src/2_intro_to_shell.md',env,"slides/2","src/assets")
 
