@@ -109,7 +109,8 @@ Quotas
 * Scratch has a 200 GB quota
     + However you can use as much as you want for up to two weeks
     + After two weeks job submission is disabled until you decrease usage to below quota
-* If you need more, apply to the CRAG
+* If you need more, we can make small increases (up to double) 
+    + For more apply to the CRAG
 
 
 Support Queries
