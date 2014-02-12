@@ -102,6 +102,15 @@ Security
 * UCL is not responsible for security of non-UCL machines
 * Ensure your machines are reasonably secure
 
+Quotas
+------
+
+* Home directories have a 50 GB quota
+* Scratch has a 200 GB quota
+    + However you can use as much as you want for up to two weeks
+    + After two weeks job submission is disabled until you decrease usage to below quota
+* If you need more, apply to the CRAG
+
 
 Support Queries
 ===============
