@@ -39,6 +39,11 @@ Connecting to a computer: working from home
 
 ![](assets/terminal-phone.svg)
 
+Connecting to a computer: local machine
+---------------------------------------
+
+![](assets/terminal-local.svg)
+
 Connecting to a computer: over the Internet
 -------------------------------------------
 
