@@ -1,4 +1,4 @@
-% HPC and HTC using Legion
+% UCL Software Carpentry
 % Research Computing and Facilitating Services
 
 Introduction to the UNIX shell
@@ -28,16 +28,6 @@ Overview
     + scripting techniques for building workflows
 
 
-Access to Legion
-----------------
-
-* Apply for an account: http://www.ucl.ac.uk/isd/staff/research_services/research-computing/account
-
-* Access is provided through the 4 login nodes connected to the external network:
-```
-legion.rc.ucl.ac.uk
-```
-
 Connecting to a computer: 1970s
 -------------------------------
 
@@ -62,29 +52,6 @@ Connecting to a computer: over the Internet
 ![](assets/terminal-ssh.svg)
 
 Communication *encrypted!*
-
-Access to Legion
-----------------
-
-* To access one of the login nodes (remotely) from a Unix machine:
-``` 
-ssh username@legion.rc.ucl.ac.uk
-```
-
-* Log on using UCL username/password
-
-* On Windows (e.g. Desktop@UCL) you can use PuTTY.
-
-Access to Legion
-----------------
-
-![](assets/puttylocation.png)
-
-Access to Legion
-----------------
-
-![](assets/puttyconfig.png)
-
 
 
 Basic interaction with files and directories
