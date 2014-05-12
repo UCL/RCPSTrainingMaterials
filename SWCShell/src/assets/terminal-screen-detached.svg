@@ -36,7 +36,7 @@
      inkscape:cx="385.95975"
      inkscape:cy="-35.85973"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3889"
      showgrid="true"
      inkscape:snap-global="true"
      fit-margin-top="0"
@@ -386,7 +386,8 @@
            sodipodi:role="line"
            id="tspan3895"
            x="490"
-           y="182.36218">Shell</tspan></text>
+           y="182.36218"
+           style="-inkscape-font-specification:Liberation Sans;font-family:Liberation Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:20px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%">Shell</tspan></text>
     </g>
     <text
        xml:space="preserve"
