@@ -44,8 +44,8 @@ Connecting to a computer: local machine
 
 ![](assets/terminal-local.svg)
 
-Connecting to a computer: over the Internet
--------------------------------------------
+Connecting to a computer: over the Internet (early 90s)
+-------------------------------------------------------
 
 ![](assets/terminal-telnet.svg)
 
@@ -57,6 +57,29 @@ Connecting to a computer: over the Internet
 ![](assets/terminal-ssh.svg)
 
 Communication *encrypted!*
+
+Access to Legion
+----------------
+
+* To access one of the login nodes (remotely) from a Unix machine:
+``` 
+ssh username@legion.rc.ucl.ac.uk
+```
+
+* Log on using UCL username/password
+
+* On Windows (e.g. Desktop@UCL) you can use PuTTY.
+
+Access to Legion
+----------------
+
+![](assets/puttylocation.png)
+
+Access to Legion
+----------------
+
+![](assets/puttyconfig.png)
+
 
 
 Basic interaction with files and directories
