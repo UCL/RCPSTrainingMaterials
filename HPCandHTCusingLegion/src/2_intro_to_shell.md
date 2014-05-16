@@ -434,7 +434,7 @@ File permissions
 File permissions
 ----------------
 
-**drwxr-xrx** has four fields:
+**drwxr-xr-x** has four fields:
 
 |:-----|:----------------------------------------------|
 | d    | - the file is a directory                     |
