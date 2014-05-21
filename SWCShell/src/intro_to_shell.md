@@ -370,9 +370,9 @@ In ~/Scratch...
 
 * Move the file to input_data and rename it in the same command to control01.txt
 
-* Create the directory tree in one line only: experiment/results/report
+* Create the directory tree in one line only: work/experiment/results/report
 
-* Delete all directory trees created in one single command without explicit reference to any of the directory and file names.
+* Delete all directory trees created in one single command without explicit reference to any of the directory and file names except "work".
 
 File properties
 ---------------
