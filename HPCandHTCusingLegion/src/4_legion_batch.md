@@ -200,9 +200,6 @@ Requesting Multinode Jobs
 
 Note that each requested core gets the amount of memory requested.
 
-**Exercise**: Try modifying the script from before to run the new program, using 4 cores and the `qlc` parallel environment.
-
-
 Job Script
 ----------
 
@@ -213,8 +210,10 @@ Job Script
 #$ -pe qlc 4
 #$ -cwd
 
-./mpi_pi
+gerun ./mpi_pi
 ```
+
+**Exercise**: Try modifying the script from before to run the new program, using 8 cores and the `qlc` parallel environment.
 
 Requesting an Array Job
 -----------------------
