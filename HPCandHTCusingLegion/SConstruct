@@ -20,20 +20,26 @@ rsdpandoc.builders.SlideSyntaxHighlightingStyle="zenburn"
 #rsdpandoc.builders.SlideTemplateName="atemplate"
 
 # Build day1's slides
-rsdpandoc.globbers.reveal_layout('src/1_intro_to_hpc.md',env,"slides/1","src/assets")
-rsdpandoc.globbers.web_layout('src/1_intro_to_hpc.md',env,"web/1","src/assets")
-rsdpandoc.globbers.reveal_layout('src/2_intro_to_shell.md',env,"slides/2","src/assets")
-rsdpandoc.globbers.web_layout('src/2_intro_to_shell.md',env,"web/2","src/assets")
+# rsdpandoc.globbers.reveal_layout('src/1_intro_to_hpc.md',env,"slides/1","src/assets")
+# rsdpandoc.globbers.web_layout('src/1_intro_to_hpc.md',env,"web/1","src/assets")
+# rsdpandoc.globbers.reveal_layout('src/2_intro_to_shell.md',env,"slides/2","src/assets")
+# rsdpandoc.globbers.web_layout('src/2_intro_to_shell.md',env,"web/2","src/assets")
+rsdpandoc.globbers.mixed_html_layout('src/1_intro_to_hpc.md',env,"src/assets","html/1")
+rsdpandoc.globbers.mixed_html_layout('src/2_intro_to_shell.md',env,"src/assets","html/2")
 
 # Build day2's slides
-rsdpandoc.globbers.reveal_layout('src/3_legion_overview.md',env,"slides/3","src/assets")
-rsdpandoc.globbers.web_layout('src/3_legion_overview.md',env,"web/3","src/assets")
+# rsdpandoc.globbers.reveal_layout('src/3_legion_overview.md',env,"slides/3","src/assets")
+# rsdpandoc.globbers.web_layout('src/3_legion_overview.md',env,"web/3","src/assets")
+rsdpandoc.globbers.mixed_html_layout('src/3_legion_overview.md',env,"src/assets","html/3")
 
-rsdpandoc.globbers.reveal_layout('src/4_legion_batch.md' ,env,"slides/4","src/assets")
-rsdpandoc.globbers.web_layout('src/4_legion_batch.md',env,"web/4","src/assets")
-rsdpandoc.globbers.reveal_layout('src/5_policies_and_misc.md',env,"slides/5","src/assets")
-rsdpandoc.globbers.web_layout('src/5_policies_and_misc.md',env,"web/5","src/assets")
+# rsdpandoc.globbers.reveal_layout('src/4_legion_batch.md' ,env,"slides/4","src/assets")
+# rsdpandoc.globbers.web_layout('src/4_legion_batch.md',env,"web/4","src/assets")
+# rsdpandoc.globbers.reveal_layout('src/5_policies_and_misc.md',env,"slides/5","src/assets")
+# rsdpandoc.globbers.web_layout('src/5_policies_and_misc.md',env,"web/5","src/assets")
+rsdpandoc.globbers.mixed_html_layout('src/4_legion_batch.md',env,"src/assets","html/4")
+rsdpandoc.globbers.mixed_html_layout('src/5_policies_and_misc.md',env,"src/assets","html/5")
 
 # Build extras.
-rsdpandoc.globbers.reveal_layout('src/6_extras.md',env,"slides/6"    ,"src/assets")
-rsdpandoc.globbers.web_layout('src/6_extras.md',env,"web/6","src/assets")
+# rsdpandoc.globbers.reveal_layout('src/6_extras.md',env,"slides/6"    ,"src/assets")
+# rsdpandoc.globbers.web_layout('src/6_extras.md',env,"web/6","src/assets")
+rsdpandoc.globbers.mixed_html_layout('src/6_extras.md',env,"src/assets","html/6")
