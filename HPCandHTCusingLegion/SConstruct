@@ -26,7 +26,7 @@ rsdpandoc.globbers.mixed_html_layout('src/2_intro_to_shell.md',env,"src/assets",
 rsdpandoc.globbers.mixed_html_layout('src/3_legion_overview.md',env,"src/assets","html/3")
 rsdpandoc.globbers.mixed_html_layout('src/4_legion_batch.md',env,"src/assets","html/4")
 rsdpandoc.globbers.mixed_html_layout('src/5_policies_and_misc.md',env,"src/assets","html/5")
-rsdpandoc.globbers.mixed_html_layout('src/6_extras.md',env,"src/assets","html/6)
+rsdpandoc.globbers.mixed_html_layout('src/6_extras.md',env,"src/assets","html/6")
 
 # Build day1's slides
 # rsdpandoc.globbers.reveal_layout('src/1_intro_to_hpc.md',env,"slides/1","src/assets")
