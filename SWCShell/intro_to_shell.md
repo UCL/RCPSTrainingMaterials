@@ -1,5 +1,7 @@
-% UCL Software Carpentry
-% Research Computing and Facilitating Services
+---
+title: Introduction to the UNIX shell
+---
+
 
 Introduction to the UNIX shell
 ==============================

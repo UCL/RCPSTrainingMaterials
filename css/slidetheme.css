@@ -2,6 +2,8 @@
 .reveal pre code {
 	padding: 0;
 }
+
+
 .reveal .slide-background {
 	background-image: url(mid_green.svg);
 	background-position: top;

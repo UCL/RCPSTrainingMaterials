@@ -7,3 +7,8 @@
 .leftnav ul ul {
 	margin-left: 10px;
 }
+
+
+#slidelink {
+  float: right
+}

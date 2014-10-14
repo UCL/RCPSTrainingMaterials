@@ -1,9 +1,42 @@
-% HPC and HTC using Legion
-% Research Computing and Facilitating Services
+---
+title: HPC and HTC using Legion
+---
 
-* [Introduction to HPC](1_intro_to_hpc.html)
-* [Introduction to Shell Scripting](../2/index.html)
-* [Legion Overview](../3/index.html)
-* [Legion Scheduler Use](../4/index.html)
-* [Policies and Miscellanea](../5/index.html)
-* [All of the above as a zip file](../slides.zip)
+Overview
+========
+
+Objectives
+----------
+
+* By the end of this course you should:
+
+    * Understand key concepts around HPC and HTC
+
+    * Be able to plan your work on Legion by:
+
+        + Understanding Legion's hardware architecture
+
+        + Understanding Legion's software stack
+
+        + Writing simple Bash shell scripts
+
+        + Writing job submission scripts to the batch scheduler
+
+    * Be able to effectively use Research Computing services:
+
+        + Learning about Research Computing structure and services
+
+        + Issuing useful and successful support queries
+
+Plan
+----
+
+|:------------|:----------------------------|
+| *Day 1* —   | Introduction to HPC and HTC |
+|             | Shell Scripting             |
+| *Day 2* —   | Legion Components           |
+|             | Using the Scheduler         |
+|             | Policies and Support        |
+|             | Individual Issues           |
+
+
