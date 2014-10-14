@@ -1,5 +1,6 @@
-% HPC and HTC using Legion
-% Research Computing and Facilitating Services
+---
+title: Legion environment and batch processing
+---
 
 Legion Environment and Batch processing
 =======================================
@@ -172,7 +173,7 @@ Multi-node Jobs
 
 
 MPI
----
+-----
 
 ![](assets/mpi-diagram.svg)
 

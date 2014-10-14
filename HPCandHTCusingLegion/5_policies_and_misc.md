@@ -1,5 +1,6 @@
-% HPC and HTC using Legion
-% Research Computing and Facilitating Services
+---
+title: Policies and Miscellanea
+---
 
 Policies
 ========
