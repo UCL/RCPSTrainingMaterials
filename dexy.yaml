@@ -5,7 +5,7 @@
         header: slidelink.md
     - resub:
         expressions:
-          - ['assets/','/assets/']
+          - ['assets/','/training/hptclegion/assets/']
     - pandoc:
         args: --default-image-extension=png
 
@@ -15,7 +15,7 @@
     - except: "(LICENSE|README|slidelink)"
     - resub:
         expressions:
-          - ['assets/','/assets/']
+          - ['assets/','/training/hptclegion/assets/']
     - pandoc:
          args: -t revealjs -V theme=night
                --css=/css/night.css --css=/css/slidetheme.css
