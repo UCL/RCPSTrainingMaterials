@@ -16,11 +16,10 @@
     - resub:
         expressions:
           - ['assets/','/training/hptclegion/assets/']
-          - ['/css/','/training/hptclegion/css/']
     - pandoc:
          args: -t revealjs -V theme=night
-               --css=/css/night.css --css=/css/slidetheme.css
-               --css=/css/local_styles.css
+               --css=/training/hptclegion/css/night.css
+               --css=/training/hptclegion/css/slidetheme.css
                --default-image-extension=png
                --highlight-style=zenburn
                --mathjax
