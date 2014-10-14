@@ -16,6 +16,7 @@
     - resub:
         expressions:
           - ['assets/','/training/hptclegion/assets/']
+          - ['/css/','/training/hptclegion/css/']
     - pandoc:
          args: -t revealjs -V theme=night
                --css=/css/night.css --css=/css/slidetheme.css
