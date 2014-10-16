@@ -22,6 +22,7 @@
     - pandoc:
          args: -t revealjs -V theme=night
                --css={{root}}/css/night.css
+               --css={{root}}/css/ucl_reveal.css
                --css={{root}}/css/slidetheme.css
                --default-image-extension=png
                --highlight-style=zenburn
