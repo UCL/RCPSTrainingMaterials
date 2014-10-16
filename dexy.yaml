@@ -6,7 +6,7 @@
         header: slidelink.md
     - resub:
         expressions:
-          - ['assets/','{{root}}assets/']
+          - ['assets/','{{root}}/assets/']
     - pandoc:
         args: --default-image-extension=png
 
@@ -17,12 +17,12 @@
     - apply-ws-to-content: True
     - resub:
         expressions:
-          - ['assets/','{{root}}assets/']
-          - ['{{root}}','/']
+          - ['assets/','{{root}}/assets/']
+          - ['{{root}}','']
     - pandoc:
          args: -t revealjs -V theme=night
-               --css={{root}}css/night.css
-               --css={{root}}css/slidetheme.css
+               --css={{root}}/css/night.css
+               --css={{root}}/css/slidetheme.css
                --default-image-extension=png
                --highlight-style=zenburn
                --mathjax
