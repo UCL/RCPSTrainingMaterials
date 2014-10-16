@@ -1,11 +1,12 @@
 .md|yamlargs|hd|jinja|resub|pandoc:
     - except: "(LICENSE|README|slidelink)"
     - slidelink.md
+    - apply-ws-to-content: True
     - hd:
         header: slidelink.md
     - resub:
         expressions:
-          - ['assets/','/training/hptclegion/assets/']
+          - ['assets/','{{root}}assets/']
     - pandoc:
         args: --default-image-extension=png
 
@@ -13,13 +14,14 @@
 .md|yamlargs|jinja|pandoc|-reveal|resub|h:
     - output-name: "{baserootname}-reveal.html"
     - except: "(LICENSE|README|slidelink)"
+    - apply-ws-to-content: True
     - resub:
         expressions:
-          - ['assets/','/training/hptclegion/assets/']
+          - ['assets/','{{root}}assets/']
     - pandoc:
          args: -t revealjs -V theme=night
-               --css=/training/hptclegion/css/night.css
-               --css=/training/hptclegion/css/slidetheme.css
+               --css={{root}}css/night.css
+               --css={{root}}css/slidetheme.css
                --default-image-extension=png
                --highlight-style=zenburn
                --mathjax
