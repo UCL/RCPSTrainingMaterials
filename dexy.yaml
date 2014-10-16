@@ -18,6 +18,7 @@
     - resub:
         expressions:
           - ['assets/','{{root}}assets/']
+          - ['{{root}}','/']
     - pandoc:
          args: -t revealjs -V theme=night
                --css={{root}}css/night.css
