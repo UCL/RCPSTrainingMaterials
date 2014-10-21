@@ -1,7 +1,7 @@
 # Modify the config files to the version used in deployment
 import yaml
 
-deployed_path="/training/engineering"
+deployed_path="/training/hptclegion"
 
 plugin=yaml.load(open('dexyplugin.yaml'))
 plugin['reporter:supplementary']['supplementary-location']='../indigo'
