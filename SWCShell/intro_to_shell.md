@@ -28,6 +28,10 @@ Overview
 * Scripting and workflows
 
     + scripting techniques for building workflows
+    
+* View these slides at:
+ 
+    + development.rc.ucl.ac.uk/training
 
 
 Connecting to a computer: 1970s
