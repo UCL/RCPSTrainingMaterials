@@ -362,7 +362,7 @@ rm: cannot remove `a_directory/': Is a directory
 Exercise:
 --------
 
-In ~/Scratch...
+From your home directory...
  
 * Create the following directory tree:
 ```
