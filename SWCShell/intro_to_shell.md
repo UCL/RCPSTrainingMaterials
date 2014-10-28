@@ -358,7 +358,7 @@ rm: cannot remove `a_directory/': Is a directory
 Exercise:
 --------
 
-From your home directory...
+From your home directory, and without changing directory...
  
 * Create the following directory tree:
 ```
@@ -374,7 +374,9 @@ From your home directory...
 
 * Create the directory tree in one line only: work/experiment/results/report
 
-* Delete all directory trees created in one single command without explicit reference to any of the directory and file names except "work".
+* Copy the entire work directory to work_copy
+
+* Delete the entire work_copy directory in one single command without explicit reference to any of the directory and file names except "work_copy".
 
 File properties
 ---------------
