@@ -677,14 +677,14 @@ Output redirection and piping
 -----------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls /home > ls_home.txt
+[ccaaxxx@aristotle01 ~]$ ls /usr/bin > ls_usrbin.txt
 ```
 
 * **&gt;** - redirect stdout to a file
 
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls /home | less
+[ccaaxxx@aristotle01 ~]$ ls /usr/bin | less
 ```
 
 * **|** "pipe" stdout to stdin of a command
