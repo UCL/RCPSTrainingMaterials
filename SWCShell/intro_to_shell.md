@@ -578,8 +578,10 @@ Soft links
 
 * Create using absolute paths to make sure they go where you want
 
-* "Scratch" in your home directory is a soft link
+* "Scratch" in your Legion home directory is a soft link
     + Makes it easier to access your scratch area
+
+* On Aristotle "~" is a symbolic or soft link to the Unix central filestore
 
 Archiving and compression
 -------------------------
