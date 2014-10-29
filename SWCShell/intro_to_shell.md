@@ -130,8 +130,8 @@ Unix Directory Basics
 ---------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ file ~
-/home/ccaaxx: directory
+[ccaaxxx@aristotle01 ~]$ pwd
+/home/ccaaxxx
 [ccaaxxx@aristotle01 ~]$
 ```
 * **file** identifies the file type
