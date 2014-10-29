@@ -114,6 +114,18 @@ Scratch
 * **ls** lists the contents of the directory
 * **~** is the "home directory"
 
+Touching a file
+---------------
+
+```
+[ccaaxxx@aristotle01 ~]$ touch a_file
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory a_file Scratch
+```
+
+* **touch** - create or update the date of a file
+* This is **not** usually how files are created
+ 
 Unix Directory Basics
 ---------------------
 
@@ -261,17 +273,7 @@ Directory creation
 
 * **mkdir -p** - creates consecutive sub-directories
 
-Touching a file
----------------
 
-```
-[ccaaxxx@aristotle01 ~]$ touch a_file
-[ccaaxxx@aristotle01 ~]$ ls
-a_directory a_file Scratch
-```
-
-* **touch** - create or update the date of a file
-* This is **not** usually how files are created
 
 Copying files
 -------------
@@ -520,19 +522,6 @@ Other file inspection tools
 
 (Use "man &lt;tool&gt;" to see more information)
 
-
-Filtering directory listings
-----------------------------
-
-```
-[cccaaxxx@aristotle01 ~]$ ls /shared/ucl/apps/BLAST/install | grep blast
-blastall
-blast-nr-1.out
-blast-pdb-1.out
-```
-
-* **grep** - prints lines containing a string.  Also searches for strings in text files.
-
 Searching for strings in files
 ------------------------------
 
@@ -714,6 +703,18 @@ Output redirection and piping
 ls -l > list_of_files
 
 ![](assets/process4.png)
+
+Filtering directory listings
+----------------------------
+
+```
+[cccaaxxx@aristotle01 ~]$ ls /shared/ucl/apps/BLAST/install | grep blast
+blastall
+blast-nr-1.out
+blast-pdb-1.out
+```
+
+* **grep** - prints lines containing a string.  Also searches for strings in text files.
 
 Output redirection and piping
 -----------------------------
