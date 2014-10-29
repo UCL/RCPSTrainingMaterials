@@ -114,18 +114,6 @@ Scratch
 * **ls** lists the contents of the directory
 * **~** is the "home directory"
 
-Touching a file
----------------
-
-```
-[ccaaxxx@aristotle01 ~]$ touch a_file
-[ccaaxxx@aristotle01 ~]$ ls
-a_directory a_file Scratch
-```
-
-* **touch** - create or update the date of a file
-* This is **not** usually how files are created
- 
 Unix Directory Basics
 ---------------------
 
@@ -149,6 +137,63 @@ Unix Directory Basics
 ```
 
 * **/home/ccaaxxxx** - the *full path* to the home directory
+
+Directory Navigation
+--------------------
+
+```
+[ccaaxxx@aristotle01aristotle01 ~]$ pwd
+/home/ccaaxxx
+
+[ccaaxxx@aristotle01 ~]$ cd /
+[ccaaxxx@aristotle01 /]$ 
+```
+
+* **cd** - change directory
+* **pwd** - full path to present working directory
+* **/** - the "root" directory
+
+Exercise:
+--------
+
+**Do not type ls in /home!**
+
+explore the / directory using ls, cd, ., .., pwd
+
+* If you feel lost, just execute **"cd"** with no arguments (or **"cd ~"**) and you will be returned to your home directory.
+
+* **"cd -"** - will return you to the previous directory you were in.
+
+Filesystem structure
+--------------------
+
+![](assets/directorystructure.png)
+
+Absolute path
+-------------
+
+![](assets/abspath.png)
+
+/home/alice
+
+Relative path
+-------------
+
+![](assets/relpath.png)
+
+../home/alice
+
+Touching a file
+---------------
+
+```
+[ccaaxxx@aristotle01 ~]$ touch a_file
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory a_file Scratch
+```
+
+* **touch** - create or update the date of a file
+* This is **not** usually how files are created
 
 Hidden files and directories
 ----------------------------
@@ -202,50 +247,6 @@ dynamically linked (uses shared libs), stripped
 * /bin/ls is an executable file (!)
 * **which** - shows the path to the argument, in this case ls
 
-Directory Navigation
---------------------
-
-```
-[ccaaxxx@aristotle01aristotle01 ~]$ pwd
-/home/ccaaxxx
-
-[ccaaxxx@aristotle01 ~]$ cd /
-[ccaaxxx@aristotle01 /]$ 
-```
-
-* **cd** - change directory
-* **pwd** - full path to present working directory
-* **/** - the "root" directory
-
-Exercise:
---------
-
-**Do not type ls in /home!**
-
-explore the / directory using ls, cd, ., .., pwd
-
-* If you feel lost, just execute **"cd"** with no arguments (or **"cd ~"**) and you will be returned to your home directory.
-
-* **"cd -"** - will return you to the previous directory you were in.
-
-Filesystem structure
---------------------
-
-![](assets/directorystructure.png)
-
-Absolute path
--------------
-
-![](assets/abspath.png)
-
-/home/alice
-
-Relative path
--------------
-
-![](assets/relpath.png)
-
-../home/alice
 
 
 Directory creation
