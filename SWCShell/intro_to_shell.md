@@ -122,7 +122,7 @@ Unix Directory Basics
 /home/ccaaxxx
 [ccaaxxx@aristotle01 ~]$
 ```
-* **file** identifies the file type
+* **pwd** shows the full path to your present directory
 * **~** = /home/ccaaxxx - your *home directory*
 
 Unix Directory Basics
@@ -166,7 +166,9 @@ Directory Navigation
 [ccaaxxx@aristotle01aristotle01 ~]$ pwd
 /home/ccaaxxx
 
-[ccaaxxx@aristotle01 ~]$ cd /
+[ccaaxxx@aristotle01 ~]$ cd ..
+[ccaaxxx@aristotle01 home]$ 
+[ccaaxxx@aristotle01 home]$ cd /
 [ccaaxxx@aristotle01 /]$ 
 ```
 
@@ -200,18 +202,6 @@ Relative path
 ![](assets/relpath.png)
 
 ../home/alice
-
-Touching a file
----------------
-
-```
-[ccaaxxx@aristotle01 ~]$ touch a_file
-[ccaaxxx@aristotle01 ~]$ ls
-a_directory a_file Scratch
-```
-
-* **touch** - create or update the date of a file
-* This is **not** usually how files are created
 
 
 
@@ -251,6 +241,28 @@ dynamically linked (uses shared libs), stripped
 * /bin/ls is an executable file (!)
 * **which** - shows the path to the argument, in this case ls
 
+Touching a file
+---------------
+
+```
+[ccaaxxx@aristotle01 ~]$ touch a_file
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory a_file Scratch
+```
+
+* **touch** - create or update the date of a file
+* This is **not** usually how files are created
+
+Copying files
+-------------
+
+```
+[ccaaxxx@aristotle01 ~]$ cp a_file copy_of_a_file
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory a_file copy_of_a_file Scratch
+```
+
+* **cp** copy a file (or a directory tree)
 
 
 Directory creation
@@ -266,8 +278,8 @@ a_directory Scratch
 * **mkdir** - create a directory
 
 
-Directory creation
-------------------
+Directory tree creation
+-----------------------
 
 ```
 [ccaaxxx@aristotle01 ~]$ mkdir -p a_directory/inside/the_other
@@ -278,18 +290,6 @@ Directory creation
 
 * **mkdir -p** - creates consecutive sub-directories
 
-
-
-Copying files
--------------
-
-```
-[ccaaxxx@aristotle01 ~]$ cp a_file copy_of_a_file
-[ccaaxxx@aristotle01 ~]$ ls
-a_directory a_file copy_of_a_file Scratch
-```
-
-* **cp** copy a file (or a directory tree)
 
 Exercise:
 --------
