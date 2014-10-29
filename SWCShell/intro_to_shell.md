@@ -138,6 +138,27 @@ Unix Directory Basics
 
 * **/home/ccaaxxxx** - the *full path* to the home directory
 
+Filesystem structure
+--------------------
+
+![](assets/directorystructure.png)
+
+Hidden files and directories
+----------------------------
+
+```
+[ccaaxxx@aristotle01 ~]$ ls -a
+.  ..  .bash_history  .bash_logout
+.bash_profile  .bashrc  .cshrc  .emacs
+Scratch  .ssh
+[ccaaxxx@aristotle01 ~]$ 
+```
+
+* Files starting with "." are hidden
+
+* **.** - Present working directory (in this case ~)
+* **..** - Directory above (in this case /home)
+
 Directory Navigation
 --------------------
 
@@ -164,10 +185,7 @@ explore the / directory using ls, cd, ., .., pwd
 
 * **"cd -"** - will return you to the previous directory you were in.
 
-Filesystem structure
---------------------
 
-![](assets/directorystructure.png)
 
 Absolute path
 -------------
@@ -195,21 +213,7 @@ a_directory a_file Scratch
 * **touch** - create or update the date of a file
 * This is **not** usually how files are created
 
-Hidden files and directories
-----------------------------
 
-```
-[ccaaxxx@aristotle01 ~]$ ls -a
-.  ..  .bash_history  .bash_logout
-.bash_profile  .bashrc  .cshrc  .emacs
-Scratch  .ssh
-[ccaaxxx@aristotle01 ~]$ 
-```
-
-* Files starting with "." are hidden
-
-* **.** - Present working directory (in this case ~)
-* **..** - Directory above (in this case /home)
 
 Everything is a file
 --------------------
