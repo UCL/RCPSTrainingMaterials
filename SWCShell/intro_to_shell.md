@@ -28,18 +28,16 @@ Overview
 * Scripting and workflows
 
     + scripting techniques for building workflows
+    
+* View these slides at:
+ 
+    + development.rc.ucl.ac.uk/training
 
 
 Connecting to a computer: 1970s
 -------------------------------
 
 ![](assets/terminal-serial.svg)
-
-
-Connecting to a computer: working from home
--------------------------------------------
-
-![](assets/terminal-phone.svg)
 
 Connecting to a computer: local machine
 ---------------------------------------
@@ -60,25 +58,25 @@ Connecting to a computer: over the Internet
 
 Communication *encrypted!*
 
-Access to Legion
-----------------
+Access to Aristotle
+-------------------
 
 * To access one of the login nodes (remotely) from a Unix machine:
 ``` 
-ssh username@legion.rc.ucl.ac.uk
+ssh username@aristotle.rc.ucl.ac.uk
 ```
 
 * Log on using UCL username/password
 
 * On Windows (e.g. Desktop@UCL) you can use PuTTY.
 
-Access to Legion
-----------------
+Access to Aristotle
+-------------------
 
 ![](assets/puttylocation.png)
 
-Access to Legion
-----------------
+Access to Aristotle
+-------------------
 
 ![](assets/puttyconfig.png)
 
@@ -91,7 +89,7 @@ Command Prompt
 --------------
 
 ```
-[ccaaxxx@login06 ~]$
+[ccaaxxx@aristotle01 ~]$
 ```
 
 * Has the form **[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;]$**
@@ -108,21 +106,33 @@ Command Line Execution
 ----------------------
 
 ```
-[ccaaxxx@login06 ~]$ ls
+[ccaaxxx@aristotle01 ~]$ ls
 Scratch
-[ccaaxxx@login06 ~]$
+[ccaaxxx@aristotle01 ~]$
 ```
 
 * **ls** lists the contents of the directory
 * **~** is the "home directory"
 
+Touching a file
+---------------
+
+```
+[ccaaxxx@aristotle01 ~]$ touch a_file
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory a_file Scratch
+```
+
+* **touch** - create or update the date of a file
+* This is **not** usually how files are created
+ 
 Unix Directory Basics
 ---------------------
 
 ```
-[ccaaxxx@login06 ~]$ file ~
+[ccaaxxx@aristotle01 ~]$ file ~
 /home/ccaaxx: directory
-[ccaaxxx@login06 ~]$
+[ccaaxxx@aristotle01 ~]$
 ```
 * **file** identifies the file type
 * **~** = /home/ccaaxxx - your *home directory*
@@ -144,11 +154,11 @@ Hidden files and directories
 ----------------------------
 
 ```
-[ccaaxxx@login06 ~]$ ls -a
+[ccaaxxx@aristotle01 ~]$ ls -a
 .  ..  .bash_history  .bash_logout
 .bash_profile  .bashrc  .cshrc  .emacs
 Scratch  .ssh
-[ccaaxxx@login06 ~]$ 
+[ccaaxxx@aristotle01 ~]$ 
 ```
 
 * Files starting with "." are hidden
@@ -160,7 +170,7 @@ Everything is a file
 --------------------
 
 ```
-[ccaaxxx@login06 ~]$ file .* *
+[ccaaxxx@aristotle01 ~]$ file .* *
 .:             directory
 ..:            directory
 .bash_history: ASCII text
@@ -181,10 +191,10 @@ Everything is a file
 
 Just to make the point:
 ```
-[ccaaxxx@login06 ~]$ which ls
+[ccaaxxx@aristotle01 ~]$ which ls
  /bin/ls
 
-[ccaaxxx@login06 ~]$ file /bin/ls
+[ccaaxxx@aristotle01 ~]$ file /bin/ls
 /bin/ls: ELF 64-bit LSB executable, AMD x86-64, version 1 (SYSV), for GNU/Linux 2.4.0, 
 dynamically linked (uses shared libs), stripped
 ```
@@ -196,11 +206,11 @@ Directory Navigation
 --------------------
 
 ```
-[ccaaxxx@login06 ~]$ pwd
+[ccaaxxx@aristotle01aristotle01 ~]$ pwd
 /home/ccaaxxx
 
-[ccaaxxx@login06 ~]$ cd /
-[ccaaxxx@login06 /]$ 
+[ccaaxxx@aristotle01 ~]$ cd /
+[ccaaxxx@aristotle01 /]$ 
 ```
 
 * **cd** - change directory
@@ -209,6 +219,8 @@ Directory Navigation
 
 Exercise:
 --------
+
+**Do not type ls in /home!**
 
 explore the / directory using ls, cd, ., .., pwd
 
@@ -240,9 +252,9 @@ Directory creation
 ------------------
 
 ```
-[ccaaxxx@login06 ~]$ mkdir a_directory
+[ccaaxxx@aristotle01 ~]$ mkdir a_directory
 
-[ccaaxxx@login06 ~]$ ls
+[ccaaxxx@aristotle01 ~]$ ls
 a_directory Scratch
 ```
 
@@ -253,32 +265,22 @@ Directory creation
 ------------------
 
 ```
-[ccaaxxx@login06 ~]$ mkdir -p a_directory/inside/the_other
-[ccaaxxx@login06 ~]$ cd a_directory/inside/the_other
-[ccaaxxx@login06 the_other]$ pwd
+[ccaaxxx@aristotle01 ~]$ mkdir -p a_directory/inside/the_other
+[ccaaxxx@aristotle01 ~]$ cd a_directory/inside/the_other
+[ccaaxxx@aristotle01 the_other]$ pwd
 /home/ccaaxxx/a_directory/inside/the_other
 ```
 
 * **mkdir -p** - creates consecutive sub-directories
 
-Touching a file
----------------
 
-```
-[ccaaxxx@login06 ~]$ touch a_file
-[ccaaxxx@login06 ~]$ ls
-a_directory a_file Scratch
-```
-
-* **touch** - create or update the date of a file
-* This is **not** usually how files are created
 
 Copying files
 -------------
 
 ```
-[ccaaxxx@login06 ~]$ cp a_file copy_of_a_file
-[ccaaxxx@login06 ~]$ ls
+[ccaaxxx@aristotle01 ~]$ cp a_file copy_of_a_file
+[ccaaxxx@aristotle01 ~]$ ls
 a_directory a_file copy_of_a_file Scratch
 ```
 
@@ -297,7 +299,7 @@ Editing files
 -------------
 
 ```
-[ccaaxxx@login06 ~]$ nano a_file
+[ccaaxxx@aristotle01 ~]$ nano a_file
 ```
 
 ![](assets/nano.png)
@@ -325,13 +327,13 @@ Moving/Renaming files and directories
 -------------------------------------
 
 ```
-[ccaaxxx@login06 ~]$ mv a_file control.in
-[ccaaxxx@login06 ~]$ ls
+[ccaaxxx@aristotle01 ~]$ mv a_file control.in
+[ccaaxxx@aristotle01 ~]$ ls
 a_directory control.in Scratch
 
-[ccaaxxx@login06 ~]$ mv control.in a_directory
+[ccaaxxx@aristotle01 ~]$ mv control.in a_directory
 
-[ccaaxxx@login06 ~]$ ls a_directory
+[ccaaxxx@aristotle01 ~]$ ls a_directory
 control.in inside
 ```
 
@@ -341,13 +343,13 @@ Deleting files and directories
 ------------------------------
 
 ```
-[ccaaxxx@login06 ~]$ rm a_directory/control.in
+[ccaaxxx@aristotle01 ~]$ rm a_directory/control.in
 
-[ccaaxxx@login06 ~]$ rm a_directory
+[ccaaxxx@aristotle01 ~]$ rm a_directory
 rm: cannot remove `a_directory/': Is a directory
 
-[ccaaxxx@login06 ~]$ rm -r a_directory
-[ccaaxxx@login06 ~]$ 
+[ccaaxxx@aristotle01 ~]$ rm -r a_directory
+[ccaaxxx@aristotle01 ~]$ 
 ```
 
 * **rm** - delete a file
@@ -358,7 +360,7 @@ rm: cannot remove `a_directory/': Is a directory
 Exercise:
 --------
 
-In ~/Scratch...
+From your home directory, and without changing directory...
  
 * Create the following directory tree:
 ```
@@ -374,13 +376,15 @@ In ~/Scratch...
 
 * Create the directory tree in one line only: work/experiment/results/report
 
-* Delete all directory trees created in one single command without explicit reference to any of the directory and file names except "work".
+* Copy the entire work directory to work_copy
+
+* Delete the entire work_copy directory in one single command without explicit reference to any of the directory and file names except "work_copy".
 
 File properties
 ---------------
 
 ```
-[ccaaxxx@login06 ~]$ ls -l
+[ccaaxxx@aristotle01 ~]$ ls -l
 total 8
 drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 -rw-r--r-- 1 ccaaxxx rcops    0 2009-12-08 07:31 a_file
@@ -453,14 +457,14 @@ File permissions
 ----------------
 
 ```
-[ccaaxxx@login06 ~]$ ls -l 
+[ccaaxxx@aristotle01 ~]$ ls -l 
 ...
 drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 ...
 
-[ccaaxxx@login06 ~]$ chmod go-rx a_directory
+[ccaaxxx@aristotle01 ~]$ chmod go-rx a_directory
 
-[ccaaxxx@login06 ~]$ ls -l 
+[ccaaxxx@aristotle01 ~]$ ls -l 
 ...
 drwx------ 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 ```
@@ -497,8 +501,8 @@ Inspecting files
 ----------------
 
 ```
-[ccaaxxx@login06 ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
-[ccaaxxx@login06 examples]$ less openmp_pi.f90
+[ccaaxxx@aristotle01 ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
+[ccaaxxx@aristotle01 examples]$ less openmp_pi.f90
 ```
 
 * **less** - visualise a text file:
@@ -518,24 +522,11 @@ Other file inspection tools
 
 (Use "man &lt;tool&gt;" to see more information)
 
-
-Filtering directory listings
-----------------------------
-
-```
-[cccaaxxx@login06 ~]$ ls /shared/ucl/apps/BLAST/install | grep blast
-blastall
-blast-nr-1.out
-blast-pdb-1.out
-```
-
-* **grep** - prints lines containing a string.  Also searches for strings in text files.
-
 Searching for strings in files
 ------------------------------
 
 ```
-[cccaaxxx@login06 ~]$ grep SWAP /shared/ucl/apps/BLAST/install/test.faa
+[cccaaxxx@aristotle01 ~]$ grep SWAP /shared/ucl/apps/BLAST/install/test.faa
 SWGEGCGLLHNYGVYTKVSRYLDWIHGHIRDKEAPQKSWAP
 ```
 
@@ -565,8 +556,8 @@ Soft links
 * Shortcut, e.g.
 
 ```
-[cccaaxxx@login06 ~]$ ln -s ~/some_project/2012/part531 ~/current_project
-[cccaaxxx@login06 ~]$ ls -l ~ 
+[cccaaxxx@aristotle01 ~]$ ln -s ~/some_project/2012/part531 ~/current_project
+[cccaaxxx@aristotle01 ~]$ ls -l ~ 
 lrwxr-xr-x  1 ccaaxxx  staff  11 10 Oct 17:56
                current_project -> /home/ccaaxxx/some_project_2012/part531
 ```
@@ -578,21 +569,23 @@ Soft links
 
 * Create using absolute paths to make sure they go where you want
 
-* "Scratch" in your home directory is a soft link
+* "Scratch" in your Legion home directory is a soft link
     + Makes it easier to access your scratch area
+
+* On Aristotle "~" is a symbolic or soft link to the Unix central filestore
 
 Archiving and compression
 -------------------------
 
 ```
-[ccaaxxx@login06 Scratch]$ tar -zcvf work.tgz work
+[ccaaxxx@aristotle01 Scratch]$ tar -zcvf work.tgz work
 work/
 work/program/
 work/calculations/
 work/calculations/control.in
 work/workfile
 
-[ccaaxxx@login06 Scratch]$ ls
+[ccaaxxx@aristotle01 Scratch]$ ls
 work.tgz work
 ```
 
@@ -606,15 +599,15 @@ Extracting files from a compressed archive
 ------------------------------------------
 
 ```
-[ccaaxxx@login06 Scratch]$ ls
+[ccaaxxx@aristotle01 Scratch]$ ls
 work.tgz
-[ccaaxxx@login06 Scratch]$ tar -zxvf work.tgz 
+[ccaaxxx@aristotle01 Scratch]$ tar -zxvf work.tgz 
 work/
 work/program/
 work/calculations/
 work/calculations/control.in
 work/workfile
-[ccaaxxx@login06 Scratch]$ ls
+[ccaaxxx@aristotle01 Scratch]$ ls
 work.tgz work
 ```
 
@@ -630,7 +623,7 @@ Transferring files across a network
 From Legion:
 
 ```
-[ccaaxxx@login06 Scratch]$ scp work.tgz ccaaxxx@socrates.ucl.ac.uk:~/
+[ccaaxxx@aristotle01 Scratch]$ scp work.tgz ccaaxxx@socrates.ucl.ac.uk:~/
 ...
 Password:
 work.tgz         100%  340     0.3KB/s   00:00
@@ -640,7 +633,7 @@ work.tgz         100%  340     0.3KB/s   00:00
 To Legion:
 
 ```
-[ccaaxxx@login06 Scratch]$ scp ccaaxxx@socrates.ucl.ac.uk:~/work.tgz .
+[ccaaxxx@aristotle01 Scratch]$ scp ccaaxxx@socrates.ucl.ac.uk:~/work.tgz .
 ...
 Password:
 work.tgz         100%  340     0.3KB/s   00:00
@@ -673,14 +666,14 @@ Output redirection and piping
 -----------------------------
 
 ```
-[ccaaxxx@login06 ~]$ ls /home > ls_home.txt
+[ccaaxxx@aristotle01 ~]$ ls /usr/bin > ls_usrbin.txt
 ```
 
 * **&gt;** - redirect stdout to a file
 
 
 ```
-[ccaaxxx@login06 ~]$ ls /home | less
+[ccaaxxx@aristotle01 ~]$ ls /usr/bin | less
 ```
 
 * **|** "pipe" stdout to stdin of a command
@@ -710,6 +703,18 @@ Output redirection and piping
 ls -l > list_of_files
 
 ![](assets/process4.png)
+
+Filtering directory listings
+----------------------------
+
+```
+[cccaaxxx@aristotle01 ~]$ ls /shared/ucl/apps/BLAST/install | grep blast
+blastall
+blast-nr-1.out
+blast-pdb-1.out
+```
+
+* **grep** - prints lines containing a string.  Also searches for strings in text files.
 
 Output redirection and piping
 -----------------------------
@@ -755,21 +760,21 @@ Exercise Solutions:
 "." not present in the environment variable $PATH:
 
 ```
-[ccaaxxx@login06 ~]$ hello_world.sh
+[ccaaxxx@aristotle01 ~]$ hello_world.sh
 bash: hello_world.sh: command not found
 ```
 
 File permissions not set to executable by user:
 
 ```
-[ccaaxxx@login06 ~]$ ./hello_world.sh
+[ccaaxxx@aristotle01 ~]$ ./hello_world.sh
 bash: ./hello_world.sh: Permission denied
 ```
 
 using ./ and chmod 755:
 
 ```
-[ccaaxxx@login06 ~]$ ./hello_world.sh
+[ccaaxxx@aristotle01 ~]$ ./hello_world.sh
 Hello World!
 ```
 
@@ -788,8 +793,8 @@ Environment Variables
 ----------------------
 
 ```
-[ccaaxxx@login06 ~]$ variable='string'
-[ccaaxxx@login06 ~]$ variable=$other_variable
+[ccaaxxx@aristotle01 ~]$ variable='string'
+[ccaaxxx@aristotle01 ~]$ variable=$other_variable
 ```
 
 * Defined and used within a shell script only.
@@ -804,7 +809,7 @@ Global Environment Variables
 * defined within a shell and also in scripts called from the shell
 
 ```
-[ccaaxxx@login06 ~]$ export ENV_VARIABLE='value'
+[ccaaxxx@aristotle01 ~]$ export ENV_VARIABLE='value'
 ```
 
 Exercise
@@ -823,7 +828,7 @@ Special environment variables
 What is the output of this command?
 
 ```
-[ccaaxxx@login06 ~]$ echo $PATH
+[ccaaxxx@aristotle01 ~]$ echo $PATH
 ``` 
 
 Note the structure: \<path1\>:\<path2\>:\<path3\>  
@@ -856,7 +861,7 @@ Command line arguments
 Variables can also be defined through the command line
 
 ```
-[ccaaxxx@login06 ~]$ ./script.sh arg another
+[ccaaxxx@aristotle01 ~]$ ./script.sh arg another
 ```
 
 Within the script:
@@ -872,10 +877,10 @@ Storing output of commands in variables
 Run commands inside **$( )** and assign the wrapped command to a variable
 
 ```
-[ccaaxxx@login06 ~]$ ls 
+[ccaaxxx@aristotle01 ~]$ ls 
 a_directory  a_file  Scratch 
-[ccaaxxx@login06 ~]$ dir_contents=$( ls ) 
-[ccaaxxx@login06 ~]$ echo $dir_contents 
+[ccaaxxx@aristotle01 ~]$ dir_contents=$( ls ) 
+[ccaaxxx@aristotle01 ~]$ echo $dir_contents 
 a_directory a_file Scratch
 ```
 
@@ -883,11 +888,11 @@ Basic arithmetic
 ----------------
 
 ```
-[ccaaxxx@login06 ~]$ two=2 
-[ccaaxxx@login06 ~]$ result=$(( $two + 2 )) 
-[ccaaxxx@login06 ~]$ echo $result  
+[ccaaxxx@aristotle01 ~]$ two=2 
+[ccaaxxx@aristotle01 ~]$ result=$(( $two + 2 )) 
+[ccaaxxx@aristotle01 ~]$ echo $result  
 4 
-[ccaaxxx@login06 ~]$
+[ccaaxxx@aristotle01 ~]$
 ```
 
 * Integer arithmetic can be done inside $(( ))
@@ -939,7 +944,7 @@ Formatted sequences based on numbers
 ------------------------------------
 
 ```
-[ccaaxxx@login06 ~]$ seq 1 5
+[ccaaxxx@aristotle01 ~]$ seq 1 5
 1
 2
 3
@@ -953,7 +958,7 @@ Formatted sequences based on numbers
 ------------------------------------
 
 ```
-[ccaaxxx@login06 ~]$ seq 1 2 9
+[ccaaxxx@aristotle01 ~]$ seq 1 2 9
 1
 3
 5
@@ -967,7 +972,7 @@ Formatted sequences based on numbers
 ------------------------------------
 
 ```
-[ccaaxxx@login06 ~]$ seq -f %03g 1 2 9
+[ccaaxxx@aristotle01 ~]$ seq -f %03g 1 2 9
 001
 003
 005
@@ -1044,7 +1049,7 @@ Which processes are running?
 Use the commands **top** and **ps**
 
 ```
-[ccaaxxx@login06 ~]$ ps aux
+[ccaaxxx@aristotle01 ~]$ ps aux
 ```
 
 |:--------|:-----------------------------------------------------------|
@@ -1061,7 +1066,7 @@ Use the commands **top** and **ps**
 | COMMAND | - the command that was called                              |
 
 ```
-[ccaaxxx@login06 ~]$ ps xjf
+[ccaaxxx@aristotle01 ~]$ ps xjf
 ```
 
 Why have we been showing you this?
