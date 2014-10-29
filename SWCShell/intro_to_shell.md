@@ -290,6 +290,15 @@ Directory tree creation
 
 * **mkdir -p** - creates consecutive sub-directories
 
+Man pages
+---------
+
+Every command has a man page.
+
+* **man mkdir** - show mkdir's man page
+* find out about options
+* press 'q' to return to the command prompt
+
 
 Exercise:
 --------
