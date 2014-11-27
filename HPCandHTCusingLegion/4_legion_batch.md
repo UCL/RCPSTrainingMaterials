@@ -409,9 +409,9 @@ These use a slightly different scheduler system, so the scripts are slightly dif
 Quick Reference Sheets
 ----------------------
 
-Legion: [http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/legion-upgrade/legion_ref_sheet](http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/legion-upgrade/legion_ref_sheet)
+Legion: [https://wiki.rc.ucl.ac.uk/mediawiki119/images/a/ad/Legion_ref_sheet.pdf](https://wiki.rc.ucl.ac.uk/mediawiki119/images/a/ad/Legion_ref_sheet.pdf)
 
-Iridis: [http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/iridis/iridis_quick_reference](http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/iridis/iridis_quick_reference)
+Iridis: [https://wiki.rc.ucl.ac.uk/mediawiki119/images/e/e8/Iridis_Quick_Reference.pdf](https://wiki.rc.ucl.ac.uk/mediawiki119/images/e/e8/Iridis_Quick_Reference.pdf)
 
 
 
