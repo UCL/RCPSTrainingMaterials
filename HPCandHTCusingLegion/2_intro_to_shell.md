@@ -99,14 +99,11 @@ Command Prompt
 ```
 
 * Has the form **[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;]$**
-
 * **&lt;user name&gt;** is the Unix user name (UCL user ID).
-
 * **&lt;host name&gt;** is the name of the computer that you are accessing.
-
 * **&lt;present directory&gt;** is the directory that the user is currently in.
-
-* Commands are typed after the prompt and executed by pressing return.
+* Takes commands typed after the prompt and executed by pressing return.
+* Controlled by a program called `bash`.
 
 Command Line Execution
 ----------------------
@@ -117,8 +114,8 @@ Scratch
 [ccaaxxx@login06 ~]$
 ```
 
-* **ls** lists the contents of the directory
-* **~** is the "home directory"
+* `ls` lists the contents of the directory
+* `~` is an abbreviation for your "home directory"
 
 Unix Directory Basics
 ---------------------
@@ -128,8 +125,8 @@ Unix Directory Basics
 /home/ccaaxx: directory
 [ccaaxxx@login06 ~]$
 ```
-* **file** identifies the file type
-* **~** = /home/ccaaxxx - your *home directory*
+* `file` identifies the file type
+* `~` = /home/ccaaxxx - your *home directory*
 
 Unix Directory Basics
 ---------------------
@@ -142,7 +139,43 @@ Unix Directory Basics
 /: directory
 ```
 
-* **/home/ccaaxxxx** - the *full path* to the home directory
+* `/home/ccaaxxx` - the *full path* to the home directory
+
+
+Directory Navigation
+--------------------
+
+```
+[ccaaxxx@login06 ~]$ pwd
+/home/ccaaxxx
+
+[ccaaxxx@login06 ~]$ cd /
+[ccaaxxx@login06 /]$ 
+```
+
+* `cd` - change directory
+* `pwd` - full path to present working directory
+* `/` - the "root" directory
+
+Filesystem structure
+--------------------
+
+![](assets/directorystructure.png)
+
+Absolute path
+-------------
+
+![](assets/abspath.png)
+
+/home/alice
+
+Relative path
+-------------
+
+![](assets/relpath.png)
+
+../home/alice
+
 
 Hidden files and directories
 ----------------------------
@@ -159,6 +192,7 @@ Scratch  .ssh
 
 * **.** - Present working directory (in this case ~)
 * **..** - Directory above (in this case /home)
+
 
 Everything is a file
 --------------------
@@ -193,23 +227,23 @@ Just to make the point:
 dynamically linked (uses shared libs), stripped
 ```
 
-* /bin/ls is an executable file (!)
-* **which** - shows the path to the argument, in this case ls
+* `/bin/ls` is an executable file (!)
+* `which` shows the path to the argument, in this case `ls`
 
-Directory Navigation
+
+Everything is a file
 --------------------
 
+Just to make the point:
 ```
-[ccaaxxx@login06 ~]$ pwd
-/home/ccaaxxx
-
-[ccaaxxx@login06 ~]$ cd /
-[ccaaxxx@login06 /]$ 
+[ccaaxxx@login06 ~]$ file /dev/sda1
+/dev/sda1: block special (8/1)
 ```
 
-* **cd** - change directory
-* **pwd** - full path to present working directory
-* **/** - the "root" directory
+* Things in /dev are *devices*
+* `/dev/sda1` is the first hard drive
+
+
 
 Exercise:
 --------
@@ -219,25 +253,6 @@ explore the / directory using ls, cd, ., .., pwd
 * If you feel lost, just execute **"cd"** with no arguments (or **"cd ~"**) and you will be returned to your home directory.
 
 * **"cd -"** - will return you to the previous directory you were in.
-
-Filesystem structure
---------------------
-
-![](assets/directorystructure.png)
-
-Absolute path
--------------
-
-![](assets/abspath.png)
-
-/home/alice
-
-Relative path
--------------
-
-![](assets/relpath.png)
-
-../home/alice
 
 
 Directory creation
@@ -756,7 +771,7 @@ Exercise:
 Exercise Solutions:
 ------------------
 
-"." not present in the environment variable $PATH:
+`.` not present in the environment variable $PATH:
 
 ```
 [ccaaxxx@login06 ~]$ hello_world.sh
@@ -770,7 +785,7 @@ File permissions not set to executable by user:
 bash: ./hello_world.sh: Permission denied
 ```
 
-using ./ and chmod 755:
+using `./` and `chmod u+x`:
 
 ```
 [ccaaxxx@login06 ~]$ ./hello_world.sh
@@ -793,7 +808,7 @@ Environment Variables
 
 ```
 [ccaaxxx@login06 ~]$ variable='string'
-[ccaaxxx@login06 ~]$ variable=$other_variable
+[ccaaxxx@login06 ~]$ other_variable=$variable
 ```
 
 * Defined and used within a shell script only.
