@@ -16,19 +16,15 @@ Build Instructions
 You need:
 
 The Dexy-ready version of UCL Indigo.
-(On a branch, on jamespjh's fork)
 
-git clone https://github.com/jamespjh/indigo.git
-git checkout dexy
+git clone https://github.com/UCL-RITS/indigo-dexy.git
 
 A patched version of Dexy
 
-git clone https://github.com/jamespjh/dexy.git
-cd dexy
-sudo python setup.py install 
+sudo pip install git+git://github.com/UCL-RITS/dexy.git
 
 Then, from this repo, edit dexyplugin.yaml with the path to the 
-clone of indigo.
+clone of indigo-dexy.
 
 Finally, build with
 dexy setup
