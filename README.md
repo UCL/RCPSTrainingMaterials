@@ -36,3 +36,9 @@ Finally, build with
 dexy setup
 dexy
 ```
+
+Can run server with
+
+```none
+dexy serve
+```
