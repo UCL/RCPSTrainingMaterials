@@ -358,7 +358,7 @@ Prerequisites and Conflicts
 Prerequisites Exercise
 ----------------------
 
-**Exercise**: Successfully load the latest R module (`r/3.0.1-atlas/gnu.4.6.3`).
+**Exercise**: Successfully load the latest Matlab module (`matlab/full/r2013a/default`).
 
 
 Recommended Bundles
