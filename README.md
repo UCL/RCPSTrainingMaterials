@@ -17,15 +17,22 @@ You need:
 
 The Dexy-ready version of UCL Indigo.
 
+```none
 git clone https://github.com/UCL-RITS/indigo-dexy.git
+```
 
 A patched version of Dexy
 
-sudo pip install git+git://github.com/UCL-RITS/dexy.git
+```none
+pip install --user git+git://github.com/UCL-RITS/dexy.git
+```
 
 Then, from this repo, edit dexyplugin.yaml with the path to the 
 clone of indigo-dexy.
 
 Finally, build with
+
+```none
 dexy setup
 dexy
+```
