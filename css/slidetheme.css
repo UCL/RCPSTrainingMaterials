@@ -1,0 +1,10 @@
+.reveal pre code 
+{
+  font-size: 200%;
+  line-height: 200%;
+  background-color: #303030;
+}
+code > span.co 
+{
+  color: #FFFFFF;
+}

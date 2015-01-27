@@ -27,6 +27,7 @@
                --default-image-extension=png
                --highlight-style=zenburn
                --mathjax
+               -V transition=slide
                -V revealjs-url=http://lab.hakim.se/reveal-js
 
 assets:
