@@ -103,7 +103,7 @@ Command Prompt
 * **&lt;host name&gt;** is the name of the computer that you are accessing.
 * **&lt;present directory&gt;** is the directory that the user is currently in.
 * Takes commands typed after the prompt and executed by pressing return.
-* Controlled by a program called `bash`.
+* Is usually controlled by a program called `bash`.
 
 Command Line Execution
 ----------------------
@@ -126,7 +126,7 @@ Unix Directory Basics
 [ccaaxxx@login06 ~]$
 ```
 * `file` identifies the file type
-* `~` = /home/ccaaxxx - your *home directory*
+* `~` = /home/ccaaxxx - your home directory
 
 Unix Directory Basics
 ---------------------
@@ -139,7 +139,7 @@ Unix Directory Basics
 /: directory
 ```
 
-* `/home/ccaaxxx` - the *full path* to the home directory
+* `/home/ccaaxxx` - the *full* or *absolute* path to your home directory
 
 
 Directory Navigation
@@ -190,8 +190,8 @@ Scratch  .ssh
 
 * Files starting with "." are hidden
 
-* **.** - Present working directory (in this case ~)
-* **..** - Directory above (in this case /home)
+* `.` - Present working directory (in this case `~`)
+* `..` - Directory above (in this case `/home`)
 
 
 Everything is a file
@@ -240,7 +240,7 @@ Just to make the point:
 /dev/sda1: block special (8/1)
 ```
 
-* Things in /dev are *devices*
+* Things in `/dev` are *devices*
 * `/dev/sda1` is the first hard drive
 
 
@@ -248,12 +248,11 @@ Just to make the point:
 Exercise:
 --------
 
-explore the / directory using ls, cd, ., .., pwd
+Explore the `/` directory using `ls`, `cd`, `.`, `..`, `pwd`
 
-* If you feel lost, just execute **"cd"** with no arguments (or **"cd ~"**) and you will be returned to your home directory.
+* If you feel lost, just execute `cd` with no arguments (or `cd ~`) and you will be returned to your home directory.
 
-* **"cd -"** - will return you to the previous directory you were in.
-
+* `cd -` - will return you to the previous directory you were in.
 
 Directory creation
 ------------------
@@ -265,7 +264,7 @@ Directory creation
 a_directory Scratch
 ```
 
-* **mkdir** - create a directory
+* `mkdir` - create a directory
 
 
 Directory creation
@@ -278,7 +277,7 @@ Directory creation
 /home/ccaaxxx/a_directory/inside/the_other
 ```
 
-* **mkdir -p** - creates consecutive sub-directories
+* `mkdir -p` - creates consecutive sub-directories
 
 Touching a file
 ---------------
@@ -289,7 +288,7 @@ Touching a file
 a_directory a_file Scratch
 ```
 
-* **touch** - create or update the date of a file
+* `touch` - create or update the date of a file
 * This is **not** usually how files are created
 
 Copying files
