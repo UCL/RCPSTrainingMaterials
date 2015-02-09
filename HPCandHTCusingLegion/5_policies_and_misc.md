@@ -50,8 +50,8 @@ Limits
 
 ## Extraordinary Resource Requests
 
-* Grab the [form from the website](http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/legion-upgrade/resource_allocation/#requests)
-* Send it to your Consortium Leader to approve
+* Grab the [form from the website](https://wiki.rc.ucl.ac.uk/mediawiki119/images/5/5f/CRAG_additional_resources_request_form.rtf)
+* Send it to your supervisor/PI to support
 * Send it to us: [rc-support@ucl.ac.uk](mailto:rc-support@ucl.ac.uk)
 * Wait for approval by the CRAG
 
