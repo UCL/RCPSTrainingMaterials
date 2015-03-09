@@ -388,6 +388,11 @@ From your home directory, and without changing directory...
 
 * Move the file to input_data and rename it in the same command to control01.txt
 
+Next...
+
+Exercise:
+--------
+
 * Create the directory tree in one line only: work/experiment/results/report
 
 * Copy the entire work directory to work_copy
@@ -625,6 +630,9 @@ work/workfile
 work.tgz work
 ```
 
+Extracting files from a compressed archive
+------------------------------------------
+
 * **tar -z*x*vf** - extracts and uncompresses directory trees and files 
     + **x** - extract archive 
     + **z** - uncompress
@@ -653,6 +661,9 @@ Password:
 work.tgz         100%  340     0.3KB/s   00:00
 
 ```
+
+Transferring files across a network
+-----------------------------------
 
 Note: remote machine (in this case Socrates) must be running SSH server. So, from your destop: 
 
@@ -1066,6 +1077,9 @@ Use the commands **top** and **ps**
 [ccaaxxx@aristotle01 ~]$ ps aux
 ```
 
+Which processes are running?
+----------------------------
+
 |:--------|:-----------------------------------------------------------|
 | USER    | - the user name                                            |
 | PID     | - the process ID                                           |
@@ -1089,6 +1103,9 @@ Why have we been showing you this?
 * Tomorrow, we will be talking about how to submit your workloads to Legion
 
 * The scripts you submit are bash shell scripts with some special comments read by the scheduler at the top.
+
+Example submission script
+-------------------------
 
 ```
 #!/bin/bash -l
@@ -1171,6 +1188,9 @@ Creating new shells in Screen
 * You'll be given another shell (what screen calls a "window")!
 
 ![](assets/terminal-screen-2.svg)
+
+Creating new shells in Screen
+-----------------------------
 
 * Create new "windows" with **Ctrl-a, c**
 
