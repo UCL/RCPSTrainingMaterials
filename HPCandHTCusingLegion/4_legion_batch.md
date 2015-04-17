@@ -31,7 +31,6 @@ Job Script
 
 ```bash
 #!/bin/bash -l
-#$ -P MyProjectName
 #$ -l h_rt=0:10:00
 #$ -cwd
 
@@ -156,7 +155,6 @@ Job Script
 
 ```bash
 #!/bin/bash -l
-#$ -P MyProjectName
 #$ -l h_rt=0:10:00
 #$ -l threads=4
 #$ -cwd
@@ -206,7 +204,6 @@ Job Script
 
 ```bash
 #!/bin/bash -l
-#$ -P MyProjectName
 #$ -l h_rt=0:10:00
 #$ -pe qlc 4
 #$ -cwd
@@ -237,7 +234,6 @@ Job Script
 
 ```bash
 #!/bin/bash -l
-#$ -P MyProjectName
 #$ -l h_rt=0:10:00
 #$ -t 1-4
 #$ -cwd
@@ -263,7 +259,6 @@ Job Script
 
 ```bash
 #!/bin/bash -l
-#$ -P MyProjectName
 #$ -l h_rt=0:10:00
 #$ -t 1-4
 #$ -cwd
@@ -372,7 +367,6 @@ Job Script
 
 ```bash
 #!/bin/bash -l
-#$ -P MyProjectName
 #$ -l h_rt=0:10:00
 #$ -cwd
 
