@@ -396,7 +396,7 @@ These use a slightly different scheduler system, so the scripts are slightly dif
     #$ -l memory=4G
     #PBS -l mem=4gb
 
-    #$ -P MyProject
+    # Submit to the only queue UCL users can use.
     #PBS -q consort
 
 
