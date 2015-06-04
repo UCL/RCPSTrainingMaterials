@@ -9,49 +9,25 @@ Introduction to the UNIX shell
 Overview
 --------
 
-* Basic interaction with files and directories
-
-    + command line execution
-
-    + Unix directory and file basics
-
-    + file properties
+* Navigating the filesystem
 
 * File manipulation
 
-    + inspecting and editing files
+* Wildcards, redirection and piping
 
-    + searching and filtering
+* Variables and loops
 
-    + archiving and transfer over network
+* File properties and permissions
 
-* Scripting and workflows
+* Scripts
 
-    + scripting techniques for building workflows
+* Screen
 
 
 Connecting to a computer: 1970s
 -------------------------------
 
 ![](assets/terminal-serial.svg)
-
-
-Connecting to a computer: working from home
--------------------------------------------
-
-![](assets/terminal-phone.svg)
-
-Connecting to a computer: local machine
----------------------------------------
-
-![](assets/terminal-local.svg)
-
-Connecting to a computer: over the Internet (early 90s)
--------------------------------------------------------
-
-![](assets/terminal-telnet.svg)
-
-Communication *unencrypted!*
 
 Connecting to a computer: over the Internet
 -------------------------------------------
@@ -60,38 +36,37 @@ Connecting to a computer: over the Internet
 
 Communication *encrypted!*
 
-Access to Legion
-----------------
+Access to Aristotle
+-------------------
 
 * To access one of the login nodes (remotely) from a Unix machine:
 ``` 
-ssh username@legion.rc.ucl.ac.uk
+ssh username@aristotle.rc.ucl.ac.uk
 ```
 
 * Log on using UCL username/password
 
 * On Windows (e.g. Desktop@UCL) you can use PuTTY.
 
-Access to Legion
-----------------
+Access to Aristotle
+-------------------
 
 ![](assets/puttylocation.png)
 
-Access to Legion
-----------------
+Access to Aristotle
+-------------------
 
-![](assets/puttyconfig.png)
+![](assets/puttyconfig-aristotle.png)
 
 
-
-Basic interaction with files and directories
-============================================
+Navigating the filesystem
+=========================
 
 Command Prompt
 --------------
 
 ```
-[ccaaxxx@login06 ~]$
+[ccaaxxx@aristotle01 ~]$
 ```
 
 * Has the form **[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;]$**
@@ -102,30 +77,29 @@ Command Prompt
 
 * **&lt;present directory&gt;** is the directory that the user is currently in.
 
-* Commands are typed after the prompt and executed by pressing return.
+Command Prompt
+--------------
 
-Command Line Execution
-----------------------
+* Read evaluate print loop
 
-```
-[ccaaxxx@login06 ~]$ ls
-Scratch
-[ccaaxxx@login06 ~]$
-```
+	+ User types a command and presses enter
 
-* **ls** lists the contents of the directory
-* **~** is the "home directory"
+	+ The shell *reads* this command, and *executes* it
 
-Unix Directory Basics
----------------------
+	+ The shell then *prints* any output to the screen and returns the command prompt to the user
+
+Where am I?
+-----------
 
 ```
-[ccaaxxx@login06 ~]$ file ~
-/home/ccaaxx: directory
-[ccaaxxx@login06 ~]$
+[ccaaxxx@aristotle01 ~]$ pwd
+/home/ccaaxxx
+[ccaaxxx@aristotle01 ~]$
+
 ```
-* **file** identifies the file type
-* **~** = /home/ccaaxxx - your *home directory*
+
+* **pwd** (print working directory) - returns the full path to your current working directory
+* **~** 'tilde' is the current user's home directory
 
 Unix Directory Basics
 ---------------------
@@ -138,17 +112,33 @@ Unix Directory Basics
 /: directory
 ```
 
-* **/home/ccaaxxxx** - the *full path* to the home directory
+* **/** - the *root* directory
+
+Filesystem structure
+--------------------
+
+![](assets/directorystructure.png)
+
+
+What's in here?
+---------------
+
+```
+[ccaaxxx@aristotle01 ~]$ ls
+file1.txt	file2.pdf	file3.dat
+```
+
+* **ls** - lists the contents of the current directory
 
 Hidden files and directories
 ----------------------------
 
 ```
-[ccaaxxx@login06 ~]$ ls -a
-.  ..  .bash_history  .bash_logout
-.bash_profile  .bashrc  .cshrc  .emacs
-Scratch  .ssh
-[ccaaxxx@login06 ~]$ 
+[ccaaxxx@aristotle01 ~]$ ls -a
+.	  			.cshrc			file1.txt
+..				.configure		file2.pdf
+.bash_history	.emacs			file3.dat
+[ccaaxxx@aristotle01 ~]$ 
 ```
 
 * Files starting with "." are hidden
@@ -156,70 +146,21 @@ Scratch  .ssh
 * **.** - Present working directory (in this case ~)
 * **..** - Directory above (in this case /home)
 
-Everything is a file
---------------------
-
-```
-[ccaaxxx@login06 ~]$ file .* *
-.:             directory
-..:            directory
-.bash_history: ASCII text
-.bash_logout:  ASCII English text
-.bash_profile: ASCII English text
-.bashrc:       Bourne-Again shell script text executable
-.cshrc:        C shell script text executable
-.emacs:        Lisp/Scheme program text (Emacs editor)
-.ssh:          directory (for secure shell)
-Scratch:       symbolic link to `/scratch/scratch/ccaaxxx'
-```
-
-* "*" - All visible files
-* ".*" - All invisible files
-
-Everything is a file
---------------------
-
-Just to make the point:
-```
-[ccaaxxx@login06 ~]$ which ls
- /bin/ls
-
-[ccaaxxx@login06 ~]$ file /bin/ls
-/bin/ls: ELF 64-bit LSB executable, AMD x86-64, version 1 (SYSV), for GNU/Linux 2.4.0, 
-dynamically linked (uses shared libs), stripped
-```
-
-* /bin/ls is an executable file (!)
-* **which** - shows the path to the argument, in this case ls
-
 Directory Navigation
 --------------------
 
 ```
-[ccaaxxx@login06 ~]$ pwd
+[ccaaxxx@aristotle01 ~]$ pwd
 /home/ccaaxxx
-
-[ccaaxxx@login06 ~]$ cd /
-[ccaaxxx@login06 /]$ 
+[ccaaxxx@aristotle01 ~]$ cd ..
+[ccaaxxx@aristotle01 home]$ cd ..
+[ccaaxxx@aristotle01 /]$ 
 ```
 
 * **cd** - change directory
 * **pwd** - full path to present working directory
 * **/** - the "root" directory
 
-Exercise:
---------
-
-explore the / directory using ls, cd, ., .., pwd
-
-* If you feel lost, just execute **"cd"** with no arguments (or **"cd ~"**) and you will be returned to your home directory.
-
-* **"cd -"** - will return you to the previous directory you were in.
-
-Filesystem structure
---------------------
-
-![](assets/directorystructure.png)
 
 Absolute path
 -------------
@@ -228,6 +169,8 @@ Absolute path
 
 /home/alice
 
+* absolute paths always begin with '/'
+
 Relative path
 -------------
 
@@ -235,15 +178,54 @@ Relative path
 
 ../home/alice
 
+What's over there?
+------------------
+
+* Give ls an *argument* to list the contents of another directory
+
+```
+[ccaaxxx@aristotle01 ~]ls /home/ccaaxxx/work
+...
+[ccaaxxx@aristotle01 ~]ls work
+...
+[ccaaxxx@aristotle01 ~]ls ~/work
+...
+[ccaaxxx@aristotle01 ~]ls ../ccaaxxx/work
+```
+
+* Always leave a space to separate arguments
+
+Exercise
+--------
+
+![](assets/filesystem-exercise1.png)
+
+Exercise
+--------
+With reference to the directory structure shown above:
+
+1. If ```pwd``` displays ```/home/ccaaxxx/project```, what will ```ls ../data``` display?
+2. If ```pwd``` displays ```/home/ccaaxxx/data```, what command will display:
+```
+2015-01 	2015-02 	2015-03
+```
+When exploring the filesystem on Aristotle:
+		
+1. What does typing ```cd``` on its own do? Try typing it from several different locations.
+2. What does typing ```cd -``` do? Try typing it from several different locations.
+
+
+File manipulation
+=================
 
 Directory creation
 ------------------
 
 ```
-[ccaaxxx@login06 ~]$ mkdir a_directory
+[ccaaxxx@aristotle01 ~]$ mkdir a_directory
 
-[ccaaxxx@login06 ~]$ ls
-a_directory Scratch
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory
 ```
 
 * **mkdir** - create a directory
@@ -253,51 +235,41 @@ Directory creation
 ------------------
 
 ```
-[ccaaxxx@login06 ~]$ mkdir -p a_directory/inside/the_other
-[ccaaxxx@login06 ~]$ cd a_directory/inside/the_other
-[ccaaxxx@login06 the_other]$ pwd
+[ccaaxxx@aristotle01 ~]$ mkdir -p a_directory/inside/the_other
+[ccaaxxx@aristotle01 ~]$ cd a_directory/inside/the_other
+[ccaaxxx@aristotle01 the_other]$ pwd
 /home/ccaaxxx/a_directory/inside/the_other
 ```
 
 * **mkdir -p** - creates consecutive sub-directories
 
+Command switches
+----------------
+
+* The default behaviour of a command can be changed by adding switches, also known as flags or options
+* These are arguments beginning with a dash e.g. ```ls -a``` or ```mkdir -p```
+* Type *man* and then the name of a command for a list of switches and their behaviours, e.g.:
+	+ ```man ls```
+	+ ```man mkdir```
+* Type 'q' to quit man pages
+
 Touching a file
 ---------------
 
 ```
-[ccaaxxx@login06 ~]$ touch a_file
-[ccaaxxx@login06 ~]$ ls
-a_directory a_file Scratch
+[ccaaxxx@aristotle01 ~]$ touch a_file
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory	a_file
 ```
 
 * **touch** - create or update the date of a file
 * This is **not** usually how files are created
 
-Copying files
--------------
-
-```
-[ccaaxxx@login06 ~]$ cp a_file copy_of_a_file
-[ccaaxxx@login06 ~]$ ls
-a_directory a_file copy_of_a_file Scratch
-```
-
-* **cp** copy a file (or a directory tree)
-
-Exercise:
---------
-
-Create and copy a directory tree.  Use the command **"man cp**" for more information
-
-File manipulation
-=================
-
-
 Editing files
 -------------
 
 ```
-[ccaaxxx@login06 ~]$ nano a_file
+[ccaaxxx@aristotle01 ~]$ nano a_file
 ```
 
 ![](assets/nano.png)
@@ -313,41 +285,54 @@ Nano
 * **nano** - simple file editor
 * Commands are along the botton of editor screen
 * ^ - shorthand for control key
+* Ctrl-O to save, Ctrl-X to exit
 
 Editors
 -------
 
 There are many other (better but more complex) text file editors on the system such as **vim**, **emacs** and **nedit**.
 
-Use the one you feel most comfortable with (if you don't know any, use nano (or nedit if you have X-Windows)).
+Use the one you feel most comfortable with.
+
+Copying files
+-------------
+
+```
+[ccaaxxx@aristotle01 ~]$ cp a_file copy_of_a_file
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory	a_file	copy_of_a_file
+```
+
+* **cp** copy a file (or a directory tree)
 
 Moving/Renaming files and directories
 -------------------------------------
 
 ```
-[ccaaxxx@login06 ~]$ mv a_file control.in
-[ccaaxxx@login06 ~]$ ls
-a_directory control.in Scratch
+[ccaaxxx@aristotle01 ~]$ mv a_file control.in
+[ccaaxxx@aristotle01 ~]$ ls
+a_directory control.in	copy_of_a_file
 
-[ccaaxxx@login06 ~]$ mv control.in a_directory
+[ccaaxxx@aristotle01 ~]$ mv control.in a_directory
 
-[ccaaxxx@login06 ~]$ ls a_directory
+[ccaaxxx@aristotle01 ~]$ ls a_directory
 control.in inside
 ```
 
 * **mv** - rename or move a file/directory
+* It is possible to move and rename a file with one command
 
 Deleting files and directories
 ------------------------------
 
 ```
-[ccaaxxx@login06 ~]$ rm a_directory/control.in
+[ccaaxxx@aristotle01 ~]$ rm a_directory/control.in
 
-[ccaaxxx@login06 ~]$ rm a_directory
+[ccaaxxx@aristotle01 ~]$ rm a_directory
 rm: cannot remove `a_directory/': Is a directory
 
-[ccaaxxx@login06 ~]$ rm -r a_directory
-[ccaaxxx@login06 ~]$ 
+[ccaaxxx@aristotle01 ~]$ rm -r a_directory
+[ccaaxxx@aristotle01 ~]$ 
 ```
 
 * **rm** - delete a file
@@ -358,29 +343,367 @@ rm: cannot remove `a_directory/': Is a directory
 Exercise:
 --------
 
-In ~/Scratch...
- 
-* Create the following directory tree:
+* Create the following directory tree in your home directory (```~```):
 ```
     work
-    work/input_data
-    work/results
-    work/program
+    work/input_data/
+    work/results/
+    work/program/
 ```
 
-* Create the file "input.txt" with some random lines in it.
+* Create the file "input.txt" with a text editor and put some text in it.
 
-* Move the file to input_data and rename it in the same command to control01.txt
+* Move the file to work/input_data and rename it in the same command to control01.txt
 
-* Create the directory tree in one line only: work/experiment/results/report
+* Create this directory tree in one line only: work/experiment/results/report
 
-* Delete all directory trees created in one single command without explicit reference to any of the directory and file names except "work".
+* Delete the work directory and all of its contents with one single command.
+
+Exercise
+--------
+
+* What happens if you give ```cp``` multiple filenames and a directory as arguments? For example:
+	```
+	[ccaaxxx@aristotle01 ~]$cp file1.txt file2.txt a_directory
+	```
+
+* What happens if you give ```cp``` three filenames without a directory? For example:
+	```
+	[ccaaxxx@aristotle01 ~]$cp file1.txt file2.txt file3.txt
+	```
+
+Inspecting files
+----------------
+
+```
+[ccaaxxx@aristotle01 ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
+[ccaaxxx@aristotle01 examples]$ less openmp_pi.f90
+```
+
+* **less** - visualise a text file:
+    + use arrow keys
+    + page up/page down
+    + search by typing "/"
+    + quit by typing "q"
+
+Other file inspection tools
+---------------------------
+
+|:-------|:----------------------------------------------------------------------|
+|head    |- visualise the first 10 lines of a file                               |
+|tail    |- visualise the last 10 lines of a file                                |
+|cat     |- concatenate files provided as input and dump the result to *stdout*  |
+|sdiff   |- visualise and compare two files side-by-side                         |
+
+(Use "man &lt;command&gt;" to see more information)
+
+
+Wildcards, Redirection and Piping
+=================================
+
+Some files to play with
+-----------------------
+```
+[ccaaxxx@aristotle01 ~]git clone https://github.com/tcouch/shell-training.git
+...
+[ccaaxxx@aristotle01 ~]cd shell-training
+```
+
+Wildcards
+---------
+
+```
+[ccaaxxx@aristotle01 shell-training]cd wildcards
+[ccaaxxx@aristotle01 wildcards]$ ls *.txt
+abcde.txt  ab.txt    cheesecake.txt  food.txt
+abc.txt    cake.txt  def.txt         xyz.txt
+[ccaaxxx@aristotle01 wildcards]$ ls a*.txt
+abcde.txt  abc.txt  ab.txt
+```
+
+* `*` is a wildcard that matches zero or more characters.
+
+Wildcards
+---------
+
+```
+[ccaaxxx@aristotle01 wildcards]ls ???.txt
+abc.txt	def.txt	xyz.txt
+```
+
+* `?` is also a wildcard. It matches a single character.
+
+Output redirection and piping
+-----------------------------
+
+* Two very important concepts:
+
+    + Standard Output (stdout) - default destination of a program's output. It is generally the terminal screen.
+
+    + Standard Input (stdin) - default source of a program's input. It is generally the command line.
+
+
+Redirecting output to a file
+--------------------------
+
+```
+[ccaaxxx@aristotle01 ~]$echo hello > hello.txt
+[ccaaxxx@aristotle01 ~]$echo hello again >> hello.txt
+[ccaaxxx@aristotle01 ~]$cat hello.txt
+hello
+hello again
+```
+
+* ```>>``` appends the output to the end of an existing file.
+* ```>``` will overwrite any existing content.
+
+Redirecting output
+------------------
+
+```
+[ccaaxxx@aristotle01 ~]$ ls -R ~ > all-home.txt
+```
+
+* **&gt;** - redirect stdout to a file
+
+```
+[ccaaxxx@aristotle01 ~]$ ls -R ~ | less
+```
+
+* **|** "pipe" stdout to stdin of another command
+* ```ls -R``` recursively list all subdirectories
+
+Output redirection and piping
+-----------------------------
+
+![](assets/process1.png)
+
+Output redirection and piping
+-----------------------------
+
+![](assets/process2.png)
+
+Redirecting StdErr
+------------------
+
+```
+[cceatco@aristotle01 wildcards]$ ls *.txt not_a_file > txt_list 2> txt_list_err
+```
+
+* ```2>``` redirects any error messages created by a command
+
+Output redirection and piping
+-----------------------------
+
+ls -l
+
+![](assets/process3.png)
+
+Output redirection and piping
+-----------------------------
+
+ls -l > list_of_files
+
+![](assets/process4.png)
+
+Counting the classes
+--------------------
+
+```
+[ccaaxxx@aristotle01 ~]cd shell-training/IOM-animals
+[cceatco@aristotle01 IOM-animals]$ wc -l *.txt | sort -n | head -5 > animal-numbers
+[cceatco@aristotle01 IOM-animals]$ cat animal-numbers
+   1 reptiles.txt
+   5 amphibians.txt
+  23 mammals.txt
+  89 birds.txt
+  92 insects.txt
+```
+
+* **wc -l** count the number of lines in a file
+* **sort -n** sort a list numerically
+* **head -5** show the first 5 lines only
+
+Grep
+----
+
+```
+[ccaaxxx@aristotle01 IOM-animals]$ grep brown * > brown-animals.txt
+[ccaaxxx@aristotle01 IOM-animals]$ cat brown-animals.txt
+insects.txt:    brown hawker, aeshna grandis
+insects.txt:    meadow brown, maniola jurtina
+mammals.txt:    brown long-eared bat, plecotus auritus
+mammals.txt:    brown rat, rattus norvegicus
+```
+
+* **grep** prints lines containing a string.
+	+ Can be used for finding strings in text files or filter output from a command
+
+Output redirection and piping
+-----------------------------
+
+You can chain any number of programs together to achieve your goal:
+
+![](assets/process6.png)
+
+This allows you to build up fairly complex workflows within one command-line.
+
+Redirecting input
+-----------------
+
+You can also redirect standard input to a command, using ```<``` 
+to send the contents of a file in place of command line input.
+
+```
+[ccaaxxx@aristotle01 shell-training]$ bc -l < some-maths
+3.14285714285714285714
+9.99
+16.66666666666666666666
+10.312567
+```
+
+* **bc** allows calculations with floating point numbers.
+
+Exercise
+--------
+
+* In IOM-animals, use grep and wc to count the number of animals with the word 'common' in their name.
+
+Variables and Loops
+===================
+
+A simple variable
+-----------------
+```
+[ccaaxxx@aristotle01 ~]$ var1='hello'
+[ccaaxxx@aristotle01 ~]$ echo $var1 world!
+hello world!
+```
+
+* Don't include spaces either side of the '=' sign.
+* Variables can be referenced using the '$' sign and their name.
+
+Quoting variables
+-----------------
+```
+[ccaaxxx@aristotle01 ~]$myname="John Smith"
+[ccaaxxx@aristotle01 ~]$ echo "Hello my name is $myname. Nice to meet you."
+Hello my name is John Smith. Nice to meet you.
+[ccaaxxx@aristotle01 ~]$ echo 'Hello my name is $myname. Nice to meet you.'
+Hello my name is $myname. Nice to meet you.
+```
+
+* When using double quotes, bash will scan the contents and expand any variables
+
+Quoting variables
+-----------------
+```
+[ccaaxxx@aristotle01 ~]$ fruit=orange
+[ccaaxxx@aristotle01 ~]$ echo "I love eating $fruits."
+I love eating .
+```
+
+Quoting variables
+-----------------
+```
+[ccaaxxx@aristotle01 ~]$ echo "I love eating ${fruit}s."
+I love eating oranges.
+```
+
+* In some cases you will need to surround a variable name with braces.
+
+Arithmetic with variables
+-------------------------
+```
+[ccaaxxx@aristotle01 ~]$ two=2 
+[ccaaxxx@aristotle01 ~]$ result=$(( $two + 2 )) 
+[ccaaxxx@aristotle01 ~]$ echo $result  
+4 
+[ccaaxxx@aristotle01 ~]$
+```
+
+* Integer arithmetic can be done inside $(( ))
+    * \+  addition
+    * \-   subtraction
+    * /   integer division
+    * \*   multiplication
+
+Storing output of commands in variables 
+---------------------------------------
+
+Run commands inside **$( )** and assign the wrapped command to a variable
+
+```
+[ccaaxxx@aristotle01 ~]$ ls 
+a_directory  a_file 
+[ccaaxxx@aristotle01 ~]$ dir_contents=$( ls ) 
+[ccaaxxx@aristotle01 ~]$ echo $dir_contents 
+a_directory a_file
+```
+	
+Updated process diagram
+-----------------------
+
+![](assets/processenvvars.png)
+
+Special environment variables
+-----------------------------
+
+What is the output of this command?
+
+```
+[ccaaxxx@aristotle01 ~]$ echo $PATH
+``` 
+
+Note the structure: \<path1\>:\<path2\>:\<path3\>  
+
+PATH is an environmental variable which Bash uses to search for commands typed on the command line without a full path. 
+
+**Exercise:** Use the command **env** to discover more.
+
+The for loop
+------------
+
+```
+[ccaaxxx@aristotle01 ~]$ for i in first second third
+> do
+> echo $i iteration
+> done
+first iteration
+second iteration
+third iteration
+```
+
+* Defines a loop in which the variable "i" will take the values "first", "second" and "third" in that order.
+* **do/done** - start and end the loop iteration definition.
+
+The for loop using an iterator
+------------------------------
+
+```
+[ccaaxxx@aristotle01 ~]$ for (( i=1 ; i<=5 ; i++ )); do echo iteration$i; done
+iteration1
+iteration2
+iteration3
+iteration4
+iteration5
+```
+
+(Note how it is possible to create number labels)
+
+Exercise
+--------
+* Use a for loop to create five directories called calculation_?, where ? is a number.
+* Use a loop to create five directories, each one the parent of the next.
+
+File properties and permissions
+===============================
 
 File properties
 ---------------
 
 ```
-[ccaaxxx@login06 ~]$ ls -l
+[ccaaxxx@aristotle01 ~]$ ls -l
 total 8
 drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 -rw-r--r-- 1 ccaaxxx rcops    0 2009-12-08 07:31 a_file
@@ -453,14 +776,14 @@ File permissions
 ----------------
 
 ```
-[ccaaxxx@login06 ~]$ ls -l 
+[ccaaxxx@aristotle01 ~]$ ls -l 
 ...
 drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 ...
 
-[ccaaxxx@login06 ~]$ chmod go-rx a_directory
+[ccaaxxx@aristotle01 ~]$ chmod go-rx a_directory
 
-[ccaaxxx@login06 ~]$ ls -l 
+[ccaaxxx@aristotle01 ~]$ ls -l 
 ...
 drwx------ 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 ```
@@ -487,245 +810,17 @@ If you don't specify u,g,o or a, default is **ALL** (so chmod +x makes file exec
 * **chmod** - change the permissions of a file
 
 Exercise:
---------
+---------
 
-* Change the permission of a full directory tree with one single **chmod** command (look in the man pages for more information).
+* Recreate the a_directory/inside/the_other tree if you deleted it.
 
-* When typing the command " ls /sh", press the tab key after typing "/sh".  What happens?
+* Add write permission for users from your group for the full directory tree with one single **chmod** command (look in the man pages for more information).
 
-Inspecting files
-----------------
+* What happens if you can read but not execute a directory?	
+	
 
-```
-[ccaaxxx@login06 ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
-[ccaaxxx@login06 examples]$ less openmp_pi.f90
-```
-
-* **less** - visualise a text file:
-    + use arrow keys
-    + page up/page down
-    + search by typing "/"
-    + quit by typing "q"
-
-Other file inspection tools
----------------------------
-
-|:-------|:----------------------------------------------------------------------|
-|head    |- visualise the first 10 lines of a file                               |
-|tail    |- visualise the last 10 lines of a file                                |
-|cat     |- concatenate files provided as input and dump the result to *stdout*  |
-|sdiff   |- visualise and compare two files side-by-side                         |
-
-(Use "man &lt;tool&gt;" to see more information)
-
-
-Filtering directory listings
-----------------------------
-
-```
-[cccaaxxx@login06 ~]$ ls /shared/ucl/apps/BLAST/install | grep blast
-blastall
-blast-nr-1.out
-blast-pdb-1.out
-```
-
-* **grep** - prints lines containing a string.  Also searches for strings in text files.
-
-Searching for strings in files
-------------------------------
-
-```
-[cccaaxxx@login06 ~]$ grep SWAP /shared/ucl/apps/BLAST/install/test.faa
-SWGEGCGLLHNYGVYTKVSRYLDWIHGHIRDKEAPQKSWAP
-```
-
-* **grep** - prints lines containing a string.  Also searches for strings in text files.
-
-Links
------
-
-* Created with "ln"
-
-* Two types:
-    + "Hard" - indistinguishable from files
-    + "Soft" (or "Symbolic") - like a shortcut
-
-Hard links
-----------
-
-* Inode table keeps track of hard links
-
-* Deleting a file = "unlinking" it
-
-* Can only be used inside a single file system
-
-Soft links
-----------
-
-* Shortcut, e.g.
-
-```
-[cccaaxxx@login06 ~]$ ln -s ~/some_project/2012/part531 ~/current_project
-[cccaaxxx@login06 ~]$ ls -l ~ 
-lrwxr-xr-x  1 ccaaxxx  staff  11 10 Oct 17:56
-               current_project -> /home/ccaaxxx/some_project_2012/part531
-```
-
-Soft links
-----------
-
-* Can use relative or absolute paths!
-
-* Create using absolute paths to make sure they go where you want
-
-* "Scratch" in your home directory is a soft link
-    + Makes it easier to access your scratch area
-
-Archiving and compression
--------------------------
-
-```
-[ccaaxxx@login06 Scratch]$ tar -zcvf work.tgz work
-work/
-work/program/
-work/calculations/
-work/calculations/control.in
-work/workfile
-
-[ccaaxxx@login06 Scratch]$ ls
-work.tgz work
-```
-
-* **tar -zcvf** - archives and compresses directory trees and files 
-    + **c** - create archive 
-    + **z** - compress
-    + **v** - verbose
-    + **f** - in the following file
-
-Extracting files from a compressed archive
-------------------------------------------
-
-```
-[ccaaxxx@login06 Scratch]$ ls
-work.tgz
-[ccaaxxx@login06 Scratch]$ tar -zxvf work.tgz 
-work/
-work/program/
-work/calculations/
-work/calculations/control.in
-work/workfile
-[ccaaxxx@login06 Scratch]$ ls
-work.tgz work
-```
-
-* **tar -z*x*vf** - extracts and uncompresses directory trees and files 
-    + **x** - extract archive 
-    + **z** - uncompress
-    + **v** - verbose
-    + **f** - from the following file
-
-Transferring files across a network
------------------------------------
-
-From Legion:
-
-```
-[ccaaxxx@login06 Scratch]$ scp work.tgz ccaaxxx@socrates.ucl.ac.uk:~/
-...
-Password:
-work.tgz         100%  340     0.3KB/s   00:00
-
-```
-
-To Legion:
-
-```
-[ccaaxxx@login06 Scratch]$ scp ccaaxxx@socrates.ucl.ac.uk:~/work.tgz .
-...
-Password:
-work.tgz         100%  340     0.3KB/s   00:00
-
-```
-
-Note: remote machine (in this case Socrates) must be running SSH server. So, from your destop: 
-
-```
-[you@desktop ~]$ scp work.tgz ccaaxxx@login05.external.legion.ucl.ac.uk:Scratch
-[you@desktop ~]$ scp ccaaxxx@login05.external.legion.ucl.ac.uk:Scratch/work.tgz .
-```
-
-* **scp** - securely copy files across a network 
-
-Scripting and workflows
-=======================
-
-Output redirection and piping
------------------------------
-
-* Two very important concepts:
-
-    + Standard Output (stdout) - default destination of a program's output.  It is generally the terminal screen.
-
-    + Standard Input (stdin) - default source of a program's input.  It is generally the command line.
-
-
-Output redirection and piping
------------------------------
-
-```
-[ccaaxxx@login06 ~]$ ls /home > ls_home.txt
-```
-
-* **&gt;** - redirect stdout to a file
-
-
-```
-[ccaaxxx@login06 ~]$ ls /home | less
-```
-
-* **|** "pipe" stdout to stdin of a command
-
-
-
-Output redirection and piping
------------------------------
-
-![](assets/process1.png)
-
-Output redirection and piping
------------------------------
-
-![](assets/process2.png)
-
-Output redirection and piping
------------------------------
-
-ls -l
-
-![](assets/process3.png)
-
-Output redirection and piping
------------------------------
-
-ls -l > list_of_files
-
-![](assets/process4.png)
-
-Output redirection and piping
------------------------------
-
-ls -l | grep partial_name > list_of_files
-
-![](assets/process5.png)
-
-Output redirection and piping
------------------------------
-
-You can chain any number of programs together to achieve your goal:
-
-![](assets/process6.png)
-
-This allows you to build up fairly complex workflows within one command-line.
+Shell Scripting
+===============
 
 Shell scripting
 ---------------
@@ -740,114 +835,54 @@ echo "Hello, world!"
 * \# - a comment (ignored by /bin/bash)
 * echo - a command that prints arguments to stdout
 
-Exercise:
---------
-
-* Create a "Hello world"-like script using command line tools and execute it.
-
-* Copy and alter your script to redirect output to a file using &gt;.
-
-* Alter your script to use &gt;&gt; instead of &gt;.  What effect does this have on its behaviour?
-
-Exercise Solutions:
-------------------
-
-"." not present in the environment variable $PATH:
-
+Running a script
+----------------
+Method 1
 ```
-[ccaaxxx@login06 ~]$ hello_world.sh
-bash: hello_world.sh: command not found
+[ccaaxxx@aristotle01 ~]$bash hello_world.sh
 ```
 
-File permissions not set to executable by user:
+* **bash** is the name of the shell you are using right now
+* This starts a new instance of bash to run the commands in the script
+
+Running a script
+----------------
+Method 2: making it executable
 
 ```
-[ccaaxxx@login06 ~]$ ./hello_world.sh
-bash: ./hello_world.sh: Permission denied
+[ccaaxxx@aristotle01 ~]$chmod u+x hello_world.sh
+[ccaaxxx@aristotle01 ~]$ ls -l hello-world.sh
+-rwxr--r-- 1 ccaaxxx ccaas0 30 Mar 31 17:10 hello_world.sh
+[ccaaxxx@aristotle01 ~]$ ./hello_world.sh
+hello world!
 ```
 
-using ./ and chmod 755:
-
-```
-[ccaaxxx@login06 ~]$ ./hello_world.sh
-Hello World!
-```
+* Why ```./hello_world.sh``` and not just ```hello_world.sh```?
 
 Exercise:
 --------
 
-* Use '**seq** 1 75 \> numbers.txt' to 
-generate a file containing a list of 
-numbers. Use the **head**, **tail**, and **less** 
-commands to look at it, then use grep to
-search it for a number.
+* Create a "Hello world"-like script using a text editor and execute it.
 
-* Use a combination of head and tail to get an exact line number
-
-Environment Variables
-----------------------
-
-```
-[ccaaxxx@login06 ~]$ variable='string'
-[ccaaxxx@login06 ~]$ variable=$other_variable
-```
-
-* Defined and used within a shell script only.
-
-* No spaces around the assignment symbol "=".
-
-* $ means "the value assigned to the following variable". 
-
-Global Environment Variables
-----------------------------
-
-* defined within a shell and also in scripts called from the shell
-
-```
-[ccaaxxx@login06 ~]$ export ENV_VARIABLE='value'
-```
-
-Exercise
---------
-
-* Using two nested scripts, show that the value of an exported variable in the environment where you launch the scripts, propagates all the way down to the second script. 
-
-Updated process diagram
------------------------
-
-![](assets/processenvvars.png)
-
-Special environment variables
------------------------------
-
-What is the output of this command?
-
-```
-[ccaaxxx@login06 ~]$ echo $PATH
-``` 
-
-Note the structure: \<path1\>:\<path2\>:\<path3\>  
-
-PATH is an environmental variable which Bash uses to search for commands typed on the command line without a full path. 
-
-**Exercise:** Use the command **env** to discover more.
+* Redirect the output from your script to a file using &gt;.
 
 Variables in shell scripts
 --------------------------
 
 ```
 #!/bin/bash
-# This is a very simple hello world script
-message='Hello World!'
+# Another hello world script
+
+message='Hello World'
 echo $message
-echo ${message}
+echo ${message}!
 ```
 
-|:---------|:---------------------------------------------------------|
-| #!       | tells the shell that this the interpreter (/bin/bash)    |
-| #        | followed by a blank character is a comment line          |
-| message  | variable to which the string 'Hello World!' is assigned  |
-| echo     | prints to screen the contents of the variable "$message" |
+|:---------|:----------------------------------------------------------|
+| #!       | tells the shell to use bash as the interpreter (/bin/bash)|
+| #        | followed by a blank character is a comment line           |
+| message  | variable to which the string 'Hello World' is assigned    |
+| echo     | prints to screen the contents of the variable "$message"  |
 
 
 Command line arguments
@@ -856,128 +891,30 @@ Command line arguments
 Variables can also be defined through the command line
 
 ```
-[ccaaxxx@login06 ~]$ ./script.sh arg another
+[ccaaxxx@aristotle01 ~]$ ./script.sh var1 var2
 ```
 
 Within the script:
-$1 contains "arg"
-$2 contains "another"
+$1 contains "var1"
+$2 contains "var2"
 
-**Exercise:** Using $1 and $2, write a script that print both variables to the screen.
-
-
-Storing output of commands in variables 
----------------------------------------
-
-Run commands inside **$( )** and assign the wrapped command to a variable
-
-```
-[ccaaxxx@login06 ~]$ ls 
-a_directory  a_file  Scratch 
-[ccaaxxx@login06 ~]$ dir_contents=$( ls ) 
-[ccaaxxx@login06 ~]$ echo $dir_contents 
-a_directory a_file Scratch
-```
-
-Basic arithmetic
-----------------
-
-```
-[ccaaxxx@login06 ~]$ two=2 
-[ccaaxxx@login06 ~]$ result=$(( $two + 2 )) 
-[ccaaxxx@login06 ~]$ echo $result  
-4 
-[ccaaxxx@login06 ~]$
-```
-
-* Integer arithmetic can be done inside $(( ))
-    * \+  addition
-    * \-   subtraction
-    * /   integer division
-    * \*   multiplication
-
-
-The for loop
-------------
+Command line arguments
+----------------------
 
 ```
 #!/bin/bash
-for i in first second third
-do
-  echo $i iteration
-done
-echo finished!
+
+echo The first argument is $1
+echo The second argument is $2
+echo And together they make ${1}${2}
 ```
 
-1. Interpreter definition line.
-2. Definition of the loop in which the variable "i" will take the values "first", "second" and "third" in that order.
-3. Start the loop iteration definition.
-4. Print the string contained by "i" and the string iteration, separated by a space.
-5. End the loop definition.
-6. Print some useful information to the screen.
-
-The for loop using an iterator
-------------------------------
-
 ```
-#!/bin/bash 
-for (( i=1 ; i<=5 ; i++ )) 
-do
-    echo iteration$i
-done
-echo finished! 
+[ccaaxxx@aristotle01 ~]$./var-script green house
+The first argument is green
+The second argument is house
+And together they make greenhouse
 ```
-
-(Note how it is possible to create number labels)
-
-Exercise:
---------
-
-Write a script that creates five directories named calculation_?, where ? is a number.
-
-Formatted sequences based on numbers
-------------------------------------
-
-```
-[ccaaxxx@login06 ~]$ seq 1 5
-1
-2
-3
-4 
-5
-```
-
-* **seq** - generates sequences based on numbers
-
-Formatted sequences based on numbers
-------------------------------------
-
-```
-[ccaaxxx@login06 ~]$ seq 1 2 9
-1
-3
-5
-7
-9
-```
-
-* **seq** - generates sequences based on numbers
-
-Formatted sequences based on numbers
-------------------------------------
-
-```
-[ccaaxxx@login06 ~]$ seq -f %03g 1 2 9
-001
-003
-005
-007
-009
-```
-
-* **g** - the number of significant digits is 3 
-* **0** - in front of 3 indicates that the number is padded with zeros if smaller than 100.
-* **%** - start the format definition for the number (place the number)
 
 The for loop revisited
 ----------------------
@@ -992,31 +929,15 @@ done
 echo finished!
 ```
 
-You can now create directory trees and files 
-automatically!
+You can now create directory trees and files automatically!
 
-Generating scripts with scripts
--------------------------------
-
-```
-cat <<EOF > child_script.sh 
-#!/bin/bash 
-echo The child script says Hi! 
-EOF 
-```
-
-* **\<\<EOF** - concatenates the text until the string "EOF", redirecting it to cat
-* **\> child_script.sh** - redirects the output of cat to child_script.sh.
-* It may be tempting to indent things.  DON'T.
-
-Exercise:
+Exercise
 --------
 
-* write a parent_script.sh that creates and executes 
-the child_script.sh
+* Write a script which will create as many numbered directories as you want when you run it.
 
-* write a parent_script.sh that creates and executes 
-10 different child_script.sh that print out their individual number
+Process control
+===============
 
 Process control
 ---------------
@@ -1041,54 +962,39 @@ execute the command "fg"
 Which processes are running?
 ----------------------------
 
-Use the commands **top** and **ps**
+Use the **ps** command
 
 ```
-[ccaaxxx@login06 ~]$ ps aux
+[ccaaxxx@aristotle01 ~]$ ps xjf
+  PPID    PID   PGID    SID TTY       TPGID STAT   UID   TIME COMMAND
+ 67744  67753  67744  67744 ?            -1 S    181641   0:00 sshd: ccaaxxx@pts
+ 67753  67762  67762  67762 pts/1     75804 Ss   181641   0:00  \_ -bash
+ 67762  75782  75782  67762 pts/1     75804 S    181641   0:00      \_ sleep 30
+ 67762  75804  75804  67762 pts/1     75804 R+   181641   0:00      \_ ps -xjf
 ```
+
 
 |:--------|:-----------------------------------------------------------|
-| USER    | - the user name                                            |
 | PID     | - the process ID                                           |
-| %CPU    | - the percentage of CPU time being used                    |
-| %MEM    | - the percentage of Memory being used                      |
-| VSZ     | - the size of Virtual memory                               |
-| RSS     | - the size of real memory                                  |
 | TTY     | - the virtual teletype terminal this proces is attached to |
-| STAT    | - the state of the process (see "man ps")                  |
-| START   | - the time when the process was started                    |
 | TIME    | - the time the process has been running                    |
-| COMMAND | - the command that was called                              |
+| CMD     | - the command that was called                              |
+
+Killing processes
+-----------------
+
+Use the **kill** command with the process ID
 
 ```
-[ccaaxxx@login06 ~]$ ps xjf
+[ccaaxxx@aristotle01 ~]$ kill 75782
 ```
 
-Why have we been showing you this?
-----------------------------------
-
-* Tomorrow, we will be talking about how to submit your workloads to Legion
-
-* The scripts you submit are bash shell scripts with some special comments read by the scheduler at the top.
+Or force termination with
 
 ```
-#!/bin/bash -l
-#$ -S /bin/bash
-#$ -l h_rt=0:30:0
-#$ -l mem=1G
-#$ -N Analysis
-#$ -P <your_project_id> 
-#$ -wd /home/<your_UCL_id>/Scratch/output 
-
-echo "Copying input files."
-cd $TMPDIR
-cp -R ~/inputdata .
-echo "Analysing data."
-~/bin/analyse -i inputdata/exp.in > exp.out.$JOB_ID
-echo "Copying data back."
-cp exp.out.$JOB_ID ~/Scratch/output
-echo "Done."
+[ccaaxxx@aristotle01 ~]$ kill -9 75782
 ```
+
 
 More information
 ----------------
@@ -1118,11 +1024,11 @@ Freely create and delete shell sessions within one terminal?
 
 **A: Use a terminal multiplexer like GNU screen**
 
-First, log into Legion
-----------------------
+First, log into Aristotle
+-------------------------
 
 ```
-ssh user@legion.rc.ucl.ac.uk
+ssh user@aristotle.rc.ucl.ac.uk
 ```
 
 (or use Putty)
@@ -1193,19 +1099,8 @@ Logging back in
 
 ![](assets/terminal-screen-2.svg)
 
+**NOTE:** make sure you log into the same login node that you started screen on
 
-Legion specific
----------------
-
-**NOTE:** make sure you log into the same login node that you started screen on:
-
-* login06: login06.external.legion.ucl.ac.uk
-
-* login07: login07.external.legion.ucl.ac.uk
-
-* login08: login08.external.legion.ucl.ac.uk
-
-* login09: login09.external.legion.ucl.ac.uk
 
 Other screen commands
 ---------------------
@@ -1214,4 +1109,178 @@ Other screen commands
 
 * **screen -ax** - forces attach to a screen that's attached to from somewhere else.
 
-* You can configure screen in lots of useful ways, including changing the keyboard shortcuts.  For more see man pages, or online documentation: [(http://www.gnu.org/software/screen/)](http://www.gnu.org/software/screen/)
+* You can configure screen in lots of useful ways, including changing the keyboard shortcuts.
+
+* For more see man pages, or online documentation: [(http://www.gnu.org/software/screen/)](http://www.gnu.org/software/screen/)
+
+
+More useful shell commands
+==========================
+
+Formatted sequences based on numbers
+------------------------------------
+
+```
+[ccaaxxx@aristotle01 ~]$ seq 1 5
+1
+2
+3
+4 
+5
+```
+
+* **seq** - generates sequences based on numbers
+
+Formatted sequences based on numbers
+------------------------------------
+
+```
+[ccaaxxx@aristotle01 ~]$ seq 1 2 9
+1
+3
+5
+7
+9
+```
+
+* **seq** - generates sequences based on numbers
+
+Formatted sequences based on numbers
+------------------------------------
+
+```
+[ccaaxxx@aristotle01 ~]$ seq -f %03g 1 2 9
+001
+003
+005
+007
+009
+```
+
+* **g** - the number of significant digits is 3 
+* **0** - in front of 3 indicates that the number is padded with zeros if smaller than 100.
+* **%** - start the format definition for the number (place the number)
+
+Links
+-----
+
+* Created with "ln"
+
+* Two types:
+    + "Hard" - indistinguishable from files
+    + "Soft" (or "Symbolic") - like a shortcut
+
+Hard links
+----------
+
+* Inode table keeps track of hard links
+
+* Deleting a file = "unlinking" it
+
+* Can only be used inside a single file system
+
+Soft links
+----------
+
+* Shortcut, e.g.
+
+```
+[cccaaxxx@aristotle01 ~]$ ln -s ~/some_project/2012/part531 ~/current_project
+[cccaaxxx@aristotle01 ~]$ ls -l ~ 
+lrwxr-xr-x  1 ccaaxxx  staff  11 10 Oct 17:56
+               current_project -> /home/ccaaxxx/some_project_2012/part531
+```
+
+* Can use relative or absolute paths!
+
+* Create using absolute paths to make sure they go where you want
+
+
+Archiving and compression
+-------------------------
+
+```
+[ccaaxxx@aristotle01 shell-training]$ tar -czvf work.tgz work
+work/
+work/program/
+work/calculations/
+work/calculations/control.in
+work/workfile
+```
+
+* **tar -zcvf** - archives and compresses directory trees and files 
+    + **c** - create archive 
+    + **z** - compress
+    + **v** - verbose
+    + **f** - in the following file
+
+Extracting files from a compressed archive
+------------------------------------------
+
+```
+[ccaaxxx@aristotle01 shell-training]$ tar -xzvf work.tgz 
+work/
+work/program/
+work/calculations/
+work/calculations/control.in
+work/workfile
+```
+
+* **tar -z*x*vf** - extracts and uncompresses directory trees and files 
+    + **x** - extract archive 
+    + **z** - uncompress
+    + **v** - verbose
+    + **f** - from the following file
+
+Generating scripts with scripts
+-------------------------------
+
+```
+cat <<EOF > child_script.sh 
+#!/bin/bash 
+echo The child script says Hi! 
+EOF 
+```
+
+* **\<\<EOF** - concatenates the text until the string "EOF", redirecting it to cat
+* **\> child_script.sh** - redirects the output of cat to child_script.sh.
+* It may be tempting to indent things - DON'T!
+
+Exercise:
+--------
+
+* write a parent_script.sh that creates and executes 
+the child_script.sh
+
+* write a parent_script.sh that creates and executes 
+10 different child_script.sh that print out their individual number
+
+
+Transferring files across a network
+-----------------------------------
+
+From Aristotle:
+
+```
+[ccaaxxx@aristotle01 ~]$ scp work.tgz ccaaxxx@socrates.ucl.ac.uk:
+...
+Password:
+work.tgz         100%  340     0.3KB/s   00:00
+
+```
+
+* remember to put the colon at the end
+
+Transferring files across a network
+-----------------------------------
+
+To Aristotle:
+
+```
+[ccaaxxx@aristotle01 ~]$ scp ccaaxxx@socrates.ucl.ac.uk:~/work.tgz .
+...
+Password:
+work.tgz         100%  340     0.3KB/s   00:00
+```
+
+* . means copy to this directory
