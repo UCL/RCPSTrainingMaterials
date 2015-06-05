@@ -400,9 +400,25 @@ Wildcards
 
 ```
 [user@host shell-training]$ cd wildcards
-[user@host wildcards]$ ls *.txt
-abcde.txt  ab.txt    cheesecake.txt  food.txt
-abc.txt    cake.txt  def.txt         xyz.txt
+[user@host wildcards]$ wc *.txt
+  13  119  683 abcde.txt
+  10   52  168 abc.txt
+   8   83  454 ab.txt
+  26  206 1332 cake.txt
+  11  105  656 cheesecake.txt
+   7   61  394 def.txt
+  13   85  561 food.txt
+  11   99  589 xyz.txt
+  99  810 4837 total
+```
+
+* `*` is a wildcard that matches zero or more characters.
+* ```wc``` counts lines, words and bytes for each file
+
+Wildcards
+---------
+
+```
 [user@host wildcards]$ ls a*.txt
 abcde.txt  abc.txt  ab.txt
 ```
@@ -552,8 +568,17 @@ to send the contents of a file in place of command line input.
 
 Exercise
 --------
+```shell-training/data/``` contains 300 data files, each of which *should* contain 100 values.
+One of these files is missing some data though...
 
-* In IOM-animals, use grep and wc to count the number of animals with the word 'common' in their name.
+* Use a series of commands connected by pipes to identify the file with missing data
+* **hint** ```wc -w``` will tell you the number of values in a file
+
+Exercise
+--------
+
+* In IOM-animals, list all the animals with the word 'common' in their name alphabetically.
+* **hint** ```grep -h``` will remove the file names from the output.
 
 Variables and Loops
 ===================
@@ -663,6 +688,17 @@ third iteration
 * Defines a loop in which the variable "i" will take the values "first", "second" and "third" in that order.
 * **do/done** - start and end the loop iteration definition.
 
+Looping through files
+---------------------
+```
+[user@host IOM-animals]$ mkdir backup
+[user@host IOM-animals]$ for i in *.txt
+> do
+> cp $i $i.backup
+> done
+[user@host IOM-animals]$ mv *.backup backup
+```
+
 The for loop using an iterator
 ------------------------------
 
@@ -685,8 +721,23 @@ Exercise
 Exercise
 --------
 
-* In the wildcards directory, create a variable called files listing all of the text files.
+* In the wildcards directory, create a variable called *files* listing all of the text files.
 * Loop through this list and print out the first line from each file.
+
+Exercise
+--------
+
+* What will this command print to the screen?
+
+```
+[user@host wildcards]$ for filename in *.txt
+> do
+> echo $filename
+> cat $filename > new-file.txt
+> done
+```
+
+* What will the contents of new-file.txt be and why?
 
 File properties and permissions
 ===============================
