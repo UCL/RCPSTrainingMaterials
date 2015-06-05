@@ -66,7 +66,7 @@ Command Prompt
 --------------
 
 ```
-[ccaaxxx@aristotle01 ~]$
+[user@host ~]$
 ```
 
 * Has the form **[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;]$**
@@ -92,9 +92,9 @@ Where am I?
 -----------
 
 ```
-[ccaaxxx@aristotle01 ~]$ pwd
-/home/ccaaxxx
-[ccaaxxx@aristotle01 ~]$
+[user@host ~]$ pwd
+/home/user
+[user@host ~]$
 
 ```
 
@@ -105,7 +105,7 @@ Unix Directory Basics
 ---------------------
 
 ```
-/home/ccaaxxx: directory
+/home/user: directory
 
 /home: directory
 
@@ -124,7 +124,7 @@ What's in here?
 ---------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls
+[user@host ~]$ ls
 file1.txt	file2.pdf	file3.dat
 ```
 
@@ -134,11 +134,11 @@ Hidden files and directories
 ----------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls -a
+[user@host ~]$ ls -a
 .	  			.cshrc			file1.txt
 ..				.configure		file2.pdf
 .bash_history	.emacs			file3.dat
-[ccaaxxx@aristotle01 ~]$ 
+[user@host ~]$ 
 ```
 
 * Files starting with "." are hidden
@@ -150,11 +150,11 @@ Directory Navigation
 --------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ pwd
-/home/ccaaxxx
-[ccaaxxx@aristotle01 ~]$ cd ..
-[ccaaxxx@aristotle01 home]$ cd ..
-[ccaaxxx@aristotle01 /]$ 
+[user@host ~]$ pwd
+/home/user
+[user@host ~]$ cd ..
+[user@host home]$ cd ..
+[user@host /]$ 
 ```
 
 * **cd** - change directory
@@ -184,13 +184,13 @@ What's over there?
 * Give ls an *argument* to list the contents of another directory
 
 ```
-[ccaaxxx@aristotle01 ~]ls /home/ccaaxxx/work
+[user@host ~]ls /home/user/work
 ...
-[ccaaxxx@aristotle01 ~]ls work
+[user@host ~]ls work
 ...
-[ccaaxxx@aristotle01 ~]ls ~/work
+[user@host ~]ls ~/work
 ...
-[ccaaxxx@aristotle01 ~]ls ../ccaaxxx/work
+[user@host ~]ls ../user/work
 ```
 
 * Always leave a space to separate arguments
@@ -204,8 +204,8 @@ Exercise
 --------
 With reference to the directory structure shown above:
 
-1. If ```pwd``` displays ```/home/ccaaxxx/project```, what will ```ls ../data``` display?
-2. If ```pwd``` displays ```/home/ccaaxxx/data```, what command will display:
+1. If ```pwd``` displays ```/home/user/project```, what will ```ls ../data``` display?
+2. If ```pwd``` displays ```/home/user/data```, what command will display:
 ```
 2015-01 	2015-02 	2015-03
 ```
@@ -222,9 +222,9 @@ Directory creation
 ------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ mkdir a_directory
+[user@host ~]$ mkdir a_directory
 
-[ccaaxxx@aristotle01 ~]$ ls
+[user@host ~]$ ls
 a_directory
 ```
 
@@ -235,10 +235,10 @@ Directory creation
 ------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ mkdir -p a_directory/inside/the_other
-[ccaaxxx@aristotle01 ~]$ cd a_directory/inside/the_other
-[ccaaxxx@aristotle01 the_other]$ pwd
-/home/ccaaxxx/a_directory/inside/the_other
+[user@host ~]$ mkdir -p a_directory/inside/the_other
+[user@host ~]$ cd a_directory/inside/the_other
+[user@host the_other]$ pwd
+/home/user/a_directory/inside/the_other
 ```
 
 * **mkdir -p** - creates consecutive sub-directories
@@ -257,8 +257,8 @@ Touching a file
 ---------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ touch a_file
-[ccaaxxx@aristotle01 ~]$ ls
+[user@host ~]$ touch a_file
+[user@host ~]$ ls
 a_directory	a_file
 ```
 
@@ -269,7 +269,7 @@ Editing files
 -------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ nano a_file
+[user@host ~]$ nano a_file
 ```
 
 ![](assets/nano.png)
@@ -298,8 +298,8 @@ Copying files
 -------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ cp a_file copy_of_a_file
-[ccaaxxx@aristotle01 ~]$ ls
+[user@host ~]$ cp a_file copy_of_a_file
+[user@host ~]$ ls
 a_directory	a_file	copy_of_a_file
 ```
 
@@ -309,13 +309,13 @@ Moving/Renaming files and directories
 -------------------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ mv a_file control.in
-[ccaaxxx@aristotle01 ~]$ ls
+[user@host ~]$ mv a_file control.in
+[user@host ~]$ ls
 a_directory control.in	copy_of_a_file
 
-[ccaaxxx@aristotle01 ~]$ mv control.in a_directory
+[user@host ~]$ mv control.in a_directory
 
-[ccaaxxx@aristotle01 ~]$ ls a_directory
+[user@host ~]$ ls a_directory
 control.in inside
 ```
 
@@ -326,13 +326,13 @@ Deleting files and directories
 ------------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ rm a_directory/control.in
+[user@host ~]$ rm a_directory/control.in
 
-[ccaaxxx@aristotle01 ~]$ rm a_directory
+[user@host ~]$ rm a_directory
 rm: cannot remove `a_directory/': Is a directory
 
-[ccaaxxx@aristotle01 ~]$ rm -r a_directory
-[ccaaxxx@aristotle01 ~]$ 
+[user@host ~]$ rm -r a_directory
+[user@host ~]$ 
 ```
 
 * **rm** - delete a file
@@ -358,25 +358,12 @@ Exercise:
 
 * Delete the work directory and all of its contents with one single command.
 
-Exercise
---------
-
-* What happens if you give ```cp``` multiple filenames and a directory as arguments? For example:
-	```
-	[ccaaxxx@aristotle01 ~]$cp file1.txt file2.txt a_directory
-	```
-
-* What happens if you give ```cp``` three filenames without a directory? For example:
-	```
-	[ccaaxxx@aristotle01 ~]$cp file1.txt file2.txt file3.txt
-	```
-
 Inspecting files
 ----------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
-[ccaaxxx@aristotle01 examples]$ less openmp_pi.f90
+[user@host ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
+[user@host examples]$ less openmp_pi.f90
 ```
 
 * **less** - visualise a text file:
@@ -403,20 +390,20 @@ Wildcards, Redirection and Piping
 Some files to play with
 -----------------------
 ```
-[ccaaxxx@aristotle01 ~]git clone https://github.com/tcouch/shell-training.git
+[user@host ~]git clone https://github.com/tcouch/shell-training.git
 ...
-[ccaaxxx@aristotle01 ~]cd shell-training
+[user@host ~]cd shell-training
 ```
 
 Wildcards
 ---------
 
 ```
-[ccaaxxx@aristotle01 shell-training]cd wildcards
-[ccaaxxx@aristotle01 wildcards]$ ls *.txt
+[user@host shell-training]$ cd wildcards
+[user@host wildcards]$ ls *.txt
 abcde.txt  ab.txt    cheesecake.txt  food.txt
 abc.txt    cake.txt  def.txt         xyz.txt
-[ccaaxxx@aristotle01 wildcards]$ ls a*.txt
+[user@host wildcards]$ ls a*.txt
 abcde.txt  abc.txt  ab.txt
 ```
 
@@ -426,7 +413,7 @@ Wildcards
 ---------
 
 ```
-[ccaaxxx@aristotle01 wildcards]ls ???.txt
+[user@host wildcards]$ ls ???.txt
 abc.txt	def.txt	xyz.txt
 ```
 
@@ -446,9 +433,9 @@ Redirecting output to a file
 --------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$echo hello > hello.txt
-[ccaaxxx@aristotle01 ~]$echo hello again >> hello.txt
-[ccaaxxx@aristotle01 ~]$cat hello.txt
+[user@host ~]$ echo hello > hello.txt
+[user@host ~]$ echo hello again >> hello.txt
+[user@host ~]$ cat hello.txt
 hello
 hello again
 ```
@@ -460,13 +447,13 @@ Redirecting output
 ------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls -R ~ > all-home.txt
+[user@host ~]$ ls -R ~ > all-home.txt
 ```
 
 * **&gt;** - redirect stdout to a file
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls -R ~ | less
+[user@host ~]$ ls -R ~ | less
 ```
 
 * **|** "pipe" stdout to stdin of another command
@@ -486,7 +473,7 @@ Redirecting StdErr
 ------------------
 
 ```
-[cceatco@aristotle01 wildcards]$ ls *.txt not_a_file > txt_list 2> txt_list_err
+[cceatco@host wildcards]$ ls *.txt not_a_file > txt_list 2> txt_list_err
 ```
 
 * ```2>``` redirects any error messages created by a command
@@ -509,9 +496,9 @@ Counting the classes
 --------------------
 
 ```
-[ccaaxxx@aristotle01 ~]cd shell-training/IOM-animals
-[cceatco@aristotle01 IOM-animals]$ wc -l *.txt | sort -n | head -5 > animal-numbers
-[cceatco@aristotle01 IOM-animals]$ cat animal-numbers
+[user@host ~]$ cd shell-training/IOM-animals
+[cceatco@host IOM-animals]$ wc -l *.txt | sort -n | head -5 > animal-numbers
+[cceatco@host IOM-animals]$ cat animal-numbers
    1 reptiles.txt
    5 amphibians.txt
   23 mammals.txt
@@ -527,8 +514,8 @@ Grep
 ----
 
 ```
-[ccaaxxx@aristotle01 IOM-animals]$ grep brown * > brown-animals.txt
-[ccaaxxx@aristotle01 IOM-animals]$ cat brown-animals.txt
+[user@host IOM-animals]$ grep brown * > brown-animals.txt
+[user@host IOM-animals]$ cat brown-animals.txt
 insects.txt:    brown hawker, aeshna grandis
 insects.txt:    meadow brown, maniola jurtina
 mammals.txt:    brown long-eared bat, plecotus auritus
@@ -554,7 +541,7 @@ You can also redirect standard input to a command, using ```<```
 to send the contents of a file in place of command line input.
 
 ```
-[ccaaxxx@aristotle01 shell-training]$ bc -l < some-maths
+[user@host shell-training]$ bc -l < some-maths
 3.14285714285714285714
 9.99
 16.66666666666666666666
@@ -574,8 +561,8 @@ Variables and Loops
 A simple variable
 -----------------
 ```
-[ccaaxxx@aristotle01 ~]$ var1='hello'
-[ccaaxxx@aristotle01 ~]$ echo $var1 world!
+[user@host ~]$ var1='hello'
+[user@host ~]$ echo $var1 world!
 hello world!
 ```
 
@@ -585,10 +572,10 @@ hello world!
 Quoting variables
 -----------------
 ```
-[ccaaxxx@aristotle01 ~]$myname="John Smith"
-[ccaaxxx@aristotle01 ~]$ echo "Hello my name is $myname. Nice to meet you."
+[user@host ~]$ myname="John Smith"
+[user@host ~]$ echo "Hello my name is $myname. Nice to meet you."
 Hello my name is John Smith. Nice to meet you.
-[ccaaxxx@aristotle01 ~]$ echo 'Hello my name is $myname. Nice to meet you.'
+[user@host ~]$ echo 'Hello my name is $myname. Nice to meet you.'
 Hello my name is $myname. Nice to meet you.
 ```
 
@@ -597,15 +584,15 @@ Hello my name is $myname. Nice to meet you.
 Quoting variables
 -----------------
 ```
-[ccaaxxx@aristotle01 ~]$ fruit=orange
-[ccaaxxx@aristotle01 ~]$ echo "I love eating $fruits."
+[user@host ~]$ fruit=orange
+[user@host ~]$ echo "I love eating $fruits."
 I love eating .
 ```
 
 Quoting variables
 -----------------
 ```
-[ccaaxxx@aristotle01 ~]$ echo "I love eating ${fruit}s."
+[user@host ~]$ echo "I love eating ${fruit}s."
 I love eating oranges.
 ```
 
@@ -614,11 +601,11 @@ I love eating oranges.
 Arithmetic with variables
 -------------------------
 ```
-[ccaaxxx@aristotle01 ~]$ two=2 
-[ccaaxxx@aristotle01 ~]$ result=$(( $two + 2 )) 
-[ccaaxxx@aristotle01 ~]$ echo $result  
+[user@host ~]$ two=2 
+[user@host ~]$ result=$(( $two + 2 )) 
+[user@host ~]$ echo $result  
 4 
-[ccaaxxx@aristotle01 ~]$
+[user@host ~]$
 ```
 
 * Integer arithmetic can be done inside $(( ))
@@ -633,10 +620,10 @@ Storing output of commands in variables
 Run commands inside **$( )** and assign the wrapped command to a variable
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls 
+[user@host ~]$ ls 
 a_directory  a_file 
-[ccaaxxx@aristotle01 ~]$ dir_contents=$( ls ) 
-[ccaaxxx@aristotle01 ~]$ echo $dir_contents 
+[user@host ~]$ dir_contents=$( ls ) 
+[user@host ~]$ echo $dir_contents 
 a_directory a_file
 ```
 	
@@ -651,7 +638,7 @@ Special environment variables
 What is the output of this command?
 
 ```
-[ccaaxxx@aristotle01 ~]$ echo $PATH
+[user@host ~]$ echo $PATH
 ``` 
 
 Note the structure: \<path1\>:\<path2\>:\<path3\>  
@@ -664,7 +651,7 @@ The for loop
 ------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ for i in first second third
+[user@host ~]$ for i in first second third
 > do
 > echo $i iteration
 > done
@@ -680,7 +667,7 @@ The for loop using an iterator
 ------------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ for (( i=1 ; i<=5 ; i++ )); do echo iteration$i; done
+[user@host ~]$ for (( i=1 ; i<=5 ; i++ )); do echo iteration$i; done
 iteration1
 iteration2
 iteration3
@@ -695,6 +682,12 @@ Exercise
 * Use a for loop to create five directories called calculation_?, where ? is a number.
 * Use a loop to create five directories, each one the parent of the next.
 
+Exercise
+--------
+
+* In the wildcards directory, create a variable called files listing all of the text files.
+* Loop through this list and print out the first line from each file.
+
 File properties and permissions
 ===============================
 
@@ -702,11 +695,11 @@ File properties
 ---------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls -l
+[user@host ~]$ ls -l
 total 8
-drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
--rw-r--r-- 1 ccaaxxx rcops    0 2009-12-08 07:31 a_file
-drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 06:50 Scratch
+drwxr-xr-x 2 user rcops 4096 2009-12-08 07:31 a_directory
+-rw-r--r-- 1 user rcops    0 2009-12-08 07:31 a_file
+drwxr-xr-x 2 user rcops 4096 2009-12-08 06:50 Scratch
 
 ```
 
@@ -716,11 +709,11 @@ File properties
 ---------------
 
 ```
-drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+drwxr-xr-x 2 user rcops 4096 2009-12-08 07:31 a_directory
 
         drwxr-xr-x      - File type and permissions
-        2		- Number of links to the file
-        ccaaxxx         - User name of file owner
+        2				- Number of links to the file
+        user         	- User name of file owner
         rcops           - Group to which the file belongs 
         4096            - size of file in bytes
         2009-12-08      - last change data
@@ -775,16 +768,11 @@ File permissions
 ----------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ ls -l 
-...
-drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
-...
-
-[ccaaxxx@aristotle01 ~]$ chmod go-rx a_directory
-
-[ccaaxxx@aristotle01 ~]$ ls -l 
-...
-drwx------ 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+[user@host ~]$ ls -l 
+drwxr-xr-x 2 user rcops 4096 2009-12-08 07:31 a_directory
+[user@host ~]$ chmod go-rx a_directory
+[user@host ~]$ ls -l 
+drwx------ 2 user rcops 4096 2009-12-08 07:31 a_directory
 ```
 
 * **chmod** - change the permissions of a file
@@ -838,7 +826,7 @@ Running a script
 ----------------
 Method 1
 ```
-[ccaaxxx@aristotle01 ~]$bash hello_world.sh
+[user@host ~]$ bash hello_world.sh
 ```
 
 * **bash** is the name of the shell you are using right now
@@ -849,10 +837,10 @@ Running a script
 Method 2: making it executable
 
 ```
-[ccaaxxx@aristotle01 ~]$chmod u+x hello_world.sh
-[ccaaxxx@aristotle01 ~]$ ls -l hello-world.sh
--rwxr--r-- 1 ccaaxxx ccaas0 30 Mar 31 17:10 hello_world.sh
-[ccaaxxx@aristotle01 ~]$ ./hello_world.sh
+[user@host ~]$ chmod u+x hello_world.sh
+[user@host ~]$ ls -l hello-world.sh
+-rwxr--r-- 1 user ccaas0 30 Mar 31 17:10 hello_world.sh
+[user@host ~]$ ./hello_world.sh
 hello world!
 ```
 
@@ -890,7 +878,7 @@ Command line arguments
 Variables can also be defined through the command line
 
 ```
-[ccaaxxx@aristotle01 ~]$ ./script.sh var1 var2
+[user@host ~]$ ./script.sh var1 var2
 ```
 
 Within the script:
@@ -909,7 +897,7 @@ echo And together they make ${1}${2}
 ```
 
 ```
-[ccaaxxx@aristotle01 ~]$./var-script green house
+[user@host ~]$ ./var-script green house
 The first argument is green
 The second argument is house
 And together they make greenhouse
@@ -964,9 +952,9 @@ Which processes are running?
 Use the **ps** command
 
 ```
-[ccaaxxx@aristotle01 ~]$ ps xjf
+[user@host ~]$ ps xjf
   PPID    PID   PGID    SID TTY       TPGID STAT   UID   TIME COMMAND
- 67744  67753  67744  67744 ?            -1 S    181641   0:00 sshd: ccaaxxx@pts
+ 67744  67753  67744  67744 ?            -1 S    181641   0:00 sshd: user@pts
  67753  67762  67762  67762 pts/1     75804 Ss   181641   0:00  \_ -bash
  67762  75782  75782  67762 pts/1     75804 S    181641   0:00      \_ sleep 30
  67762  75804  75804  67762 pts/1     75804 R+   181641   0:00      \_ ps -xjf
@@ -985,13 +973,13 @@ Killing processes
 Use the **kill** command with the process ID
 
 ```
-[ccaaxxx@aristotle01 ~]$ kill 75782
+[user@host ~]$ kill 75782
 ```
 
 Or force termination with
 
 ```
-[ccaaxxx@aristotle01 ~]$ kill -9 75782
+[user@host ~]$ kill -9 75782
 ```
 
 
@@ -1120,7 +1108,7 @@ Formatted sequences based on numbers
 ------------------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ seq 1 5
+[user@host ~]$ seq 1 5
 1
 2
 3
@@ -1134,7 +1122,7 @@ Formatted sequences based on numbers
 ------------------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ seq 1 2 9
+[user@host ~]$ seq 1 2 9
 1
 3
 5
@@ -1148,7 +1136,7 @@ Formatted sequences based on numbers
 ------------------------------------
 
 ```
-[ccaaxxx@aristotle01 ~]$ seq -f %03g 1 2 9
+[user@host ~]$ seq -f %03g 1 2 9
 001
 003
 005
@@ -1184,10 +1172,10 @@ Soft links
 * Shortcut, e.g.
 
 ```
-[cccaaxxx@aristotle01 ~]$ ln -s ~/some_project/2012/part531 ~/current_project
-[cccaaxxx@aristotle01 ~]$ ls -l ~ 
-lrwxr-xr-x  1 ccaaxxx  staff  11 10 Oct 17:56
-               current_project -> /home/ccaaxxx/some_project_2012/part531
+[cuser@host ~]$ ln -s ~/some_project/2012/part531 ~/current_project
+[cuser@host ~]$ ls -l ~ 
+lrwxr-xr-x  1 user  staff  11 10 Oct 17:56
+               current_project -> /home/user/some_project_2012/part531
 ```
 
 * Can use relative or absolute paths!
@@ -1199,7 +1187,7 @@ Archiving and compression
 -------------------------
 
 ```
-[ccaaxxx@aristotle01 shell-training]$ tar -czvf work.tgz work
+[user@host shell-training]$ tar -czvf work.tgz work
 work/
 work/program/
 work/calculations/
@@ -1217,7 +1205,7 @@ Extracting files from a compressed archive
 ------------------------------------------
 
 ```
-[ccaaxxx@aristotle01 shell-training]$ tar -xzvf work.tgz 
+[user@host shell-training]$ tar -xzvf work.tgz 
 work/
 work/program/
 work/calculations/
@@ -1261,7 +1249,7 @@ Transferring files across a network
 From Aristotle:
 
 ```
-[ccaaxxx@aristotle01 ~]$ scp work.tgz ccaaxxx@socrates.ucl.ac.uk:
+[user@host ~]$ scp work.tgz user@socrates.ucl.ac.uk:
 ...
 Password:
 work.tgz         100%  340     0.3KB/s   00:00
@@ -1276,7 +1264,7 @@ Transferring files across a network
 To Aristotle:
 
 ```
-[ccaaxxx@aristotle01 ~]$ scp ccaaxxx@socrates.ucl.ac.uk:~/work.tgz .
+[user@host ~]$ scp user@socrates.ucl.ac.uk:~/work.tgz .
 ...
 Password:
 work.tgz         100%  340     0.3KB/s   00:00
