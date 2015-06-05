@@ -77,6 +77,9 @@ Command Prompt
 
 * **&lt;present directory&gt;** is the directory that the user is currently in.
 
+Command Prompt
+--------------
+
 * Read evaluate print loop
 
 	+ User types a command and presses enter
@@ -150,7 +153,7 @@ Directory Navigation
 [ccaaxxx@aristotle01 ~]$ pwd
 /home/ccaaxxx
 [ccaaxxx@aristotle01 ~]$ cd ..
-[ccaaxxx@aristotle01 home]$ cd..
+[ccaaxxx@aristotle01 home]$ cd ..
 [ccaaxxx@aristotle01 /]$ 
 ```
 
@@ -203,9 +206,9 @@ With reference to the directory structure shown above:
 
 1. If ```pwd``` displays ```/home/ccaaxxx/project```, what will ```ls ../data``` display?
 2. If ```pwd``` displays ```/home/ccaaxxx/data```, what command will display:
-		```
-		2015-01 	2015-02 	2015-03
-		```
+```
+2015-01 	2015-02 	2015-03
+```
 When exploring the filesystem on Aristotle:
 		
 1. What does typing ```cd``` on its own do? Try typing it from several different locations.
@@ -340,16 +343,13 @@ rm: cannot remove `a_directory/': Is a directory
 Exercise:
 --------
 
-In your home directory (```~```) and without changing directory:
- 
-* Create the following directory tree:
+* Create the following directory tree in your home directory (```~```):
 ```
     work
     work/input_data/
     work/results/
     work/program/
 ```
-
 * Create the file "input.txt" with a text editor and put some text in it.
 
 * Move the file to work/input_data and rename it in the same command to control01.txt
