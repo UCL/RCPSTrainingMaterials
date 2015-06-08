@@ -358,9 +358,14 @@ Exercise:
 
 * Delete the work directory and all of its contents with one single command.
 
+Tab completion
+--------------
+
+* Go to ```/shared/ucl/apps/examples/openmp_pi_dir```
+* What happens if you type ```cd /sh``` and then press the *tab* key?
+
 Inspecting files
 ----------------
-
 ```
 [user@host ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
 [user@host examples]$ less openmp_pi.f90
@@ -382,6 +387,11 @@ Other file inspection tools
 |sdiff   |- visualise and compare two files side-by-side                         |
 
 (Use "man &lt;command&gt;" to see more information)
+
+History repeating
+-----------------
+* Type ```history``` for a numbered list of your previous commands.
+* Type ```!555``` where *555* is the number of a command you want to execute again.
 
 
 Wildcards, Redirection and Piping
@@ -434,6 +444,16 @@ abc.txt	def.txt	xyz.txt
 ```
 
 * `?` is also a wildcard. It matches a single character.
+
+Wildcards
+---------
+
+```
+[user@host wildcards]$ ls [fx]*
+food.txt	xyz.txt
+```
+
+* Use square brackets to match any one of the characters indicated.
 
 Output redirection and piping
 -----------------------------
@@ -508,48 +528,6 @@ ls -l > list_of_files
 
 ![](assets/process4.png)
 
-Counting the classes
---------------------
-
-```
-[user@host ~]$ cd shell-training/IOM-animals
-[cceatco@host IOM-animals]$ wc -l *.txt | sort -n | head -5 > animal-numbers
-[cceatco@host IOM-animals]$ cat animal-numbers
-   1 reptiles.txt
-   5 amphibians.txt
-  23 mammals.txt
-  89 birds.txt
-  92 insects.txt
-```
-
-* **wc -l** count the number of lines in a file
-* **sort -n** sort a list numerically
-* **head -5** show the first 5 lines only
-
-Grep
-----
-
-```
-[user@host IOM-animals]$ grep brown * > brown-animals.txt
-[user@host IOM-animals]$ cat brown-animals.txt
-insects.txt:    brown hawker, aeshna grandis
-insects.txt:    meadow brown, maniola jurtina
-mammals.txt:    brown long-eared bat, plecotus auritus
-mammals.txt:    brown rat, rattus norvegicus
-```
-
-* **grep** prints lines containing a string.
-	+ Can be used for finding strings in text files or filter output from a command
-
-Output redirection and piping
------------------------------
-
-You can chain any number of programs together to achieve your goal:
-
-![](assets/process6.png)
-
-This allows you to build up fairly complex workflows within one command-line.
-
 Redirecting input
 -----------------
 
@@ -566,13 +544,53 @@ to send the contents of a file in place of command line input.
 
 * **bc** allows calculations with floating point numbers.
 
+Output redirection and piping
+-----------------------------
+
+You can chain any number of programs together to achieve your goal:
+
+![](assets/process6.png)
+
+This allows you to build up fairly complex workflows within one command-line.
+
+Counting the classes
+--------------------
+
+I want to list all the animals on the Isle of Mann alphabetically and find the 50th item in that list:
+
+```
+[user@host ~]$ cd shell-training/IOM-animals
+[cceatco@host IOM-animals]$ cat *.txt | sort | head -50 | tail -1 | animal50.txt
+[cceatco@host IOM-animals]$ cat animal50.txt
+	coot, fulica atra
+```
+
+* **cat** concatenate these files
+* **sort** sort a list
+* **head -50** show the first 50 lines only
+
+Grep
+----
+
+```
+[user@host IOM-animals]$ grep brown * > brown-animals.txt
+[user@host IOM-animals]$ cat brown-animals.txt
+insects.txt:    brown hawker, aeshna grandis
+insects.txt:    meadow brown, maniola jurtina
+mammals.txt:    brown long-eared bat, plecotus auritus
+mammals.txt:    brown rat, rattus norvegicus
+```
+
+* **grep** prints lines containing a string.
+	+ Can be used for finding strings in text files or filter output from a command
+
 Exercise
 --------
 ```shell-training/data/``` contains 300 data files, each of which *should* contain 100 values.
 One of these files is missing some data though...
 
 * Use a series of commands connected by pipes to identify the file with missing data
-* **hint** ```wc -w``` will tell you the number of values in a file
+* **hint** ```wc -w``` will tell you the number of values in a file, ```sort -n``` will sort numerically
 
 Exercise
 --------
