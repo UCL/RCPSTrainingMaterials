@@ -223,9 +223,10 @@ Directory creation
 
 ```
 [user@host ~]$ mkdir a_directory
-
 [user@host ~]$ ls
 a_directory
+[user@host ~]$ mkdir a_directory/inside/the_other
+mkdir: cannot create directory `a_directory/inside/the_other': No such file or directory
 ```
 
 * **mkdir** - create a directory
@@ -509,7 +510,7 @@ Redirecting StdErr
 ------------------
 
 ```
-[cceatco@host wildcards]$ ls *.txt not_a_file > txt_list 2> txt_list_err
+[cceatco@host wildcards]$ wc *.txt not_a_file > txt_list 2> txt_list_err
 ```
 
 * ```2>``` redirects any error messages created by a command
