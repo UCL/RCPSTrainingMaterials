@@ -506,21 +506,21 @@ Output redirection and piping
 
 ![](assets/process2.png)
 
-Redirecting StdErr
-------------------
-
-```
-[cceatco@host wildcards]$ wc *.txt not_a_file > txt_list 2> txt_list_err
-```
-
-* ```2>``` redirects any error messages created by a command
-
 Output redirection and piping
 -----------------------------
 
 ls -l
 
 ![](assets/process3.png)
+
+Redirecting StdErr
+------------------
+
+```
+[user@host wildcards]$ wc *.txt not_a_file > txt_list 2> txt_list_err
+```
+
+* ```2>``` redirects any error messages created by a command
 
 Output redirection and piping
 -----------------------------
@@ -561,8 +561,8 @@ I want to list all the animals on the Isle of Mann alphabetically and find the 5
 
 ```
 [user@host ~]$ cd shell-training/IOM-animals
-[cceatco@host IOM-animals]$ cat *.txt | sort | head -50 | tail -1 | animal50.txt
-[cceatco@host IOM-animals]$ cat animal50.txt
+[user@host IOM-animals]$ cat *.txt | sort | head -50 | tail -1 > animal50.txt
+[user@host IOM-animals]$ cat animal50.txt
 	coot, fulica atra
 ```
 
@@ -570,20 +570,23 @@ I want to list all the animals on the Isle of Mann alphabetically and find the 5
 * **sort** sort a list
 * **head -50** show the first 50 lines only
 
-Grep
-----
+Paint it black
+--------------
 
 ```
-[user@host IOM-animals]$ grep brown * > brown-animals.txt
-[user@host IOM-animals]$ cat brown-animals.txt
-insects.txt:    brown hawker, aeshna grandis
-insects.txt:    meadow brown, maniola jurtina
-mammals.txt:    brown long-eared bat, plecotus auritus
-mammals.txt:    brown rat, rattus norvegicus
+[user@host IOM-animals]$ grep -hw red *.txt | sed 's/red/black/g' | cut -d ',' -f 1
+black-throated diver
+black-breasted merganser
+black-legged partridge
+black grouse
+black-veined darter
+black admiral
+black-necked wallaby
 ```
 
 * **grep** prints lines containing a string.
-	+ Can be used for finding strings in text files or filter output from a command
+* **sed** stream editor allows you to edit text.
+* **cut** select and print parts of lines.
 
 Exercise
 --------
@@ -722,7 +725,10 @@ The for loop using an iterator
 ------------------------------
 
 ```
-[user@host ~]$ for (( i=1 ; i<=5 ; i++ )); do echo iteration$i; done
+[user@host ~]$ for (( i=1 ; i<=5 ; i++ ))
+> do
+> echo iteration$i
+> done
 iteration1
 iteration2
 iteration3
