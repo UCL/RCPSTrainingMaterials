@@ -21,7 +21,7 @@ Overview
 
 * Scripts
 
-* Screen
+* And more...
 
 
 Connecting to a computer: 1970s
