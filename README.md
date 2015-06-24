@@ -15,30 +15,8 @@ Build Instructions
 
 You need:
 
-The Dexy-ready version of UCL Indigo.
+* Pandoc [brew install pandoc or similar]
+* Jekyll [gem install jekyll or similar]
 
-```none
-git clone https://github.com/UCL-RITS/indigo-dexy.git
-```
-
-A patched version of Dexy
-
-```none
-pip install --user git+git://github.com/UCL-RITS/dexy.git
-```
-
-Then, from this repo, edit dexyplugin.yaml with the path to the 
-clone of indigo-dexy.
-
-Finally, build with
-
-```none
-dexy setup
-dexy
-```
-
-Can run server with
-
-```none
-dexy serve
-```
+* To build do: make
+* To test do: make; jekyll serve
