@@ -1,5 +1,6 @@
 ---
 title: Introduction to the UNIX shell
+slidelink: True
 ---
 
 

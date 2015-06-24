@@ -1,5 +1,6 @@
 ---
 title: Legion Overview
+slidelink: True
 ---
 
 Legion Architecture

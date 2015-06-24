@@ -1,5 +1,6 @@
 ---
 title: Exercise Solutions
+slidelink: True
 ---
 
 First Day

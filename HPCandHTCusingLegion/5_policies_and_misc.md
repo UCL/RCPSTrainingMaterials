@@ -1,5 +1,6 @@
 ---
 title: Policies and Miscellanea
+slidelink: True
 ---
 
 Policies

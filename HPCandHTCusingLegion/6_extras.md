@@ -1,5 +1,6 @@
 ﻿---
 title: Extras
+slidelink: True
 ---
 
 GNU Screen

@@ -1,5 +1,6 @@
 ---
 title: Legion environment and batch processing
+slidelink: true
 ---
 
 Legion Environment and Batch processing
@@ -10,7 +11,7 @@ A Simple Serial Job
 
 `calculate_pi` - Calculates π by numerically integrating a curve.
 
-\\[ \int_{0}^{1}\frac{4}{1+x^2}\text{d}x=\pi \\]
+\\[\int_{0}^{1}\frac{4}{1+x^2}\text{d}x=\pi\\]
 
 ![](../assets/pigraph-diagram.svg)
 
