@@ -451,7 +451,8 @@ File permissions
 
 **drwxr-xr-x** has four fields:
 
-|:-----|:----------------------------------------------|
+| code | meaning                                       |
+|------|-----------------------------------------------|
 | d    | - the file is a directory                     |
 | rwx  | - the user has read, write and execute access |
 | r-x  | - the group has read and execute access       |
@@ -460,7 +461,7 @@ File permissions
 
 
 | Permissions | read | write | execute |
-|:------------|:----:|:-----:|:-------:|
+|-------------|------|-------|---------|
 | rwx         | yes  | yes   | yes     |
 | rw-         | yes  | yes   | no      |
 | r--         | yes  | no    | no      |
@@ -528,7 +529,8 @@ Inspecting files
 Other file inspection tools
 ---------------------------
 
-|:-------|:----------------------------------------------------------------------|
+|command | use                                                                   |
+|--------|-----------------------------------------------------------------------|
 |head    |- visualise the first 10 lines of a file                               |
 |tail    |- visualise the last 10 lines of a file                                |
 |cat     |- concatenate files provided as input and dump the result to *stdout*  |
@@ -861,8 +863,9 @@ echo $message
 echo ${message}
 ```
 
-|:---------|:---------------------------------------------------------|
-| #!       | tells the shell that this the interpreter (/bin/bash)    |
+| symbol   | purpose                                                  |
+|----------|----------------------------------------------------------|
+| #!       | tells the shell that this is the interpreter (/bin/bash) |
 | #        | followed by a blank character is a comment line          |
 | message  | variable to which the string 'Hello World!' is assigned  |
 | echo     | prints to screen the contents of the variable "$message" |
@@ -1065,7 +1068,8 @@ Use the commands **top** and **ps**
 [ccaaxxx@login06 ~]$ ps aux
 ```
 
-|:--------|:-----------------------------------------------------------|
+| Field   | contents                                                   |
+|---------|------------------------------------------------------------|
 | USER    | - the user name                                            |
 | PID     | - the process ID                                           |
 | %CPU    | - the percentage of CPU time being used                    |
@@ -1077,6 +1081,8 @@ Use the commands **top** and **ps**
 | START   | - the time when the process was started                    |
 | TIME    | - the time the process has been running                    |
 | COMMAND | - the command that was called                              |
+
+And:
 
 ```
 [ccaaxxx@login06 ~]$ ps xjf
