@@ -1,6 +1,7 @@
-﻿---
-title: Concepts
 ---
+title: HPC and HTC Concepts
+---
+
 
 HPC and HTC Concepts
 ====================
@@ -18,7 +19,7 @@ AKA **"Supercomputing"**
 The Computer
 ------------
 
-![](assets/thecomputer.svg)
+![](../assets/thecomputer.svg)
 
 Traditional view of a computer is changing
 ------------------------------------------
@@ -40,7 +41,7 @@ Pressure from computing requirements
 
     * Communication between "desktops" can become a bottleneck.
 
-![](assets/noaaforcast.png)
+![](../assets/noaaforcast.png)
 
 Pressure from computing requirements
 ------------------------------------
@@ -64,13 +65,13 @@ Pressure from physics
 
     * Only one sub-process is active at any given time.
 
-![](assets/serial.svg)
+![](../assets/serial.svg)
 
 * **Parallel Process:**
 
     * Process in which a number of stages can occur during the same time interval (e.g. trans-parallel process).
 
-![](assets/parallel.svg)
+![](../assets/parallel.svg)
 
 
 Pressure from physics
@@ -104,21 +105,21 @@ Amdahl's Law
 
 1 Processor
 
-![](assets/amdahl1.png)
+![](../assets/amdahl1.png)
 
 Amdahl's Law
 ------------
 
 2 Processors
 
-![](assets/amdahl2.png)
+![](../assets/amdahl2.png)
 
 Amdahl's Law
 ------------
 
 10 Processors
 
-![](assets/amdahl10.png)
+![](../assets/amdahl10.png)
 
 Amdahl's Law
 ------------
@@ -132,7 +133,7 @@ $\frac{1}{\left(1-P\right)+\frac{P}{N}}$
 Amdahl's Law
 ------------
 
-![](assets/amdahlscale.png)
+![](../assets/amdahlscale.png)
 
 * If 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20x, no matter how many processors are used.
 
@@ -150,34 +151,34 @@ cellular automata, algorithmic parallelism
 SMP (Symmetric Multi-Processing)
 -------------------------------
 
-![](assets/smp.png)
+![](../assets/smp.png)
 
 
 SMP (Symmetric Multi-Processing)
 -------------------------------
 
-![](assets/smp2.png)
+![](../assets/smp2.png)
 
 Beowulf Cluster
 ---------------
 
-![](assets/beowulf.png)
+![](../assets/beowulf.png)
 
 Infiniband Cluster
 ------------------
 
-![](assets/cluster.png)
+![](../assets/cluster.png)
 
 NUMA (Non-Uniform Memory Access)
 --------------------------------
 
-![](assets/numa.png)
+![](../assets/numa.png)
 
 Interconnect comparions
 -----------------------
 
 | Interconnect   |  Typical MPI latency (microseconds) | Typical bandwidth (MB/s) |
-|:---------------|:-----------------------------------:|:------------------------:|
+|----------------| ----------------------------------- | ------------------------ |
 | 1Gbs Ethernet  | 60-90                               | 90                       |
 | 10Gbs Ethernet | 12-20                               | 800                      |
 | Infiniband     | 2-4                                 | 250-1200                 |
@@ -187,7 +188,7 @@ Interconnect comparions
 GPU accelerator
 ---------------
 
-![](assets/gpu.png)
+![](../assets/gpu.png)
 
 Only a subset of problems can be optimised
 ------------------------------------------
@@ -196,7 +197,7 @@ Only a subset of problems can be optimised
 
 * Not all parallel problems can be ported to accelerators
 
-![](assets/optimisationsets.png)
+![](../assets/optimisationsets.png)
 
 In summary
 ----------
@@ -236,7 +237,7 @@ They can be useful for a large number of types of work.
 Applications
 ------------
 
-![](assets/applications.png)
+![](../assets/applications.png)
 
 The Cluster
 ===========
@@ -244,7 +245,7 @@ The Cluster
 Overview
 --------
 
-![](assets/clusteroverview.svg)
+![](../assets/clusteroverview.svg)
 
 The Node
 --------
@@ -267,7 +268,7 @@ The Node
 Generic Software stack
 ----------------------
 
-![](assets/stack.svg)
+![](../assets/stack.svg)
 
 Real applications
 -----------------

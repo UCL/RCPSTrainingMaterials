@@ -42,25 +42,25 @@ legion.rc.ucl.ac.uk
 Connecting to a computer: 1970s
 -------------------------------
 
-![](assets/terminal-serial.svg)
+![](../assets/terminal-serial.svg)
 
 
 Connecting to a computer: working from home
 -------------------------------------------
 
-![](assets/terminal-phone.svg)
+![](../assets/terminal-phone.svg)
 
 Connecting to a computer: over the Internet
 -------------------------------------------
 
-![](assets/terminal-telnet.svg)
+![](../assets/terminal-telnet.svg)
 
 Communication *unencrypted!*
 
 Connecting to a computer: over the Internet
 -------------------------------------------
 
-![](assets/terminal-ssh.svg)
+![](../assets/terminal-ssh.svg)
 
 Communication *encrypted!*
 
@@ -79,12 +79,12 @@ ssh username@legion.rc.ucl.ac.uk
 Access to Legion
 ----------------
 
-![](assets/puttylocation.png)
+![](../assets/puttylocation.png)
 
 Access to Legion
 ----------------
 
-![](assets/puttyconfig.png)
+![](../assets/puttyconfig.png)
 
 
 
@@ -160,19 +160,19 @@ Directory Navigation
 Filesystem structure
 --------------------
 
-![](assets/directorystructure.png)
+![](../assets/directorystructure.png)
 
 Absolute path
 -------------
 
-![](assets/abspath.png)
+![](../assets/abspath.png)
 
 /home/alice
 
 Relative path
 -------------
 
-![](assets/relpath.png)
+![](../assets/relpath.png)
 
 ../home/alice
 
@@ -318,7 +318,7 @@ Editing files
 [ccaaxxx@login06 ~]$ nano a_file
 ```
 
-![](assets/nano.png)
+![](../assets/nano.png)
 
 * **nano** - simple file editor
 
@@ -326,7 +326,7 @@ Editing files
 Nano
 ----
 
-![](assets/nano2.png)
+![](../assets/nano2.png)
 
 * **nano** - simple file editor
 * Commands are along the botton of editor screen
@@ -708,40 +708,40 @@ Output redirection and piping
 Output redirection and piping
 -----------------------------
 
-![](assets/process1.png)
+![](../assets/process1.png)
 
 Output redirection and piping
 -----------------------------
 
-![](assets/process2.png)
+![](../assets/process2.png)
 
 Output redirection and piping
 -----------------------------
 
 ls -l
 
-![](assets/process3.png)
+![](../assets/process3.png)
 
 Output redirection and piping
 -----------------------------
 
 ls -l > list_of_files
 
-![](assets/process4.png)
+![](../assets/process4.png)
 
 Output redirection and piping
 -----------------------------
 
 ls -l | grep partial_name > list_of_files
 
-![](assets/process5.png)
+![](../assets/process5.png)
 
 Output redirection and piping
 -----------------------------
 
 You can chain any number of programs together to achieve your goal:
 
-![](assets/process6.png)
+![](../assets/process6.png)
 
 This allows you to build up fairly complex workflows within one command-line.
 
@@ -833,7 +833,7 @@ Exercise
 Updated process diagram
 -----------------------
 
-![](assets/processenvvars.png)
+![](../assets/processenvvars.png)
 
 Special environment variables
 -----------------------------

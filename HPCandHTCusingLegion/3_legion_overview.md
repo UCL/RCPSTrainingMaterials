@@ -71,13 +71,13 @@ Numbers and Types
 Topology
 --------
 
-![](assets/topology.svg)
+![](../assets/topology.svg)
 
 
 Filesystem Access
 -----------------
 
-![](assets/filesystems.svg)
+![](../assets/filesystems.svg)
 
 
 

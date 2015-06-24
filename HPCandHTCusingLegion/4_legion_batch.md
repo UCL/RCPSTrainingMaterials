@@ -12,7 +12,7 @@ A Simple Serial Job
 
 $\int_{0}^{1}\frac{4}{1+x^2}\text{d}x=\pi$
 
-![](assets/pigraph-diagram.svg)
+![](../assets/pigraph-diagram.svg)
 
 Make a Copy
 -----------
@@ -107,13 +107,13 @@ Environment Within a Job
 Multithreaded Jobs
 ---------------------
 
-![](assets/multithread-diagram.svg)
+![](../assets/multithread-diagram.svg)
 
 
 OpenMP
 ------
 
-![](assets/openmp-diagram.svg)
+![](../assets/openmp-diagram.svg)
 
 
 
@@ -173,7 +173,7 @@ Multi-node Jobs
 MPI
 -----
 
-![](assets/mpi-diagram.svg)
+![](../assets/mpi-diagram.svg)
 
 
 Make a Copy

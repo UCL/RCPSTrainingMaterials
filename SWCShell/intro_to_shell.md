@@ -27,12 +27,12 @@ Overview
 Connecting to a computer: 1970s
 -------------------------------
 
-![](assets/terminal-serial.svg)
+![](../assets/terminal-serial.svg)
 
 Connecting to a computer: over the Internet
 -------------------------------------------
 
-![](assets/terminal-ssh.svg)
+![](../assets/terminal-ssh.svg)
 
 Communication *encrypted!*
 
@@ -51,12 +51,12 @@ ssh username@aristotle.rc.ucl.ac.uk
 Access to Aristotle
 -------------------
 
-![](assets/puttylocation.png)
+![](../assets/puttylocation.png)
 
 Access to Aristotle
 -------------------
 
-![](assets/puttyconfig-aristotle.png)
+![](../assets/puttyconfig-aristotle.png)
 
 
 Navigating the filesystem
@@ -117,7 +117,7 @@ Unix Directory Basics
 Filesystem structure
 --------------------
 
-![](assets/directorystructure.png)
+![](../assets/directorystructure.png)
 
 
 What's in here?
@@ -165,7 +165,7 @@ Directory Navigation
 Absolute path
 -------------
 
-![](assets/abspath.png)
+![](../assets/abspath.png)
 
 /home/alice
 
@@ -174,7 +174,7 @@ Absolute path
 Relative path
 -------------
 
-![](assets/relpath.png)
+![](../assets/relpath.png)
 
 ../home/alice
 
@@ -198,7 +198,7 @@ What's over there?
 Exercise
 --------
 
-![](assets/filesystem-exercise1.png)
+![](../assets/filesystem-exercise1.png)
 
 Exercise
 --------
@@ -273,7 +273,7 @@ Editing files
 [user@host ~]$ nano a_file
 ```
 
-![](assets/nano.png)
+![](../assets/nano.png)
 
 * **nano** - simple file editor
 
@@ -281,7 +281,7 @@ Editing files
 Nano
 ----
 
-![](assets/nano2.png)
+![](../assets/nano2.png)
 
 * **nano** - simple file editor
 * Commands are along the botton of editor screen
@@ -499,19 +499,19 @@ Redirecting output
 Output redirection and piping
 -----------------------------
 
-![](assets/process1.png)
+![](../assets/process1.png)
 
 Output redirection and piping
 -----------------------------
 
-![](assets/process2.png)
+![](../assets/process2.png)
 
 Output redirection and piping
 -----------------------------
 
 ls -l
 
-![](assets/process3.png)
+![](../assets/process3.png)
 
 Redirecting StdErr
 ------------------
@@ -527,7 +527,7 @@ Output redirection and piping
 
 ls -l > list_of_files
 
-![](assets/process4.png)
+![](../assets/process4.png)
 
 Redirecting input
 -----------------
@@ -550,7 +550,7 @@ Output redirection and piping
 
 You can chain any number of programs together to achieve your goal:
 
-![](assets/process6.png)
+![](../assets/process6.png)
 
 This allows you to build up fairly complex workflows within one command-line.
 
@@ -677,7 +677,7 @@ a_directory a_file
 Updated process diagram
 -----------------------
 
-![](assets/processenvvars.png)
+![](../assets/processenvvars.png)
 
 Special environment variables
 -----------------------------
@@ -1096,7 +1096,7 @@ ssh user@aristotle.rc.ucl.ac.uk
 
 (or use Putty)
 
-![](assets/terminal-ssh.svg)
+![](../assets/terminal-ssh.svg)
 
 * Take a note of which login node you are assigned!
 
@@ -1109,7 +1109,7 @@ screen
 
 The screen will clear and you will be presented with a new prompt.
 
-![](assets/terminal-screen-1.svg)
+![](../assets/terminal-screen-1.svg)
 
 Do something in that shell (e.g.) "ls".
 
@@ -1120,7 +1120,7 @@ Creating new shells in Screen
 
 * You'll be given another shell (what screen calls a "window")!
 
-![](assets/terminal-screen-2.svg)
+![](../assets/terminal-screen-2.svg)
 
 * Create new "windows" with **Ctrl-a, c**
 
@@ -1134,7 +1134,7 @@ Detaching from your session
 
 * **Ctrl-a, d** detaches from your session.
 
-![](assets/terminal-screen-detached.svg)
+![](../assets/terminal-screen-detached.svg)
 
 * **screen -r** re-attaches.
 
@@ -1143,7 +1143,7 @@ Log out
 
 * You can log out of a machine you have a detached session on and programs will keep running.
 
-![](assets/terminal-screen-logged-out.svg)
+![](../assets/terminal-screen-logged-out.svg)
 
 
 Logging back in
@@ -1152,7 +1152,7 @@ Logging back in
 * Then log back in (from anywhere!) and **screen -r** to re-attach.
 
 
-![](assets/terminal-screen-detached.svg)
+![](../assets/terminal-screen-detached.svg)
 
 Logging back in
 ---------------
@@ -1160,7 +1160,7 @@ Logging back in
 * Then log back in (from anywhere!) and **screen -r** to re-attach.
 
 
-![](assets/terminal-screen-2.svg)
+![](../assets/terminal-screen-2.svg)
 
 **NOTE:** make sure you log into the same login node that you started screen on
 

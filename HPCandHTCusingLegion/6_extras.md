@@ -27,7 +27,7 @@ ssh user@legion.rc.ucl.ac.uk
 
 (or use Putty)
 
-![](assets/terminal-ssh.svg)
+![](../assets/terminal-ssh.svg)
 
 * Take a note of which login node you are assigned!
 
@@ -40,7 +40,7 @@ screen
 
 The screen will clear and you will be presented with a new prompt.
 
-![](assets/terminal-screen-1.svg)
+![](../assets/terminal-screen-1.svg)
 
 Do something in that shell (e.g.) "ls".
 
@@ -51,7 +51,7 @@ Creating new shells in Screen
 
 * You'll be given another shell (what screen calls a "window")!
 
-![](assets/terminal-screen-2.svg)
+![](../assets/terminal-screen-2.svg)
 
 * Create new "windows" with **Ctrl-a, c**
 
@@ -65,7 +65,7 @@ Detaching from your session
 
 * **Ctrl-a, d** detaches from your session.
 
-![](assets/terminal-screen-detached.svg)
+![](../assets/terminal-screen-detached.svg)
 
 * **screen -r** re-attaches.
 
@@ -74,7 +74,7 @@ Log out
 
 * You can log out of a machine you have a detached session on and programs will keep running.
 
-![](assets/terminal-screen-logged-out.svg)
+![](../assets/terminal-screen-logged-out.svg)
 
 
 Logging back in
@@ -83,7 +83,7 @@ Logging back in
 * Then log back in (from anywhere!) and **screen -r** to re-attach.
 
 
-![](assets/terminal-screen-detached.svg)
+![](../assets/terminal-screen-detached.svg)
 
 Logging back in
 ---------------
@@ -91,7 +91,7 @@ Logging back in
 * Then log back in (from anywhere!) and **screen -r** to re-attach.
 
 
-![](assets/terminal-screen-2.svg)
+![](../assets/terminal-screen-2.svg)
 
 
 Legion specific

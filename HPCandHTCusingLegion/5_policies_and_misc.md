@@ -39,7 +39,7 @@ Limits
 ------
 
 | Time | Cores | Queue Type |
-|:-----|:-----:|:----------:|
+|-----|-----|----------|
 | ≤ 15 mins  | ≤1 node      | Rapid Test Queue       |
 | ≤ 12 hours | ≤ 1024 cores | Large Parallel Queue   |
 | ≤ 1 day    | ≤ 512 cores  | Mid Parallel Queue     |
@@ -72,16 +72,16 @@ Security
 
 Legion is not suitable for Highly Restricted data and above.
 
-|:--------------|:-----------|
+| Level                | Examples                                    |
+|----------------------|---------------------------------------------|
 | *Secret:*            | Identifiable patient information            |
-|                     | Personal financial details                  |
-|                     | Confidential investigations                 |
+| ...                  | Personal financial details                  |
+| ...                  | Confidential investigations                 |
 | *Highly Restricted:* | Student profiles                            |
-|                     | Unpublished commercially sensitive material |
+| ...                  | Unpublished commercially sensitive material |
 | *Restricted:*        | UCL main web page                           |
-|                     | Unpublished research data                   |
+| ...                  | Unpublished research data                   |
 | *Normal:*            | Email about fridge-cleaning meeting         |
-|                     |                                             |
 
 [(*See: UCL's data security policy*)](http://www.ucl.ac.uk/informationsecurity/policy/internal-policy/Guidelines10)
 
