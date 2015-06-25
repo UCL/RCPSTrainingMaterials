@@ -22,3 +22,5 @@ crumbs:
 markdown: redcarpet
 redcarpet:
   extensions: ["strikethrough","tables"]
+
+baseurl: /training/hptclegion
