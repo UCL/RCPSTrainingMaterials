@@ -31,6 +31,7 @@ Objectives
 Plan
 ----
 
+| Day         | Topic
 |:------------|:----------------------------|
 | *Day 1* —   | Introduction to HPC and HTC |
 |             | Shell Scripting             |
