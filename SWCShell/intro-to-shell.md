@@ -37,11 +37,11 @@ Connecting to a computer: over the Internet
 Communication *encrypted!*
 
 Access to Legion
--------------------
+----------------
 
 * To access one of the login nodes (remotely) from a Unix machine:
 ``` 
-ssh username@Legion.rc.ucl.ac.uk
+ssh username@legion.rc.ucl.ac.uk
 ```
 
 * Log on using UCL username/password
@@ -49,14 +49,14 @@ ssh username@Legion.rc.ucl.ac.uk
 * On Windows (e.g. Desktop@UCL) you can use PuTTY.
 
 Access to Legion
--------------------
+----------------
 
 ![](../assets/puttylocation.png)
 
 Access to Legion
--------------------
+----------------
 
-![](../assets/puttyconfig-Legion.png)
+![](../assets/puttyconfig.png)
 
 Navigating the filesystem
 =========================
