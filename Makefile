@@ -47,9 +47,7 @@ _site: indigo HPCandHTCusingLegion/1_intro_to_hpc-reveal.html \
 	HPCandHTCusingLegion/7_exercise_solutions-reveal.html \
 	HPCandHTCusingLegion/2_intro_to_shell-reveal.html \
 	HPCandHTCusingLegion/4_legion_batch-reveal.html \
-	HPCandHTCusingLegion/6_extras-reveal.html \
-	SWCShell/intro_to_shell-reveal.html \
-	SWCShell/intro-to-shell-reveal.html
+	HPCandHTCusingLegion/6_extras-reveal.html
 	jekyll build	
 
 clean:
