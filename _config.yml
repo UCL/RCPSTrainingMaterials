@@ -1,7 +1,7 @@
 contact: http://www.ucl.ac.uk/research-it-services/partner-with-us
 
-title: "Research Computing Training Materials"
-short: RCPS Training
+title: "Introduction to High Performance and High Throughput Computing Using Legion"
+short: Legion Training
 
 defaults:
   - scope: {path: ""}
