@@ -10,7 +10,16 @@ This two day course includes presented material and hands-on sessions to provide
 Course content
 --------------
 
-Presentation of the concepts around HPC and HTC - potential applications HPC platforms architecture Network, storage and computing nodes User interface to Legion and software environment Brief introduction to Bash scripting Modules environment Building applications using provided libraries Job submission using SGE scripts - basic workflow examples Comparison with other platforms Summary of Research Computing Platforms usage policies and best practices
+* Presentation of the concepts around HPC and HTC - potential applications 
+* HPC platforms architecture 
+* Network, storage and computing nodes 
+* User interface to Legion and software environment 
+* Brief introduction to Bash scripting 
+* Modules environment 
+* Building applications using provided libraries 
+* Job submission using SGE scripts - basic workflow examples 
+* Comparison with other platforms 
+* Summary of Research Computing Platforms usage policies and best practices
 
 Prerequisites
 -------------
