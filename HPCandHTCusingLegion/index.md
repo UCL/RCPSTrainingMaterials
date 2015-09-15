@@ -1,5 +1,5 @@
 ---
-title: HPC and HTC using Legion
+title: High performance and high throughput computing
 ---
 
 Overview
