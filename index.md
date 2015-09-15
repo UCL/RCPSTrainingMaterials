@@ -2,8 +2,8 @@
 title: Research Computing Platform Services Training Materials
 ---
 
-Introduction to high performance computing with Legion
-======================================================
+Introduction to high performance and high throughput computing
+==============================================================
 
 This two day course includes presented material and hands-on sessions to provide attendees with a practical introduction to High Performance and Throughput Computing techniques, and their application on the research computing clusters available to UCL users.
 
