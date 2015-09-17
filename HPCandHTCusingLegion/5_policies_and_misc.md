@@ -142,8 +142,10 @@ Other Compute Resources
 UCL Funded
 ----------
 
-* Iridis (for large parallel jobs)
-* Emerald (for GPU jobs)
+* Emerald 
+  * for GPU jobs
+* Departmental clusters 
+  * talk to your local IT manager
 
 Other
 -----
