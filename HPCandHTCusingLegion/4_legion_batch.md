@@ -380,10 +380,10 @@ INPUT
 ```
 
 
-Iridis & Emerald
+Other Schedulers
 ----------------
 
-These use a slightly different scheduler system, so the scripts are slightly different.
+Other systems (e.g. Emerald) may use a slightly different scheduler system, so the scripts can be slightly different -- consult the relevant documentation.
 
     #$ -pe qlc 24
     #PBS -l nodes=2:ppn=12
@@ -397,16 +397,13 @@ These use a slightly different scheduler system, so the scripts are slightly dif
     #$ -l memory=4G
     #PBS -l mem=4gb
 
-    # Submit to the only queue UCL users can use.
-    #PBS -q consort
 
-
-Quick Reference Sheets
+Quick Reference Sheet
 ----------------------
 
 Legion: [https://wiki.rc.ucl.ac.uk/mediawiki119/images/a/ad/Legion_ref_sheet.pdf](https://wiki.rc.ucl.ac.uk/mediawiki119/images/a/ad/Legion_ref_sheet.pdf)
 
-Iridis: [https://wiki.rc.ucl.ac.uk/mediawiki119/images/e/e8/Iridis_Quick_Reference.pdf](https://wiki.rc.ucl.ac.uk/mediawiki119/images/e/e8/Iridis_Quick_Reference.pdf)
+
 
 
 
