@@ -30,10 +30,11 @@
 %\setsansfont{Avenir Next Condensed Regular}
 \setsansfont[Scale=0.8]{Source Sans Pro}
 %\setsansfont[Scale=0.8]{Calibri}
-%\setmonofont[Scale=0.8]{Source Code Pro} % Not visually different enough (to Source Sans Pro) to highlight code...
+\setmonofont[Scale=0.7]{Source Code Pro} % Not visually different enough (to Source Sans Pro) to highlight code...
 %\setmonofont[Scale=0.8]{American Typewriter} % American Typewriter isn't monospaced, duh
 %\setmonofont[Scale=0.8]{Inconsolata} % Inconsolata doesn't have italics...
-\setmonofont[Scale=0.8]{Consolas}
+%\setmonofont[Scale=0.8]{Consolas}
+%\setmonofont[Scale=0.8]{Menlo}
 
 %% UCL Colours
 \globalcolorstrue
@@ -703,12 +704,10 @@ For file transfers, users can either use SCP, or SFTP. Best transfer speeds will
 \hline
 \code{login05} & -- & 1 & 4 & 24 GB & \texttimes \\
 \code{login06 -- login09} & -- & 4 & 12 & 24 GB & \texttimes \\
-\code{node-a01 -- node-j64} & W & 628 & 4 & 16 GB & \checkmark \\
-\code{node-k01 -- node-p24} & X & 144 & 12 & 24 GB & \checkmark  \\
-\code{node-001 -- node-108} & Y & 108 & 12 & 24 GB & \texttimes    \\
+\code{node-k01 -- node-p24} & X & 90 & 12 & 24 GB & \checkmark  \\
+\code{node-001 -- node-108} & Y & 50 & 12 & 24 GB & \texttimes    \\
 \code{node-202 -- node-212} & Z & 4 & 12 & 48 GB & \texttimes  \\
-\code{node-301 -- node-308} & V & 8 & 12 & 48 GB & \texttimes  \\
-\code{node-513 -- node-528} & U & 16 & 16 & 64 GB & \texttimes  \\
+\code{node-513 -- node-528} & U & 84 & 16 & 64 GB & \texttimes  \\
 \code{node-601 -- node-603} & T & 3 & 32 & 1.5 TB & \texttimes  \\
 \hline
 \end{tabular}
@@ -770,13 +769,10 @@ Set the name of the job in the queue to \codeit{jobname}
 \code{-P }\codeit{projectid} &
 Set the project id to run the job under (only relevant for special access projects).
 \\
-\code{-pe qlc }\codeit{cores} & 
-Use the QLogic environment, with \codeit{cores} on more than one node if necessary. (Max: 256)
+\code{-pe mpi }\codeit{cores} & 
+Request cores to run distributed parallel jobs (MPI or other), with \codeit{cores} on more than one node if necessary. (Max: 256)
 \\
-\code{-pe openmpi }\codeit{cores} &
-Use the OpenMPI environment, with \codeit{cores} on more than one node if necessary. (Max: 256)
-\\
-\code{-l threads=}\codeit{threads} &
+\code{-pe smp }\codeit{threads} &
 Request \codeit{threads} parallel threads on a single node. (Max: 32, sensible: 12 or 16)
 \\
 \code{-l h\_rt=}\codeit{hh:mm:ss} & 
@@ -882,7 +878,7 @@ More documentation and support pages are available on our website, at: \mbox{\co
 \section{Last Updated}
 This document was last updated on \today.
 
-\textit{\footnotesize This document is based on \href{http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/iridis/iridis_quick_reference}{\color{LinkColour}the corresponding reference sheet for the Iridis service}.}
+%\textit{\footnotesize This document is based on \href{http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/iridis/iridis_quick_reference}{\color{LinkColour}the corresponding reference sheet for the Iridis service}.}
 
 \end{multicols}
 
