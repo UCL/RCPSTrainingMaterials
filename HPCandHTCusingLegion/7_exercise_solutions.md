@@ -442,29 +442,29 @@ sdiff env.output.from_job.sorted env.output.current.sorted
 > Run versions with 1, 2, 3, and 4 cores, and compare the timings.
 
 
-As before, we can take the previous script and edit it a bit, adding in the new option to request some threads, getting something like this:
+As before, we can take the previous script and edit it a bit, adding in the new option to request some more cores, getting something like this:
 
 `openmp_pi.sh`
 
 ```bash
 #!/bin/bash -l
 #$ -l h_rt=0:10:00
-#$ -l threads=4
+#$ -pe smp 4
 #$ -cwd
 
 ./openmp_pi
 ```
 
-At this point you can just use 4 different jobs, setting the `threads` requested value for each.
+At this point you can just use 4 different jobs, setting the `smp` requested value for each.
 
-You should find that the time taken divides roughly as the number of threads you request.
+You should find that the time taken divides roughly as the number of cores you request.
 
 
 ## Multinode jobs
  
 ### Exercise
 
-> Try modifying the script from before to run the new program, using 8 cores and the `qlc` parallel environment.
+> Try modifying the script from before to run the new program, using 8 cores and the `mpi` parallel environment.
 
 Since you’re given the 4 core version, it’s just a matter of changing the 4 to an 8. This should give you:
 
@@ -473,7 +473,7 @@ Since you’re given the 4 core version, it’s just a matter of changing the 4 
 ```bash
 #!/bin/bash -l
 #$ -l h_rt=0:10:00
-#$ -pe qlc 8
+#$ -pe mpi 8
 #$ -cwd
 
 gerun ./mpi_pi

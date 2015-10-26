@@ -142,7 +142,7 @@ Requesting Threads
 ------------------
 
 ```bash
-#$ -l threads=4
+#$ -pe smp 4
 ```
 
 **Exercise**: Try modifying the script from before to run the new program.
@@ -157,7 +157,7 @@ Job Script
 ```bash
 #!/bin/bash -l
 #$ -l h_rt=0:10:00
-#$ -l threads=4
+#$ -pe smp 4
 #$ -cwd
 
 ./openmp_pi
@@ -194,8 +194,7 @@ Requesting Multinode Jobs
 -------------------------
 
 ```bash
-#$ -pe qlc 36
-#$ -pe openmpi 36 
+#$ -pe mpi 36
 ```
 
 Note that each requested core gets the amount of memory requested.
@@ -206,13 +205,13 @@ Job Script
 ```bash
 #!/bin/bash -l
 #$ -l h_rt=0:10:00
-#$ -pe qlc 4
+#$ -pe mpi 4
 #$ -cwd
 
 gerun ./mpi_pi
 ```
 
-**Exercise**: Try modifying the script from before to run the new program, using 8 cores and the `qlc` parallel environment.
+**Exercise**: Try modifying the script from before to run the new program, using 8 cores and the `mpi` parallel environment.
 
 Requesting an Array Job
 -----------------------
@@ -385,10 +384,10 @@ Other Schedulers
 
 Other systems (e.g. Emerald) may use a slightly different scheduler system, so the scripts can be slightly different -- consult the relevant documentation.
 
-    #$ -pe qlc 24
+    #$ -pe mpi 24
     #PBS -l nodes=2:ppn=12
 
-    #$ -l threads=12
+    #$ -pe smp 12
     #PBS -l nodes=1:ppn=12
 
     #$ -l h_rt=1:00:00
