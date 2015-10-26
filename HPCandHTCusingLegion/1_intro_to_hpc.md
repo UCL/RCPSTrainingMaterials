@@ -325,8 +325,7 @@ Real applications
 Operating system
 ----------------
 
-* The vast majority of Clusters in the world use some flavour  
-of *Unix* or *Linux* for their OS.
+* The vast majority of Clusters in the world use some flavour of *Unix* or *Linux* for their OS.
 
 * The most common form of interaction with these systems is a "shell" or "command line".  
 
