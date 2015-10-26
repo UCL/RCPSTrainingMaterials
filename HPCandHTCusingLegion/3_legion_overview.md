@@ -63,7 +63,6 @@ Numbers and Types
 | T | 32 | 1.5TB | Ethernet   | 6    | 192    |
 | U | 16 | 64GB  | Infiniband | 156  | 2496   |
 | V | 12 | 48GB  | Ethernet   | 8    | 96+GPU |
-| W | 4  | 16GB  | Infiniband | 475  | 1900   |
 | X | 12 | 24GB  | Infiniband | 144  | 1728   |
 | Y | 12 | 24GB  | Ethernet   | 108  | 1296   |
 | Z | 12 | 48GB  | Ethernet   | 4    | 48     |
