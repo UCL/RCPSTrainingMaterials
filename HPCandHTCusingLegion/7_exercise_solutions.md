@@ -341,13 +341,13 @@ variable_2: eggs
 You should see a long list of variables something like this:
 
 ```
-QTLIB=/usr/lib64/qt-3.3/lib
-CVS_RSH=ssh
+LC_PAPER=en_GB.UTF-8
+MODULE_VERSION_STACK=3.2.6
 SSH_CONNECTION=128.41.10.106 61693 144.82.108.231 22
-MODULESHOME=/shared/ucl/apps/modules-3.2.10-modlog
-LESSOPEN=|/usr/bin/lesspipe.sh %s
-CC=gcc
-G_BROKEN_FILENAMES=1
+MODULESHOME=/shared/ucl/apps/modules/3.2.6/Modules/3.2.6
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+CC=icc
+HOSTNAME=login06
 ```
 
 ### Exercise 
@@ -531,15 +531,21 @@ Or by adding some zeroes onto the end of the variable where it's used in the scr
 
 ### Exercise
 
-> Successfully load the latest Matlab module (`matlab/full/r2013a/default`).
+> Successfully load the latest Graphviz module (`graphviz/2.38.0/gnu-4.9.2`).
 
 This is mostly just an exercise in recognising what the modules system is telling you in terms of what requires what. Once you work out all the dependencies, you end up having to have typed:
 
 
 ```bash
 module unload compilers
-module load compilers/gnu/4.6.3
-module load matlab/full/r2013a/default
+module load compilers/gnu/4.9.2
+module load swig/3.0.5/gnu-4.9.2
+module load qt/4.8.6/gnu-4.9.2
+module load ghostscript/9.16/gnu-4.9.2
+module load python/2.7.9
+module load lua/5.3.1
+module load perl/5.22.0
+module load graphviz/2.38.0/gnu-4.9.2
 ```
 
 
