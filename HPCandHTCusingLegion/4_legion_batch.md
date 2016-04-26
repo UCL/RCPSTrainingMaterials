@@ -299,67 +299,72 @@ Using Modules
 
 Most modules add one or more programs to your `$PATH`.
 
-    $ cmake
-    -bash: cmake: command not found
-    $ module load cmake
-    $ cmake
-    cmake version 2.8.3
-    Usage
+    $ htop
+    bash: htop: command not found
+    $ module load htop
+    $ htop
 
-      cmake [options] <path-to-source>
-    [...]
-    $ module unload cmake
-    $ cmake
-    -bash: cmake: command not found
+You will see a colourful interactive process viewer.
+    
+    $ module unload htop
+    $ htop
+    bash: htop: command not found
 
 
 Module Contents
 ---------------
 
-    $ module show cmake
+    $ module show htop
     -------------------------------------------------------------------
-    /shared/ucl/apps/modulefiles2/development/cmake/2.8.3:
+    /shared/ucl/apps/modulefiles/development/htop/1.0.3/gnu-4.9.2:
 
-    module-whatis    Adds cmake 2.8.3 to your environment 
-    prepend-path     PATH /shared/ucl/apps/cmake-2.8.3-Linux-i386/bin 
-    prepend-path     MANPATH /shared/ucl/apps/cmake-2.8.3-Linux-i386/man 
+    module-whatis    Adds htop 1.0.3 to your environment.
+    prereq   gcc-libs/4.9.2
+    conflict         htop
+    prepend-path     PATH /shared/ucl/apps/htop/1.0.3/gnu-4.9.2/bin 
+    prepend-path     MANPATH /shared/ucl/apps/htop/1.0.3/gnu-4.9.2/share/man 
     -------------------------------------------------------------------
 
 
 Prerequisites and Conflicts
 ---------------------------
 
-    $ module load lammps/22oct10
-    lammps/22oct10/qlogic/intel(27):ERROR:151: Module 
-     'lammps/22oct10/qlogic/intel' depends on one of the module(s) 
-     'fftw/2.1.5/double/intel'
-    lammps/22oct10/qlogic/intel(27):ERROR:102: Tcl command execution failed: 
-     prereq fftw/2.1.5/double/intel
+    $ module load plumed/2.2/intel-2015-update2
+    plumed/2.2/intel-2015-update2(19):ERROR:151: Module 
+     'plumed/2.2/intel-2015-update2' depends on one of the module(s) 
+     'openblas/0.2.14/intel-2015-update2'
+    plumed/2.2/intel-2015-update2(19):ERROR:102: Tcl command execution failed: 
+     prereq openblas/0.2.14/intel-2015-update2
 
-    $ module show lammps/22oct10
+    $ module show plumed/2.2/intel-2015-update2
     -------------------------------------------------------------------
-    /shared/ucl/apps/modulefiles2/applications/lammps/22oct10/qlogic/intel:
+    /shared/ucl/apps/modulefiles/applications/plumed/2.2/intel-2015-update2:
 
-    module-whatis    Adds LAMMPS 22Oct10 to your environment 
-    prereq   compilers/intel 
-    prereq   fftw/2.1.5/double/intel 
-    prereq   mpi/qlogic/1.2.7/intel 
-    conflict     lammps 
-    prepend-path     PATH /shared/ucl/apps/lammps/lammps-22Oct10/bin 
-    prepend-path     LD_LIBRARY_PATH /shared/ucl/apps/lammps/lammps-22Oct10/lib64 
+    module-whatis    Adds PLUMED 2.2 to your environment, built using OpenBLAS
+    prereq   gcc-libs/4.9.2
+    prereq   compilers/intel/2015/update2 
+    prereq   mpi/intel/2015/update3/intel
+    prereq   openblas/0.2.14/intel-2015-update2
+    conflict     plumed
+    prepend-path     PATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/bin/ 
+    prepend-path     LD_LIBRARY_PATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/lib
+    prepend-path     LIBRARY_PATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/lib
+    prepend-path     CPATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/include
+    prepend-path     INCLUDE /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/include 
+    setenv           PLUMED_KERNEL /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/lib/libplumedKernel.so
     -------------------------------------------------------------------
 
 
 Prerequisites Exercise
 ----------------------
 
-**Exercise**: Successfully load the latest Matlab module (`matlab/full/r2013a/default`).
+**Exercise**: Successfully load the latest Graphviz module (`graphviz/2.38.0/gnu-4.9.2`).
 
 
 Recommended Bundles
 -------------------
 
-`recommended/r` loads a collection of other modules and then the R module.
+`r/recommended` loads a collection of other modules and then the R module.
 
 
 Job Script
@@ -370,8 +375,8 @@ Job Script
 #$ -l h_rt=0:10:00
 #$ -cwd
 
-module unload compilers
-module load recommended/r
+module unload compilers mpi
+module load r/recommended
 # Generate a bunch of random numbers
 R --no-save --slave <<INPUT >r.output.$JOB_ID
 runif(50,0,1)
@@ -400,7 +405,7 @@ Other systems (e.g. Emerald) may use a slightly different scheduler system, so t
 Quick Reference Sheet
 ----------------------
 
-Legion: [https://wiki.rc.ucl.ac.uk/mediawiki119/images/a/ad/Legion_ref_sheet.pdf](https://wiki.rc.ucl.ac.uk/mediawiki119/images/a/ad/Legion_ref_sheet.pdf)
+Legion: [https://wiki.rc.ucl.ac.uk/mediawiki-1.23.9/images/a/ad/Legion_ref_sheet.pdf](https://wiki.rc.ucl.ac.uk/mediawiki-1.23.9/images/a/ad/Legion_ref_sheet.pdf)
 
 
 
