@@ -51,7 +51,7 @@ Limits
 
 ## Extraordinary Resource Requests
 
-* Grab the [form from the website](https://wiki.rc.ucl.ac.uk/mediawiki119/images/5/5f/CRAG_additional_resources_request_form.rtf)
+* Grab the [form from the website](https://wiki.rc.ucl.ac.uk/wiki/Additional_Resource_Requests)
 * Send it to your supervisor/PI to support
 * Send it to us: [rc-support@ucl.ac.uk](mailto:rc-support@ucl.ac.uk)
 * Wait for approval by the CRAG
@@ -131,7 +131,7 @@ Tell us:
 Keeping Tickets Sane
 --------------------
 
-`Subject: Error When Compiling My_App v0.45 [RC00004925]`
+`Subject: Re: Error When Compiling My_App v0.45 (Ref:IN:01287844)`
 
 Keeping one ticket ID per problem helps us immensely.
 
