@@ -1,0 +1,44 @@
+dist: trusty
+language: python
+sudo: required
+python:
+- '2.7'
+cache:
+- pip
+- apt
+addons:
+  apt:
+    packages:
+    - pandoc
+    - texlive-latex-base
+    - texlive-latex-extra
+    - texlive-fonts-recommended
+    - texlive-latex-recommended
+    - texlive-xetex
+    - graphviz
+install:
+- pip install --upgrade pip setuptools wheel
+- pip install -r requirements.txt
+- gem install jekyll
+- gem install redcarpet
+script:
+- make
+before_install:
+- openssl aes-256-cbc -K $encrypted_74adce9ad5a6_key -iv $encrypted_74adce9ad5a6_iv
+  -in secrets.tar.enc -out secrets.tar -d
+- tar -xvf secrets.tar
+- REPO=`git config remote.origin.url`
+- SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
+- eval `ssh-agent -s`
+- chmod 600 deploy_key
+- ssh-add deploy_key
+after_success:
+- cd _site
+- git init
+- git checkout -b gh-pages
+- git config --global user.email "jamespjh@gmail.com"
+- git config --global user.name "Pushed by Travis CI"
+- git add .
+- git commit -m "Pushed by Travis"
+- git remote add origin $SSH_REPO
+- git push -f -u origin gh-pages

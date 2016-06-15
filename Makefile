@@ -1,6 +1,6 @@
 PANDOC=pandoc
 
-ROOT=""
+ROOT="/RCPSTrainingMaterials"
 
 PANDOCARGS=-t revealjs -s -V theme=night --css=http://lab.hakim.se/reveal-js/css/theme/night.css \
 					 --css=$(ROOT)/css/ucl_reveal.css --css=$(ROOT)/site-styles/reveal.css \
@@ -48,7 +48,7 @@ _site: indigo HPCandHTCusingLegion/1_intro_to_hpc-reveal.html \
 	HPCandHTCusingLegion/2_intro_to_shell-reveal.html \
 	HPCandHTCusingLegion/4_legion_batch-reveal.html \
 	HPCandHTCusingLegion/6_extras-reveal.html
-	jekyll build	
+	jekyll build
 
 clean:
 	rm -f HPCandHTCusingLegion/*.html
@@ -56,4 +56,3 @@ clean:
 	rm -f index.html
 	rm -rf _site
 	rm -rf images js css _includes _layouts favicon* master.zip indigo-jekyll-master
-

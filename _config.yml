@@ -21,4 +21,4 @@ markdown: redcarpet
 redcarpet:
   extensions: ["strikethrough","tables"]
 
-baseurl: /training/hptclegion
+baseurl: /RCPSTrainingMaterials
