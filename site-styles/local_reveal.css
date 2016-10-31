@@ -18,3 +18,7 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", "Helvetica Neue", sans-serif !important;
 }
 
+.reveal pre code {
+  color: #eeeeee;
+}
+
