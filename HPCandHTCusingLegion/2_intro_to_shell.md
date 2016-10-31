@@ -100,7 +100,7 @@ Command Prompt
 [ccaaxxx@login06 ~]$
 ```
 
-* Has the form **\[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;\]$**
+* Has the form `\[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;\]$`
 * **&lt;user name&gt;** is the Unix user name (UCL user ID).
 * **&lt;host name&gt;** is the name of the computer that you are accessing.
 * **&lt;present directory&gt;** is the directory that the user is currently in.
@@ -214,8 +214,8 @@ Everything is a file
 Scratch:       symbolic link to `/scratch/scratch/ccaaxxx'
 ```
 
-* "*" - All visible files
-* ".*" - All invisible files
+* `*` - All visible files
+* `.*` - All invisible files
 
 Everything is a file
 --------------------
@@ -305,12 +305,12 @@ Copying files
 a_directory a_file copy_of_a_file Scratch
 ```
 
-* **cp** copy a file (or a directory tree)
+* `cp` - copy a file (or a directory tree)
 
 Exercise:
 --------
 
-Create and copy a directory tree.  Use the command **"man cp**" for more information
+Create and copy a directory tree.  Use the command `man cp` for more information
 
 File manipulation
 =================
@@ -325,7 +325,7 @@ Editing files
 
 ![](../assets/nano.png)
 
-* **nano** - simple file editor
+* `nano` - simple file editor
 
 
 Nano
@@ -333,9 +333,9 @@ Nano
 
 ![](../assets/nano3.png)
 
-* **nano** - simple file editor
+* `nano` - simple file editor
 * Commands are along the botton of editor screen
-* ^ - shorthand for control key
+* `^` - shorthand for control key
 
 Editors
 -------
@@ -358,7 +358,7 @@ a_directory control.in Scratch
 control.in inside
 ```
 
-* **mv** - rename or move a file/directory
+* `mv` - rename or move a file/directory
 
 Deleting files and directories
 ------------------------------
@@ -373,10 +373,10 @@ rm: cannot remove `a_directory/': Is a directory
 [ccaaxxx@login06 ~]$
 ```
 
-* **rm** - delete a file
-* **rm -r** - delete a directory and all its contents
-* **rm operations are irreversible!!!**
-* The -i argument is highly recommended
+* `rm` - remove a file
+* `rm -r` - remove a directory and all its contents
+* **remove operations are irreversible!**
+* The `-i` argument is highly recommended
 
 Exercise:
 --------
@@ -392,13 +392,13 @@ In `~/Scratch`...
     work/program
 ```
 
-* Create the file "input.txt" with some random lines in it.
+* Create the file `input.txt` with some random lines in it.
 
-* Move the file to input_data and rename it in the same command to control01.txt
+* Move the file to `input_data` and rename it in the same command to `control01.txt`
 
-* Create the directory tree in one line only: work/experiment/results/report
+* Create the directory tree in one line only: `work/experiment/results/report`
 
-* Delete all directory trees created in one single command without explicit reference to any of the directory and file names except "work".
+* Delete all directory trees created in one single command without explicit reference to any of the directory and file names except `work`.
 
 File properties
 ---------------
@@ -412,7 +412,7 @@ drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 06:50 Scratch
 
 ```
 
-* **ls -l** - list file properties (details)
+* `ls -l` - list file properties (details)
 
 File properties
 ---------------
@@ -430,7 +430,7 @@ drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
         a_directory     - file name
 ```
 
-* **ls -l** - list file properties (details)
+* `ls -l` - list file properties (details)
 
 File permissions
 ----------------
@@ -488,12 +488,12 @@ drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 drwx------ 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 ```
 
-* **chmod** - change the permissions of a file
+* `chmod` - change the permissions of a file
 
 File permissions
 ----------------
 
-How did the permissions definition go-rx work?
+How did the permissions definition `go-rx` work?
 
 ```
 chmod [ugoa][+/-][rwx] file
@@ -505,16 +505,16 @@ chmod [ugoa][+/-][rwx] file
 
 * rwx - read, write, execute
 
-If you don't specify u,g,o or a, default is **ALL** (so chmod +x makes file executable for everyone).
+If you don't specify u,g,o or a, default is **ALL** (so `chmod +x` makes file executable for everyone).
 
-* **chmod** - change the permissions of a file
+* `chmod` - change the permissions of a file
 
 Exercise:
 --------
 
-* Change the permission of a full directory tree with one single **chmod** command (look in the man pages for more information).
+* Change the permission of a full directory tree with one single `chmod` command (look in the man pages for more information).
 
-* When typing the command " ls /sh", press the tab key after typing "/sh".  What happens?
+* When typing the command `ls /sh`, press the tab key after typing `/sh`.  What happens?
 
 Inspecting files
 ----------------
@@ -524,7 +524,7 @@ Inspecting files
 [ccaaxxx@login06 examples]$ less openmp_pi.f90
 ```
 
-* **less** - visualise a text file:
+* `less` - visualise a text file:
     + use arrow keys
     + page up/page down
     + search by typing "/"
@@ -535,12 +535,12 @@ Other file inspection tools
 
 |command | use                                                                   |
 |--------|-----------------------------------------------------------------------|
-|head    |- visualise the first 10 lines of a file                               |
-|tail    |- visualise the last 10 lines of a file                                |
-|cat     |- concatenate files provided as input and dump the result to *stdout*  |
-|sdiff   |- visualise and compare two files side-by-side                         |
+|`head`   |- visualise the first 10 lines of a file                               |
+|`tail`    |- visualise the last 10 lines of a file                                |
+|`cat`     |- concatenate files provided as input and dump the result to *stdout*  |
+|`sdiff`   |- visualise and compare two files side-by-side                         |
 
-(Use "man &lt;tool&gt;" to see more information)
+(Use e.g. `man head` to see more information on the `head` command)
 
 
 Filtering directory listings
@@ -854,7 +854,7 @@ Note the structure: \<path1\>:\<path2\>:\<path3\>
 
 PATH is an environmental variable which Bash uses to search for commands typed on the command line without a full path. 
 
-**Exercise:** Use the command **env** to discover more.
+**Exercise:** Use the command `env` to discover more.
 
 Variables in shell scripts
 --------------------------
@@ -885,16 +885,16 @@ Variables can also be defined through the command line
 ```
 
 Within the script:
-$1 contains "arg"
-$2 contains "another"
+`$1` contains "arg"
+`$2` contains "another"
 
-**Exercise:** Using $1 and $2, write a script that print both variables to the screen.
+**Exercise:** Using `$1` and `$2`, write a script that print both variables to the screen.
 
 
 Storing output of commands in variables 
 ---------------------------------------
 
-Run commands inside **$( )** and assign the wrapped command to a variable
+Run commands inside `$( )` and assign the wrapped command to a variable
 
 ```
 [ccaaxxx@login06 ~]$ ls 
@@ -915,7 +915,7 @@ Basic arithmetic
 [ccaaxxx@login06 ~]$
 ```
 
-* Integer arithmetic can be done inside $(( ))
+* Integer arithmetic can be done inside `$(( ))`
     * \+  addition
     * \-   subtraction
     * /   integer division
@@ -935,9 +935,9 @@ echo finished!
 ```
 
 1. Interpreter definition line.
-2. Definition of the loop in which the variable "i" will take the values "first", "second" and "third" in that order.
+2. Definition of the loop in which the variable `i` will take the values "first", "second" and "third" in that order.
 3. Start the loop iteration definition.
-4. Print the string contained by "i" and the string iteration, separated by a space.
+4. Print the string contained by `i` and the string iteration, separated by a space.
 5. End the loop definition.
 6. Print some useful information to the screen.
 
@@ -958,7 +958,7 @@ echo finished!
 Exercise:
 --------
 
-Write a script that creates five directories named calculation_?, where ? is a number.
+Write a script that creates five directories named `calculation_?`, where ? is a number.
 
 Formatted sequences based on numbers
 ------------------------------------
@@ -972,7 +972,7 @@ Formatted sequences based on numbers
 5
 ```
 
-* **seq** - generates sequences based on numbers
+* `seq` - generates sequences based on numbers
 
 Formatted sequences based on numbers
 ------------------------------------
@@ -986,7 +986,7 @@ Formatted sequences based on numbers
 9
 ```
 
-* **seq** - generates sequences based on numbers
+* `seq` - generates sequences based on numbers
 
 Formatted sequences based on numbers
 ------------------------------------
@@ -1000,9 +1000,9 @@ Formatted sequences based on numbers
 009
 ```
 
-* **g** - the number of significant digits is 3 
-* **0** - in front of 3 indicates that the number is padded with zeros if smaller than 100.
-* **%** - start the format definition for the number (place the number)
+* `g` - the number of significant digits is 3 
+* `0` - in front of 3 indicates that the number is padded with zeros if smaller than 100.
+* `%` - start the format definition for the number (place the number)
 
 The for loop revisited
 ----------------------
@@ -1032,21 +1032,21 @@ EOF
 
 * **\<\<EOF** - concatenates the text until the string "EOF", redirecting it to cat
 * **\> child_script.sh** - redirects the output of cat to child_script.sh.
-* It may be tempting to indent things.  DON'T.
+* Indenting the top line will break the `#!`.
 
 Exercise:
 --------
 
-* write a parent_script.sh that creates and executes 
-the child_script.sh
+* write a `parent_script.sh` that creates and executes 
+the `child_script.sh`
 
-* write a parent_script.sh that creates and executes 
-10 different child_script.sh that print out their individual number
+* write a `parent_script.sh` that creates and executes 
+10 different `child_script.sh` that print out their individual number
 
 Process control
 ---------------
 
-* A process is in the:
+* A process is:
 
     + **foreground** when it is interacting with the user via an interface (usually the shell).
 
@@ -1055,18 +1055,18 @@ Process control
     + **suspended** if it is neither interacting nor running.
 
 * To run a process in the background:
-add the symbol "&" at the end of the command line.
+add the symbol `&` at the end of the command line.
 
 * To send a foreground process to the backgound:
-press Ctrl+z and then execute the command "bg"
+press Ctrl+z and then execute the command `bg`
 
 * To bring a background process to the foreground:
-execute the command "fg"
+execute the command `fg`
 
 Which processes are running?
 ----------------------------
 
-Use the commands **top** and **ps**
+Use the commands `top` and `ps`
 
 ```
 [ccaaxxx@login06 ~]$ ps aux
@@ -1127,6 +1127,6 @@ More information
     + defining functions
     + and many, many more...
 
-* Google and the **man** pages are your friends!
+* Google and the `man` pages are your friends!
 
 
