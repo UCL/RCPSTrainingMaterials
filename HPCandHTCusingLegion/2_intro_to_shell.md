@@ -100,7 +100,7 @@ Command Prompt
 [ccaaxxx@login06 ~]$
 ```
 
-* Has the form `\[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;\]$`
+* Has the form `[<username>@<host name> <present directory>]$`
 * **&lt;user name&gt;** is the Unix user name (UCL user ID).
 * **&lt;host name&gt;** is the name of the computer that you are accessing.
 * **&lt;present directory&gt;** is the directory that the user is currently in.
