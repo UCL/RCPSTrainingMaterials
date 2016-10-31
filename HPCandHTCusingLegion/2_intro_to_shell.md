@@ -163,21 +163,21 @@ Directory Navigation
 Filesystem structure
 --------------------
 
-![](../assets/directorystructure.png)
+![](../assets/pathdia_v2_tree.png)
 
 Absolute path
 -------------
 
-![](../assets/abspath.png)
+![](../assets/pathdia_v2_abs.png)
 
-/home/alice
+`/home/alice`
 
 Relative path
 -------------
 
-![](../assets/relpath.png)
+![](../assets/pathdia_v2_rel.png)
 
-../home/alice
+`../alice`
 
 
 Hidden files and directories
