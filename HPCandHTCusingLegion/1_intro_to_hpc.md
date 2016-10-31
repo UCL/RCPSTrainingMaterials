@@ -22,43 +22,53 @@ The Computer
 
 ![](../assets/thecomputer.svg)
 
-Traditional view of a computer is changing
-------------------------------------------
 
-* Pressure from *computing requirements*.
+Rackable Server
+---------------
 
-* Pressure from *Physics*.
+![](../assets/lenovo-rack-server-thinkserver-rd340.jpg)
 
-Pressure from computing requirements
-------------------------------------
+* A little more powerful than a normal desktop
 
-**Example:** Large scale weather simulation
+* But otherwise very similar
 
-* Detailed description for atmosphere too large to run on today's desktops.
 
-    * Multiple "desktops" are needed to hold all grid data.
+Faster computing
+----------------
 
-    * "Desktops" need to quickly *communicate to synchronise* work over entire grid,
+* Reduce time to result
 
-    * Communication between "desktops" can become a bottleneck.
+* Increase accuracy
 
-![](../assets/noaaforcast.png)
+* Increase throughput
 
-Pressure from computing requirements
-------------------------------------
 
-**Example:** Searching database of web-sites for some text (i.e. Google)
+Faster computing
+----------------
 
-* Searching sequentially through large volumes of text too time-consuming.
+* Pressure from *computing requirements*
 
-    * Multiple "desktops" hold different pages.
+* Pressure from *physics*
 
-    * Each "desktop" can report the result of each individual search.
 
-    * **The more "desktops" you add the quicker the search is.**
-
-Pressure from physics
+Pressure from Physics
 ---------------------
+
+**Physics limits GHz speed**
+
+Heat and power-draw increase super-linearly with speed
+
+
+Pressure from computing requirements
+------------------------------------
+
+* Bottlenecks everywhere
+
+* Limits of RAM
+
+
+Parallelism
+-----------
 
 * **Serial Process:**
 
@@ -70,13 +80,13 @@ Pressure from physics
 
 * **Parallel Process:**
 
-    * Process in which a number of stages can occur during the same time interval (e.g. trans-parallel process).
+    * Process in which multiple sub-processes can be active simultaneously.
 
 ![](../assets/parallel.svg)
 
 
-Pressure from physics
----------------------
+Parallelism
+-----------
 
 * **Serial Process:**
 
@@ -87,40 +97,64 @@ Pressure from physics
     * Speed depends on execution rate of each sub-process *AND* how many sub-processes can be made to occur simultaneously.
 
 
-**Physics is limiting serial speed**
+Parallel for Capacity
+-----------------
 
-**Heat α speed³ **
+**Example:** Searching database of web-sites for some text (i.e. Google)
+
+* Searching sequentially through large volumes of text too time-consuming.
+
+    * Multiple servers hold different pages.
+
+    * Each server can report the result of each individual search.
+
+    * **The more servers you add the quicker the search is.**
+
+Parallel for Capability
+-----------------------
+
+**Example:** Large scale weather simulation
+
+* Detailed description for atmosphere too large to run on today's desktop or server PCs.
+
+    * Multiple servers are needed to hold all grid data in memory.
+
+    * Servers need to quickly *communicate to synchronise* work over entire grid
+
+    * Communication between servers can become a bottleneck.
+
+![](../assets/noaaforcast.png)
 
 
-
-Pressure from physics
----------------------
+Parallelism
+-----------
 ### All computers today are designed for parallel execution
 
 But...
 
 ### Not all computation can be done in parallel!
 
+
 Amdahl's Law
 ------------
 
 1 Processor
 
-![](../assets/amdahl1.png)
+![](../assets/amdahl1_v2.png)
 
 Amdahl's Law
 ------------
 
 2 Processors
 
-![](../assets/amdahl2.png)
+![](../assets/amdahl2_v2.png)
 
 Amdahl's Law
 ------------
 
 10 Processors
 
-![](../assets/amdahl10.png)
+![](../assets/amdahl10_v2.png)
 
 Amdahl's Law
 ------------
@@ -141,9 +175,7 @@ Amdahl's Law
 There are many parallel paradigms
 ---------------------------------
 
-Processor farms, pipelining, divide/conquer
-Master/slave, geometric decomposition
-cellular automata, algorithmic parallelism
+Processor farms, pipelining, divide/conquer, geometric decomposition, cellular automata, algorithmic parallelism
 
 * From a systems perspective:
     + Shared memory
@@ -175,8 +207,8 @@ NUMA (Non-Uniform Memory Access)
 
 ![](../assets/numa.png)
 
-Interconnect comparions
------------------------
+Interconnect comparisons
+------------------------
 
 | Interconnect   |  Typical MPI latency (microseconds) | Typical bandwidth (MB/s) |
 |----------------| ----------------------------------- | ------------------------ |

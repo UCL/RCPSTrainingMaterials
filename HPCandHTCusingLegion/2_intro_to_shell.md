@@ -33,9 +33,10 @@ Overview
 Access to Legion
 ----------------
 
-* Apply for an account: http://www.ucl.ac.uk/isd/staff/research_services/research-computing/account
+* Apply for an account: <https://signup.rc.ucl.ac.uk/>
 
 * Access is provided through the 4 login nodes connected to the external network:
+
 ```
 legion.rc.ucl.ac.uk
 ```
@@ -99,7 +100,7 @@ Command Prompt
 [ccaaxxx@login06 ~]$
 ```
 
-* Has the form **[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;]$**
+* Has the form **\[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;\]$**
 * **&lt;user name&gt;** is the Unix user name (UCL user ID).
 * **&lt;host name&gt;** is the name of the computer that you are accessing.
 * **&lt;present directory&gt;** is the directory that the user is currently in.
@@ -126,6 +127,7 @@ Unix Directory Basics
 /home/ccaaxx: directory
 [ccaaxxx@login06 ~]$
 ```
+
 * `file` identifies the file type
 * `~` = /home/ccaaxxx - your home directory
 
@@ -151,7 +153,7 @@ Directory Navigation
 /home/ccaaxxx
 
 [ccaaxxx@login06 ~]$ cd /
-[ccaaxxx@login06 /]$ 
+[ccaaxxx@login06 /]$
 ```
 
 * `cd` - change directory
@@ -219,12 +221,13 @@ Everything is a file
 --------------------
 
 Just to make the point:
+
 ```
 [ccaaxxx@login06 ~]$ which ls
  /bin/ls
 
 [ccaaxxx@login06 ~]$ file /bin/ls
-/bin/ls: ELF 64-bit LSB executable, AMD x86-64, version 1 (SYSV), for GNU/Linux 2.4.0, 
+/bin/ls: ELF 64-bit LSB executable, AMD x86-64, version 1 (SYSV), for GNU/Linux 2.4.0,
 dynamically linked (uses shared libs), stripped
 ```
 
@@ -236,6 +239,7 @@ Everything is a file
 --------------------
 
 Just to make the point:
+
 ```
 [ccaaxxx@login06 ~]$ file /dev/sda1
 /dev/sda1: block special (8/1)
@@ -366,7 +370,7 @@ Deleting files and directories
 rm: cannot remove `a_directory/': Is a directory
 
 [ccaaxxx@login06 ~]$ rm -r a_directory
-[ccaaxxx@login06 ~]$ 
+[ccaaxxx@login06 ~]$
 ```
 
 * **rm** - delete a file
@@ -377,9 +381,10 @@ rm: cannot remove `a_directory/': Is a directory
 Exercise:
 --------
 
-In ~/Scratch...
- 
+In `~/Scratch`...
+
 * Create the following directory tree:
+
 ```
     work
     work/input_data
@@ -416,15 +421,14 @@ File properties
 drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
 
         drwxr-xr-x      - File type and permissions
-        2		- Number of links to the file
+        2               - Number of links to the file
         ccaaxxx         - User name of file owner
-        rcops           - Group to which the file belongs 
+        rcops           - Group to which the file belongs
         4096            - size of file in bytes
         2009-12-08      - last change data
         07:31           - last change time
         a_directory     - file name
 ```
-
 
 * **ls -l** - list file properties (details)
 
@@ -458,7 +462,6 @@ File permissions
 | rwx  | - the user has read, write and execute access |
 | r-x  | - the group has read and execute access       |
 | r-x  | - others have read and execute access         |
-
 
 
 | Permissions | read | write | execute |

@@ -186,7 +186,7 @@ cp -r /shared/ucl/apps/examples/mpi_pi_dir ./
 cd mpi_pi_dir
 make
 ./mpi_pi
-# (This won't work.)
+# This won't always work on clusters
 ```
 
 
