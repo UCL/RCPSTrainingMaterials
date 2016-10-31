@@ -17,3 +17,6 @@ h1 {
   font-size: 1.2em !important;
 }
 
+* {
+  font-family: "Gill Sans", "Gill Sans MT", "Helvetica Neue", sans-serif;
+}
