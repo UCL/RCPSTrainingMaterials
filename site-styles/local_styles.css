@@ -3,8 +3,17 @@
 }
 
 body {
-  background-color: rgb(237,237,237);
+  background-color: rgb(237,237,237) !important;
   background: rgb(237,237,237);
   color: rgb(64,64,64);
+}
+
+img {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+h1 {
+  font-size: 1.2em !important;
 }
 
