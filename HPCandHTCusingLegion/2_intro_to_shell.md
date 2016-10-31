@@ -331,7 +331,7 @@ Editing files
 Nano
 ----
 
-![](../assets/nano2.png)
+![](../assets/nano3.png)
 
 * **nano** - simple file editor
 * Commands are along the botton of editor screen
