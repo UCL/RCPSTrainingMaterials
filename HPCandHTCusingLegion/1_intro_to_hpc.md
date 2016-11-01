@@ -20,18 +20,13 @@ AKA **"Supercomputing"**
 The Computer
 ------------
 
-![](../assets/thecomputer.svg)
+![](../assets/thecomputer_v2.png)
 
 
-Rackable Server
+Actual Rackable Server
 ---------------
 
 ![](../assets/lenovo-rack-server-thinkserver-rd340.jpg)
-
-* A little more powerful than a normal desktop
-
-* But otherwise very similar
-
 
 Faster computing
 ----------------
@@ -278,7 +273,7 @@ The Cluster
 Overview
 --------
 
-![](../assets/clusteroverview.svg)
+![](../assets/cluster-topology.png)
 
 The Node
 --------
@@ -306,7 +301,6 @@ Generic Software stack
 Real applications
 -----------------
 
-
 * FEA - Finite Element Analysis
     + The simulation of hard physical materials, e.g. metal, plastic
 
@@ -322,6 +316,9 @@ Real applications
 
     + Examples: Fluent, Star-CD, CFX
 
+Real applications
+-----------------
+
 * Geophysical Sciences
 
     + Seismic Imaging - taking echo traces and building a picture of the sub-earth geology
@@ -330,16 +327,14 @@ Real applications
 
     + Examples: Omega, Landmark VIP and Pro/Max, Geoquest Eclipse
 
-
-Real applications
------------------
-
-
 * Life Sciences
 
     + Understanding the living world - genome matching, protein folding, drug design, bioinformatics, organic chemistry
 
     + Examples: BLAST, Gaussian, LAMMPS, Trinity, Amber, NAMD
+
+Real applications
+-----------------
 
 + High Energy Physics
 
@@ -352,7 +347,6 @@ Real applications
     + Meeting internal and external financial targets particularly regarding investment positions
     + VaR - Value at Risk - assessing the impact of economic and political factors on the bank’s investment portfolio
     + Trader Risk Analysis - what is the risk on a trader’s position, a group of traders
-
 
 Operating system
 ----------------
