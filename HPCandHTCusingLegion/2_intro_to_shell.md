@@ -800,13 +800,13 @@ Hello World!
 Exercise:
 --------
 
-* Use '**seq** 1 75 \> numbers.txt' to 
+* Use `seq 1 75 > numbers.txt` to 
 generate a file containing a list of 
-numbers. Use the **head**, **tail**, and **less** 
-commands to look at it, then use grep to
+numbers. Use the `head`, `tail`, and `less` 
+commands to look at it, then use `grep` to
 search it for a number.
 
-* Use a combination of head and tail to get an exact line number
+* Use a combination of `head` and `tail` to get an exact line number
 
 Environment Variables
 ----------------------
@@ -818,9 +818,9 @@ Environment Variables
 
 * Defined and used within a shell script only.
 
-* No spaces around the assignment symbol "=".
+* No spaces around the assignment symbol "`=`".
 
-* $ means "the value assigned to the following variable". 
+* `$` means "the value assigned to the following variable". 
 
 Global Environment Variables
 ----------------------------
