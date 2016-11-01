@@ -724,21 +724,21 @@ Output redirection and piping
 Output redirection and piping
 -----------------------------
 
-ls -l
+`ls -l`
 
 ![](../assets/process3.png)
 
 Output redirection and piping
 -----------------------------
 
-ls -l > list_of_files
+`ls -l > list`
 
 ![](../assets/process4.png)
 
 Output redirection and piping
 -----------------------------
 
-ls -l | grep partial_name > list_of_files
+`ls -l | grep name > list`
 
 ![](../assets/process5.png)
 
