@@ -806,7 +806,6 @@ numbers. Use the `head`, `tail`, and `less`
 commands to look at it, then use `grep` to
 search it for a number.
 
-* Use a combination of `head` and `tail` to get an exact line number
 
 Environment Variables
 ----------------------
