@@ -61,7 +61,7 @@ Numbers and Types
 | Type | Cores | RAM | Network | Number | Total Cores |
 |:----:|:-----:|:---:|:-------:|:------:|:-----------:|
 | T | 32 | 1.5TB | Ethernet   | 6    | 192    |
-| U | 16 | 64GB  | Infiniband | 156  | 2496   |
+| U | 16 | 64GB  | Infiniband | 160  | 2496   |
 | V | 12 | 48GB  | Ethernet   | 8    | 96+GPU |
 | X | 12 | 24GB  | Infiniband | 144  | 1728   |
 | Y | 12 | 24GB  | Ethernet   | 108  | 1296   |
@@ -71,13 +71,13 @@ Numbers and Types
 Topology
 --------
 
-![](../assets/topology.svg)
+![](../assets/cluster-topology.png)
 
 
 Filesystem Access
 -----------------
 
-![](../assets/filesystems.svg)
+![](../assets/rw-where.png)
 
 
 
