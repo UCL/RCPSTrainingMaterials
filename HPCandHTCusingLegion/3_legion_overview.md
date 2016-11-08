@@ -12,7 +12,6 @@ Node Types
 
 * Login Nodes
 * Transfer Node 
-* Test Nodes 
 * Compute Nodes 
 * *(Infrastructure Nodes)*
 
