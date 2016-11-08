@@ -26,7 +26,6 @@ make
 ./calculate_pi
 ```
 
-
 Job Script
 ----------
 
@@ -34,37 +33,67 @@ Job Script
 #!/bin/bash -l
 #$ -l h_rt=0:10:00
 #$ -cwd
-
 ./calculate_pi
 ```
 
 Job Script Defaults
 -------------------
 
-Automatically assumes:
-
 ```bash
-#$ -l memory=8G
+#$ -l h_rt=0:15:00
+#$ -l memory=1G
 #$ -l tmpfs=10G
 ```
+
+Queue Commands
+--------------
+
+|:---:|:---|
+| `qsub` | submit job |
+| `qstat` | view queue status and job info |
+| `qdel`  | stop & delete a job |
+| `qrsh`  | start an interactive session |
 
 
 Submitting Jobs to the Queue
 ----------------------------
 
-    $ qsub submit.sh
-    Your job 3521045 ("submit.sh") has been submitted
-    
-    $ qstat
-    
-    job-ID  prior   name       user         state submit/start at    
-    -----------------------------------------------------------------
-    3521045 0.00000 submit.sh  ccaaxxx      qw    01/14/2014 14:51:54
-                    
-    $ qstat -j 3521045
-    
-    $ qdel 3521045
+```
+$ qsub submit.sh
+Your job 3521045 ("submit.sh") has been submitted
 
+$ qsub -terse submit.sh
+3521045
+```
+
+Submitting Jobs to the Queue
+----------------------------
+
+Special comments are options for `qsub`
+
+Check `man qsub` for full lists
+
+Every cluster is a little different
+
+Viewing Queue
+-------------
+
+```
+$ qstat
+
+job-ID  prior   name       user         state submit/start at    
+-----------------------------------------------------------------
+3521045 0.00000 submit.sh  ccaaxxx      qw    01/14/2014 14:51:54
+```
+
+More Detailed Info
+------------------
+
+```
+qstat -j 3521045
+```
+
+(gives a *lot* of output)
 
 Job States
 ----------
@@ -89,20 +118,25 @@ Most common problems:
 
 Note that `qstat -j` cuts off the end of the error message - try *e.g.* `qexplain 53893` to see full error message.
 
+Removing Jobs
+-------------
+
+```
+$ qdel 3521045
+ccaaxxx has deleted job 3521045
+```
+
+* removes a queued job
+* stops and removes a running job
 
 Environment Within a Job
 ------------------------
 
-**Exercise**:  To see what environment variables are set by the scheduler, try making a job script that runs `env` and puts the output in a file. 
+**Exercise**: Run the simple `calculate_pi` program as a job.
 
+**Exercise**: To see what environment variables are set by the scheduler, try making a job script that runs `env` and puts the output in a file. 
 
-Environment Within a Job
-------------------------
-
-**Exercise**: Now `sort` the file, and compare it to your current environment to see what has changed. 
-
-*(You'll need `sort`, and `env`. You may also want `less` and `sdiff`.)*
-
+**Exercise**: `sort` the file, and compare it to your current environment to see what has changed. 
 
 
 Multithreaded Jobs
@@ -115,7 +149,6 @@ OpenMP
 ------
 
 ![](../assets/openmp-diagram.svg)
-
 
 
 Make a Copy
@@ -149,8 +182,6 @@ Requesting Threads
 
 **Exercise**: Run versions with 1, 2, 3, and 4 cores, and compare the timings.
 
-
-
 Job Script
 ----------
 
@@ -159,17 +190,14 @@ Job Script
 #$ -l h_rt=0:10:00
 #$ -pe smp 4
 #$ -cwd
-
 ./openmp_pi
 ```
-
 
 Multi-node Jobs
 ---------------
 
 * Need some method to communicate over the network
 * Most common is **MPI**
-
 
 MPI
 -----
@@ -211,7 +239,7 @@ Job Script
 gerun ./mpi_pi
 ```
 
-**Exercise**: Try modifying the script from before to run the new program, using 8 cores and the `mpi` parallel environment.
+**Exercise**: Try modifying the script from before to run the new program, using 1, 2, 4, 8, 12, and 24 cores and the `mpi` parallel environment.
 
 Requesting an Array Job
 -----------------------
@@ -226,7 +254,7 @@ This queues an array of jobs which only differ in how the `$SGE_TASK_ID` variabl
 
 **Exercise**: Try modifying the serial job script (`calculate_pi`) to run 4 jobs as an array. 
 
-**Exercise**: `calculate_pi` can take an argument to tell it how many steps to use. Try controlling this with `$SGE_TASK_ID`.
+**Exercise**: `calculate_pi` can take an argument to tell it how many steps to use. Try using this with `$SGE_TASK_ID` to run using 300, 500, and 700 steps.
 
 
 Job Script
@@ -265,7 +293,12 @@ Job Script
 
 cd $TMPDIR
 $HOME/my_programs/make_lots_of_files $SGE_TASK_ID
+```
 
+Job Script
+----------
+
+```
 # Then either:
 cp * $SGE_WORK_DIR
 
@@ -274,6 +307,7 @@ cp -r $TMPDIR $SGE_WORK_DIR
 
 # or, better for lots of files:
 tar -cf $SGE_WORK_DIR/$JOB_NAME.$JOB_ID.$SGE_TASK_ID.tar $TMPDIR
+zip -f $SGE_WORK_DIR/$JOB_NAME.$JOB_ID.$SGE_TASK_ID.zip $TMPDIR
 ```
 
 
@@ -378,9 +412,9 @@ Job Script
 module unload compilers mpi
 module load r/recommended
 # Generate a bunch of random numbers
-R --no-save --slave <<INPUT >r.output.$JOB_ID
+R --no-save --slave <<EOF >r.output.$JOB_ID
 runif(50,0,1)
-INPUT
+EOF
 ```
 
 

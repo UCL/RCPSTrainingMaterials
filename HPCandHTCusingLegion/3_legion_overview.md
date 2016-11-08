@@ -38,20 +38,12 @@ At `login05.external.legion.ucl.ac.uk`.
 Can transfer data around Legion up to 10x faster than normal login nodes.
 
 
-User Test Nodes
----------------
-
-* have the same environment as a compute node
-* can be accessed interactively using `qrsh`
-* intended for testing job commands, testing code, or visualisation
-* are restricted to 2 hours and up to 3 nodes per use
-
-
 Compute Nodes
 -------------
 
 * only accessible via the scheduler
 * intended for all significant non-interactive work
+* can also do limited interactive work
 * can access external networks
 
 
