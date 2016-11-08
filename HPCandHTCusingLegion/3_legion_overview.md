@@ -26,7 +26,8 @@ For:
 * Testing (light)
 * Visualisation (light)
 
-Accessible via `ssh`, at `legion.rc.ucl.ac.uk`.
+Accessible via `ssh`, at `legion.rc.ucl.ac.uk`,
+or `login0(6-9).external.legion.ucl.ac.uk`.
 
 
 Transfer Node
@@ -34,7 +35,7 @@ Transfer Node
 
 At `login05.external.legion.ucl.ac.uk`.
 
-Can transfer data around Legion up to 10x faster than normal login nodes.
+Can transfer data around Legion up to 10⨉ faster than normal login nodes.
 
 
 Compute Nodes
