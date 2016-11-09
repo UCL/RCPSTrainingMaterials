@@ -41,7 +41,7 @@ Job Script Defaults
 
 ```bash
 #$ -l h_rt=0:15:00
-#$ -l memory=1G
+#$ -l memory=1M
 #$ -l tmpfs=10G
 ```
 
@@ -86,15 +86,6 @@ job-ID  prior   name       user         state submit/start at
 3521045 0.00000 submit.sh  ccaaxxx      qw    01/14/2014 14:51:54
 ```
 
-More Detailed Info
-------------------
-
-```
-qstat -j 3521045
-```
-
-(gives a *lot* of output)
-
 Job States
 ----------
 
@@ -107,6 +98,16 @@ Job States
 | `t` | transferring |
 | `h` | held |
 
+More Detailed Info
+------------------
+
+```
+qstat -j 3521045
+```
+
+(gives a lot of output)
+
+_(Demo)_
 
 Job States - Errors
 -------------------
@@ -170,6 +171,15 @@ make
 ./openmp_pi
 ```
 
+Requesting Threads
+------------------
+
+```bash
+#$ -pe smp 4
+```
+
+* tells scheduler to find you 4 cores and allocate them to your job
+* sets `OMP_NUM_THREADS=4` to tell OpenMP you're only using 4 instead of all
 
 Requesting Threads
 ------------------
@@ -225,6 +235,9 @@ Requesting Multinode Jobs
 #$ -pe mpi 36
 ```
 
+* makes space for multi-node job
+* creates variables and `machines` file
+
 Note that each requested core gets the amount of memory requested.
 
 Job Script
@@ -239,7 +252,7 @@ Job Script
 gerun ./mpi_pi
 ```
 
-**Exercise**: Try modifying the script from before to run the new program, using 1, 2, 4, 8, 12, and 24 cores and the `mpi` parallel environment.
+**Exercise**: Try modifying the script from before to run the new program, using 4, 8, 12, and 24 cores and the `mpi` parallel environment.
 
 Requesting an Array Job
 -----------------------
@@ -298,16 +311,26 @@ $HOME/my_programs/make_lots_of_files $SGE_TASK_ID
 Job Script
 ----------
 
+Then either:
+
 ```
-# Then either:
 cp * $SGE_WORK_DIR
+```
 
-# or
+or
+
+```
 cp -r $TMPDIR $SGE_WORK_DIR
+```
 
-# or, better for lots of files:
-tar -cf $SGE_WORK_DIR/$JOB_NAME.$JOB_ID.$SGE_TASK_ID.tar $TMPDIR
-zip -f $SGE_WORK_DIR/$JOB_NAME.$JOB_ID.$SGE_TASK_ID.zip $TMPDIR
+Job Script
+----------
+
+Or, better for lots of files:
+
+```
+tar -czf $SGE_O_WORK_DIR/$JOB_ID.$SGE_TASK_ID.tar.gz $TMPDIR
+zip -f   $SGE_O_WORK_DIR/$JOB_ID.$SGE_TASK_ID.zip    $TMPDIR
 ```
 
 
@@ -319,86 +342,66 @@ Existing Applications
 
 Check `module avail` to see what modules exist.
 
-    $ module avail
-    ------------------ /shared/ucl/apps/modulefiles2/core ------------------
-    curl/7.21.3/gnu       gnuplot/4.4.0      mrxvt/0.5.4        sge/6.2u3     
-    curl/7.21.3/gnu.4.4.0 gold/2.2.0.5       nedit/5.6          sqlite/3.7.3 
-    curl/7.21.3/gnu.4.6.3 grace/5.1.22       rcops/1.0          texlive/2010 
-    [...]
+```
+$ module avail
+--- /shared/ucl/apps/modulefiles/core ----
+gerun             rcps-core/1.0.0
+mrxvt/0.5.4       screen/4.2.1
+[...]
+```
 
+Existing Applications
+---------------------
 
+_(Demo)_
 
 Using Modules
 -------------
 
 Most modules add one or more programs to your `$PATH`.
 
-    $ htop
-    bash: htop: command not found
-    $ module load htop
-    $ htop
+```
+$ htop
+bash: htop: command not found
+$ module load htop
+$ htop
+```
 
 You will see a colourful interactive process viewer.
-    
-    $ module unload htop
-    $ htop
-    bash: htop: command not found
 
+```    
+$ module unload htop
+$ htop
+bash: htop: command not found
+```
 
 Module Contents
 ---------------
 
     $ module show htop
-    -------------------------------------------------------------------
-    /shared/ucl/apps/modulefiles/development/htop/1.0.3/gnu-4.9.2:
 
-    module-whatis    Adds htop 1.0.3 to your environment.
-    prereq   gcc-libs/4.9.2
-    conflict         htop
-    prepend-path     PATH /shared/ucl/apps/htop/1.0.3/gnu-4.9.2/bin 
-    prepend-path     MANPATH /shared/ucl/apps/htop/1.0.3/gnu-4.9.2/share/man 
-    -------------------------------------------------------------------
-
+_(Demo)_
 
 Prerequisites and Conflicts
 ---------------------------
 
-    $ module load plumed/2.2/intel-2015-update2
-    plumed/2.2/intel-2015-update2(19):ERROR:151: Module 
-     'plumed/2.2/intel-2015-update2' depends on one of the module(s) 
-     'openblas/0.2.14/intel-2015-update2'
-    plumed/2.2/intel-2015-update2(19):ERROR:102: Tcl command execution failed: 
-     prereq openblas/0.2.14/intel-2015-update2
+Some modules depend on or conflict with other modules
 
-    $ module show plumed/2.2/intel-2015-update2
-    -------------------------------------------------------------------
-    /shared/ucl/apps/modulefiles/applications/plumed/2.2/intel-2015-update2:
+```
+Module 'a' depends on one of the module(s) 'b'
+```
 
-    module-whatis    Adds PLUMED 2.2 to your environment, built using OpenBLAS
-    prereq   gcc-libs/4.9.2
-    prereq   compilers/intel/2015/update2 
-    prereq   mpi/intel/2015/update3/intel
-    prereq   openblas/0.2.14/intel-2015-update2
-    conflict     plumed
-    prepend-path     PATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/bin/ 
-    prepend-path     LD_LIBRARY_PATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/lib
-    prepend-path     LIBRARY_PATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/lib
-    prepend-path     CPATH /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/include
-    prepend-path     INCLUDE /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/include 
-    setenv           PLUMED_KERNEL /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/lib/libplumedKernel.so
-    -------------------------------------------------------------------
+```
+Module 'a' conflicts with the currently loaded module(s) 'b'
+```
 
-
-Prerequisites Exercise
-----------------------
-
-**Exercise**: Successfully load the latest Graphviz module (`graphviz/2.38.0/gnu-4.9.2`).
+_(Demo)_
 
 
 Recommended Bundles
 -------------------
 
-`r/recommended` loads a collection of other modules and then the R module.
+e.g. `r/recommended` loads a collection of other modules and then the R module.
 
 
 Job Script
