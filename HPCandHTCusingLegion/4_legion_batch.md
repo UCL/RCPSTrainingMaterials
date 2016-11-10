@@ -301,11 +301,12 @@ Job Script
 ```bash
 #!/bin/bash -l
 #$ -l h_rt=0:10:00
-#$ -t 1-4
+#$ -t 1-40000
 #$ -cwd
 
 cd $TMPDIR
-$HOME/my_programs/make_lots_of_files $SGE_TASK_ID
+$HOME/my_programs/make_lots_of_files \
+  --some-option=$SGE_TASK_ID
 ```
 
 Job Script
@@ -329,10 +330,11 @@ Job Script
 Or, better for lots of files:
 
 ```
-tar -czf $SGE_O_WORK_DIR/$JOB_ID.$SGE_TASK_ID.tar.gz $TMPDIR
-zip -f   $SGE_O_WORK_DIR/$JOB_ID.$SGE_TASK_ID.zip    $TMPDIR
-```
+cd $SGE_O_WORK_DIR
 
+tar -czf $JOB_ID.$SGE_TASK_ID.tar.gz $TMPDIR
+zip -f   $JOB_ID.$SGE_TASK_ID.zip    $TMPDIR
+```
 
 
 Existing Applications
@@ -392,7 +394,8 @@ Module 'a' depends on one of the module(s) 'b'
 ```
 
 ```
-Module 'a' conflicts with the currently loaded module(s) 'b'
+Module 'a' conflicts with the 
+currently loaded module(s) 'b'
 ```
 
 _(Demo)_
