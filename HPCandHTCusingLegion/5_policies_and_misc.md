@@ -42,8 +42,7 @@ Limits
 | Time | Cores | Queue Type |
 |-----|-----|----------|
 | ≤ 15 mins  | ≤1 node      | Rapid Test Queue       |
-| ≤ 12 hours | ≤ 1024 cores | Large Parallel Queue   |
-| ≤ 1 day    | ≤ 512 cores  | Mid Parallel Queue     |
+| ≤ 1 day    | ≤ 512 cores  | Large Parallel Queue   |
 | ≤ 2 days   | ≤ 256 cores  | Smaller Parallel Queue |
 | ≤ 3 days   | 1 core       | Serial Queue           |
 
