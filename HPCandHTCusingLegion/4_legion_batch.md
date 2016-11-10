@@ -414,14 +414,14 @@ Job Script
 #!/bin/bash -l
 #$ -l h_rt=0:10:00
 #$ -cwd
-
 module unload compilers mpi
 module load r/recommended
-# Generate a bunch of random numbers
 R --no-save --slave <<EOF >r.output.$JOB_ID
 runif(50,0,1)
 EOF
 ```
+
+(generates a bunch of random numbers)
 
 
 Other Schedulers
