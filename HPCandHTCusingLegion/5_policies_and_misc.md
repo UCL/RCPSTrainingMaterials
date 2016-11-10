@@ -150,7 +150,6 @@ UCL Funded
 Other
 -----
 
-* Magellan
 * ARCHER
 * DIRAC collection
 * PRACE
