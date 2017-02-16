@@ -1,6 +1,5 @@
 ---
 title: Running Matlab on Legion
-slidelink: true
 ---
 
 Running Matlab on Legion
@@ -11,11 +10,14 @@ Matlab on Legion Overview
 
 * Only works within one node so no MPI on Legion.
   - Largest nodes on Legion have 32 cores, but typically 12 or 16 cores.
-* Matlab requires exclusive access to the node (use `#$ -ac exclusive` to request this in your submission script).
+* Matlab requires exclusive access to the node unless it's running in single threaded mode
+  - Use `#$ -ac exclusive` to request this in your submission script.
 * Multi-threading is built in to some Matlab functions
   - Parallel Computing Toolbox is available on Legion for more control of threading
 * Speed-up relative to desktop will not always be that great...
   - ...but, array jobs can increase throughput
+* Dont't forget to load the matlab module!
+  - `module load matlab/full/r2015a/8.5`
 
 
 Headless Matlab
@@ -26,7 +28,7 @@ Matlab tries by default to open a GUI when you start it, but we don't want this 
 So, instead of typing `matlab`, we need to supress the GUI like this:
 
 ```
-matlab -nodesktop -nodisplay -nojvm -nosplash
+matlab -nodesktop -nodisplay -nosplash
 ```
 
 Headless Matlab
@@ -52,13 +54,13 @@ Headless Matlab
 So altogether:
 
 ```
-matlab -nodesktop -nodisplay -nojvm -nosplash < my_script.m
+matlab -nodesktop -nodisplay -nosplash < my_script.m
 ```
 
 Or
 
 ```
-matlab -nodesktop -nodisplay -nojvm -nosplash -r "run('my_script.m');quit;"
+matlab -nodesktop -nodisplay -nosplash -r "run('my_script.m');quit;"
 ```
 
 Exercise
@@ -86,7 +88,7 @@ Job Script:
 #$ -wd /home/<your_UCL_id>/Scratch/<job_directory>
 
 module load matlab/full/r2015a/8.5
-matlab -nodisplay -nodesktop -nosplash -nojvm -r "run('my_script.m');quit;"
+matlab -nodisplay -nodesktop -nosplash -r "run('my_script.m');quit;"
 ```
 
 Important settings for Matlab
@@ -112,6 +114,8 @@ An alternative to requesting exclusive access to a whole node is to run Matlab i
 ```
 matlab -nodisplay -nodesktop -nosplash -nojvm -singleCompThread
 ```
+
+* nojvm suppresses java virtual machine and is worth considering if you want to optimise Matlab on Legion in general.
 
 
 Interactive Matlab on Legion
