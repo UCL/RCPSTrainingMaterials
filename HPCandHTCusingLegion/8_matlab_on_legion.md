@@ -11,7 +11,7 @@ Matlab on Legion Overview
 
 * Only works within one node so no MPI on Legion.
   - Largest nodes on Legion have 32 cores, but typically 12 or 16 cores.
-* Matlab requires exclusive access to the node (use `#$ -ac exclusive` to request this in your submission script.
+* Matlab requires exclusive access to the node (use `#$ -ac exclusive` to request this in your submission script).
 * Multi-threading is built in to some Matlab functions
   - Parallel Computing Toolbox is available on Legion for more control of threading
 * Speed-up relative to desktop will not always be that great...
@@ -92,15 +92,17 @@ matlab -nodisplay -nodesktop -nosplash -nojvm -r "run('my_script.m');quit;"
 Important settings for Matlab
 -----------------------------
 
-| `#$ -l matlab=1` | Reserves one Matlab licence for your job. |
-| `#$ -ac exclusive` | Request exclusive use of the node. |
+|                       |                                              |
+| --------------------- | -------------------------------------------- |
+| `#$ -l matlab=1`      | Reserves one Matlab licence for your job.    |
+| `#$ -ac exclusive`    | Request exclusive use of the node.           |
 | module load matlab... | Load the matlab module before running Matlab |
 
 Exercise
 --------
 
 1. Write a submission script and submit a job to run the calcpi.m script
-2. Edit your script to submit an array of four jobs. Use $SGE_TASK_ID to change the number of slices run by calcpi.m
+2. Edit your script to submit an array of four jobs. Use `$SGE_TASK_ID` to change the number of slices run by calcpi.m
 
 Single thread mode
 ------------------
@@ -115,7 +117,7 @@ matlab -nodisplay -nodesktop -nosplash -nojvm -singleCompThread
 Interactive Matlab on Legion
 ----------------------------
 
-** Do not use login nodes for production work **
+**Do not use login nodes for production work**
 
 It is actually possible to view the GUI from Matlab running on a login node, but you need an X server.
 
@@ -142,4 +144,4 @@ The Matlab GUI should launch.
 
 Useful for visualising results.
 
-** Do not use login nodes for production work **
+**Do not use login nodes for production work**
