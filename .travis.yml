@@ -31,7 +31,7 @@ before_install:
 - eval `ssh-agent -s`
 - chmod 600 deploy_key
 - ssh-add deploy_key
-- rm -vf deploy_key
+- rm -vf deploy_key secrets.tar
 after_success:
 - cd _site
 - git init
