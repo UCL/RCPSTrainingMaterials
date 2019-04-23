@@ -1,0 +1,24 @@
+
+body {
+  background-color: rgb(237,237,237) !important;
+  background: rgb(237,237,237);
+  color: rgb(64,64,64);
+}
+
+img {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+h1 {
+  font-size: 1.2em !important;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", "Helvetica Neue", sans-serif !important;
+}
+
+.reveal pre code {
+  color: #eeeeee;
+}
+

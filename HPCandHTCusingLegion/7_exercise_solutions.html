@@ -1,0 +1,778 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Exercise Solutions</title>
+
+  <link href="/RCPSTrainingMaterials/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/RCPSTrainingMaterials/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/RCPSTrainingMaterials/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/RCPSTrainingMaterials/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/RCPSTrainingMaterials/favicon-144.png">
+
+  <script src="/RCPSTrainingMaterials/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/RCPSTrainingMaterials/js/lib/html5shiv-printshiv.min.js', '/RCPSTrainingMaterials/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/RCPSTrainingMaterials/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/RCPSTrainingMaterials/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+    <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/RCPSTrainingMaterials/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">Introduction to High Performance and High Throughput Computing</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+<li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/">High performance and high throughput computing</a><ul> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/1_intro_to_hpc.html">HPC and HTC Concepts</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/2_intro_to_shell.html">Introduction to the UNIX shell</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/3_legion_overview.html">Legion Overview</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/4_legion_batch.html">Legion environment and batch processing</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/5_policies_and_misc.html">Policies and Miscellanea</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/7_exercise_solutions.html">Exercise Solutions</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/8_matlab_on_legion.html">Running Matlab on Legion</a> </li> </ul> </li>
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/RCPSTrainingMaterials/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/ISD">ISD</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services">Our services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it">Research IT</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it/training">Training</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/RCPSTrainingMaterials/">Intro to HPTC</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/7_exercise_solutions-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>First Day</h1>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Create and copy a directory tree. Use the command &quot;man cp&quot; for more information</p>
+</blockquote>
+
+<p>Okay, so, to create the directories:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">mkdir -p one_dir/two_dir/three_dir
+</code></pre></div>
+<p>Then if you try to copy them, you&#39;ll see:
+<code>
+$ cp one_dir one_dir_copy
+cp: omitting directory `one_dir&#39;
+</code></p>
+
+<p>If you check the <code>man</code> page, you&#39;ll see:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">       -R, -r, --recursive
+              copy directories recursively
+</code></pre></div>
+<p>Which means you should use:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">$ cp -r one_dir one_dir_copy
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Write a script that creates five directories named <code>calculation_?</code>, where ? is a number.</p>
+</blockquote>
+
+<p><code>mk_dirs.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+<span class="c"># Dumb method without loop</span>
+<span class="nb">mkdir </span>calculation_1 calculation_2 calculation_3 calculation_4 calculation_5
+
+<span class="c"># Method using loop with all terms written out</span>
+<span class="k">for </span>i <span class="k">in </span>1 2 3 4 5
+<span class="k">do
+  </span><span class="nb">mkdir </span>calculation_<span class="nv">$i</span>
+<span class="k">done</span>
+
+<span class="c"># Method using loop running seq to get terms</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span><span class="nb">seq </span>1 5<span class="k">)</span>
+<span class="k">do
+  </span><span class="nb">mkdir </span>calculation_<span class="nv">$i</span>
+<span class="k">done</span>
+
+<span class="c"># Method using loop with C syntax</span>
+<span class="k">for</span> <span class="o">((</span> <span class="nv">i</span><span class="o">=</span>1<span class="p">;</span> i&lt;<span class="o">=</span>5<span class="p">;</span> i++ <span class="o">))</span>
+<span class="k">do
+  </span><span class="nb">mkdir </span>calculation_<span class="nv">$i</span>
+<span class="k">done</span>
+
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p>write a <code>parent_script.sh</code> that creates and executes the <code>child_script.sh</code></p>
+
+<p>write a <code>parent_script.sh</code> that creates and executes 10 different <code>child_script.sh</code> that print out their individual number</p>
+</blockquote>
+
+<p>Okay, so first:</p>
+
+<p><code>parent_script.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">"Parent script running."</span>
+
+<span class="nb">echo</span> <span class="s2">"Making child script..."</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> &gt;child_script.sh
+#!/bin/bash
+echo "Child script running."
+</span><span class="no">EOF
+
+</span><span class="nb">chmod</span> +x child_script.sh
+
+<span class="nb">echo</span> <span class="s2">"Going to run child script."</span>
+./child_script.sh
+<span class="nb">echo</span> <span class="s2">"Child script finished."</span>
+</code></pre></div>
+<p>Second:</p>
+
+<p><code>parent_script.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">"Parent script running."</span>
+
+
+<span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span><span class="nb">seq </span>10<span class="k">)</span>
+<span class="k">do
+</span><span class="nb">echo</span> <span class="s2">"Making child script number </span><span class="nv">$i</span><span class="s2"> in child_script_</span><span class="nv">$i</span><span class="s2">.sh ..."</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> &gt;child_script_</span><span class="nv">$i</span><span class="sh">.sh
+#!/bin/bash
+echo "Child script </span><span class="nv">$i</span><span class="sh"> running."
+</span><span class="no">EOF
+
+</span><span class="nb">chmod</span> +x child_script_<span class="nv">$i</span>.sh
+./child_script_<span class="nv">$i</span>.sh
+
+<span class="k">done</span>
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p>In <code>~/Scratch</code>...</p>
+
+<ul>
+<li>Create the following directory tree:</li>
+</ul>
+
+<p><code>work</code>
+   <code>work/input_data</code>
+   <code>work/results</code>
+   <code>work/program</code></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-" data-lang="">mkdir work work/input_data work/results work/program
+</code></pre></div>
+<blockquote>
+<ul>
+<li>Create the file &quot;<code>input.txt</code>&quot; with some random lines in it.</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre><code class="language-" data-lang="">echo "random line 1" &gt;input.txt
+echo "random line 2" &gt;&gt;input.txt
+</code></pre></div>
+<blockquote>
+<ul>
+<li>Move the file to <code>input_data</code> and rename it in the same command to <code>control01.txt</code></li>
+</ul>
+</blockquote>
+<div class="highlight"><pre><code class="language-" data-lang="">mv input.txt work/input_data/control01.txt
+</code></pre></div>
+<blockquote>
+<ul>
+<li>Create the directory tree in one line only: <code>work/experiment/results/report</code></li>
+</ul>
+</blockquote>
+<div class="highlight"><pre><code class="language-" data-lang="">mkdir -p work/experiment/results/report
+</code></pre></div>
+<blockquote>
+<ul>
+<li>Delete all directory trees created in one single command without explicit reference to any of the directory and file names except &quot;<code>work</code>&quot;.</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre><code class="language-" data-lang="">rm -r work
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Change the permission of a full directory tree with one single chmod command (look in the man pages for more information).</p>
+</blockquote>
+
+<p>Because <code>chmod -r</code> would change the permissions of a file, <code>chmod</code> only uses <code>-R</code> for recursive action, so this is:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">chmod -R g+w a_dir
+</code></pre></div>
+<p>for example, to give group write permissions to every file in a directory and that directory itself.</p>
+
+<blockquote>
+<p>When typing the command &quot;<code>ls /sh</code>&quot;, press the tab key after typing &quot;<code>/sh</code>&quot;. What happens?</p>
+</blockquote>
+
+<p>It should auto-complete as far as it can without being ambiguous. On Legion and Aristotle, this should expand to <code>/shared</code>.</p>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Create a &quot;Hello world&quot;-like script using command line tools and execute it.</p>
+
+<p>Copy and alter your script to redirect output to a file using <code>&gt;</code>.</p>
+
+<p>Alter your script to use <code>&gt;&gt;</code> instead of <code>&gt;</code>. What effect does this have on its behaviour?</p>
+</blockquote>
+
+<p>So, one file:</p>
+
+<p><code>hello_world.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">"Hello World!"</span>
+</code></pre></div>
+<p>Then:</p>
+
+<p><code>hello_world_redirect_1.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">"Hello world!"</span> <span class="o">&gt;</span> output.txt
+</code></pre></div>
+<p>Then:</p>
+
+<p><code>hello_world_redirect_2.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">"Hello world!"</span> <span class="o">&gt;&gt;</span> output_append.txt
+</code></pre></div>
+<p><code>output.txt</code> will be overwritten each time, while <code>output_append.txt</code> will be appended to because of the difference between <code>&gt;</code> and <code>&gt;&gt;</code>.</p>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Use <code>seq 1 75 &gt; numbers.txt</code> to generate a file containing a list of numbers. Use the <code>head</code>, <code>tail</code>, and <code>less</code> commands to look at it, then use <code>grep</code> to search it for a number.</p>
+
+<p>Use a combination of <code>head</code> and <code>tail</code> to get an exact line number</p>
+</blockquote>
+<div class="highlight"><pre><code class="language-" data-lang="">$ seq 1 75 &gt; numbers.txt
+$ less numbers.txt
+$ head numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+$ tail numbers.txt
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+$ head -n 5 numbers.txt
+1
+2
+3
+4
+5
+$ head -n 5 numbers.txt | tail -n 1
+5
+$ grep 0 numbers.txt
+10
+20
+30
+40
+50
+60
+70
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Using two nested scripts, show that the value of an exported variable in the environment where you launch the scripts, propagates all the way down to the second script.</p>
+</blockquote>
+
+<p>So, two files:</p>
+
+<p><code>parent.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo </span>Setting variables <span class="k">in </span>parent script:
+
+<span class="nv">variable_1</span><span class="o">=</span>ham
+<span class="nv">variable_2</span><span class="o">=</span>eggs
+
+<span class="nb">export </span>variable_1
+
+<span class="nb">echo</span> <span class="s2">"variable_1: </span><span class="nv">$variable_1</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"variable_2: </span><span class="nv">$variable_2</span><span class="s2">"</span>
+
+<span class="nb">echo </span>Running child script...
+
+./child.sh
+
+<span class="nb">echo </span>Child script finished, printing out parent script variable values again:
+<span class="nb">echo</span> <span class="s2">"variable_1: </span><span class="nv">$variable_1</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"variable_2: </span><span class="nv">$variable_2</span><span class="s2">"</span>
+</code></pre></div>
+<p><code>child.sh</code></p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo </span>Child script variable values:
+<span class="nb">echo</span> <span class="s2">"variable_1: </span><span class="nv">$variable_1</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"variable_2: </span><span class="nv">$variable_2</span><span class="s2">"</span>
+</code></pre></div>
+<p>If you run these, you should see:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">$ ./parent.sh
+Setting variables in parent script:
+variable_1: ham
+variable_2: eggs
+Running child script...
+Child script variable values:
+variable_1: ham
+variable_2:
+Child script finished, printing out parent script variable values again:
+variable_1: ham
+variable_2: eggs
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Use the command <code>env</code> to discover more.</p>
+</blockquote>
+
+<p>You should see a long list of variables something like this:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">LC_PAPER=en_GB.UTF-8
+MODULE_VERSION_STACK=3.2.6
+SSH_CONNECTION=128.41.10.106 61693 144.82.108.231 22
+MODULESHOME=/shared/ucl/apps/modules/3.2.6/Modules/3.2.6
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+CC=icc
+HOSTNAME=login06
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Using <code>$1</code> and <code>$2</code>, write a script that print both variables to the screen.</p>
+</blockquote>
+
+<p>So, for bonus points and to show some other related variables, here&#39;s a little extra:</p>
+
+<p><code>cmd_args.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">"This is the first argument:  </span><span class="nv">$1</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"This is the second argument: </span><span class="nv">$2</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"This is the number of arguments: $#"</span>
+<span class="nb">echo</span> <span class="s2">"And this is all the arguments: </span><span class="nv">$@</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">* and </span><span class="se">\$</span><span class="s2">@ do almost the same thing, but you probably always want to use </span><span class="se">\$</span><span class="s2">@"</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="se">\$</span><span class="s2">* gets expanded slightly differently and can break arguments"</span>
+</code></pre></div>
+<h1>Second Day</h1>
+
+<h2>Environment within a Job</h2>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>To see what environment variables are set by the scheduler, try making a job script that runs env and puts the output in a file.</p>
+</blockquote>
+
+<p>You can take the job script from earlier in the notes as a starting point here, which looks like this:</p>
+
+<p><code>calculate_pi.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -l</span>
+<span class="c">#$ -l h_rt=0:10:00</span>
+<span class="c">#$ -cwd</span>
+
+./calculate_pi
+</code></pre></div>
+<p>Then we just want to change it to run <code>env</code> and redirect the standard output (stdout) to a file, using the <code>&gt;</code> operator, like this:</p>
+
+<p><code>env_to_file.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -l</span>
+<span class="c">#$ -l h_rt=0:10:00</span>
+<span class="c">#$ -cwd</span>
+
+<span class="nb">env</span> <span class="o">&gt;</span>env.output.from_job
+</code></pre></div>
+<p>Submit this using <code>qsub</code> and you should have a file <code>env.output.from_job</code> containing all the environment variables defined in the shell the job is running as.</p>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Now <code>sort</code> the file, and compare it to your current environment to see what has changed.</p>
+</blockquote>
+
+<p>The method shown here is only one of a few possible ways to do this.</p>
+
+<p>Let’s first sort the file we got from the last step, by putting the file as an argument to the <code>sort</code> command, and redirecting the output into a new file:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sort </span>env.output.from_job <span class="o">&gt;</span>env.output.from_job.sorted
+</code></pre></div>
+<p>Then get a sorted file containing your current environment:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">env</span> | <span class="nb">sort</span> <span class="o">&gt;</span>env.output.current.sorted
+</code></pre></div>
+<p>Now compare the two, side-by-side:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sdiff env.output.from_job.sorted env.output.current.sorted
+</code></pre></div>
+<h2>Requesting Threads</h2>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Try modifying the script from before to run the new program.</p>
+</blockquote>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Run versions with 1, 2, 3, and 4 cores, and compare the timings.</p>
+</blockquote>
+
+<p>As before, we can take the previous script and edit it a bit, adding in the new option to request some more cores, getting something like this:</p>
+
+<p><code>openmp_pi.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -l</span>
+<span class="c">#$ -l h_rt=0:10:00</span>
+<span class="c">#$ -pe smp 4</span>
+<span class="c">#$ -cwd</span>
+
+./openmp_pi
+</code></pre></div>
+<p>At this point you can just use 4 different jobs, setting the <code>smp</code> requested value for each.</p>
+
+<p>You should find that the time taken divides roughly as the number of cores you request.</p>
+
+<h2>Multinode jobs</h2>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Try modifying the script from before to run the new program, using 8 cores and the <code>mpi</code> parallel environment.</p>
+</blockquote>
+
+<p>Since you’re given the 4 core version, it’s just a matter of changing the 4 to an 8. This should give you:</p>
+
+<p><code>mpi_pi.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -l</span>
+<span class="c">#$ -l h_rt=0:10:00</span>
+<span class="c">#$ -pe mpi 8</span>
+<span class="c">#$ -cwd</span>
+
+gerun ./mpi_pi
+</code></pre></div>
+<p>You should find again that increasing this number reduces the time taken, with diminishing returns past a certain point. The output will tell you which nodes your job runs on, so you can tell whether it’s run on more than one actual node or not.</p>
+
+<h2>Requesting an Array Job</h2>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Try modifying the serial job script for <code>calculate_pi</code> to run 4 jobs as an array.</p>
+</blockquote>
+
+<p>So, all we have to do is add in the array job option to the serial job script, to get:</p>
+
+<p><code>array_pi.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -l</span>
+<span class="c">#$ -t 1-4</span>
+<span class="c">#$ -l h_rt=0:10:00</span>
+<span class="c">#$ -cwd</span>
+
+./calculate_pi
+</code></pre></div>
+<h3>Exercise</h3>
+
+<blockquote>
+<p><code>calculate_pi</code> can take an argument to tell it how many steps to use. Try controlling this with <code>$SGE_TASK_ID</code>.</p>
+</blockquote>
+
+<p>We’re only using 4 jobs here, and 4 steps of calculating pi is hardly any calculation, so we can do more steps either by altering the way the array tasks are numbered:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Gives 100,200,300,400 in SGE_TASK_ID variable</span>
+<span class="c">#$ -t 100-400:100</span>
+</code></pre></div>
+<p>Or by adding some zeroes onto the end of the variable where it&#39;s used in the script:</p>
+
+<p><code>array_pi-vary_steps.sh</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -l</span>
+<span class="c">#$ -t 1-4</span>
+<span class="c">#$ -l h_rt=0:10:00</span>
+<span class="c">#$ -cwd</span>
+
+./calculate_pi <span class="k">${</span><span class="nv">SGE_TASK_ID</span><span class="k">}</span>00
+</code></pre></div>
+<h2>Module Prerequisites</h2>
+
+<h3>Exercise</h3>
+
+<blockquote>
+<p>Successfully load the latest Graphviz module (<code>graphviz/2.38.0/gnu-4.9.2</code>).</p>
+</blockquote>
+
+<p>This is mostly just an exercise in recognising what the modules system is telling you in terms of what requires what. Once you work out all the dependencies, you end up having to have typed:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">module unload compilers
+module load compilers/gnu/4.9.2
+module load swig/3.0.5/gnu-4.9.2
+module load qt/4.8.6/gnu-4.9.2
+module load ghostscript/9.16/gnu-4.9.2
+module load python/2.7.9
+module load lua/5.3.1
+module load perl/5.22.0
+module load graphviz/2.38.0/gnu-4.9.2
+</code></pre></div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2019-04-23 15:20:36 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+  <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

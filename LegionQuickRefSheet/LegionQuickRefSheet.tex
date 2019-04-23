@@ -1,0 +1,885 @@
+\documentclass[landscape,a4paper]{article}
+\usepackage{xcolor}
+\usepackage[landscape]{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage[fontsize=9]{scrextend}
+\usepackage{hyperref}
+
+%% Date formatting
+\usepackage{datetime}
+\renewcommand{\dateseparator}{-}
+\yyyymmdddate
+
+%% Allows more control over list formatting
+\usepackage{enumitem}
+
+%% Font settings
+
+% Classic Latex
+%\usepackage[scaled]{helvet} %Not actually Helvetica, URW Nimbus Sans
+%\usepackage{tgheros} % Tex Gyre Heros, extended Nimbus Sans
+%\usepackage[T1]{fontenc}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+% [Xe|Lua]Latex -- we can use system fonts
+\usepackage{fontspec}
+%\setromanfont{Avenir Next Condensed Regular}
+%\setsansfont{Avenir Next Condensed Regular}
+\setsansfont[Scale=0.8]{Source Sans Pro}
+%\setsansfont[Scale=0.8]{Calibri}
+\setmonofont[Scale=0.7]{Source Code Pro} % Not visually different enough (to Source Sans Pro) to highlight code...
+%\setmonofont[Scale=0.8]{American Typewriter} % American Typewriter isn't monospaced, duh
+%\setmonofont[Scale=0.8]{Inconsolata} % Inconsolata doesn't have italics...
+%\setmonofont[Scale=0.8]{Consolas}
+%\setmonofont[Scale=0.8]{Menlo}
+
+%% UCL Colours
+\globalcolorstrue
+\xdefinecolor{LightPurple}{RGB}{198,176,188}
+\xdefinecolor{DarkPurple}{RGB}{75,56,76}
+\xdefinecolor{Purple}{RGB}{80,7,120}
+\xdefinecolor{BlueCeleste}{RGB}{164,219,232}
+\xdefinecolor{LightBlue}{RGB}{141,185,202}
+\xdefinecolor{SkyBlue}{RGB}{155,184,211}
+\xdefinecolor{BrightBlue}{RGB}{0,151,169}
+\xdefinecolor{NavyBlue}{RGB}{0,40,85}
+\xdefinecolor{DarkBlue}{RGB}{0,61,76}
+\xdefinecolor{DarkGreen}{RGB}{85,80,37}
+\xdefinecolor{MidGreen}{RGB}{143,153,62}
+\xdefinecolor{BrightGreen}{RGB}{181,189,0}
+\xdefinecolor{LightGreen}{RGB}{187,197,146}
+\xdefinecolor{Stone}{RGB}{214,210,196}
+\xdefinecolor{DarkGrey}{RGB}{140,130,121}
+\xdefinecolor{DarkBrown}{RGB}{78,54,41}
+\xdefinecolor{DarkRed}{RGB}{101,29,50}
+\xdefinecolor{Burgundy}{RGB}{147,39,44}
+\xdefinecolor{Pink}{RGB}{172,20,90}
+\xdefinecolor{RichRed}{RGB}{213,0,50}
+\xdefinecolor{MidRed}{RGB}{224,60,49}
+\xdefinecolor{Orange}{RGB}{234,118,0}
+\xdefinecolor{Yellow}{RGB}{246,190,0}
+\xdefinecolor{White}{RGB}{255,255,255}
+\xdefinecolor{Black}{RGB}{0,0,0}
+
+\xdefinecolor{HotPink}{RGB}{255,20,147} % Not UCL-sanctioned, just for Owain
+\xdefinecolor{BlueViolet}{RGB}{138,43,226} % and for me
+
+\definecolor{SchemeColour}{named}{Purple}
+%\definecolor{SchemeColour}{named}{MidGreen}
+%\definecolor{SchemeColour}{named}{DarkGrey}
+%\definecolor{SchemeColour}{named}{Yellow}
+%\definecolor{SchemeColour}{named}{DarkGreen}
+
+\definecolor{LinkColour}{named}{SchemeColour}
+
+%% Tiny margins for you, Fermat!
+\geometry{top=0.5cm,left=0.5cm,right=0.5cm,bottom=0.5cm}
+
+%% Add separator lines to columns
+\usepackage{multicol}
+\raggedcolumns % Disables interline spacing to make all columns end at the same place
+% You can fake this in only certain columns using \vfill
+% Use \columnbreak to column break
+\setlength{\columnsep}{1.5cm}
+\setlength{\columnseprule}{0.1pt}
+\def\columnseprulecolor{\color{SchemeColour}}
+
+%% Formatting macros
+\renewcommand{\th}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\codeit}[1]{\texttt{\color{SchemeColour}\emph{#1}}}
+
+%% Redefining the section header format to be a bit more stylish (uses titlesec and xcolor)
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{SchemeColour}\titlerule
+\vspace{.8ex}%
+\large\normalfont\itshape}
+{\thesection.}{.5em}{}
+
+\newcommand{\colourbar}[1]{ 
+      \begin{tikzpicture}
+      \fill[SchemeColour](0,0)rectangle(\columnwidth,0.6);
+      \path (0,0.3) node[draw=none,fill=none,anchor={west}] (sec1) {\large\textbf{\color{white}{#1.}}};
+\end{tikzpicture}
+}
+
+%\titleformat{\section}{\colourbar}{\thesection. }{.5em}{S} % Get horizontal mode errors with this
+\renewcommand{\section}[1]{\vspace{0.8ex}\colourbar{#1}\\\vspace{0.8ex}}
+
+
+\begin{document}
+\sffamily % We don't want to use Roman anywhere.
+
+% No indented paragraphs, pls
+\setlength{\parindent}{0em}
+
+% The UCL top banner
+%\includegraphics[height=20mm,width=200mm]{stonesq.pdf}
+% \hspace{-40.00mm}
+%\hfill\includegraphics[height=20mm]{stonec.pdf}
+%\resizebox{!}{20mm}{\color{red}{\textbf{ UCL }}}
+\resizebox{\columnwidth}{!}{
+\def\leftbase{-600}
+  \begin{tikzpicture}[
+x=1mm,y=1mm,
+outerbox/.style  = {black},
+innerbox/.style  = {black},
+colourbox/.style = {SchemeColour},
+portico/.style = {white},
+dome/.style    = {portico},
+roof/.style    = {portico},
+steps/.style   = {portico},
+columns/.style = {portico},
+column1/.style = {columns},
+column2/.style = {columns},
+column3/.style = {columns},
+column4/.style = {columns},
+column5/.style = {columns},
+column6/.style = {columns},
+]
+
+
+
+%% Background box including lettering?
+\fill [colourbox](\leftbase,71.238)
+ -- (\leftbase,0)
+ -- (86.944,0)
+ .. controls (86.264,0.484) and (85.631,0.992) .. (85.066,1.533)
+ .. controls (80.033,6.4) and (79.963,12.055) .. (79.819,17.355)
+ -- (79.819,47.422)
+ -- (95.925,47.422)
+ -- (95.925,15.848)
+ .. controls (95.925,13.703) and (95.998,11.484) .. (97.794,9.766)
+ .. controls (99.089,8.404) and (101.031,7.904) .. (102.901,7.904)
+ .. controls (105.416,7.904) and (107.071,8.836) .. (108.006,9.693)
+ .. controls (109.876,11.484) and (109.946,13.703) .. (109.946,15.848)
+ -- (109.946,47.422)
+ -- (126.125,47.422)
+ -- (126.125,20.504)
+ .. controls (126.125,14.707) and (126.125,7.188) .. (120.158,1.533)
+ .. controls (119.588,0.998) and (118.958,0.488) .. (118.28,0)
+ -- (142.4,0)
+ .. controls (135.299,5.096) and (131.962,13.609) .. (131.962,21.865)
+ .. controls (131.962,35.467) and (141.097,49.285) .. (158.282,49.285)
+ .. controls (165.976,49.285) and (173.31,46.562) .. (178.632,41.121)
+ .. controls (180.789,38.902) and (181.795,37.186) .. (182.873,35.182)
+ -- (169.428,28.521)
+ .. controls (168.132,31.531) and (165.688,36.898) .. (158.928,36.898)
+ .. controls (155.406,36.898) and (153.175,35.25) .. (152.097,34.178)
+ .. controls (148.287,30.527) and (148.287,24.801) .. (148.287,22.793)
+ .. controls (148.287,15.277) and (151.091,8.189) .. (159.001,8.189)
+ .. controls (166.48,8.189) and (168.708,14.775) .. (169.285,16.492)
+ -- (182.947,9.906)
+ .. controls (181.652,7.475) and (180.429,5.184) .. (177.986,2.75)
+ .. controls (176.937,1.723) and (175.802,0.811) .. (174.601,0)
+ -- (189.373,0)
+ -- (189.373,47.494)
+ -- (205.406,47.494)
+ -- (205.406,10.166)
+ -- (226.214,10.166)
+ -- (226.214,0)
+ -- (240.945,0)
+ -- (240.945,71.238)
+ -- (\leftbase,71.238)
+ -- cycle;
+
+
+%% Portico ceiling (not dome)
+\fill [roof] (71.623,36.97)
+ .. controls (71.591,36.977) and (63.242,38.77) .. (63.242,38.77)
+ .. controls (63.242,38.77) and (54.883,36.974) .. (54.866,36.97)
+ .. controls (54.82,36.961) and (54.836,36.923) .. (54.836,36.923)
+ -- (54.952,36.494)
+ -- (54.977,36.495)
+ -- (54.974,36.494)
+ .. controls (54.974,36.494) and (55.104,36.511) .. (55.177,36.391)
+ -- (55.303,35.703)
+ .. controls (55.303,35.703) and (55.306,35.654) .. (55.355,35.654)
+ .. controls (55.406,35.654) and (55.658,35.654) .. (55.658,35.654)
+ -- (70.828,35.654)
+ .. controls (70.828,35.654) and (71.09,35.654) .. (71.134,35.654)
+ .. controls (71.175,35.654) and (71.181,35.689) .. (71.181,35.689)
+ -- (71.305,36.378)
+ .. controls (71.378,36.514) and (71.517,36.494) .. (71.517,36.494)
+ -- (71.515,36.495)
+ -- (71.537,36.494)
+ -- (71.652,36.923)
+ .. controls (71.652,36.923) and (71.669,36.961) .. (71.623,36.97)
+ -- cycle;
+
+%% Right-most column
+\fill [column6] (70.747,35.433)
+ .. controls (70.756,35.433) and (70.764,35.44) .. (70.764,35.452)
+ -- (70.764,35.665)
+ .. controls (70.764,35.676) and (70.756,35.667) .. (70.747,35.667)
+ -- (69.472,35.667)
+ .. controls (69.462,35.667) and (69.454,35.676) .. (69.454,35.665)
+ -- (69.454,35.452)
+ .. controls (69.454,35.44) and (69.462,35.433) .. (69.472,35.433)
+ -- (69.526,35.432)
+ .. controls (69.552,35.432) and (69.553,35.406) .. (69.553,35.381)
+ .. controls (69.553,35.349) and (69.568,35.184) .. (69.684,35.084)
+ .. controls (69.7,35.07) and (69.694,35.029) .. (69.66,35.029)
+ .. controls (69.657,35.029) and (69.623,35.029) .. (69.62,35.029)
+ .. controls (69.591,35.029) and (69.589,35.01) .. (69.598,34.994)
+ .. controls (69.608,34.975) and (69.611,34.918) .. (69.611,34.892)
+ .. controls (69.611,34.865) and (69.611,34.818) .. (69.611,34.799)
+ .. controls (69.611,34.782) and (69.613,34.77) .. (69.63,34.77)
+ .. controls (69.631,34.77) and (69.648,34.77) .. (69.649,34.77)
+ .. controls (69.649,34.77) and (69.663,34.771) .. (69.663,34.756)
+ .. controls (69.663,34.742) and (69.663,34.736) .. (69.663,34.736)
+ -- (69.663,30.055)
+ .. controls (69.648,30.041) and (69.598,29.99) .. (69.594,29.986)
+ .. controls (69.591,29.982) and (69.587,29.977) .. (69.587,29.969)
+ -- (69.587,29.891)
+ .. controls (69.587,29.885) and (69.586,29.877) .. (69.581,29.873)
+ .. controls (69.578,29.869) and (69.57,29.867) .. (69.563,29.867)
+ -- (69.504,29.867)
+ .. controls (69.495,29.867) and (69.486,29.857) .. (69.486,29.848)
+ .. controls (69.486,29.848) and (69.486,29.717) .. (69.486,29.713)
+ -- (70.732,29.713)
+ .. controls (70.732,29.717) and (70.732,29.848) .. (70.732,29.848)
+ .. controls (70.732,29.857) and (70.723,29.867) .. (70.714,29.867)
+ -- (70.655,29.867)
+ .. controls (70.647,29.867) and (70.641,29.869) .. (70.636,29.873)
+ .. controls (70.633,29.877) and (70.631,29.885) .. (70.631,29.891)
+ -- (70.631,29.969)
+ .. controls (70.631,29.977) and (70.63,29.98) .. (70.624,29.986)
+ .. controls (70.617,29.992) and (70.576,30.035) .. (70.556,30.055)
+ -- (70.556,34.736)
+ .. controls (70.556,34.736) and (70.556,34.742) .. (70.556,34.756)
+ .. controls (70.556,34.771) and (70.568,34.77) .. (70.568,34.77)
+ .. controls (70.569,34.77) and (70.584,34.77) .. (70.585,34.77)
+ .. controls (70.602,34.77) and (70.605,34.782) .. (70.605,34.799)
+ .. controls (70.605,34.818) and (70.605,34.865) .. (70.605,34.892)
+ .. controls (70.605,34.918) and (70.609,34.975) .. (70.619,34.994)
+ .. controls (70.629,35.01) and (70.627,35.029) .. (70.597,35.029)
+ .. controls (70.596,35.029) and (70.561,35.029) .. (70.559,35.029)
+ .. controls (70.523,35.029) and (70.518,35.07) .. (70.534,35.084)
+ .. controls (70.651,35.179) and (70.663,35.345) .. (70.663,35.378)
+ .. controls (70.663,35.406) and (70.662,35.432) .. (70.692,35.432)
+ -- (70.747,35.433)
+ -- cycle;
+
+%% Second-from-right column
+\fill [column5] (68.001,35.433)
+ .. controls (68.01,35.433) and (68.019,35.44) .. (68.019,35.452)
+ -- (68.019,35.665)
+ .. controls (68.019,35.676) and (68.01,35.667) .. (68.001,35.667)
+ -- (66.726,35.667)
+ .. controls (66.716,35.667) and (66.709,35.676) .. (66.709,35.665)
+ -- (66.709,35.452)
+ .. controls (66.709,35.44) and (66.716,35.433) .. (66.726,35.433)
+ -- (66.781,35.432)
+ .. controls (66.807,35.432) and (66.808,35.406) .. (66.808,35.381)
+ .. controls (66.808,35.349) and (66.822,35.184) .. (66.937,35.084)
+ .. controls (66.953,35.07) and (66.947,35.029) .. (66.914,35.029)
+ .. controls (66.911,35.029) and (66.877,35.029) .. (66.874,35.029)
+ .. controls (66.845,35.029) and (66.842,35.01) .. (66.852,34.994)
+ .. controls (66.863,34.975) and (66.865,34.918) .. (66.865,34.892)
+ .. controls (66.865,34.865) and (66.865,34.818) .. (66.865,34.799)
+ .. controls (66.865,34.782) and (66.867,34.77) .. (66.884,34.77)
+ .. controls (66.885,34.77) and (66.902,34.77) .. (66.903,34.77)
+ .. controls (66.903,34.77) and (66.915,34.771) .. (66.915,34.756)
+ .. controls (66.915,34.742) and (66.916,34.736) .. (66.916,34.736)
+ -- (66.916,30.055)
+ .. controls (66.902,30.041) and (66.852,29.99) .. (66.848,29.986)
+ .. controls (66.844,29.982) and (66.841,29.977) .. (66.841,29.969)
+ -- (66.841,29.891)
+ .. controls (66.841,29.885) and (66.839,29.877) .. (66.835,29.873)
+ .. controls (66.832,29.869) and (66.824,29.867) .. (66.818,29.867)
+ -- (66.759,29.867)
+ .. controls (66.748,29.867) and (66.741,29.857) .. (66.741,29.848)
+ .. controls (66.741,29.848) and (66.741,29.717) .. (66.741,29.713)
+ -- (67.986,29.713)
+ .. controls (67.986,29.717) and (67.986,29.848) .. (67.986,29.848)
+ .. controls (67.986,29.857) and (67.977,29.867) .. (67.968,29.867)
+ -- (67.909,29.867)
+ .. controls (67.902,29.867) and (67.895,29.869) .. (67.891,29.873)
+ .. controls (67.887,29.877) and (67.885,29.885) .. (67.885,29.891)
+ -- (67.885,29.969)
+ .. controls (67.885,29.977) and (67.884,29.98) .. (67.878,29.986)
+ .. controls (67.871,29.992) and (67.83,30.035) .. (67.809,30.055)
+ -- (67.809,34.736)
+ .. controls (67.809,34.736) and (67.809,34.742) .. (67.809,34.756)
+ .. controls (67.809,34.771) and (67.822,34.77) .. (67.822,34.77)
+ .. controls (67.824,34.77) and (67.838,34.77) .. (67.84,34.77)
+ .. controls (67.856,34.77) and (67.858,34.782) .. (67.858,34.799)
+ .. controls (67.858,34.818) and (67.858,34.865) .. (67.858,34.892)
+ .. controls (67.858,34.918) and (67.863,34.975) .. (67.873,34.994)
+ .. controls (67.883,35.01) and (67.88,35.029) .. (67.851,35.029)
+ .. controls (67.849,35.029) and (67.815,35.029) .. (67.812,35.029)
+ .. controls (67.776,35.029) and (67.772,35.07) .. (67.789,35.084)
+ .. controls (67.906,35.179) and (67.916,35.345) .. (67.916,35.378)
+ .. controls (67.916,35.406) and (67.916,35.432) .. (67.946,35.432)
+ -- (68.001,35.433)
+ -- cycle;
+
+%% Third-from-right column
+\fill [column4] (65.254,35.433)
+ .. controls (65.264,35.433) and (65.273,35.44) .. (65.273,35.452)
+ -- (65.273,35.665)
+ .. controls (65.273,35.676) and (65.264,35.667) .. (65.254,35.667)
+ -- (63.98,35.667)
+ .. controls (63.97,35.667) and (63.961,35.676) .. (63.961,35.665)
+ -- (63.961,35.452)
+ .. controls (63.961,35.44) and (63.97,35.433) .. (63.98,35.433)
+ -- (64.034,35.432)
+ .. controls (64.06,35.432) and (64.061,35.406) .. (64.061,35.381)
+ .. controls (64.061,35.349) and (64.076,35.184) .. (64.191,35.084)
+ .. controls (64.207,35.07) and (64.201,35.029) .. (64.166,35.029)
+ .. controls (64.165,35.029) and (64.13,35.029) .. (64.127,35.029)
+ .. controls (64.098,35.029) and (64.097,35.01) .. (64.105,34.994)
+ .. controls (64.116,34.975) and (64.118,34.918) .. (64.118,34.892)
+ .. controls (64.118,34.865) and (64.118,34.818) .. (64.118,34.799)
+ .. controls (64.118,34.782) and (64.121,34.77) .. (64.137,34.77)
+ .. controls (64.139,34.77) and (64.156,34.77) .. (64.157,34.77)
+ .. controls (64.157,34.77) and (64.169,34.771) .. (64.169,34.756)
+ .. controls (64.169,34.742) and (64.17,34.736) .. (64.17,34.736)
+ -- (64.17,30.055)
+ .. controls (64.157,30.041) and (64.105,29.99) .. (64.101,29.986)
+ .. controls (64.098,29.982) and (64.095,29.977) .. (64.095,29.969)
+ -- (64.095,29.891)
+ .. controls (64.095,29.885) and (64.093,29.877) .. (64.089,29.873)
+ .. controls (64.085,29.869) and (64.078,29.867) .. (64.071,29.867)
+ -- (64.012,29.867)
+ .. controls (64.002,29.867) and (63.994,29.857) .. (63.994,29.848)
+ .. controls (63.994,29.848) and (63.994,29.717) .. (63.994,29.713)
+ -- (65.24,29.713)
+ .. controls (65.24,29.717) and (65.24,29.848) .. (65.24,29.848)
+ .. controls (65.24,29.857) and (65.231,29.867) .. (65.222,29.867)
+ -- (65.163,29.867)
+ .. controls (65.156,29.867) and (65.148,29.869) .. (65.144,29.873)
+ .. controls (65.142,29.877) and (65.139,29.885) .. (65.139,29.891)
+ -- (65.139,29.969)
+ .. controls (65.139,29.977) and (65.138,29.98) .. (65.133,29.986)
+ .. controls (65.125,29.992) and (65.085,30.035) .. (65.063,30.055)
+ -- (65.063,34.736)
+ .. controls (65.063,34.736) and (65.063,34.742) .. (65.063,34.756)
+ .. controls (65.063,34.771) and (65.076,34.77) .. (65.076,34.77)
+ .. controls (65.078,34.77) and (65.092,34.77) .. (65.093,34.77)
+ .. controls (65.111,34.77) and (65.113,34.782) .. (65.113,34.799)
+ .. controls (65.113,34.818) and (65.113,34.865) .. (65.113,34.892)
+ .. controls (65.113,34.918) and (65.117,34.975) .. (65.128,34.994)
+ .. controls (65.137,35.01) and (65.135,35.029) .. (65.105,35.029)
+ .. controls (65.104,35.029) and (65.069,35.029) .. (65.067,35.029)
+ .. controls (65.03,35.029) and (65.026,35.07) .. (65.042,35.084)
+ .. controls (65.16,35.179) and (65.17,35.345) .. (65.17,35.378)
+ .. controls (65.17,35.406) and (65.169,35.432) .. (65.2,35.432)
+ -- (65.254,35.433)
+ -- cycle;
+
+%% Third-from-left column
+\fill [column3] (62.507,35.433)
+ .. controls (62.518,35.433) and (62.526,35.44) .. (62.526,35.452)
+ -- (62.526,35.665)
+ .. controls (62.526,35.676) and (62.518,35.667) .. (62.507,35.667)
+ -- (61.234,35.667)
+ .. controls (61.224,35.667) and (61.216,35.676) .. (61.216,35.665)
+ -- (61.216,35.452)
+ .. controls (61.216,35.44) and (61.224,35.433) .. (61.234,35.433)
+ -- (61.288,35.432)
+ .. controls (61.314,35.432) and (61.315,35.406) .. (61.315,35.381)
+ .. controls (61.315,35.349) and (61.33,35.184) .. (61.445,35.084)
+ .. controls (61.462,35.07) and (61.455,35.029) .. (61.421,35.029)
+ .. controls (61.418,35.029) and (61.384,35.029) .. (61.382,35.029)
+ .. controls (61.352,35.029) and (61.351,35.01) .. (61.36,34.994)
+ .. controls (61.37,34.975) and (61.372,34.918) .. (61.372,34.892)
+ .. controls (61.372,34.865) and (61.372,34.818) .. (61.372,34.799)
+ .. controls (61.372,34.782) and (61.375,34.77) .. (61.392,34.77)
+ .. controls (61.393,34.77) and (61.41,34.77) .. (61.411,34.77)
+ .. controls (61.411,34.77) and (61.424,34.771) .. (61.424,34.756)
+ .. controls (61.424,34.742) and (61.424,34.736) .. (61.424,34.736)
+ -- (61.424,30.055)
+ .. controls (61.411,30.041) and (61.359,29.99) .. (61.355,29.986)
+ .. controls (61.352,29.982) and (61.349,29.977) .. (61.349,29.969)
+ -- (61.349,29.891)
+ .. controls (61.349,29.885) and (61.347,29.877) .. (61.343,29.873)
+ .. controls (61.339,29.869) and (61.332,29.867) .. (61.325,29.867)
+ -- (61.267,29.867)
+ .. controls (61.256,29.867) and (61.248,29.857) .. (61.248,29.848)
+ .. controls (61.248,29.848) and (61.248,29.717) .. (61.248,29.713)
+ -- (62.494,29.713)
+ .. controls (62.494,29.717) and (62.494,29.848) .. (62.494,29.848)
+ .. controls (62.494,29.857) and (62.485,29.867) .. (62.475,29.867)
+ -- (62.416,29.867)
+ .. controls (62.409,29.867) and (62.402,29.869) .. (62.398,29.873)
+ .. controls (62.395,29.877) and (62.393,29.885) .. (62.393,29.891)
+ -- (62.393,29.969)
+ .. controls (62.393,29.977) and (62.392,29.98) .. (62.386,29.986)
+ .. controls (62.378,29.992) and (62.337,30.035) .. (62.318,30.055)
+ -- (62.318,34.736)
+ .. controls (62.318,34.736) and (62.317,34.742) .. (62.317,34.756)
+ .. controls (62.317,34.771) and (62.331,34.77) .. (62.331,34.77)
+ .. controls (62.332,34.77) and (62.346,34.77) .. (62.348,34.77)
+ .. controls (62.364,34.77) and (62.367,34.782) .. (62.367,34.799)
+ .. controls (62.367,34.818) and (62.367,34.865) .. (62.367,34.892)
+ .. controls (62.367,34.918) and (62.371,34.975) .. (62.381,34.994)
+ .. controls (62.39,35.01) and (62.388,35.029) .. (62.359,35.029)
+ .. controls (62.356,35.029) and (62.323,35.029) .. (62.321,35.029)
+ .. controls (62.284,35.029) and (62.28,35.07) .. (62.296,35.084)
+ .. controls (62.413,35.179) and (62.424,35.345) .. (62.424,35.378)
+ .. controls (62.424,35.406) and (62.423,35.432) .. (62.453,35.432)
+ -- (62.507,35.433)
+ -- cycle;
+
+%% Second from left column
+\fill [column2] (59.762,35.433)
+ .. controls (59.772,35.433) and (59.78,35.44) .. (59.78,35.452)
+ -- (59.78,35.665)
+ .. controls (59.78,35.676) and (59.772,35.667) .. (59.762,35.667)
+ -- (58.488,35.667)
+ .. controls (58.478,35.667) and (58.47,35.676) .. (58.47,35.665)
+ -- (58.47,35.452)
+ .. controls (58.47,35.44) and (58.478,35.433) .. (58.488,35.433)
+ -- (58.542,35.432)
+ .. controls (58.568,35.432) and (58.569,35.406) .. (58.569,35.381)
+ .. controls (58.569,35.349) and (58.584,35.184) .. (58.699,35.084)
+ .. controls (58.715,35.07) and (58.709,35.029) .. (58.675,35.029)
+ .. controls (58.673,35.029) and (58.638,35.029) .. (58.636,35.029)
+ .. controls (58.606,35.029) and (58.604,35.01) .. (58.613,34.994)
+ .. controls (58.624,34.975) and (58.626,34.918) .. (58.626,34.892)
+ .. controls (58.626,34.865) and (58.626,34.818) .. (58.626,34.799)
+ .. controls (58.626,34.782) and (58.628,34.77) .. (58.646,34.77)
+ .. controls (58.647,34.77) and (58.664,34.77) .. (58.665,34.77)
+ .. controls (58.665,34.77) and (58.678,34.771) .. (58.678,34.756)
+ .. controls (58.678,34.742) and (58.678,34.736) .. (58.678,34.736)
+ -- (58.678,30.055)
+ .. controls (58.665,30.041) and (58.613,29.99) .. (58.609,29.986)
+ .. controls (58.606,29.982) and (58.602,29.977) .. (58.602,29.969)
+ -- (58.602,29.891)
+ .. controls (58.602,29.885) and (58.601,29.877) .. (58.597,29.873)
+ .. controls (58.594,29.869) and (58.586,29.867) .. (58.579,29.867)
+ -- (58.52,29.867)
+ .. controls (58.51,29.867) and (58.502,29.857) .. (58.502,29.848)
+ .. controls (58.502,29.848) and (58.502,29.717) .. (58.502,29.713)
+ -- (59.747,29.713)
+ .. controls (59.747,29.717) and (59.747,29.848) .. (59.747,29.848)
+ .. controls (59.747,29.857) and (59.739,29.867) .. (59.729,29.867)
+ -- (59.669,29.867)
+ .. controls (59.663,29.867) and (59.656,29.869) .. (59.652,29.873)
+ .. controls (59.648,29.877) and (59.647,29.885) .. (59.647,29.891)
+ -- (59.647,29.969)
+ .. controls (59.647,29.977) and (59.645,29.98) .. (59.64,29.986)
+ .. controls (59.633,29.992) and (59.591,30.035) .. (59.571,30.055)
+ -- (59.571,34.736)
+ .. controls (59.571,34.736) and (59.571,34.742) .. (59.571,34.756)
+ .. controls (59.571,34.771) and (59.584,34.77) .. (59.584,34.77)
+ .. controls (59.585,34.77) and (59.6,34.77) .. (59.601,34.77)
+ .. controls (59.618,34.77) and (59.621,34.782) .. (59.621,34.799)
+ .. controls (59.621,34.818) and (59.621,34.865) .. (59.621,34.892)
+ .. controls (59.621,34.918) and (59.625,34.975) .. (59.635,34.994)
+ .. controls (59.644,35.01) and (59.642,35.029) .. (59.613,35.029)
+ .. controls (59.611,35.029) and (59.577,35.029) .. (59.574,35.029)
+ .. controls (59.538,35.029) and (59.534,35.07) .. (59.55,35.084)
+ .. controls (59.667,35.179) and (59.679,35.345) .. (59.679,35.378)
+ .. controls (59.679,35.406) and (59.678,35.432) .. (59.708,35.432)
+ -- (59.762,35.433)
+ -- cycle;
+
+% Left column
+\fill [column1] (57.015,35.433)
+ .. controls (57.026,35.433) and (57.034,35.44) .. (57.034,35.452)
+ -- (57.034,35.665)
+ .. controls (57.034,35.676) and (57.026,35.667) .. (57.015,35.667)
+ -- (55.742,35.667)
+ .. controls (55.732,35.667) and (55.723,35.676) .. (55.723,35.665)
+ -- (55.723,35.452)
+ .. controls (55.723,35.44) and (55.732,35.433) .. (55.742,35.433)
+ -- (55.796,35.432)
+ .. controls (55.822,35.432) and (55.823,35.406) .. (55.823,35.381)
+ .. controls (55.823,35.349) and (55.838,35.184) .. (55.954,35.084)
+ .. controls (55.969,35.07) and (55.963,35.029) .. (55.93,35.029)
+ .. controls (55.927,35.029) and (55.892,35.029) .. (55.89,35.029)
+ .. controls (55.86,35.029) and (55.858,35.01) .. (55.867,34.994)
+ .. controls (55.878,34.975) and (55.881,34.918) .. (55.881,34.892)
+ .. controls (55.881,34.865) and (55.881,34.818) .. (55.881,34.799)
+ .. controls (55.881,34.782) and (55.883,34.77) .. (55.899,34.77)
+ .. controls (55.901,34.77) and (55.917,34.77) .. (55.919,34.77)
+ .. controls (55.919,34.77) and (55.931,34.771) .. (55.931,34.756)
+ .. controls (55.931,34.742) and (55.932,34.736) .. (55.932,34.736)
+ -- (55.932,30.055)
+ .. controls (55.918,30.041) and (55.867,29.99) .. (55.864,29.986)
+ .. controls (55.859,29.982) and (55.857,29.977) .. (55.857,29.969)
+ -- (55.857,29.891)
+ .. controls (55.857,29.885) and (55.855,29.877) .. (55.851,29.873)
+ .. controls (55.848,29.869) and (55.84,29.867) .. (55.834,29.867)
+ -- (55.774,29.867)
+ .. controls (55.764,29.867) and (55.755,29.857) .. (55.755,29.848)
+ .. controls (55.755,29.848) and (55.755,29.717) .. (55.755,29.713)
+ -- (57.001,29.713)
+ .. controls (57.001,29.717) and (57.001,29.848) .. (57.001,29.848)
+ .. controls (57.001,29.857) and (56.993,29.867) .. (56.983,29.867)
+ -- (56.924,29.867)
+ .. controls (56.917,29.867) and (56.91,29.869) .. (56.906,29.873)
+ .. controls (56.902,29.877) and (56.901,29.885) .. (56.901,29.891)
+ -- (56.901,29.969)
+ .. controls (56.901,29.977) and (56.899,29.98) .. (56.894,29.986)
+ .. controls (56.887,29.992) and (56.846,30.035) .. (56.825,30.055)
+ -- (56.825,34.736)
+ .. controls (56.825,34.736) and (56.825,34.742) .. (56.825,34.756)
+ .. controls (56.825,34.771) and (56.838,34.77) .. (56.838,34.77)
+ .. controls (56.839,34.77) and (56.854,34.77) .. (56.855,34.77)
+ .. controls (56.872,34.77) and (56.874,34.782) .. (56.874,34.799)
+ .. controls (56.874,34.818) and (56.874,34.865) .. (56.874,34.892)
+ .. controls (56.874,34.918) and (56.878,34.975) .. (56.889,34.994)
+ .. controls (56.898,35.01) and (56.896,35.029) .. (56.867,35.029)
+ .. controls (56.864,35.029) and (56.831,35.029) .. (56.829,35.029)
+ .. controls (56.791,35.029) and (56.788,35.07) .. (56.804,35.084)
+ .. controls (56.921,35.179) and (56.932,35.345) .. (56.932,35.378)
+ .. controls (56.932,35.406) and (56.932,35.432) .. (56.962,35.432)
+ -- (57.015,35.433)
+ -- cycle;
+
+%% Dome
+\fill [dome] (67.143,40.391)
+ .. controls (67.143,40.391) and (67.038,40.391) .. (67.011,40.391)
+ .. controls (66.976,40.391) and (66.976,40.42) .. (66.976,40.42)
+ .. controls (66.976,40.42) and (66.976,40.532) .. (66.976,40.562)
+ .. controls (66.976,40.597) and (66.942,40.597) .. (66.942,40.597)
+ .. controls (66.942,40.597) and (66.846,40.597) .. (66.813,40.597)
+ .. controls (66.777,40.597) and (66.778,40.629) .. (66.778,40.629)
+ -- (66.778,40.76)
+ .. controls (66.778,40.76) and (66.779,40.789) .. (66.746,40.789)
+ .. controls (66.733,40.789) and (66.689,40.789) .. (66.669,40.789)
+ .. controls (66.641,40.789) and (66.614,40.811) .. (66.612,40.848)
+ .. controls (66.607,41.026) and (66.67,42.283) .. (66.004,43.192)
+ .. controls (65.483,43.973) and (64.764,44.369) .. (64.365,44.554)
+ .. controls (64.359,44.723) and (64.117,44.788) .. (64.012,44.824)
+ .. controls (63.957,44.843) and (63.909,44.865) .. (63.909,44.915)
+ .. controls (63.909,44.916) and (63.908,44.97) .. (63.908,44.973)
+ .. controls (63.908,45.025) and (63.956,45.046) .. (64.028,45.043)
+ .. controls (64.05,45.043) and (64.067,45.062) .. (64.067,45.077)
+ -- (64.067,45.229)
+ .. controls (64.067,45.251) and (64.048,45.276) .. (64.016,45.276)
+ .. controls (63.964,45.276) and (63.902,45.276) .. (63.872,45.276)
+ .. controls (63.838,45.276) and (63.822,45.307) .. (63.822,45.326)
+ .. controls (63.822,45.357) and (63.822,45.344) .. (63.822,45.403)
+ .. controls (63.822,45.448) and (63.786,45.473) .. (63.76,45.486)
+ -- (63.76,46.423)
+ .. controls (63.76,46.455) and (63.784,46.451) .. (63.805,46.451)
+ .. controls (63.809,46.451) and (63.812,46.451) .. (63.816,46.452)
+ -- (63.818,46.452)
+ .. controls (63.831,46.452) and (63.841,46.463) .. (63.841,46.475)
+ -- (63.841,46.564)
+ .. controls (63.841,46.578) and (63.831,46.587) .. (63.818,46.587)
+ -- (63.776,46.587)
+ .. controls (63.762,46.593) and (63.752,46.613) .. (63.752,46.655)
+ .. controls (63.752,46.698) and (63.764,46.719) .. (63.782,46.723)
+ -- (63.818,46.723)
+ .. controls (63.831,46.723) and (63.841,46.732) .. (63.841,46.745)
+ -- (63.841,46.835)
+ .. controls (63.841,46.848) and (63.831,46.857) .. (63.818,46.857)
+ -- (63.771,46.857)
+ .. controls (63.75,46.861) and (63.734,46.87) .. (63.714,46.886)
+ .. controls (63.554,47.013) and (63.393,47.195) .. (63.393,47.222)
+ .. controls (63.393,47.236) and (63.392,47.238) .. (63.392,47.255)
+ .. controls (63.392,47.274) and (63.373,47.312) .. (63.329,47.312)
+ .. controls (63.288,47.312) and (63.294,47.356) .. (63.316,47.356)
+ .. controls (63.331,47.356) and (63.335,47.361) .. (63.335,47.382)
+ .. controls (63.335,47.395) and (63.335,47.418) .. (63.335,47.442)
+ .. controls (63.335,47.47) and (63.252,47.583) .. (63.252,47.583)
+ -- (63.248,47.583)
+ .. controls (63.248,47.583) and (63.164,47.47) .. (63.164,47.442)
+ .. controls (63.164,47.418) and (63.165,47.395) .. (63.165,47.382)
+ .. controls (63.165,47.361) and (63.169,47.356) .. (63.185,47.356)
+ .. controls (63.207,47.356) and (63.212,47.312) .. (63.17,47.312)
+ .. controls (63.127,47.312) and (63.108,47.274) .. (63.108,47.255)
+ .. controls (63.108,47.238) and (63.107,47.236) .. (63.107,47.222)
+ .. controls (63.107,47.195) and (62.946,47.013) .. (62.786,46.886)
+ .. controls (62.766,46.87) and (62.75,46.861) .. (62.729,46.857)
+ -- (62.681,46.857)
+ .. controls (62.669,46.857) and (62.66,46.848) .. (62.66,46.835)
+ -- (62.66,46.745)
+ .. controls (62.66,46.732) and (62.669,46.723) .. (62.681,46.723)
+ -- (62.718,46.723)
+ .. controls (62.735,46.719) and (62.749,46.698) .. (62.749,46.655)
+ .. controls (62.749,46.613) and (62.738,46.593) .. (62.724,46.587)
+ -- (62.681,46.587)
+ .. controls (62.669,46.587) and (62.66,46.578) .. (62.66,46.564)
+ -- (62.66,46.475)
+ .. controls (62.66,46.463) and (62.669,46.452) .. (62.681,46.452)
+ -- (62.684,46.452)
+ .. controls (62.688,46.451) and (62.691,46.451) .. (62.694,46.451)
+ .. controls (62.716,46.451) and (62.74,46.455) .. (62.74,46.423)
+ -- (62.74,45.486)
+ .. controls (62.714,45.473) and (62.678,45.448) .. (62.678,45.403)
+ .. controls (62.678,45.344) and (62.678,45.357) .. (62.678,45.326)
+ .. controls (62.678,45.307) and (62.661,45.276) .. (62.627,45.276)
+ .. controls (62.597,45.276) and (62.535,45.276) .. (62.483,45.276)
+ .. controls (62.452,45.276) and (62.432,45.251) .. (62.432,45.229)
+ -- (62.432,45.077)
+ .. controls (62.432,45.062) and (62.449,45.043) .. (62.471,45.043)
+ .. controls (62.543,45.046) and (62.592,45.025) .. (62.592,44.973)
+ .. controls (62.592,44.97) and (62.59,44.916) .. (62.59,44.915)
+ .. controls (62.59,44.865) and (62.542,44.843) .. (62.487,44.824)
+ .. controls (62.381,44.788) and (62.141,44.723) .. (62.134,44.554)
+ .. controls (61.735,44.369) and (61.016,43.973) .. (60.496,43.192)
+ .. controls (59.83,42.283) and (59.893,41.026) .. (59.888,40.848)
+ .. controls (59.886,40.811) and (59.859,40.789) .. (59.831,40.789)
+ .. controls (59.811,40.789) and (59.767,40.789) .. (59.754,40.789)
+ .. controls (59.721,40.789) and (59.721,40.76) .. (59.721,40.76)
+ -- (59.721,40.629)
+ .. controls (59.721,40.629) and (59.723,40.597) .. (59.687,40.597)
+ .. controls (59.655,40.597) and (59.557,40.597) .. (59.557,40.597)
+ .. controls (59.557,40.597) and (59.523,40.597) .. (59.523,40.562)
+ .. controls (59.523,40.532) and (59.523,40.42) .. (59.523,40.42)
+ .. controls (59.523,40.42) and (59.524,40.391) .. (59.488,40.391)
+ .. controls (59.461,40.391) and (59.357,40.391) .. (59.357,40.391)
+ .. controls (59.357,40.391) and (59.321,40.391) .. (59.321,40.354)
+ .. controls (59.321,40.333) and (59.321,40.25) .. (59.321,40.203)
+ .. controls (59.321,40.186) and (59.331,40.183) .. (59.343,40.181)
+ .. controls (59.382,40.175) and (59.462,40.14) .. (59.462,40.053)
+ .. controls (59.462,39.905) and (59.552,39.891) .. (59.589,39.891)
+ -- (59.589,39.343)
+ .. controls (59.589,39.216) and (59.49,39.166) .. (59.433,39.153)
+ .. controls (59.422,39.151) and (59.406,39.138) .. (59.406,39.122)
+ .. controls (59.406,39.108) and (59.406,38.56) .. (59.406,38.56)
+ -- (63.248,39.407)
+ -- (63.252,39.407)
+ -- (67.093,38.56)
+ .. controls (67.093,38.56) and (67.093,39.108) .. (67.093,39.122)
+ .. controls (67.093,39.138) and (67.077,39.151) .. (67.066,39.153)
+ .. controls (67.01,39.166) and (66.91,39.216) .. (66.91,39.343)
+ -- (66.91,39.891)
+ .. controls (66.947,39.891) and (67.037,39.905) .. (67.037,40.053)
+ .. controls (67.037,40.14) and (67.117,40.175) .. (67.156,40.181)
+ .. controls (67.169,40.183) and (67.179,40.186) .. (67.179,40.203)
+ .. controls (67.179,40.25) and (67.179,40.333) .. (67.179,40.354)
+ .. controls (67.179,40.391) and (67.143,40.391) .. (67.143,40.391)
+ -- cycle;
+
+%% Portico steps/base
+\fill [steps] (71.389,28.116)
+ -- (71.389,29.24)
+ -- (70.732,29.24)
+ -- (70.732,29.73)
+ -- (55.755,29.73)
+ -- (55.755,29.24)
+ -- (55.098,29.24)
+ -- (55.098,28.116)
+ -- (54.437,28.116)
+ -- (54.437,26.984)
+ -- (72.052,26.982)
+ -- (72.052,28.116)
+ -- (71.389,28.116)
+ -- cycle;
+ 
+ % Need to make this bigger...
+ \node [align=left,anchor={south west}] at (\leftbase+10,1) {\textbf{\fontsize{5cm}{1em}\selectfont \color{white} Legion Quick Reference Sheet}};
+
+\end{tikzpicture}
+}
+
+\begin{multicols}{3}
+
+\section{Access}
+Legion can be accessed via SSH using either a command line SSH client or a windowed SSH client like PuTTY.
+
+~ % I am the laziest formatter
+
+~ ~ {\textbf{Hostname:}} legion.rc.ucl.ac.uk
+
+~
+
+For file transfers, users can either use SCP, or SFTP. Best transfer speeds will be attained by transferring via the login05 node:
+
+~
+
+~ ~ {\textbf{Hostname:}} login05.external.legion.ucl.ac.uk
+
+~ 
+
+\vfill
+
+\section{Hardware}
+{\small{ 
+\begin{tabular}{p{3cm}ccccc}
+\hline
+\th{ID} & \th{Class} & \th{Number} & \th{Cores} & \th{RAM} & \th{IB}\\
+\hline
+\code{login05} & -- & 1 & 4 & 24 GB & \texttimes \\
+\code{login06 -- login09} & -- & 4 & 12 & 24 GB & \texttimes \\
+\code{node-k01 -- node-p24} & X & 90 & 12 & 24 GB & \checkmark  \\
+\code{node-001 -- node-108} & Y & 50 & 12 & 24 GB & \texttimes    \\
+\code{node-202 -- node-212} & Z & 4 & 12 & 48 GB & \texttimes  \\
+\code{node-513 -- node-528} & U & 84 & 16 & 64 GB & \texttimes  \\
+\code{node-601 -- node-603} & T & 3 & 32 & 1.5 TB & \texttimes  \\
+\hline
+\end{tabular}
+\strut\\
+
+\footnotesize{\textit{IB = Infiniband, the fast network for multi-node jobs.}}
+}}
+
+\vfill
+
+\section{Scheduler}
+Legion uses Sun Grid Engine to queue up job scripts to run later on the compute nodes. Users interact with this via commands on the login nodes.
+
+{\small{ \centering
+\begin{tabular}{p{2cm}p{5.5cm}}
+\hline
+\th{Command} & \th{Description} \\
+\hline
+\code{qsub }\codeit{script} & Submit a script to the scheduler \\
+\code{qstat} & Show status of queued/running jobs \\
+\code{qstat -j }\codeit{jobid} & Show detailed information about one job \\
+\code{qdel }\codeit{jobid} & Remove a job from the scheduler\\
+\code{qrsh }\codeit{options} & Request an interactive session on a test node\\
+\hline
+\end{tabular}
+}}
+
+
+\vfill
+
+\section{Other Useful Commands}
+{\small{ \centering
+\begin{tabular}{p{2cm}p{5.5cm}}
+\hline
+\th{Command} & \th{Description} \\
+\hline
+\code{man }\codeit{command} & Show the manual page for a command \\
+\code{quotas} & Show your home and scratch area quota status \\
+\code{groups} & Show what groups you're in. Includes your project group, and any program access groups \\
+\hline
+\end{tabular}
+}}
+
+\vfill
+
+\section{Job Script Options}
+The scheduler has many options to alter how and where your job can run, and what resources it will be allocated, shown below. As well as this, example job scripts for both generic use and for many specific applications are available from our website.
+
+~
+
+{\small \centering
+\begin{tabular}{p{2.5cm}p{5cm}}
+\hline
+\th{Flag} & \th{Effect}\\
+\hline
+\code{-N }\codeit{jobname} &
+Set the name of the job in the queue to \codeit{jobname}
+\\
+\code{-P }\codeit{projectid} &
+Set the project id to run the job under (only relevant for special access projects).
+\\
+\code{-pe mpi }\codeit{cores} & 
+Request cores to run distributed parallel jobs (MPI or other), with \codeit{cores} on more than one node if necessary. (Max: 256)
+\\
+\code{-pe smp }\codeit{threads} &
+Request \codeit{threads} parallel threads on a single node. (Max: 32, sensible: 12 or 16)
+\\
+\code{-l h\_rt=}\codeit{hh:mm:ss} & 
+Request an amount of time to be able to run the job for. (At the end of this time, the job will be killed if it is still running.)
+\\
+\code{-l mem=}\codeit{bytes} & 
+Request that processes be placed such that the job can use that much RAM per core requested.
+\\
+\code{-l tmpfs=}\codeit{bytes} & 
+Request the creation of a temporary area on the compute node that can store \codeit{bytes} bytes. Append "G" to request gigabytes. (Default: 10G)
+\\
+\code{-l gpu=}\codeit{number} &
+Request 1 or 2 GPUs (per core if used with \code{-pe}) for your job. GPUs are only available on V-class nodes, so jobs requesting these will only run there (automatically).
+\\ 
+\code{-t }\codeit{start-stop:step} & 
+Specify that the job should be multiplied into an array of jobs, with \$SGE\_TASK\_ID in each set to a different value, starting at \codeit{start}, finishing with \codeit{stop}, and incrementing by \codeit{step} each time.
+\\
+\code{-cwd} & 
+Set the working directory the job starts in to the same directory it was submitted from.
+\\
+\code{-wd }\codeit{directory} & 
+Set it somewhere else.
+\\
+\code{-o }\codeit{filename} & 
+Direct the output stream into a given file. (Default: \textit{jobname}.o\textit{jobid})
+\\
+\code{-e }\codeit{filename} & 
+Direct the error stream into a given file. (Default: \textit{jobname}.e\textit{jobid})
+\\
+\code{-j y} & 
+Join together the output and error streams.
+\\
+\code{-hold\_jid }\codeit{jobid} & 
+Hold the job until the job with id \codeit{jobid} has finished.
+\\
+\code{-ac allow=}\codeit{node\_class} & 
+Only run on nodes of class \codeit{node\_class}.
+\\
+\hline
+\end{tabular}
+}
+
+
+\columnbreak
+
+\section{Resource Limits}
+\vspace{-1.5em} % Wooo, hax
+\begin{itemize}[noitemsep,topsep=0pt] % Requires enumitem package
+\item Jobs can use a single core for up to 3 days, or more cores/threads for up to 2 days.
+\item MPI jobs can use a maximum of 64 nodes.
+\item Each user may have up to 1000 jobs in the queue (an array of jobs counts as 1 for these purposes).
+\end{itemize}
+
+\vfill
+
+\section{Storage}
+Jobs have access to three different areas of storage on Legion:
+
+{\small \centering
+\begin{tabular}{lcp{3.8cm}}
+\hline
+\th{Location} & \th{Quota} & \th{Notes} \\
+\hline
+\code{/home/\$USER} & 50 GB & Read-only from compute nodes, writable from login nodes, backed up \\
+\code{/home/\$USER/Scratch} & 200 GB & Writable anywhere, not backed up \\
+\code{\$TMPDIR} & (10 GB) & Defined per job, size requestable from job script (see \code{-l tmpfs} above). \\
+\hline
+\end{tabular}
+}
+
+\vfill
+
+\section{Module commands}
+The {\small\code{module}} command sets environment variables to make it easier to run programs or use libraries. There is a default set of loaded modules on Legion which can be seen by running {\small\code{module show default-modules}}.
+
+{\small \centering
+~
+
+\begin{tabular}{p{2.5cm}p{5cm}}
+\hline
+\th{Command} & \th{Description} \\
+\hline
+\code{module} & Give a brief list of the available module commands \\
+\code{module avail} & Show all available modules. \\
+\code{module avail }\codeit{text} & Show modules with names beginning with \codeit{text}. \\
+\code{module load }\codeit{module} & Load \codeit{module}. \\
+\code{module unload }\codeit{module} & Unload \codeit{module}. \\
+\code{module show }\codeit{module} & Show the effect of loading a module. \\
+\code{module help }\codeit{module} & Show a brief description of a module. \\
+\hline
+\end{tabular}
+}
+
+\vfill
+
+\section{Support}
+Please contact \href{mailto:rc-support@ucl.ac.uk}{\color{LinkColour}{rc-support@ucl.ac.uk}} if you have any questions about the contents of this document, or any of our services or systems.
+
+~
+
+More documentation and support pages are available on our website, at: \mbox{\color{LinkColour}{\url{http://www.ucl.ac.uk/research-computing/}}}.
+
+\section{Last Updated}
+This document was last updated on \today.
+
+%\textit{\footnotesize This document is based on \href{http://www.ucl.ac.uk/isd/staff/research_services/research-computing/services/iridis/iridis_quick_reference}{\color{LinkColour}the corresponding reference sheet for the Iridis service}.}
+
+\end{multicols}
+
+\end{document}

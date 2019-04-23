@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="570.756" height="281" viewBox="0, 0, 570.756, 281">
+  <g id="Layer_1">
+    <g id="rect3022">
+      <path d="M371.325,0.512 L570.245,0.512 L570.245,280.488 L371.325,280.488 z" fill="#B3B3B3"/>
+      <path d="M371.325,0.512 L570.245,0.512 L570.245,280.488 L371.325,280.488 z" fill-opacity="0" stroke="#000000" stroke-width="1.023" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <path d="M487.686,92.772 C484.416,96.231 481.186,99.743 478.45,103.65 C477.667,104.768 476.95,105.93 476.2,107.07 C469.763,118.091 466.602,130.579 463.665,142.887 C462.361,149.004 461.276,155.191 460.986,161.45 C460.882,163.702 460.903,166.893 461.246,169.203 C461.37,170.034 461.637,170.837 461.833,171.654 C462.697,173.965 464.381,175.525 466.774,176.074 C466.235,175.971 466.084,177.595 466.506,176.516 C466.497,176.501 466.716,176.37 466.725,176.385 L466.725,176.385 C468.245,176.087 467.451,178.417 466.07,177.794 C462.851,177.394 460.653,175.083 459.453,172.163 C459.205,171.247 458.881,170.35 458.71,169.417 C457.098,160.637 459.061,150.901 460.648,142.286 C461.234,139.831 461.764,137.363 462.406,134.923 C465.063,124.828 468.563,114.837 473.997,105.879 C477.539,100.678 481.397,95.684 486.175,91.542 C486.262,91.435 487.773,92.666 487.686,92.772 z" fill="#ECB8A2" id="path3899"/>
+    <path d="M513.069,92.097 C517.44,100.995 521.818,109.88 525.821,118.952 C529.55,127.81 532.091,137.13 532.79,146.737 C533.2,152.374 532.939,154.45 532.674,160 C531.808,166.803 531.504,175.582 527.347,181.398 C526.811,182.148 526.103,182.759 525.481,183.44 C524.794,183.856 524.159,184.375 523.42,184.688 C521.109,185.668 518.08,185.385 516.229,183.6 C515.977,183.357 515.82,183.032 515.616,182.748 C515.446,181.645 515.32,182.14 515.973,181.258 C515.994,181.206 516.728,181.5 516.707,181.551 L516.707,181.551 C516.951,181.576 516.829,181.529 517.044,181.747 C518.384,182.812 520.252,183.536 521.958,182.929 C522.53,182.725 523.024,182.344 523.557,182.051 C524.077,181.491 524.676,180.994 525.118,180.37 C528.928,174.987 529.038,166.165 529.788,159.894 C530.002,154.566 530.236,152.428 529.829,147.028 C529.125,137.67 526.642,128.597 523.046,119.952 C519.106,110.836 514.672,101.933 511.023,92.697 C510.98,92.552 513.026,91.952 513.069,92.097 z" fill="#ECB8A2" id="path3901"/>
+    <g id="rect3026">
+      <path d="M381.326,172.498 L560.243,172.498 L560.243,222.487 L381.326,222.487 z" fill="#DE8787"/>
+      <path d="M381.326,172.498 L560.243,172.498 L560.243,222.487 L381.326,222.487 z" fill-opacity="0" stroke="#000000" stroke-width="1.026" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 471.034, 194.406)" id="tspan3047">
+      <tspan x="-80.534" y="6.5" font-family="Helvetica" font-size="20" fill="#FFFFFF">Operating System</tspan>
+    </text>
+    <g>
+      <text transform="matrix(1, 0, 0, 1, 72.788, 196.406)" id="tspan3908">
+        <tspan x="-38.288" y="6.5" font-family="Helvetica" font-size="20" fill="#D35F5F">Terminal</tspan>
+      </text>
+      <text transform="matrix(1, 0, 0, 1, 75.015, 221.406)" id="tspan3927">
+        <tspan x="-40.515" y="6.5" font-family="Helvetica" font-size="20" fill="#D35F5F">Emulator</tspan>
+      </text>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 474.906, 254.406)" id="tspan3912">
+      <tspan x="-44.406" y="6.5" font-family="Helvetica" font-size="20" fill="#FFFFFF">Computer</tspan>
+    </text>
+    <g id="g3929">
+      <g id="rect2987">
+        <path d="M20.5,108.907 L130.5,108.907 L130.5,178.907 L20.5,178.907 z" fill="#CCCCCC"/>
+        <path d="M20.5,108.907 L130.5,108.907 L130.5,178.907 L20.5,178.907 z" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+      </g>
+      <g id="rect2991">
+        <path d="M30.5,118.907 L120.5,118.907 L120.5,168.907 L30.5,168.907 z" fill="#000000"/>
+        <path d="M30.5,118.907 L120.5,118.907 L120.5,168.907 L30.5,168.907 z" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+      </g>
+      <text transform="matrix(1, 0, 0, 1, 45.455, 131.987)" id="tspan3004">
+        <tspan x="-11.623" y="6.5" font-family="Helvetica" font-size="20" fill="#FFFFFF">$_</tspan>
+      </text>
+      <path d="M30.5,108.907 L110.5,108.907 L110.5,118.907 L30.5,118.907 z" fill="#000080" id="rect3919"/>
+      <path d="M20.5,118.907 C30.5,118.907 120.5,118.907 120.5,118.907 L120.5,108.907 L120.5,108.907" fill-opacity="0" stroke="#000000" stroke-width="1" id="path3921"/>
+      <path d="M120.5,118.907 L130.5,118.907" fill-opacity="0" stroke="#000000" stroke-width="1" id="path3923"/>
+      <path d="M20.5,158.907 L130.5,158.907 L110.5,158.907 L110.5,178.907 L110.5,158.907 L40.5,158.907 L40.5,178.907" fill-opacity="0" stroke="#000000" stroke-width="1" id="path3925"/>
+    </g>
+    <g id="rect3115">
+      <path d="M430.5,110.906 L490.5,110.906 L490.5,140.906 L430.5,140.906 z" fill="#DE8787"/>
+      <path d="M430.5,110.906 L490.5,110.906 L490.5,140.906 L430.5,140.906 z" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <g id="rect3117">
+      <path d="M499.667,111.184 L559.667,111.184 L559.667,141.184 L499.667,141.184 z" fill="#DE8787"/>
+      <path d="M499.667,111.184 L559.667,111.184 L559.667,141.184 L499.667,141.184 z" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <g id="rect3887">
+      <path d="M471.538,70.973 L548.767,70.973 L548.767,100.84 L471.538,100.84 z" fill="#0088AA"/>
+      <path d="M471.538,70.973 L548.767,70.973 L548.767,100.84 L471.538,100.84 z" fill-opacity="0" stroke="#000000" stroke-width="1.132" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 511.015, 84.407)" id="tspan3905">
+      <tspan x="-30.515" y="6.5" font-family="Helvetica" font-size="20" fill="#FFFFFF">screen</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 463.236, 124.407)" id="tspan3911">
+      <tspan x="-22.736" y="6.5" font-family="Helvetica" font-size="20" fill="#FFFFFF">Shell</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 533.236, 124.407)" id="tspan3917">
+      <tspan x="-22.736" y="6.5" font-family="Helvetica" font-size="20" fill="#FFFFFF">Shell</tspan>
+    </text>
+  </g>
+</svg>

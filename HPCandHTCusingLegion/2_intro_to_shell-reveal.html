@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Introduction to the UNIX shell</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/local_reveal.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/reveal.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Introduction to the UNIX shell</h1>
+</section>
+
+<section><section id="introduction-to-the-unix-shell" class="titleslide slide level1"><h1>Introduction to the UNIX shell</h1></section><section id="overview" class="slide level2">
+<h1>Overview</h1>
+<ul>
+<li><p>Basic interaction with files and directories</p>
+<ul>
+<li><p>command line execution</p></li>
+<li><p>Unix directory and file basics</p></li>
+<li><p>file properties</p></li>
+</ul></li>
+<li><p>File manipulation</p>
+<ul>
+<li><p>inspecting and editing files</p></li>
+<li><p>searching and filtering</p></li>
+<li><p>archiving and transfer over network</p></li>
+</ul></li>
+<li><p>Scripting and workflows</p>
+<ul>
+<li>scripting techniques for building workflows</li>
+</ul></li>
+</ul>
+</section><section id="access-to-legion" class="slide level2">
+<h1>Access to Legion</h1>
+<ul>
+<li><p>Apply for an account: <a href="https://signup.rc.ucl.ac.uk/" class="uri">https://signup.rc.ucl.ac.uk/</a></p></li>
+<li><p>Access is provided through the 4 login nodes connected to the external network:</p></li>
+</ul>
+<pre><code>legion.rc.ucl.ac.uk</code></pre>
+</section><section id="connecting-to-a-computer-1970s" class="slide level2">
+<h1>Connecting to a computer: 1970s</h1>
+<figure>
+<img src="../assets/terminal-serial.svg" />
+</figure>
+</section><section id="connecting-to-a-computer-working-from-home" class="slide level2">
+<h1>Connecting to a computer: working from home</h1>
+<figure>
+<img src="../assets/terminal-phone.svg" />
+</figure>
+</section><section id="connecting-to-a-computer-over-the-internet" class="slide level2">
+<h1>Connecting to a computer: over the Internet</h1>
+<figure>
+<img src="../assets/terminal-telnet.svg" />
+</figure>
+<p>Communication <em>unencrypted!</em></p>
+</section><section id="connecting-to-a-computer-over-the-internet-1" class="slide level2">
+<h1>Connecting to a computer: over the Internet</h1>
+<figure>
+<img src="../assets/terminal-ssh.svg" />
+</figure>
+<p>Communication <em>encrypted!</em></p>
+</section><section id="access-to-legion-1" class="slide level2">
+<h1>Access to Legion</h1>
+<ul>
+<li><p>To access one of the login nodes (remotely) from a Unix machine:</p>
+<pre><code>ssh username@legion.rc.ucl.ac.uk</code></pre></li>
+<li><p>Log on using UCL username/password</p></li>
+<li><p>On Windows (e.g. Desktop@UCL) you can use PuTTY.</p></li>
+</ul>
+</section><section id="access-to-legion-2" class="slide level2">
+<h1>Access to Legion</h1>
+<figure>
+<img src="../assets/puttylocation.png" />
+</figure>
+</section><section id="access-to-legion-3" class="slide level2">
+<h1>Access to Legion</h1>
+<figure>
+<img src="../assets/puttyconfig.png" />
+</figure>
+</section></section>
+<section><section id="basic-interaction-with-files-and-directories" class="titleslide slide level1"><h1>Basic interaction with files and directories</h1></section><section id="command-prompt" class="slide level2">
+<h1>Command Prompt</h1>
+<pre><code>[ccaaxxx@login06 ~]$</code></pre>
+<ul>
+<li>Has the form <code>[&lt;username&gt;@&lt;host name&gt; &lt;present directory&gt;]$</code></li>
+<li><strong>&lt;user name&gt;</strong> is the Unix user name (UCL user ID).</li>
+<li><strong>&lt;host name&gt;</strong> is the name of the computer that you are accessing.</li>
+<li><strong>&lt;present directory&gt;</strong> is the directory that the user is currently in.</li>
+<li>Takes commands typed after the prompt and executed by pressing return.</li>
+<li>Is usually controlled by a program called <code>bash</code>.</li>
+</ul>
+</section><section id="command-line-execution" class="slide level2">
+<h1>Command Line Execution</h1>
+<pre><code>[ccaaxxx@login06 ~]$ ls
+Scratch
+[ccaaxxx@login06 ~]$</code></pre>
+<ul>
+<li><code>ls</code> lists the contents of the directory</li>
+<li><code>~</code> is an abbreviation for your &quot;home directory&quot;</li>
+</ul>
+</section><section id="unix-directory-basics" class="slide level2">
+<h1>Unix Directory Basics</h1>
+<pre><code>[ccaaxxx@login06 ~]$ file ~
+/home/ccaaxx: directory
+[ccaaxxx@login06 ~]$</code></pre>
+<ul>
+<li><code>file</code> identifies the file type</li>
+<li><code>~</code> = /home/ccaaxxx - your home directory</li>
+</ul>
+</section><section id="unix-directory-basics-1" class="slide level2">
+<h1>Unix Directory Basics</h1>
+<pre><code>/home/ccaaxxx: directory
+
+/home: directory
+
+/: directory</code></pre>
+<ul>
+<li><code>/home/ccaaxxx</code> - the <em>full</em> or <em>absolute</em> path to your home directory</li>
+</ul>
+</section><section id="directory-navigation" class="slide level2">
+<h1>Directory Navigation</h1>
+<pre><code>[ccaaxxx@login06 ~]$ pwd
+/home/ccaaxxx
+
+[ccaaxxx@login06 ~]$ cd /
+[ccaaxxx@login06 /]$</code></pre>
+<ul>
+<li><code>cd</code> - change directory</li>
+<li><code>pwd</code> - full path to present working directory</li>
+<li><code>/</code> - the &quot;root&quot; directory</li>
+</ul>
+</section><section id="filesystem-structure" class="slide level2">
+<h1>Filesystem structure</h1>
+<figure>
+<img src="../assets/pathdia_v2_tree.png" />
+</figure>
+</section><section id="absolute-path" class="slide level2">
+<h1>Absolute path</h1>
+<figure>
+<img src="../assets/pathdia_v2_abs.png" />
+</figure>
+<p><code>/home/alice</code></p>
+</section><section id="relative-path" class="slide level2">
+<h1>Relative path</h1>
+<figure>
+<img src="../assets/pathdia_v2_rel.png" />
+</figure>
+<p><code>../alice</code></p>
+</section><section id="hidden-files-and-directories" class="slide level2">
+<h1>Hidden files and directories</h1>
+<pre><code>[ccaaxxx@login06 ~]$ ls -a
+.  ..  .bash_history  .bash_logout
+.bash_profile  .bashrc  .cshrc  .emacs
+Scratch  .ssh
+[ccaaxxx@login06 ~]$ </code></pre>
+<ul>
+<li><p>Files starting with &quot;.&quot; are hidden</p></li>
+<li><code>.</code> - Present working directory (in this case <code>~</code>)</li>
+<li><p><code>..</code> - Directory above (in this case <code>/home</code>)</p></li>
+</ul>
+</section><section id="everything-is-a-file" class="slide level2">
+<h1>Everything is a file</h1>
+<pre><code>[ccaaxxx@login06 ~]$ file .* *
+.:             directory
+..:            directory
+.bash_history: ASCII text
+.bash_logout:  ASCII English text
+.bash_profile: ASCII English text
+.bashrc:       Bourne-Again shell script text executable
+.cshrc:        C shell script text executable
+.emacs:        Lisp/Scheme program text (Emacs editor)
+.ssh:          directory (for secure shell)
+Scratch:       symbolic link to `/scratch/scratch/ccaaxxx&#39;</code></pre>
+<ul>
+<li><code>*</code> - All visible files</li>
+<li><code>.*</code> - All invisible files</li>
+</ul>
+</section><section id="everything-is-a-file-1" class="slide level2">
+<h1>Everything is a file</h1>
+<p>Just to make the point:</p>
+<pre><code>[ccaaxxx@login06 ~]$ which ls
+ /bin/ls
+
+[ccaaxxx@login06 ~]$ file /bin/ls
+/bin/ls: ELF 64-bit LSB executable, AMD x86-64, version 1 (SYSV), for GNU/Linux 2.4.0,
+dynamically linked (uses shared libs), stripped</code></pre>
+<ul>
+<li><code>/bin/ls</code> is an executable file (!)</li>
+<li><code>which</code> shows the path to the argument, in this case <code>ls</code></li>
+</ul>
+</section><section id="everything-is-a-file-2" class="slide level2">
+<h1>Everything is a file</h1>
+<p>Just to make the point:</p>
+<pre><code>[ccaaxxx@login06 ~]$ file /dev/sda1
+/dev/sda1: block special (8/1)</code></pre>
+<ul>
+<li>Things in <code>/dev</code> are <em>devices</em></li>
+<li><code>/dev/sda1</code> is the first hard drive</li>
+</ul>
+</section><section id="exercise" class="slide level2">
+<h1>Exercise:</h1>
+<p>Explore the <code>/</code> directory using <code>ls</code>, <code>cd</code>, <code>.</code>, <code>..</code>, <code>pwd</code></p>
+<ul>
+<li><p>If you feel lost, just execute <code>cd</code> with no arguments (or <code>cd ~</code>) and you will be returned to your home directory.</p></li>
+<li><p><code>cd -</code> - will return you to the previous directory you were in.</p></li>
+</ul>
+</section><section id="directory-creation" class="slide level2">
+<h1>Directory creation</h1>
+<pre><code>[ccaaxxx@login06 ~]$ mkdir a_directory
+
+[ccaaxxx@login06 ~]$ ls
+a_directory Scratch</code></pre>
+<ul>
+<li><code>mkdir</code> - create a directory</li>
+</ul>
+</section><section id="directory-creation-1" class="slide level2">
+<h1>Directory creation</h1>
+<pre><code>[ccaaxxx@login06 ~]$ mkdir -p a_directory/inside/the_other
+[ccaaxxx@login06 ~]$ cd a_directory/inside/the_other
+[ccaaxxx@login06 the_other]$ pwd
+/home/ccaaxxx/a_directory/inside/the_other</code></pre>
+<ul>
+<li><code>mkdir -p</code> - creates consecutive sub-directories</li>
+</ul>
+</section><section id="touching-a-file" class="slide level2">
+<h1>Touching a file</h1>
+<pre><code>[ccaaxxx@login06 ~]$ touch a_file
+[ccaaxxx@login06 ~]$ ls
+a_directory a_file Scratch</code></pre>
+<ul>
+<li><code>touch</code> - create or update the date of a file</li>
+<li>This is <strong>not</strong> usually how files are created</li>
+</ul>
+</section><section id="copying-files" class="slide level2">
+<h1>Copying files</h1>
+<pre><code>[ccaaxxx@login06 ~]$ cp a_file copy_of_a_file
+[ccaaxxx@login06 ~]$ ls
+a_directory a_file copy_of_a_file Scratch</code></pre>
+<ul>
+<li><code>cp</code> - copy a file (or a directory tree)</li>
+</ul>
+</section><section id="exercise-1" class="slide level2">
+<h1>Exercise:</h1>
+<p>Create and copy a directory tree. Use the command <code>man cp</code> for more information</p>
+</section></section>
+<section><section id="file-manipulation" class="titleslide slide level1"><h1>File manipulation</h1></section><section id="editing-files" class="slide level2">
+<h1>Editing files</h1>
+<pre><code>[ccaaxxx@login06 ~]$ nano a_file</code></pre>
+<figure>
+<img src="../assets/nano.png" />
+</figure>
+<ul>
+<li><code>nano</code> - simple file editor</li>
+</ul>
+</section><section id="nano" class="slide level2">
+<h1>Nano</h1>
+<figure>
+<img src="../assets/nano3.png" />
+</figure>
+<ul>
+<li><code>nano</code> - simple file editor</li>
+<li>Commands are along the botton of editor screen</li>
+<li><code>^</code> - shorthand for control key</li>
+</ul>
+</section><section id="editors" class="slide level2">
+<h1>Editors</h1>
+<p>There are many other (better but more complex) text file editors on the system such as <strong>vim</strong>, <strong>emacs</strong> and <strong>nedit</strong>.</p>
+<p>Use the one you feel most comfortable with (if you don't know any, use nano (or nedit if you have X-Windows)).</p>
+</section><section id="movingrenaming-files-and-directories" class="slide level2">
+<h1>Moving/Renaming files and directories</h1>
+<pre><code>[ccaaxxx@login06 ~]$ mv a_file control.in
+[ccaaxxx@login06 ~]$ ls
+a_directory control.in Scratch
+
+[ccaaxxx@login06 ~]$ mv control.in a_directory
+
+[ccaaxxx@login06 ~]$ ls a_directory
+control.in inside</code></pre>
+<ul>
+<li><code>mv</code> - rename or move a file/directory</li>
+</ul>
+</section><section id="deleting-files-and-directories" class="slide level2">
+<h1>Deleting files and directories</h1>
+<pre><code>[ccaaxxx@login06 ~]$ rm a_directory/control.in
+
+[ccaaxxx@login06 ~]$ rm a_directory
+rm: cannot remove `a_directory/&#39;: Is a directory
+
+[ccaaxxx@login06 ~]$ rm -r a_directory
+[ccaaxxx@login06 ~]$</code></pre>
+<ul>
+<li><code>rm</code> - remove a file</li>
+<li><code>rm -r</code> - remove a directory and all its contents</li>
+<li><strong>remove operations are irreversible!</strong></li>
+<li>The <code>-i</code> argument is highly recommended</li>
+</ul>
+</section><section id="exercise-2" class="slide level2">
+<h1>Exercise:</h1>
+<p>In <code>~/Scratch</code>...</p>
+<ul>
+<li>Create the following directory tree:</li>
+</ul>
+<pre><code>    work
+    work/input_data
+    work/results
+    work/program</code></pre>
+<ul>
+<li><p>Create the file <code>input.txt</code> with some random lines in it.</p></li>
+<li><p>Move the file to <code>input_data</code> and rename it in the same command to <code>control01.txt</code></p></li>
+<li><p>Create the directory tree in one line only: <code>work/experiment/results/report</code></p></li>
+<li><p>Delete all directory trees created in one single command without explicit reference to any of the directory and file names except <code>work</code>.</p></li>
+</ul>
+</section><section id="file-properties" class="slide level2">
+<h1>File properties</h1>
+<pre><code>[ccaaxxx@login06 ~]$ ls -l
+total 8
+drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+-rw-r--r-- 1 ccaaxxx rcops    0 2009-12-08 07:31 a_file
+drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 06:50 Scratch
+</code></pre>
+<ul>
+<li><code>ls -l</code> - list file properties (details)</li>
+</ul>
+</section><section id="file-properties-1" class="slide level2">
+<h1>File properties</h1>
+<pre><code>drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+
+        drwxr-xr-x      - File type and permissions
+        2               - Number of links to the file
+        ccaaxxx         - User name of file owner
+        rcops           - Group to which the file belongs
+        4096            - size of file in bytes
+        2009-12-08      - last change data
+        07:31           - last change time
+        a_directory     - file name</code></pre>
+<ul>
+<li><code>ls -l</code> - list file properties (details)</li>
+</ul>
+</section><section id="file-permissions" class="slide level2">
+<h1>File permissions</h1>
+<ul>
+<li><p>There are three user security classifications that apply to the ownership of a file:</p>
+<ul>
+<li><p><strong>user:</strong> the individual user that has ownership of the file</p></li>
+<li><p><strong>group:</strong> a group of users to which that user belongs</p></li>
+<li><p><strong>others:</strong> all other users (not owner or in that group)</p></li>
+</ul></li>
+<li><p>Each of these has three file access classifications:</p>
+<ul>
+<li><p><strong>read:</strong> permission to read the file</p></li>
+<li><p><strong>write:</strong> permission to write the file</p></li>
+<li><p><strong>execute:</strong> permission to execute (run) the file</p></li>
+</ul></li>
+</ul>
+</section><section id="file-permissions-1" class="slide level2">
+<h1>File permissions</h1>
+<p><strong>drwxr-xr-x</strong> has four fields:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">code</th>
+<th style="text-align: left;">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">- the file is a directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rwx</td>
+<td style="text-align: left;">- the user has read, write and execute access</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">r-x</td>
+<td style="text-align: left;">- the group has read and execute access</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">r-x</td>
+<td style="text-align: left;">- others have read and execute access</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Permissions</th>
+<th style="text-align: left;">read</th>
+<th style="text-align: left;">write</th>
+<th style="text-align: left;">execute</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">rwx</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rw-</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">r--</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">r-x</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">---</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">no</td>
+</tr>
+</tbody>
+</table>
+</section><section id="file-permissions-2" class="slide level2">
+<h1>File permissions</h1>
+<pre><code>[ccaaxxx@login06 ~]$ ls -l 
+...
+drwxr-xr-x 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory
+...
+
+[ccaaxxx@login06 ~]$ chmod go-rx a_directory
+
+[ccaaxxx@login06 ~]$ ls -l 
+...
+drwx------ 2 ccaaxxx rcops 4096 2009-12-08 07:31 a_directory</code></pre>
+<ul>
+<li><code>chmod</code> - change the permissions of a file</li>
+</ul>
+</section><section id="file-permissions-3" class="slide level2">
+<h1>File permissions</h1>
+<p>How did the permissions definition <code>go-rx</code> work?</p>
+<pre><code>chmod [ugoa][+/-][rwx] file</code></pre>
+<ul>
+<li><p>ugoa - user, group, other, all</p></li>
+<li><p>+/- - add/remove</p></li>
+<li><p>rwx - read, write, execute</p></li>
+</ul>
+<p>If you don't specify u,g,o or a, default is <strong>ALL</strong> (so <code>chmod +x</code> makes file executable for everyone).</p>
+<ul>
+<li><code>chmod</code> - change the permissions of a file</li>
+</ul>
+</section><section id="exercise-3" class="slide level2">
+<h1>Exercise:</h1>
+<ul>
+<li><p>Change the permission of a full directory tree with one single <code>chmod</code> command (look in the man pages for more information).</p></li>
+<li><p>When typing the command <code>ls /sh</code>, press the tab key after typing <code>/sh</code>. What happens?</p></li>
+</ul>
+</section><section id="inspecting-files" class="slide level2">
+<h1>Inspecting files</h1>
+<pre><code>[ccaaxxx@login06 ~]$ cd /shared/ucl/apps/examples/openmp_pi_dir
+[ccaaxxx@login06 examples]$ less openmp_pi.f90</code></pre>
+<ul>
+<li><code>less</code> - visualise a text file:
+<ul>
+<li>use arrow keys</li>
+<li>page up/page down</li>
+<li>search by typing &quot;/&quot;</li>
+<li>quit by typing &quot;q&quot;</li>
+</ul></li>
+</ul>
+</section><section id="other-file-inspection-tools" class="slide level2">
+<h1>Other file inspection tools</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">command</th>
+<th style="text-align: left;">use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>head</code></td>
+<td style="text-align: left;">- visualise the first 10 lines of a file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>tail</code></td>
+<td style="text-align: left;">- visualise the last 10 lines of a file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>cat</code></td>
+<td style="text-align: left;">- concatenate files provided as input and dump the result to <em>stdout</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>sdiff</code></td>
+<td style="text-align: left;">- visualise and compare two files side-by-side</td>
+</tr>
+</tbody>
+</table>
+<p>(Use e.g. <code>man head</code> to see more information on the <code>head</code> command)</p>
+</section><section id="filtering-directory-listings" class="slide level2">
+<h1>Filtering directory listings</h1>
+<pre><code>[cccaaxxx@login06 ~]$ ls /shared/ucl/apps/BLAST/install | grep blast
+blastall
+blast-nr-1.out
+blast-pdb-1.out</code></pre>
+<ul>
+<li><strong>grep</strong> - prints lines containing a string. Also searches for strings in text files.</li>
+</ul>
+</section><section id="searching-for-strings-in-files" class="slide level2">
+<h1>Searching for strings in files</h1>
+<pre><code>[cccaaxxx@login06 ~]$ grep SWAP /shared/ucl/apps/BLAST/install/test.faa
+SWGEGCGLLHNYGVYTKVSRYLDWIHGHIRDKEAPQKSWAP</code></pre>
+<ul>
+<li><strong>grep</strong> - prints lines containing a string. Also searches for strings in text files.</li>
+</ul>
+</section><section id="links" class="slide level2">
+<h1>Links</h1>
+<ul>
+<li><p>Created with &quot;ln&quot;</p></li>
+<li>Two types:
+<ul>
+<li>&quot;Hard&quot; - indistinguishable from files</li>
+<li>&quot;Soft&quot; (or &quot;Symbolic&quot;) - like a shortcut</li>
+</ul></li>
+</ul>
+</section><section id="hard-links" class="slide level2">
+<h1>Hard links</h1>
+<ul>
+<li><p>Inode table keeps track of hard links</p></li>
+<li><p>Deleting a file = &quot;unlinking&quot; it</p></li>
+<li><p>Can only be used inside a single file system</p></li>
+</ul>
+</section><section id="soft-links" class="slide level2">
+<h1>Soft links</h1>
+<ul>
+<li>Shortcut, e.g.</li>
+</ul>
+<pre><code>[cccaaxxx@login06 ~]$ ln -s ~/some_project/2012/part531 ~/current_project
+[cccaaxxx@login06 ~]$ ls -l ~ 
+lrwxr-xr-x  1 ccaaxxx  staff  11 10 Oct 17:56
+               current_project -&gt; /home/ccaaxxx/some_project_2012/part531</code></pre>
+</section><section id="soft-links-1" class="slide level2">
+<h1>Soft links</h1>
+<ul>
+<li><p>Can use relative or absolute paths!</p></li>
+<li><p>Create using absolute paths to make sure they go where you want</p></li>
+<li>&quot;Scratch&quot; in your home directory is a soft link
+<ul>
+<li>Makes it easier to access your scratch area</li>
+</ul></li>
+</ul>
+</section><section id="archiving-and-compression" class="slide level2">
+<h1>Archiving and compression</h1>
+<pre><code>[ccaaxxx@login06 Scratch]$ tar -zcvf work.tgz work
+work/
+work/program/
+work/calculations/
+work/calculations/control.in
+work/workfile
+
+[ccaaxxx@login06 Scratch]$ ls
+work.tgz work</code></pre>
+<ul>
+<li><strong>tar -zcvf</strong> - archives and compresses directory trees and files
+<ul>
+<li><strong>c</strong> - create archive</li>
+<li><strong>z</strong> - compress</li>
+<li><strong>v</strong> - verbose</li>
+<li><strong>f</strong> - in the following file</li>
+</ul></li>
+</ul>
+</section><section id="extracting-files-from-a-compressed-archive" class="slide level2">
+<h1>Extracting files from a compressed archive</h1>
+<pre><code>[ccaaxxx@login06 Scratch]$ ls
+work.tgz
+[ccaaxxx@login06 Scratch]$ tar -zxvf work.tgz 
+work/
+work/program/
+work/calculations/
+work/calculations/control.in
+work/workfile
+[ccaaxxx@login06 Scratch]$ ls
+work.tgz work</code></pre>
+<ul>
+<li><strong>tar -z<em>x</em>vf</strong> - extracts and uncompresses directory trees and files
+<ul>
+<li><strong>x</strong> - extract archive</li>
+<li><strong>z</strong> - uncompress</li>
+<li><strong>v</strong> - verbose</li>
+<li><strong>f</strong> - from the following file</li>
+</ul></li>
+</ul>
+</section><section id="transferring-files-across-a-network" class="slide level2">
+<h1>Transferring files across a network</h1>
+<p>From Legion:</p>
+<pre><code>[ccaaxxx@login06 Scratch]$ scp work.tgz ccaaxxx@socrates.ucl.ac.uk:~/
+...
+Password:
+work.tgz         100%  340     0.3KB/s   00:00
+</code></pre>
+<p>To Legion:</p>
+<pre><code>[ccaaxxx@login06 Scratch]$ scp ccaaxxx@socrates.ucl.ac.uk:~/work.tgz .
+...
+Password:
+work.tgz         100%  340     0.3KB/s   00:00
+</code></pre>
+<p>Note: remote machine (in this case Socrates) must be running SSH server. So, from your destop:</p>
+<pre><code>[you@desktop ~]$ scp work.tgz ccaaxxx@login05.external.legion.ucl.ac.uk:Scratch
+[you@desktop ~]$ scp ccaaxxx@login05.external.legion.ucl.ac.uk:Scratch/work.tgz .</code></pre>
+<ul>
+<li><strong>scp</strong> - securely copy files across a network</li>
+</ul>
+</section></section>
+<section><section id="scripting-and-workflows" class="titleslide slide level1"><h1>Scripting and workflows</h1></section><section id="output-redirection-and-piping" class="slide level2">
+<h1>Output redirection and piping</h1>
+<ul>
+<li><p>Two very important concepts:</p>
+<ul>
+<li><p>Standard Output (stdout) - default destination of a program's output. It is generally the terminal screen.</p></li>
+<li><p>Standard Input (stdin) - default source of a program's input. It is generally the command line.</p></li>
+</ul></li>
+</ul>
+</section><section id="output-redirection-and-piping-1" class="slide level2">
+<h1>Output redirection and piping</h1>
+<pre><code>[ccaaxxx@login06 ~]$ ls /home &gt; ls_home.txt</code></pre>
+<ul>
+<li><strong>&gt;</strong> - redirect stdout to a file</li>
+</ul>
+<pre><code>[ccaaxxx@login06 ~]$ ls /home | less</code></pre>
+<ul>
+<li><strong>|</strong> &quot;pipe&quot; stdout to stdin of a command</li>
+</ul>
+</section><section id="output-redirection-and-piping-2" class="slide level2">
+<h1>Output redirection and piping</h1>
+<figure>
+<img src="../assets/process1.png" />
+</figure>
+</section><section id="output-redirection-and-piping-3" class="slide level2">
+<h1>Output redirection and piping</h1>
+<figure>
+<img src="../assets/process2.png" />
+</figure>
+</section><section id="output-redirection-and-piping-4" class="slide level2">
+<h1>Output redirection and piping</h1>
+<p><code>ls -l</code></p>
+<figure>
+<img src="../assets/process3.png" />
+</figure>
+</section><section id="output-redirection-and-piping-5" class="slide level2">
+<h1>Output redirection and piping</h1>
+<p><code>ls -l &gt; list</code></p>
+<figure>
+<img src="../assets/process4.png" />
+</figure>
+</section><section id="output-redirection-and-piping-6" class="slide level2">
+<h1>Output redirection and piping</h1>
+<p><code>ls -l | grep name &gt; list</code></p>
+<figure>
+<img src="../assets/process5.png" />
+</figure>
+</section><section id="output-redirection-and-piping-7" class="slide level2">
+<h1>Output redirection and piping</h1>
+<p>You can chain any number of programs together to achieve your goal:</p>
+<figure>
+<img src="../assets/process6.png" />
+</figure>
+<p>This allows you to build up fairly complex workflows within one command-line.</p>
+</section><section id="shell-scripting" class="slide level2">
+<h1>Shell scripting</h1>
+<pre><code>#!/bin/bash
+# This is a very simple hello world script.
+echo &quot;Hello, world!&quot;</code></pre>
+<ul>
+<li>#! - tells the shell that it should use /bin/bash as the interpreter</li>
+<li># - a comment (ignored by /bin/bash)</li>
+<li>echo - a command that prints arguments to stdout</li>
+</ul>
+</section><section id="exercise-4" class="slide level2">
+<h1>Exercise:</h1>
+<ul>
+<li><p>Create a &quot;Hello world&quot;-like script using command line tools and execute it.</p></li>
+<li><p>Copy and alter your script to redirect output to a file using &gt;.</p></li>
+<li><p>Alter your script to use &gt;&gt; instead of &gt;. What effect does this have on its behaviour?</p></li>
+</ul>
+</section><section id="exercise-solutions" class="slide level2">
+<h1>Exercise Solutions:</h1>
+<p><code>.</code> not present in the environment variable $PATH:</p>
+<pre><code>[ccaaxxx@login06 ~]$ hello_world.sh
+bash: hello_world.sh: command not found</code></pre>
+<p>File permissions not set to executable by user:</p>
+<pre><code>[ccaaxxx@login06 ~]$ ./hello_world.sh
+bash: ./hello_world.sh: Permission denied</code></pre>
+<p>using <code>./</code> and <code>chmod u+x</code>:</p>
+<pre><code>[ccaaxxx@login06 ~]$ ./hello_world.sh
+Hello World!</code></pre>
+</section><section id="exercise-5" class="slide level2">
+<h1>Exercise:</h1>
+<ul>
+<li>Use <code>seq 1 75 &gt; numbers.txt</code> to generate a file containing a list of numbers. Use the <code>head</code>, <code>tail</code>, and <code>less</code> commands to look at it, then use <code>grep</code> to search it for a number.</li>
+</ul>
+</section><section id="environment-variables" class="slide level2">
+<h1>Environment Variables</h1>
+<pre><code>[ccaaxxx@login06 ~]$ variable=&#39;string&#39;
+[ccaaxxx@login06 ~]$ other_variable=$variable</code></pre>
+<ul>
+<li><p>Defined and used within a shell script only.</p></li>
+<li><p>No spaces around the assignment symbol &quot;<code>=</code>&quot;.</p></li>
+<li><p><code>$</code> means &quot;the value assigned to the following variable&quot;.</p></li>
+</ul>
+</section><section id="global-environment-variables" class="slide level2">
+<h1>Global Environment Variables</h1>
+<ul>
+<li>defined within a shell and also in scripts called from the shell</li>
+</ul>
+<pre><code>[ccaaxxx@login06 ~]$ export ENV_VARIABLE=&#39;value&#39;</code></pre>
+</section><section id="exercise-6" class="slide level2">
+<h1>Exercise</h1>
+<ul>
+<li>Using two nested scripts, show that the value of an exported variable in the environment where you launch the scripts, propagates all the way down to the second script.</li>
+</ul>
+</section><section id="updated-process-diagram" class="slide level2">
+<h1>Updated process diagram</h1>
+<figure>
+<img src="../assets/processenvvars.png" />
+</figure>
+</section><section id="special-environment-variables" class="slide level2">
+<h1>Special environment variables</h1>
+<p>What is the output of this command?</p>
+<pre><code>[ccaaxxx@login06 ~]$ echo $PATH</code></pre>
+<p>Note the structure: &lt;path1&gt;:&lt;path2&gt;:&lt;path3&gt;</p>
+<p>PATH is an environmental variable which Bash uses to search for commands typed on the command line without a full path.</p>
+<p><strong>Exercise:</strong> Use the command <code>env</code> to discover more.</p>
+</section><section id="variables-in-shell-scripts" class="slide level2">
+<h1>Variables in shell scripts</h1>
+<pre><code>#!/bin/bash
+# This is a very simple hello world script
+message=&#39;Hello World!&#39;
+echo $message
+echo ${message}</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">symbol</th>
+<th style="text-align: left;">purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">#!</td>
+<td style="text-align: left;">tells the shell that this is the interpreter (/bin/bash)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">#</td>
+<td style="text-align: left;">followed by a blank character is a comment line</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">variable to which the string 'Hello World!' is assigned</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">echo</td>
+<td style="text-align: left;">prints to screen the contents of the variable &quot;$message&quot;</td>
+</tr>
+</tbody>
+</table>
+</section><section id="command-line-arguments" class="slide level2">
+<h1>Command line arguments</h1>
+<p>Variables can also be defined through the command line</p>
+<pre><code>[ccaaxxx@login06 ~]$ ./script.sh arg another</code></pre>
+<p>Within the script: <code>$1</code> contains &quot;arg&quot; <code>$2</code> contains &quot;another&quot;</p>
+<p><strong>Exercise:</strong> Using <code>$1</code> and <code>$2</code>, write a script that print both variables to the screen.</p>
+</section><section id="storing-output-of-commands-in-variables" class="slide level2">
+<h1>Storing output of commands in variables</h1>
+<p>Run commands inside <code>$( )</code> and assign the wrapped command to a variable</p>
+<pre><code>[ccaaxxx@login06 ~]$ ls 
+a_directory  a_file  Scratch 
+[ccaaxxx@login06 ~]$ dir_contents=$( ls ) 
+[ccaaxxx@login06 ~]$ echo $dir_contents 
+a_directory a_file Scratch</code></pre>
+</section><section id="basic-arithmetic" class="slide level2">
+<h1>Basic arithmetic</h1>
+<pre><code>[ccaaxxx@login06 ~]$ two=2 
+[ccaaxxx@login06 ~]$ result=$(( $two + 2 )) 
+[ccaaxxx@login06 ~]$ echo $result  
+4 
+[ccaaxxx@login06 ~]$</code></pre>
+<ul>
+<li>Integer arithmetic can be done inside <code>$(( ))</code>
+<ul>
+<li>+ addition</li>
+<li>- subtraction</li>
+<li>/ integer division</li>
+<li>* multiplication</li>
+</ul></li>
+</ul>
+</section><section id="the-for-loop" class="slide level2">
+<h1>The for loop</h1>
+<pre><code>#!/bin/bash
+for i in first second third
+do
+  echo $i iteration
+done
+echo finished!</code></pre>
+<ol type="1">
+<li>Interpreter definition line.</li>
+<li>Definition of the loop in which the variable <code>i</code> will take the values &quot;first&quot;, &quot;second&quot; and &quot;third&quot; in that order.</li>
+<li>Start the loop iteration definition.</li>
+<li>Print the string contained by <code>i</code> and the string iteration, separated by a space.</li>
+<li>End the loop definition.</li>
+<li>Print some useful information to the screen.</li>
+</ol>
+</section><section id="the-for-loop-using-an-iterator" class="slide level2">
+<h1>The for loop using an iterator</h1>
+<pre><code>#!/bin/bash 
+for (( i=1 ; i&lt;=5 ; i++ )) 
+do
+    echo iteration$i
+done
+echo finished! </code></pre>
+<p>(Note how it is possible to create number labels)</p>
+</section><section id="exercise-7" class="slide level2">
+<h1>Exercise:</h1>
+<p>Write a script that creates five directories named <code>calculation_?</code>, where ? is a number.</p>
+</section><section id="formatted-sequences-based-on-numbers" class="slide level2">
+<h1>Formatted sequences based on numbers</h1>
+<pre><code>[ccaaxxx@login06 ~]$ seq 1 5
+1
+2
+3
+4 
+5</code></pre>
+<ul>
+<li><code>seq</code> - generates sequences based on numbers</li>
+</ul>
+</section><section id="formatted-sequences-based-on-numbers-1" class="slide level2">
+<h1>Formatted sequences based on numbers</h1>
+<pre><code>[ccaaxxx@login06 ~]$ seq 1 2 9
+1
+3
+5
+7
+9</code></pre>
+<ul>
+<li><code>seq</code> - generates sequences based on numbers</li>
+</ul>
+</section><section id="formatted-sequences-based-on-numbers-2" class="slide level2">
+<h1>Formatted sequences based on numbers</h1>
+<pre><code>[ccaaxxx@login06 ~]$ seq -f %03g 1 2 9
+001
+003
+005
+007
+009</code></pre>
+<ul>
+<li><code>g</code> - the number of significant digits is 3</li>
+<li><code>0</code> - in front of 3 indicates that the number is padded with zeros if smaller than 100.</li>
+<li><code>%</code> - start the format definition for the number (place the number)</li>
+</ul>
+</section><section id="the-for-loop-revisited" class="slide level2">
+<h1>The for loop revisited</h1>
+<pre><code>#!/bin/bash 
+for i in $(seq -f %03g 1 4) 
+do
+   echo creating directory calculation$i
+   mkdir calculation$i 
+done 
+echo finished!</code></pre>
+<p>You can now create directory trees and files automatically!</p>
+</section><section id="generating-scripts-with-scripts" class="slide level2">
+<h1>Generating scripts with scripts</h1>
+<pre><code>cat &lt;&lt;EOF &gt; child_script.sh 
+#!/bin/bash 
+echo The child script says Hi! 
+EOF </code></pre>
+<ul>
+<li><strong>&lt;&lt;EOF</strong> - concatenates the text until the string &quot;EOF&quot;, redirecting it to cat</li>
+<li><strong>&gt; child_script.sh</strong> - redirects the output of cat to child_script.sh.</li>
+<li>Indenting the top line will break the <code>#!</code>.</li>
+</ul>
+</section><section id="exercise-8" class="slide level2">
+<h1>Exercise:</h1>
+<ul>
+<li><p>write a <code>parent_script.sh</code> that creates and executes the <code>child_script.sh</code></p></li>
+<li><p>write a <code>parent_script.sh</code> that creates and executes 10 different <code>child_script.sh</code> that print out their individual number</p></li>
+</ul>
+</section><section id="process-control" class="slide level2">
+<h1>Process control</h1>
+<ul>
+<li><p>A process is:</p>
+<ul>
+<li><p><strong>foreground</strong> when it is interacting with the user via an interface (usually the shell).</p></li>
+<li><p><strong>background</strong> if it is running without interacting with the user.</p></li>
+<li><p><strong>suspended</strong> if it is neither interacting nor running.</p></li>
+</ul></li>
+<li><p>To run a process in the background: add the symbol <code>&amp;</code> at the end of the command line.</p></li>
+<li><p>To send a foreground process to the backgound: press Ctrl+z and then execute the command <code>bg</code></p></li>
+<li><p>To bring a background process to the foreground: execute the command <code>fg</code></p></li>
+</ul>
+</section><section id="which-processes-are-running" class="slide level2">
+<h1>Which processes are running?</h1>
+<p>Use the commands <code>top</code> and <code>ps</code></p>
+<pre><code>[ccaaxxx@login06 ~]$ ps aux</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USER</td>
+<td style="text-align: left;">- the user name</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PID</td>
+<td style="text-align: left;">- the process ID</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%CPU</td>
+<td style="text-align: left;">- the percentage of CPU time being used</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%MEM</td>
+<td style="text-align: left;">- the percentage of Memory being used</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VSZ</td>
+<td style="text-align: left;">- the size of Virtual memory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RSS</td>
+<td style="text-align: left;">- the size of real memory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TTY</td>
+<td style="text-align: left;">- the virtual teletype terminal this proces is attached to</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STAT</td>
+<td style="text-align: left;">- the state of the process (see &quot;man ps&quot;)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">START</td>
+<td style="text-align: left;">- the time when the process was started</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TIME</td>
+<td style="text-align: left;">- the time the process has been running</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COMMAND</td>
+<td style="text-align: left;">- the command that was called</td>
+</tr>
+</tbody>
+</table>
+<p>And:</p>
+<pre><code>[ccaaxxx@login06 ~]$ ps xjf</code></pre>
+</section><section id="why-have-we-been-showing-you-this" class="slide level2">
+<h1>Why have we been showing you this?</h1>
+<ul>
+<li><p>Tomorrow, we will be talking about how to submit your workloads to Legion</p></li>
+<li><p>The scripts you submit are bash shell scripts with some special comments read by the scheduler at the top.</p></li>
+</ul>
+<pre><code>#!/bin/bash -l
+#$ -S /bin/bash
+#$ -l h_rt=0:30:0
+#$ -l mem=1G
+#$ -N Analysis
+#$ -P &lt;your_project_id&gt; 
+#$ -wd /home/&lt;your_UCL_id&gt;/Scratch/output 
+
+echo &quot;Copying input files.&quot;
+cd $TMPDIR
+cp -R ~/inputdata .
+echo &quot;Analysing data.&quot;
+~/bin/analyse -i inputdata/exp.in &gt; exp.out.$JOB_ID
+echo &quot;Copying data back.&quot;
+cp exp.out.$JOB_ID ~/Scratch/output
+echo &quot;Done.&quot;</code></pre>
+</section><section id="more-information" class="slide level2">
+<h1>More information</h1>
+<ul>
+<li>Many topics not covered here:
+<ul>
+<li>if statements</li>
+<li>case switches</li>
+<li>defining functions</li>
+<li>and many, many more...</li>
+</ul></li>
+<li>Google and the <code>man</code> pages are your friends!</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>HPC and HTC Concepts</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/local_reveal.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/reveal.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">HPC and HTC Concepts</h1>
+</section>
+
+<section><section id="hpc-and-htc-concepts" class="titleslide slide level1"><h1>HPC and HTC Concepts</h1></section><section id="key-concepts" class="slide level2">
+<h1>Key Concepts</h1>
+<p>High Performance Computing (HPC)</p>
+<p>High Throughput Computing (HTC)</p>
+<p>AKA <strong>&quot;Supercomputing&quot;</strong></p>
+</section><section id="the-computer" class="slide level2">
+<h1>The Computer</h1>
+<figure>
+<img src="../assets/thecomputer_v2.png" />
+</figure>
+</section><section id="actual-rackable-server" class="slide level2">
+<h1>Actual Rackable Server</h1>
+<figure>
+<img src="../assets/lenovo-rack-server-thinkserver-rd340.jpg" />
+</figure>
+</section><section id="faster-computing" class="slide level2">
+<h1>Faster computing</h1>
+<ul>
+<li><p>Reduce time to result</p></li>
+<li><p>Increase accuracy</p></li>
+<li><p>Increase throughput</p></li>
+</ul>
+</section><section id="faster-computing-1" class="slide level2">
+<h1>Faster computing</h1>
+<ul>
+<li><p>Pressure from <em>computing requirements</em></p></li>
+<li><p>Pressure from <em>physics</em></p></li>
+</ul>
+</section><section id="pressure-from-physics" class="slide level2">
+<h1>Pressure from Physics</h1>
+<p><strong>Physics limits GHz speed</strong></p>
+<p>Heat and power-draw increase super-linearly with speed</p>
+</section><section id="pressure-from-computing-requirements" class="slide level2">
+<h1>Pressure from computing requirements</h1>
+<ul>
+<li><p>Bottlenecks everywhere</p></li>
+<li><p>Limits of RAM</p></li>
+</ul>
+</section><section id="parallelism" class="slide level2">
+<h1>Parallelism</h1>
+<ul>
+<li><p><strong>Serial Process:</strong></p>
+<ul>
+<li><p>A process in which its sub-processes happen sequentially in time.</p></li>
+<li><p>Only one sub-process is active at any given time.</p></li>
+</ul></li>
+</ul>
+<figure>
+<img src="../assets/serial.svg" />
+</figure>
+<ul>
+<li><p><strong>Parallel Process:</strong></p>
+<ul>
+<li>Process in which multiple sub-processes can be active simultaneously.</li>
+</ul></li>
+</ul>
+<figure>
+<img src="../assets/parallel.svg" />
+</figure>
+</section><section id="parallelism-1" class="slide level2">
+<h1>Parallelism</h1>
+<ul>
+<li><p><strong>Serial Process:</strong></p>
+<ul>
+<li>Speed depends only on the rate at which each sub-process will occur (e.g. processing unit clock speed).</li>
+</ul></li>
+<li><p><strong>Parallel Process:</strong></p>
+<ul>
+<li>Speed depends on execution rate of each sub-process <em>AND</em> how many sub-processes can be made to occur simultaneously.</li>
+</ul></li>
+</ul>
+</section><section id="parallel-for-capacity" class="slide level2">
+<h1>Parallel for Capacity</h1>
+<p><strong>Example:</strong> Searching database of web-sites for some text (i.e. Google)</p>
+<ul>
+<li><p>Searching sequentially through large volumes of text too time-consuming.</p>
+<ul>
+<li><p>Multiple servers hold different pages.</p></li>
+<li><p>Each server can report the result of each individual search.</p></li>
+<li><p><strong>The more servers you add the quicker the search is.</strong></p></li>
+</ul></li>
+</ul>
+</section><section id="parallel-for-capability" class="slide level2">
+<h1>Parallel for Capability</h1>
+<p><strong>Example:</strong> Large scale weather simulation</p>
+<ul>
+<li><p>Detailed description for atmosphere too large to run on today's desktop or server PCs.</p>
+<ul>
+<li><p>Multiple servers are needed to hold all grid data in memory.</p></li>
+<li><p>Servers need to quickly <em>communicate to synchronise</em> work over entire grid</p></li>
+<li><p>Communication between servers can become a bottleneck.</p></li>
+</ul></li>
+</ul>
+<figure>
+<img src="../assets/noaaforcast.png" />
+</figure>
+</section><section id="parallelism-2" class="slide level2">
+<h1>Parallelism</h1>
+<h3 id="all-computers-today-are-designed-for-parallel-execution">All computers today are designed for parallel execution</h3>
+<p>But...</p>
+<h3 id="not-all-computation-can-be-done-in-parallel">Not all computation can be done in parallel!</h3>
+</section><section id="amdahls-law" class="slide level2">
+<h1>Amdahl's Law</h1>
+<p>1 Processor</p>
+<figure>
+<img src="../assets/amdahl1_v2.png" />
+</figure>
+</section><section id="amdahls-law-1" class="slide level2">
+<h1>Amdahl's Law</h1>
+<p>2 Processors</p>
+<figure>
+<img src="../assets/amdahl2_v2.png" />
+</figure>
+</section><section id="amdahls-law-2" class="slide level2">
+<h1>Amdahl's Law</h1>
+<p>10 Processors</p>
+<figure>
+<img src="../assets/amdahl10_v2.png" />
+</figure>
+</section><section id="amdahls-law-3" class="slide level2">
+<h1>Amdahl's Law</h1>
+<ul>
+<li>Amdahl's law will always be a limiting factor</li>
+</ul>
+<p><span class="math inline">\(\frac{1}{\left(1-P\right)+\frac{P}{N}}\)</span></p>
+<ul>
+<li>Some applications need to be re-written, algorithms re-thought to harness ever more parallel machines.</li>
+</ul>
+</section><section id="amdahls-law-4" class="slide level2">
+<h1>Amdahl's Law</h1>
+<figure>
+<img src="../assets/amdahlscale.png" />
+</figure>
+<ul>
+<li>If 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20x, no matter how many processors are used.</li>
+</ul>
+</section><section id="there-are-many-parallel-paradigms" class="slide level2">
+<h1>There are many parallel paradigms</h1>
+<p>Processor farms, pipelining, divide/conquer, geometric decomposition, cellular automata, algorithmic parallelism</p>
+<ul>
+<li>From a systems perspective:
+<ul>
+<li>Shared memory</li>
+<li>Message passing</li>
+</ul></li>
+</ul>
+</section><section id="smp-symmetric-multi-processing" class="slide level2">
+<h1>SMP (Symmetric Multi-Processing)</h1>
+<figure>
+<img src="../assets/smp.png" />
+</figure>
+</section><section id="smp-symmetric-multi-processing-1" class="slide level2">
+<h1>SMP (Symmetric Multi-Processing)</h1>
+<figure>
+<img src="../assets/smp2.png" />
+</figure>
+</section><section id="beowulf-cluster" class="slide level2">
+<h1>Beowulf Cluster</h1>
+<figure>
+<img src="../assets/beowulf.png" />
+</figure>
+</section><section id="infiniband-cluster" class="slide level2">
+<h1>Infiniband Cluster</h1>
+<figure>
+<img src="../assets/cluster.png" />
+</figure>
+</section><section id="numa-non-uniform-memory-access" class="slide level2">
+<h1>NUMA (Non-Uniform Memory Access)</h1>
+<figure>
+<img src="../assets/numa.png" />
+</figure>
+</section><section id="interconnect-comparisons" class="slide level2">
+<h1>Interconnect comparisons</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Interconnect</th>
+<th style="text-align: left;">Typical MPI latency (microseconds)</th>
+<th style="text-align: left;">Typical bandwidth (MB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1Gbs Ethernet</td>
+<td style="text-align: left;">60-90</td>
+<td style="text-align: left;">90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10Gbs Ethernet</td>
+<td style="text-align: left;">12-20</td>
+<td style="text-align: left;">800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Infiniband</td>
+<td style="text-align: left;">2-4</td>
+<td style="text-align: left;">250-1200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUMALink 4</td>
+<td style="text-align: left;">~1</td>
+<td style="text-align: left;">3000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QPI</td>
+<td style="text-align: left;">~0.5</td>
+<td style="text-align: left;">20000</td>
+</tr>
+</tbody>
+</table>
+</section><section id="gpu-accelerator" class="slide level2">
+<h1>GPU accelerator</h1>
+<figure>
+<img src="../assets/gpu.png" />
+</figure>
+</section><section id="only-a-subset-of-problems-can-be-optimised" class="slide level2">
+<h1>Only a subset of problems can be optimised</h1>
+<ul>
+<li><p>Not all problems can be parallelised</p></li>
+<li><p>Not all parallel problems can be ported to accelerators</p></li>
+</ul>
+<figure>
+<img src="../assets/optimisationsets.png" />
+</figure>
+</section><section id="in-summary" class="slide level2">
+<h1>In summary</h1>
+<ul>
+<li><p>Developments in CPU architecture still continue: Moore’s law still valid</p></li>
+<li><p>Improvements to CPU architecture consist of increasing internal parallelism: hyper-threading, wider SIMD units, more cores per chip</p></li>
+<li><p>Accelerators are bringing more computing cycles to the table (albeit of a special type).</p></li>
+</ul>
+</section><section id="and-that-is-just-the-compute-side-of-the-story" class="slide level2">
+<h1>And that is just the compute side of the story</h1>
+<p>Data storage and Network infrastructure need to keep up with computation and other data producing technologies...</p>
+<ul>
+<li><p>upgrading network infrastructure</p></li>
+<li><p>re-thinking data storage</p>
+<ul>
+<li><p>SSD’s</p></li>
+<li><p>parallel file systems</p></li>
+<li><p>Multi-tiered storage</p></li>
+<li><p>Map-Reduce data platforms</p></li>
+</ul></li>
+</ul>
+</section><section id="supercomputing" class="slide level2">
+<h1>Supercomputing</h1>
+<p>Used efficiently, Supercomputers let you get <strong>more</strong> done <strong>faster</strong>.</p>
+<p>They can be useful for a large number of types of work.</p>
+</section><section id="applications" class="slide level2">
+<h1>Applications</h1>
+<figure>
+<img src="../assets/applications.png" />
+</figure>
+</section></section>
+<section><section id="the-cluster" class="titleslide slide level1"><h1>The Cluster</h1></section><section id="overview" class="slide level2">
+<h1>Overview</h1>
+<figure>
+<img src="../assets/cluster-topology.png" />
+</figure>
+</section><section id="the-node" class="slide level2">
+<h1>The Node</h1>
+<ul>
+<li><p>Compute Node</p>
+<ul>
+<li><p>Just computes - little else</p></li>
+<li><p>Private IP address - no user access</p></li>
+</ul></li>
+<li><p>Login Node</p>
+<ul>
+<li><p>User login</p></li>
+<li><p>Interaction with job scheduler</p></li>
+<li><p>Public IP address - connects to external network</p></li>
+</ul></li>
+</ul>
+</section><section id="generic-software-stack" class="slide level2">
+<h1>Generic Software stack</h1>
+<figure>
+<img src="../assets/stack.svg" />
+</figure>
+</section><section id="real-applications" class="slide level2">
+<h1>Real applications</h1>
+<ul>
+<li>FEA - Finite Element Analysis
+<ul>
+<li><p>The simulation of hard physical materials, e.g. metal, plastic</p></li>
+<li><p>Crash test, product design, suitability for purpose</p></li>
+<li><p>Examples: MSC Nastran, Ansys, LS-Dyna, Abaqus, ESI PAMCrash, Radioss</p></li>
+</ul></li>
+<li><p>CFD - Computational Fluid Dynamics</p>
+<ul>
+<li><p>The simulation of soft physical materials, gases and fluids</p></li>
+<li><p>Engine design, airflow, oil reservoir modelling</p></li>
+<li><p>Examples: Fluent, Star-CD, CFX</p></li>
+</ul></li>
+</ul>
+</section><section id="real-applications-1" class="slide level2">
+<h1>Real applications</h1>
+<ul>
+<li><p>Geophysical Sciences</p>
+<ul>
+<li><p>Seismic Imaging - taking echo traces and building a picture of the sub-earth geology</p></li>
+<li><p>Reservoir Simulation - CFD specific to oil asset management</p></li>
+<li><p>Examples: Omega, Landmark VIP and Pro/Max, Geoquest Eclipse</p></li>
+</ul></li>
+<li><p>Life Sciences</p>
+<ul>
+<li><p>Understanding the living world - genome matching, protein folding, drug design, bioinformatics, organic chemistry</p></li>
+<li><p>Examples: BLAST, Gaussian, LAMMPS, Trinity, Amber, NAMD</p></li>
+</ul></li>
+</ul>
+</section><section id="real-applications-2" class="slide level2">
+<h1>Real applications</h1>
+<ul>
+<li><p>High Energy Physics</p>
+<ul>
+<li><p>Understanding the atomic and sub-atomic world</p></li>
+<li><p>Software from Fermi-Lab or CERN, or home-grown</p></li>
+</ul></li>
+<li><p>Financial Modelling</p>
+<ul>
+<li>Meeting internal and external financial targets particularly regarding investment positions</li>
+<li>VaR - Value at Risk - assessing the impact of economic and political factors on the bank’s investment portfolio</li>
+<li>Trader Risk Analysis - what is the risk on a trader’s position, a group of traders</li>
+</ul></li>
+</ul>
+</section><section id="operating-system" class="slide level2">
+<h1>Operating system</h1>
+<ul>
+<li><p>The vast majority of Clusters in the world use some flavour of <em>Unix</em> or <em>Linux</em> for their OS.</p></li>
+<li><p>The most common form of interaction with these systems is a &quot;shell&quot; or &quot;command line&quot;.</p></li>
+</ul>
+<p><em>(Which we are going to learn about using Legion’s Login nodes.)</em></p>
+</section><section id="operating-system-1" class="slide level2">
+<h1>Operating system</h1>
+<ul>
+<li><p>Clusters are very frequently used as a shared facility.</p></li>
+<li><p>As such, work needs to be scheduled via a batch system.</p></li>
+<li><p>Jobs are queued and prioritised based on requested resources.</p></li>
+</ul>
+<p><em>(These are the focus of tomorrow’s session.)</em></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

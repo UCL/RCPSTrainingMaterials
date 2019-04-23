@@ -1,0 +1,513 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Policies and Miscellanea</title>
+
+  <link href="/RCPSTrainingMaterials/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/RCPSTrainingMaterials/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/RCPSTrainingMaterials/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/RCPSTrainingMaterials/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/RCPSTrainingMaterials/favicon-144.png">
+
+  <script src="/RCPSTrainingMaterials/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/RCPSTrainingMaterials/js/lib/html5shiv-printshiv.min.js', '/RCPSTrainingMaterials/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/RCPSTrainingMaterials/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/RCPSTrainingMaterials/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+    <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/RCPSTrainingMaterials/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">Introduction to High Performance and High Throughput Computing</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+<li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/">High performance and high throughput computing</a><ul> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/1_intro_to_hpc.html">HPC and HTC Concepts</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/2_intro_to_shell.html">Introduction to the UNIX shell</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/3_legion_overview.html">Legion Overview</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/4_legion_batch.html">Legion environment and batch processing</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/5_policies_and_misc.html">Policies and Miscellanea</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/7_exercise_solutions.html">Exercise Solutions</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/8_matlab_on_legion.html">Running Matlab on Legion</a> </li> </ul> </li>
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/RCPSTrainingMaterials/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/ISD">ISD</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services">Our services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it">Research IT</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it/training">Training</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/RCPSTrainingMaterials/">Intro to HPTC</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/5_policies_and_misc-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>Policies</h1>
+
+<h2>Legion Scheduler</h2>
+
+<ul>
+<li>Tries to give each user an equal share of the machine at any given moment</li>
+<li>Tries to fill gaps with small, short jobs</li>
+<li>Has a few special sets of nodes to run test (short, small) or interactive jobs</li>
+</ul>
+
+<h2>&quot;Production&quot;</h2>
+
+<p>Anything that uses:</p>
+
+<ul>
+<li>a lot of CPU time</li>
+<li>a lot of RAM</li>
+<li>a lot of disk access </li>
+</ul>
+
+<p><strong>Production work should be run as a job.</strong></p>
+
+<h2>What Can Run</h2>
+
+<p>We can provide (stable) application centrally, and compile up software to put in the <code>/shared/ucl/apps</code> space.</p>
+
+<p>You&#39;re free to run almost anything that you can build on Legion, though.</p>
+
+<p>Some departments also provide applications, <em>e.g.</em> Chemistry Department: <code>module load chemistry-modules</code>.</p>
+
+<p>We reserve the right to ban the use of applications that prevent or harm other users&#39; use of the cluster.</p>
+
+<h2>Limits</h2>
+
+<table><thead>
+<tr>
+<th>Time</th>
+<th>Cores</th>
+<th>Queue Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>≤ 15 mins</td>
+<td>≤1 node</td>
+<td>Rapid Test Queue</td>
+</tr>
+<tr>
+<td>≤ 1 day</td>
+<td>≤ 512 cores</td>
+<td>Large Parallel Queue</td>
+</tr>
+<tr>
+<td>≤ 2 days</td>
+<td>≤ 256 cores</td>
+<td>Smaller Parallel Queue</td>
+</tr>
+<tr>
+<td>≤ 3 days</td>
+<td>1 core</td>
+<td>Serial Queue</td>
+</tr>
+</tbody></table>
+
+<p><em>(Actually more complex than this, check the website.)</em></p>
+
+<h2>Extraordinary Resource Requests</h2>
+
+<ul>
+<li>Grab the <a href="https://wiki.rc.ucl.ac.uk/wiki/Additional_Resource_Requests">form from the website</a></li>
+<li>Send it to your supervisor/PI to support</li>
+<li>Send it to us: <a href="mailto:rc-support@ucl.ac.uk">rc-support@ucl.ac.uk</a></li>
+<li>Wait for approval by the CRAG</li>
+</ul>
+
+<h2>Data Policies</h2>
+
+<h2>Access</h2>
+
+<ul>
+<li>Legion is not a long-term data repository</li>
+<li>Do not store the only copy of your data on Legion </li>
+</ul>
+
+<h2>Security</h2>
+
+<p>Legion is not suitable for Highly Restricted data and above.</p>
+
+<table><thead>
+<tr>
+<th>Level</th>
+<th>Examples</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>Secret:</em></td>
+<td>Identifiable patient information</td>
+</tr>
+<tr>
+<td>...</td>
+<td>Personal financial details</td>
+</tr>
+<tr>
+<td>...</td>
+<td>Confidential investigations</td>
+</tr>
+<tr>
+<td><em>Highly Restricted:</em></td>
+<td>Student profiles</td>
+</tr>
+<tr>
+<td>...</td>
+<td>Unpublished commercially sensitive material</td>
+</tr>
+<tr>
+<td><em>Restricted:</em></td>
+<td>UCL main web page</td>
+</tr>
+<tr>
+<td>...</td>
+<td>Unpublished research data</td>
+</tr>
+<tr>
+<td><em>Normal:</em></td>
+<td>Email about fridge-cleaning meeting</td>
+</tr>
+</tbody></table>
+
+<p><a href="http://www.ucl.ac.uk/informationsecurity/policy/internal-policy/Guidelines10">(<em>See: UCL&#39;s data security policy</em>)</a></p>
+
+<h2>Security</h2>
+
+<p>Responsibility for the accuracy of the results of software installed or available on Legion is the sole responsibility of researchers.</p>
+
+<p>So:</p>
+
+<ul>
+<li>Test your software</li>
+<li>Check your results</li>
+</ul>
+
+<h2>Security</h2>
+
+<ul>
+<li><code>ssh</code> is the only recommended method to connect to/from Legion</li>
+<li>UCL is not responsible for security of non-UCL machines</li>
+<li>Ensure your machines are reasonably secure</li>
+</ul>
+
+<h2>Quotas</h2>
+
+<ul>
+<li>Home directories have a 50 GB quota</li>
+<li>Scratch has a 200 GB quota
+
+<ul>
+<li>However you can use as much as you want for up to two weeks</li>
+<li>After two weeks job submission is disabled until you decrease usage to below quota</li>
+</ul></li>
+<li>If you need more, we can make small increases (up to double) 
+
+<ul>
+<li>For more apply to the CRAG</li>
+</ul></li>
+</ul>
+
+<h1>Support Queries</h1>
+
+<h2>A Good Ticket</h2>
+
+<p>Tell us:</p>
+
+<ul>
+<li>What you&#39;re trying to do (technical)</li>
+<li>Exact error output</li>
+<li>Job IDs, scripts, and relevant file paths</li>
+<li>Whether we can look at your files</li>
+</ul>
+
+<h2>Keeping Tickets Sane</h2>
+
+<p><code>Subject: Re: Error When Compiling My_App v0.45 (Ref:IN:01287844)</code></p>
+
+<p>Keeping one ticket ID per problem helps us immensely.</p>
+
+<h1>Other Compute Resources</h1>
+
+<h2>UCL Funded</h2>
+
+<ul>
+<li>Emerald 
+
+<ul>
+<li>for GPU jobs</li>
+</ul></li>
+<li>Departmental clusters 
+
+<ul>
+<li>talk to your local IT manager</li>
+</ul></li>
+</ul>
+
+<h2>Other</h2>
+
+<ul>
+<li>ARCHER</li>
+<li>DIRAC collection</li>
+<li>PRACE</li>
+<li>US National Labs</li>
+<li>EGI</li>
+<li>(Cloud Providers)</li>
+</ul>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2019-04-23 15:20:36 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+  <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

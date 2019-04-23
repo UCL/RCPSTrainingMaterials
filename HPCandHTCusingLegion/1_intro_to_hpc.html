@@ -1,0 +1,679 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>HPC and HTC Concepts</title>
+
+  <link href="/RCPSTrainingMaterials/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/RCPSTrainingMaterials/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/RCPSTrainingMaterials/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/RCPSTrainingMaterials/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/RCPSTrainingMaterials/favicon-144.png">
+
+  <script src="/RCPSTrainingMaterials/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/RCPSTrainingMaterials/js/lib/html5shiv-printshiv.min.js', '/RCPSTrainingMaterials/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/RCPSTrainingMaterials/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/RCPSTrainingMaterials/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+    <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/RCPSTrainingMaterials/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">Introduction to High Performance and High Throughput Computing</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+<li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/">High performance and high throughput computing</a><ul> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/1_intro_to_hpc.html">HPC and HTC Concepts</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/2_intro_to_shell.html">Introduction to the UNIX shell</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/3_legion_overview.html">Legion Overview</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/4_legion_batch.html">Legion environment and batch processing</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/5_policies_and_misc.html">Policies and Miscellanea</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/7_exercise_solutions.html">Exercise Solutions</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/8_matlab_on_legion.html">Running Matlab on Legion</a> </li> </ul> </li>
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/RCPSTrainingMaterials/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/ISD">ISD</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services">Our services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it">Research IT</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it/training">Training</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/RCPSTrainingMaterials/">Intro to HPTC</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/1_intro_to_hpc-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>HPC and HTC Concepts</h1>
+
+<h2>Key Concepts</h2>
+
+<p>High Performance Computing (HPC)</p>
+
+<p>High Throughput Computing (HTC)</p>
+
+<p>AKA <strong>&quot;Supercomputing&quot;</strong></p>
+
+<h2>The Computer</h2>
+
+<p><img src="../assets/thecomputer_v2.png" alt=""></p>
+
+<h2>Actual Rackable Server</h2>
+
+<p><img src="../assets/lenovo-rack-server-thinkserver-rd340.jpg" alt=""></p>
+
+<h2>Faster computing</h2>
+
+<ul>
+<li><p>Reduce time to result</p></li>
+<li><p>Increase accuracy</p></li>
+<li><p>Increase throughput</p></li>
+</ul>
+
+<h2>Faster computing</h2>
+
+<ul>
+<li><p>Pressure from <em>computing requirements</em></p></li>
+<li><p>Pressure from <em>physics</em></p></li>
+</ul>
+
+<h2>Pressure from Physics</h2>
+
+<p><strong>Physics limits GHz speed</strong></p>
+
+<p>Heat and power-draw increase super-linearly with speed</p>
+
+<h2>Pressure from computing requirements</h2>
+
+<ul>
+<li><p>Bottlenecks everywhere</p></li>
+<li><p>Limits of RAM</p></li>
+</ul>
+
+<h2>Parallelism</h2>
+
+<ul>
+<li><p><strong>Serial Process:</strong></p>
+
+<ul>
+<li>A process in which its sub-processes happen sequentially in time.</li>
+<li>Only one sub-process is active at any given time.</li>
+</ul></li>
+</ul>
+
+<p><img src="../assets/serial.svg" alt=""></p>
+
+<ul>
+<li><p><strong>Parallel Process:</strong></p>
+
+<ul>
+<li>Process in which multiple sub-processes can be active simultaneously.</li>
+</ul></li>
+</ul>
+
+<p><img src="../assets/parallel.svg" alt=""></p>
+
+<h2>Parallelism</h2>
+
+<ul>
+<li><p><strong>Serial Process:</strong></p>
+
+<ul>
+<li>Speed depends only on the rate at which each sub-process will occur (e.g. processing unit clock speed).</li>
+</ul></li>
+<li><p><strong>Parallel Process:</strong></p>
+
+<ul>
+<li>Speed depends on execution rate of each sub-process <em>AND</em> how many sub-processes can be made to occur simultaneously.</li>
+</ul></li>
+</ul>
+
+<h2>Parallel for Capacity</h2>
+
+<p><strong>Example:</strong> Searching database of web-sites for some text (i.e. Google)</p>
+
+<ul>
+<li><p>Searching sequentially through large volumes of text too time-consuming.</p>
+
+<ul>
+<li>Multiple servers hold different pages.</li>
+<li>Each server can report the result of each individual search.</li>
+<li><strong>The more servers you add the quicker the search is.</strong></li>
+</ul></li>
+</ul>
+
+<h2>Parallel for Capability</h2>
+
+<p><strong>Example:</strong> Large scale weather simulation</p>
+
+<ul>
+<li><p>Detailed description for atmosphere too large to run on today&#39;s desktop or server PCs.</p>
+
+<ul>
+<li>Multiple servers are needed to hold all grid data in memory.</li>
+<li>Servers need to quickly <em>communicate to synchronise</em> work over entire grid</li>
+<li>Communication between servers can become a bottleneck.</li>
+</ul></li>
+</ul>
+
+<p><img src="../assets/noaaforcast.png" alt=""></p>
+
+<h2>Parallelism</h2>
+
+<h3>All computers today are designed for parallel execution</h3>
+
+<p>But...</p>
+
+<h3>Not all computation can be done in parallel!</h3>
+
+<h2>Amdahl&#39;s Law</h2>
+
+<p>1 Processor</p>
+
+<p><img src="../assets/amdahl1_v2.png" alt=""></p>
+
+<h2>Amdahl&#39;s Law</h2>
+
+<p>2 Processors</p>
+
+<p><img src="../assets/amdahl2_v2.png" alt=""></p>
+
+<h2>Amdahl&#39;s Law</h2>
+
+<p>10 Processors</p>
+
+<p><img src="../assets/amdahl10_v2.png" alt=""></p>
+
+<h2>Amdahl&#39;s Law</h2>
+
+<ul>
+<li>Amdahl&#39;s law will always be a limiting factor</li>
+</ul>
+
+<p>$\frac{1}{\left(1-P\right)+\frac{P}{N}}$</p>
+
+<ul>
+<li>Some applications need to be re-written, algorithms re-thought to harness ever more parallel machines.</li>
+</ul>
+
+<h2>Amdahl&#39;s Law</h2>
+
+<p><img src="../assets/amdahlscale.png" alt=""></p>
+
+<ul>
+<li>If 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20x, no matter how many processors are used.</li>
+</ul>
+
+<h2>There are many parallel paradigms</h2>
+
+<p>Processor farms, pipelining, divide/conquer, geometric decomposition, cellular automata, algorithmic parallelism</p>
+
+<ul>
+<li>From a systems perspective:
+
+<ul>
+<li>Shared memory</li>
+<li>Message passing</li>
+</ul></li>
+</ul>
+
+<h2>SMP (Symmetric Multi-Processing)</h2>
+
+<p><img src="../assets/smp.png" alt=""></p>
+
+<h2>SMP (Symmetric Multi-Processing)</h2>
+
+<p><img src="../assets/smp2.png" alt=""></p>
+
+<h2>Beowulf Cluster</h2>
+
+<p><img src="../assets/beowulf.png" alt=""></p>
+
+<h2>Infiniband Cluster</h2>
+
+<p><img src="../assets/cluster.png" alt=""></p>
+
+<h2>NUMA (Non-Uniform Memory Access)</h2>
+
+<p><img src="../assets/numa.png" alt=""></p>
+
+<h2>Interconnect comparisons</h2>
+
+<table><thead>
+<tr>
+<th>Interconnect</th>
+<th>Typical MPI latency (microseconds)</th>
+<th>Typical bandwidth (MB/s)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1Gbs Ethernet</td>
+<td>60-90</td>
+<td>90</td>
+</tr>
+<tr>
+<td>10Gbs Ethernet</td>
+<td>12-20</td>
+<td>800</td>
+</tr>
+<tr>
+<td>Infiniband</td>
+<td>2-4</td>
+<td>250-1200</td>
+</tr>
+<tr>
+<td>NUMALink 4</td>
+<td>~1</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>QPI</td>
+<td>~0.5</td>
+<td>20000</td>
+</tr>
+</tbody></table>
+
+<h2>GPU accelerator</h2>
+
+<p><img src="../assets/gpu.png" alt=""></p>
+
+<h2>Only a subset of problems can be optimised</h2>
+
+<ul>
+<li><p>Not all problems can be parallelised</p></li>
+<li><p>Not all parallel problems can be ported to accelerators</p></li>
+</ul>
+
+<p><img src="../assets/optimisationsets.png" alt=""></p>
+
+<h2>In summary</h2>
+
+<ul>
+<li><p>Developments in CPU architecture still continue: Moore’s law still valid</p></li>
+<li><p>Improvements to CPU architecture consist of increasing internal parallelism: hyper-threading, wider SIMD units, more cores per chip</p></li>
+<li><p>Accelerators are bringing more computing cycles to the table (albeit of a special type).</p></li>
+</ul>
+
+<h2>And that is just the compute side of the story</h2>
+
+<p>Data storage and Network infrastructure need to keep up with computation and other data producing technologies...</p>
+
+<ul>
+<li><p>upgrading network infrastructure</p></li>
+<li><p>re-thinking data storage</p>
+
+<ul>
+<li>SSD’s</li>
+<li>parallel file systems</li>
+<li>Multi-tiered storage</li>
+<li>Map-Reduce data platforms</li>
+</ul></li>
+</ul>
+
+<h2>Supercomputing</h2>
+
+<p>Used efficiently, Supercomputers let you get <strong>more</strong> done <strong>faster</strong>.</p>
+
+<p>They can be useful for a large number of types of work.</p>
+
+<h2>Applications</h2>
+
+<p><img src="../assets/applications.png" alt=""></p>
+
+<h1>The Cluster</h1>
+
+<h2>Overview</h2>
+
+<p><img src="../assets/cluster-topology.png" alt=""></p>
+
+<h2>The Node</h2>
+
+<ul>
+<li><p>Compute Node</p>
+
+<ul>
+<li>Just computes - little else</li>
+<li>Private IP address - no user access</li>
+</ul></li>
+<li><p>Login Node</p>
+
+<ul>
+<li>User login</li>
+<li>Interaction with job scheduler</li>
+<li>Public IP address - connects to external network</li>
+</ul></li>
+</ul>
+
+<h2>Generic Software stack</h2>
+
+<p><img src="../assets/stack.svg" alt=""></p>
+
+<h2>Real applications</h2>
+
+<ul>
+<li><p>FEA - Finite Element Analysis</p>
+
+<ul>
+<li>The simulation of hard physical materials, e.g. metal, plastic</li>
+<li>Crash test, product design, suitability for purpose</li>
+<li>Examples: MSC Nastran, Ansys, LS-Dyna, Abaqus, ESI PAMCrash, Radioss</li>
+</ul></li>
+<li><p>CFD - Computational Fluid Dynamics</p>
+
+<ul>
+<li>The simulation of soft physical materials, gases and fluids</li>
+<li>Engine design, airflow, oil reservoir modelling</li>
+<li>Examples: Fluent, Star-CD, CFX</li>
+</ul></li>
+</ul>
+
+<h2>Real applications</h2>
+
+<ul>
+<li><p>Geophysical Sciences</p>
+
+<ul>
+<li>Seismic Imaging - taking echo traces and building a picture of the sub-earth geology</li>
+<li>Reservoir Simulation - CFD specific to oil asset management</li>
+<li>Examples: Omega, Landmark VIP and Pro/Max, Geoquest Eclipse</li>
+</ul></li>
+<li><p>Life Sciences</p>
+
+<ul>
+<li>Understanding the living world - genome matching, protein folding, drug design, bioinformatics, organic chemistry</li>
+<li>Examples: BLAST, Gaussian, LAMMPS, Trinity, Amber, NAMD</li>
+</ul></li>
+</ul>
+
+<h2>Real applications</h2>
+
+<ul>
+<li><p>High Energy Physics</p>
+
+<ul>
+<li>Understanding the atomic and sub-atomic world</li>
+<li>Software from Fermi-Lab or CERN, or home-grown</li>
+</ul></li>
+<li><p>Financial Modelling</p>
+
+<ul>
+<li>Meeting internal and external financial targets particularly regarding investment positions</li>
+<li>VaR - Value at Risk - assessing the impact of economic and political factors on the bank’s investment portfolio</li>
+<li>Trader Risk Analysis - what is the risk on a trader’s position, a group of traders</li>
+</ul></li>
+</ul>
+
+<h2>Operating system</h2>
+
+<ul>
+<li><p>The vast majority of Clusters in the world use some flavour of <em>Unix</em> or <em>Linux</em> for their OS.</p></li>
+<li><p>The most common form of interaction with these systems is a &quot;shell&quot; or &quot;command line&quot;.  </p></li>
+</ul>
+
+<p><em>(Which we are going to learn about using Legion’s Login nodes.)</em></p>
+
+<h2>Operating system</h2>
+
+<ul>
+<li><p>Clusters are very frequently used as a shared facility. </p></li>
+<li><p>As such, work needs to be scheduled via a batch system.</p></li>
+<li><p>Jobs are queued and prioritised based on requested resources.</p></li>
+</ul>
+
+<p><em>(These are the focus of tomorrow’s session.)</em></p>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2019-04-23 15:20:36 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+  <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

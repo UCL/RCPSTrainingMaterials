@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Legion Overview</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/local_reveal.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/reveal.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Legion Overview</h1>
+</section>
+
+<section><section id="legion-architecture" class="titleslide slide level1"><h1>Legion Architecture</h1></section><section id="node-types" class="slide level2">
+<h1>Node Types</h1>
+<ul>
+<li>Login Nodes</li>
+<li>Transfer Node</li>
+<li>Compute Nodes</li>
+<li><em>(Infrastructure Nodes)</em></li>
+</ul>
+</section><section id="login-nodes" class="slide level2">
+<h1>Login Nodes</h1>
+<p>For:</p>
+<ul>
+<li>Access</li>
+<li>Programming</li>
+<li>File transfers (light)</li>
+<li>Testing (light)</li>
+<li>Visualisation (light)</li>
+</ul>
+<p>Accessible via <code>ssh</code>, at <code>legion.rc.ucl.ac.uk</code>, or <code>login0(6-9).external.legion.ucl.ac.uk</code>.</p>
+</section><section id="transfer-node" class="slide level2">
+<h1>Transfer Node</h1>
+<p>At <code>login05.external.legion.ucl.ac.uk</code>.</p>
+<p>Can transfer data around Legion up to 10⨉ faster than normal login nodes.</p>
+</section><section id="compute-nodes" class="slide level2">
+<h1>Compute Nodes</h1>
+<ul>
+<li>only accessible via the scheduler</li>
+<li>intended for all significant non-interactive work</li>
+<li>can also do limited interactive work</li>
+<li>can access external networks</li>
+</ul>
+</section><section id="numbers-and-types" class="slide level2">
+<h1>Numbers and Types</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Cores</th>
+<th style="text-align: center;">RAM</th>
+<th style="text-align: center;">Network</th>
+<th style="text-align: center;">Number</th>
+<th style="text-align: center;">Total Cores</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">1.5TB</td>
+<td style="text-align: center;">Ethernet</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">192</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">64GB</td>
+<td style="text-align: center;">Infiniband</td>
+<td style="text-align: center;">160</td>
+<td style="text-align: center;">2496</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">48GB</td>
+<td style="text-align: center;">Ethernet</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">96+GPU</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">24GB</td>
+<td style="text-align: center;">Infiniband</td>
+<td style="text-align: center;">144</td>
+<td style="text-align: center;">1728</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">24GB</td>
+<td style="text-align: center;">Ethernet</td>
+<td style="text-align: center;">108</td>
+<td style="text-align: center;">1296</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">48GB</td>
+<td style="text-align: center;">Ethernet</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">48</td>
+</tr>
+</tbody>
+</table>
+</section><section id="topology" class="slide level2">
+<h1>Topology</h1>
+<figure>
+<img src="../assets/cluster-topology.png" />
+</figure>
+</section><section id="filesystem-access" class="slide level2">
+<h1>Filesystem Access</h1>
+<figure>
+<img src="../assets/rw-where.png" />
+</figure>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

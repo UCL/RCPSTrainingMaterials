@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Extras</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/local_reveal.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/reveal.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Extras</h1>
+</section>
+
+<section><section id="gnu-screen" class="titleslide slide level1"><h1>GNU Screen</h1></section><section id="intro-to-gnu-screen" class="slide level2">
+<h1>Intro to GNU Screen</h1>
+<p><strong>Q: What happens if you want to:</strong></p>
+<p>Log out and turn off your PC?</p>
+<p>Go home and continue working?</p>
+<p>Freely create and delete shell sessions within one terminal?</p>
+<p><strong>A: Use a terminal multiplexer like GNU screen</strong></p>
+</section><section id="first-log-into-legion" class="slide level2">
+<h1>First, log into Legion</h1>
+<pre><code>ssh user@legion.rc.ucl.ac.uk</code></pre>
+<p>(or use Putty)</p>
+<figure>
+<img src="../assets/terminal-ssh.svg" />
+</figure>
+<ul>
+<li>Take a note of which login node you are assigned!</li>
+</ul>
+</section><section id="then-run-screen" class="slide level2">
+<h1>Then, run &quot;screen&quot;</h1>
+<pre><code>screen</code></pre>
+<p>The screen will clear and you will be presented with a new prompt.</p>
+<figure>
+<img src="../assets/terminal-screen-1.svg" />
+</figure>
+<p>Do something in that shell (e.g.) &quot;ls&quot;.</p>
+</section><section id="creating-new-shells-in-screen" class="slide level2">
+<h1>Creating new shells in Screen</h1>
+<ul>
+<li><p>Press <strong>Ctrl-a</strong>, then press <strong>c</strong></p></li>
+<li><p>You'll be given another shell (what screen calls a &quot;window&quot;)!</p></li>
+</ul>
+<figure>
+<img src="../assets/terminal-screen-2.svg" />
+</figure>
+<ul>
+<li><p>Create new &quot;windows&quot; with <strong>Ctrl-a, c</strong></p></li>
+<li><p><strong>Ctrl-a, a</strong> switches between this window and your last one.</p></li>
+<li><p>Windows are numbered 0-&gt;N, <strong>Ctrl-a, number</strong> (e.g. <strong>Ctrl-a, 3</strong>) to switch to a particular one.</p></li>
+</ul>
+</section><section id="detaching-from-your-session" class="slide level2">
+<h1>Detaching from your session</h1>
+<ul>
+<li><strong>Ctrl-a, d</strong> detaches from your session.</li>
+</ul>
+<figure>
+<img src="../assets/terminal-screen-detached.svg" />
+</figure>
+<ul>
+<li><strong>screen -r</strong> re-attaches.</li>
+</ul>
+</section><section id="log-out" class="slide level2">
+<h1>Log out</h1>
+<ul>
+<li>You can log out of a machine you have a detached session on and programs will keep running.</li>
+</ul>
+<figure>
+<img src="../assets/terminal-screen-logged-out.svg" />
+</figure>
+</section><section id="logging-back-in" class="slide level2">
+<h1>Logging back in</h1>
+<ul>
+<li>Then log back in (from anywhere!) and <strong>screen -r</strong> to re-attach.</li>
+</ul>
+<figure>
+<img src="../assets/terminal-screen-detached.svg" />
+</figure>
+</section><section id="logging-back-in-1" class="slide level2">
+<h1>Logging back in</h1>
+<ul>
+<li>Then log back in (from anywhere!) and <strong>screen -r</strong> to re-attach.</li>
+</ul>
+<figure>
+<img src="../assets/terminal-screen-2.svg" />
+</figure>
+</section><section id="legion-specific" class="slide level2">
+<h1>Legion specific</h1>
+<p><strong>NOTE:</strong> make sure you log into the same login node that you started screen on:</p>
+<ul>
+<li><p>login06: login06.external.legion.ucl.ac.uk</p></li>
+<li><p>login07: login07.external.legion.ucl.ac.uk</p></li>
+<li><p>login08: login08.external.legion.ucl.ac.uk</p></li>
+<li><p>login09: login09.external.legion.ucl.ac.uk</p></li>
+</ul>
+</section><section id="other-screen-commands" class="slide level2">
+<h1>Other screen commands</h1>
+<ul>
+<li><p><strong>screen -d</strong> - forces detach of a screen that's running (so you can screen -r it). Handy if your SSH connection drops.</p></li>
+<li><p><strong>screen -ax</strong> - forces attach to a screen that's attached to from somewhere else.</p></li>
+<li><p>You can configure screen in lots of useful ways, including changing the keyboard shortcuts. For more see man pages, or online documentation: <a href="http://www.gnu.org/software/screen/">(http://www.gnu.org/software/screen/)</a></p></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

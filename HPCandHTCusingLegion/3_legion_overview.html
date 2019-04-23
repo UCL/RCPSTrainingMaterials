@@ -1,0 +1,412 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Legion Overview</title>
+
+  <link href="/RCPSTrainingMaterials/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/RCPSTrainingMaterials/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/RCPSTrainingMaterials/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/RCPSTrainingMaterials/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/RCPSTrainingMaterials/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/RCPSTrainingMaterials/favicon-144.png">
+
+  <script src="/RCPSTrainingMaterials/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/RCPSTrainingMaterials/js/lib/html5shiv-printshiv.min.js', '/RCPSTrainingMaterials/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/RCPSTrainingMaterials/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/RCPSTrainingMaterials/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+    <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/RCPSTrainingMaterials/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">Introduction to High Performance and High Throughput Computing</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+<li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/">High performance and high throughput computing</a><ul> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/1_intro_to_hpc.html">HPC and HTC Concepts</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/2_intro_to_shell.html">Introduction to the UNIX shell</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/3_legion_overview.html">Legion Overview</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/4_legion_batch.html">Legion environment and batch processing</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/5_policies_and_misc.html">Policies and Miscellanea</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/7_exercise_solutions.html">Exercise Solutions</a> </li> <li class="active"> <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/8_matlab_on_legion.html">Running Matlab on Legion</a> </li> </ul> </li>
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/RCPSTrainingMaterials/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/ISD">ISD</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services">Our services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it">Research IT</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/isd/services/research-it/training">Training</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/RCPSTrainingMaterials/">Intro to HPTC</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/RCPSTrainingMaterials/HPCandHTCusingLegion/3_legion_overview-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>Legion Architecture</h1>
+
+<h2>Node Types</h2>
+
+<ul>
+<li>Login Nodes</li>
+<li>Transfer Node </li>
+<li>Compute Nodes </li>
+<li><em>(Infrastructure Nodes)</em></li>
+</ul>
+
+<h2>Login Nodes</h2>
+
+<p>For:</p>
+
+<ul>
+<li>Access</li>
+<li>Programming</li>
+<li>File transfers (light)</li>
+<li>Testing (light)</li>
+<li>Visualisation (light)</li>
+</ul>
+
+<p>Accessible via <code>ssh</code>, at <code>legion.rc.ucl.ac.uk</code>,
+or <code>login0(6-9).external.legion.ucl.ac.uk</code>.</p>
+
+<h2>Transfer Node</h2>
+
+<p>At <code>login05.external.legion.ucl.ac.uk</code>.</p>
+
+<p>Can transfer data around Legion up to 10⨉ faster than normal login nodes.</p>
+
+<h2>Compute Nodes</h2>
+
+<ul>
+<li>only accessible via the scheduler</li>
+<li>intended for all significant non-interactive work</li>
+<li>can also do limited interactive work</li>
+<li>can access external networks</li>
+</ul>
+
+<h2>Numbers and Types</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Cores</th>
+<th style="text-align: center">RAM</th>
+<th style="text-align: center">Network</th>
+<th style="text-align: center">Number</th>
+<th style="text-align: center">Total Cores</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">T</td>
+<td style="text-align: center">32</td>
+<td style="text-align: center">1.5TB</td>
+<td style="text-align: center">Ethernet</td>
+<td style="text-align: center">6</td>
+<td style="text-align: center">192</td>
+</tr>
+<tr>
+<td style="text-align: center">U</td>
+<td style="text-align: center">16</td>
+<td style="text-align: center">64GB</td>
+<td style="text-align: center">Infiniband</td>
+<td style="text-align: center">160</td>
+<td style="text-align: center">2496</td>
+</tr>
+<tr>
+<td style="text-align: center">V</td>
+<td style="text-align: center">12</td>
+<td style="text-align: center">48GB</td>
+<td style="text-align: center">Ethernet</td>
+<td style="text-align: center">8</td>
+<td style="text-align: center">96+GPU</td>
+</tr>
+<tr>
+<td style="text-align: center">X</td>
+<td style="text-align: center">12</td>
+<td style="text-align: center">24GB</td>
+<td style="text-align: center">Infiniband</td>
+<td style="text-align: center">144</td>
+<td style="text-align: center">1728</td>
+</tr>
+<tr>
+<td style="text-align: center">Y</td>
+<td style="text-align: center">12</td>
+<td style="text-align: center">24GB</td>
+<td style="text-align: center">Ethernet</td>
+<td style="text-align: center">108</td>
+<td style="text-align: center">1296</td>
+</tr>
+<tr>
+<td style="text-align: center">Z</td>
+<td style="text-align: center">12</td>
+<td style="text-align: center">48GB</td>
+<td style="text-align: center">Ethernet</td>
+<td style="text-align: center">4</td>
+<td style="text-align: center">48</td>
+</tr>
+</tbody></table>
+
+<h2>Topology</h2>
+
+<p><img src="../assets/cluster-topology.png" alt=""></p>
+
+<h2>Filesystem Access</h2>
+
+<p><img src="../assets/rw-where.png" alt=""></p>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2019-04-23 15:20:36 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/RCPSTrainingMaterials/js/lib/require.min.js"></script>
+  <script src="/RCPSTrainingMaterials/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/RCPSTrainingMaterials/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

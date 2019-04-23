@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Policies and Miscellanea</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/local_reveal.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/reveal.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Policies and Miscellanea</h1>
+</section>
+
+<section><section id="policies" class="titleslide slide level1"><h1>Policies</h1></section><section id="legion-scheduler" class="slide level2">
+<h1>Legion Scheduler</h1>
+<ul>
+<li>Tries to give each user an equal share of the machine at any given moment</li>
+<li>Tries to fill gaps with small, short jobs</li>
+<li>Has a few special sets of nodes to run test (short, small) or interactive jobs</li>
+</ul>
+</section><section id="production" class="slide level2">
+<h1>&quot;Production&quot;</h1>
+<p>Anything that uses:</p>
+<ul>
+<li>a lot of CPU time</li>
+<li>a lot of RAM</li>
+<li>a lot of disk access</li>
+</ul>
+<p><strong>Production work should be run as a job.</strong></p>
+</section><section id="what-can-run" class="slide level2">
+<h1>What Can Run</h1>
+<p>We can provide (stable) application centrally, and compile up software to put in the <code>/shared/ucl/apps</code> space.</p>
+<p>You're free to run almost anything that you can build on Legion, though.</p>
+<p>Some departments also provide applications, <em>e.g.</em> Chemistry Department: <code>module load chemistry-modules</code>.</p>
+<p>We reserve the right to ban the use of applications that prevent or harm other users' use of the cluster.</p>
+</section><section id="limits" class="slide level2">
+<h1>Limits</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Time</th>
+<th style="text-align: left;">Cores</th>
+<th style="text-align: left;">Queue Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">≤ 15 mins</td>
+<td style="text-align: left;">≤1 node</td>
+<td style="text-align: left;">Rapid Test Queue</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">≤ 1 day</td>
+<td style="text-align: left;">≤ 512 cores</td>
+<td style="text-align: left;">Large Parallel Queue</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">≤ 2 days</td>
+<td style="text-align: left;">≤ 256 cores</td>
+<td style="text-align: left;">Smaller Parallel Queue</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">≤ 3 days</td>
+<td style="text-align: left;">1 core</td>
+<td style="text-align: left;">Serial Queue</td>
+</tr>
+</tbody>
+</table>
+<p><em>(Actually more complex than this, check the website.)</em></p>
+</section><section id="extraordinary-resource-requests" class="slide level2">
+<h1>Extraordinary Resource Requests</h1>
+<ul>
+<li>Grab the <a href="https://wiki.rc.ucl.ac.uk/wiki/Additional_Resource_Requests">form from the website</a></li>
+<li>Send it to your supervisor/PI to support</li>
+<li>Send it to us: <script type="text/javascript">
+<!--
+h='&#x75;&#x63;&#108;&#46;&#x61;&#x63;&#46;&#x75;&#x6b;';a='&#64;';n='&#114;&#x63;&#x2d;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#114;&#x63;&#x2d;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#32;&#x61;&#116;&#32;&#x75;&#x63;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x63;&#32;&#100;&#x6f;&#116;&#32;&#x75;&#x6b;</noscript></li>
+<li>Wait for approval by the CRAG</li>
+</ul>
+</section><section id="data-policies" class="slide level2">
+<h1>Data Policies</h1>
+</section><section id="access" class="slide level2">
+<h1>Access</h1>
+<ul>
+<li>Legion is not a long-term data repository</li>
+<li>Do not store the only copy of your data on Legion</li>
+</ul>
+</section><section id="security" class="slide level2">
+<h1>Security</h1>
+<p>Legion is not suitable for Highly Restricted data and above.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Level</th>
+<th style="text-align: left;">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>Secret:</em></td>
+<td style="text-align: left;">Identifiable patient information</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">Personal financial details</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">Confidential investigations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Highly Restricted:</em></td>
+<td style="text-align: left;">Student profiles</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">Unpublished commercially sensitive material</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Restricted:</em></td>
+<td style="text-align: left;">UCL main web page</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">Unpublished research data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Normal:</em></td>
+<td style="text-align: left;">Email about fridge-cleaning meeting</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://www.ucl.ac.uk/informationsecurity/policy/internal-policy/Guidelines10">(<em>See: UCL's data security policy</em>)</a></p>
+</section><section id="security-1" class="slide level2">
+<h1>Security</h1>
+<p>Responsibility for the accuracy of the results of software installed or available on Legion is the sole responsibility of researchers.</p>
+<p>So:</p>
+<ul>
+<li>Test your software</li>
+<li>Check your results</li>
+</ul>
+</section><section id="security-2" class="slide level2">
+<h1>Security</h1>
+<ul>
+<li><code>ssh</code> is the only recommended method to connect to/from Legion</li>
+<li>UCL is not responsible for security of non-UCL machines</li>
+<li>Ensure your machines are reasonably secure</li>
+</ul>
+</section><section id="quotas" class="slide level2">
+<h1>Quotas</h1>
+<ul>
+<li>Home directories have a 50 GB quota</li>
+<li>Scratch has a 200 GB quota
+<ul>
+<li>However you can use as much as you want for up to two weeks</li>
+<li>After two weeks job submission is disabled until you decrease usage to below quota</li>
+</ul></li>
+<li>If you need more, we can make small increases (up to double)
+<ul>
+<li>For more apply to the CRAG</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="support-queries" class="titleslide slide level1"><h1>Support Queries</h1></section><section id="a-good-ticket" class="slide level2">
+<h1>A Good Ticket</h1>
+<p>Tell us:</p>
+<ul>
+<li>What you're trying to do (technical)</li>
+<li>Exact error output</li>
+<li>Job IDs, scripts, and relevant file paths</li>
+<li>Whether we can look at your files</li>
+</ul>
+</section><section id="keeping-tickets-sane" class="slide level2">
+<h1>Keeping Tickets Sane</h1>
+<p><code>Subject: Re: Error When Compiling My_App v0.45 (Ref:IN:01287844)</code></p>
+<p>Keeping one ticket ID per problem helps us immensely.</p>
+</section></section>
+<section><section id="other-compute-resources" class="titleslide slide level1"><h1>Other Compute Resources</h1></section><section id="ucl-funded" class="slide level2">
+<h1>UCL Funded</h1>
+<ul>
+<li>Emerald</li>
+<li>for GPU jobs</li>
+<li>Departmental clusters</li>
+<li>talk to your local IT manager</li>
+</ul>
+</section><section id="other" class="slide level2">
+<h1>Other</h1>
+<ul>
+<li>ARCHER</li>
+<li>DIRAC collection</li>
+<li>PRACE</li>
+<li>US National Labs</li>
+<li>EGI</li>
+<li>(Cloud Providers)</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

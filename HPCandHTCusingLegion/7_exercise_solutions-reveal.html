@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Exercise Solutions</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; } /* Keyword */
+code > span.dt { color: #dfdfbf; } /* DataType */
+code > span.dv { color: #dcdccc; } /* DecVal */
+code > span.bn { color: #dca3a3; } /* BaseN */
+code > span.fl { color: #c0bed1; } /* Float */
+code > span.ch { color: #dca3a3; } /* Char */
+code > span.st { color: #cc9393; } /* String */
+code > span.co { color: #7f9f7f; } /* Comment */
+code > span.ot { color: #efef8f; } /* Other */
+code > span.al { color: #ffcfaf; } /* Alert */
+code > span.fu { color: #efef8f; } /* Function */
+code > span.er { color: #c3bf9f; } /* Error */
+code > span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+code > span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code > span.sc { color: #dca3a3; } /* SpecialChar */
+code > span.vs { color: #cc9393; } /* VerbatimString */
+code > span.ss { color: #cc9393; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #f0dfaf; } /* ControlFlow */
+code > span.op { color: #f0efd0; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #7f9f7f; } /* Documentation */
+code > span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code > span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+  </style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/local_reveal.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/reveal.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Exercise Solutions</h1>
+</section>
+
+<section><section id="first-day" class="titleslide slide level1"><h1>First Day</h1></section><section id="exercise" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Create and copy a directory tree. Use the command &quot;man cp&quot; for more information</p>
+</blockquote>
+<p>Okay, so, to create the directories:</p>
+<pre><code>mkdir -p one_dir/two_dir/three_dir</code></pre>
+<p>Then if you try to copy them, you'll see:</p>
+<pre><code>$ cp one_dir one_dir_copy
+cp: omitting directory `one_dir&#39;</code></pre>
+<p>If you check the <code>man</code> page, you'll see:</p>
+<pre><code>       -R, -r, --recursive
+              copy directories recursively</code></pre>
+<p>Which means you should use:</p>
+<pre><code>$ cp -r one_dir one_dir_copy</code></pre>
+</section><section id="exercise-1" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Write a script that creates five directories named <code>calculation_?</code>, where ? is a number.</p>
+</blockquote>
+<p><code>mk_dirs.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+
+<span class="co"># Dumb method without loop</span>
+<span class="kw">mkdir</span> calculation_1 calculation_2 calculation_3 calculation_4 calculation_5
+
+<span class="co"># Method using loop with all terms written out</span>
+<span class="kw">for</span> <span class="kw">i</span> in 1 2 3 4 5
+<span class="kw">do</span>
+  <span class="kw">mkdir</span> calculation_<span class="ot">$i</span>
+<span class="kw">done</span>
+
+<span class="co"># Method using loop running seq to get terms</span>
+<span class="kw">for</span> <span class="kw">i</span> in <span class="ot">$(</span><span class="kw">seq</span> 1 5<span class="ot">)</span>
+<span class="kw">do</span>
+  <span class="kw">mkdir</span> calculation_<span class="ot">$i</span>
+<span class="kw">done</span>
+
+<span class="co"># Method using loop with C syntax</span>
+<span class="kw">for</span> <span class="kw">((</span> i=1; i&lt;=5; i++ <span class="kw">))</span>
+<span class="kw">do</span>
+  <span class="kw">mkdir</span> calculation_<span class="ot">$i</span>
+<span class="kw">done</span></code></pre></div>
+</section><section id="exercise-2" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>write a <code>parent_script.sh</code> that creates and executes the <code>child_script.sh</code></p>
+<p>write a <code>parent_script.sh</code> that creates and executes 10 different <code>child_script.sh</code> that print out their individual number</p>
+</blockquote>
+<p>Okay, so first:</p>
+<p><code>parent_script.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+
+<span class="kw">echo</span> <span class="st">&quot;Parent script running.&quot;</span>
+
+<span class="kw">echo</span> <span class="st">&quot;Making child script...&quot;</span>
+<span class="kw">cat</span> &lt;&lt;EOF &gt;child_script.sh
+#!/bin/bash
+echo &quot;Child script running.&quot;
+EOF
+
+chmod +x child_script.sh
+
+echo &quot;Going to run child script.&quot;
+./child_script.sh
+echo &quot;Child script finished.&quot;</code></pre></div>
+<p>Second:</p>
+<p><code>parent_script.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+
+<span class="kw">echo</span> <span class="st">&quot;Parent script running.&quot;</span>
+
+
+<span class="kw">for</span> <span class="kw">i</span> in <span class="ot">$(</span><span class="kw">seq</span> 10<span class="ot">)</span>
+<span class="kw">do</span>
+<span class="kw">echo</span> <span class="st">&quot;Making child script number </span><span class="ot">$i</span><span class="st"> in child_script_</span><span class="ot">$i</span><span class="st">.sh ...&quot;</span>
+<span class="kw">cat</span> &lt;&lt;EOF &gt;ch<span class="kw">ild_script_</span><span class="ot">$i</span>.sh
+#!/bin/bash
+echo &quot;Child script <span class="ot">$i</span> running.&quot;
+EOF
+
+chmod +x child<span class="kw">_script_</span><span class="ot">$i</span>.sh
+./child<span class="kw">_script_</span><span class="ot">$i</span>.sh
+
+done</code></pre></div>
+</section><section id="exercise-3" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>In <code>~/Scratch</code>...</p>
+<ul>
+<li>Create the following directory tree:</li>
+</ul>
+<p><code>work</code> <code>work/input_data</code> <code>work/results</code> <code>work/program</code></p>
+</blockquote>
+<pre><code>mkdir work work/input_data work/results work/program</code></pre>
+<ul>
+<li class="fragment">Create the file &quot;<code>input.txt</code>&quot; with some random lines in it.</li>
+</ul>
+<pre><code>echo &quot;random line 1&quot; &gt;input.txt
+echo &quot;random line 2&quot; &gt;&gt;input.txt</code></pre>
+<ul>
+<li class="fragment">Move the file to <code>input_data</code> and rename it in the same command to <code>control01.txt</code></li>
+</ul>
+<pre><code>mv input.txt work/input_data/control01.txt</code></pre>
+<ul>
+<li class="fragment">Create the directory tree in one line only: <code>work/experiment/results/report</code></li>
+</ul>
+<pre><code>mkdir -p work/experiment/results/report</code></pre>
+<ul>
+<li class="fragment">Delete all directory trees created in one single command without explicit reference to any of the directory and file names except &quot;<code>work</code>&quot;.</li>
+</ul>
+<pre><code>rm -r work</code></pre>
+</section><section id="exercise-4" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Change the permission of a full directory tree with one single chmod command (look in the man pages for more information).</p>
+</blockquote>
+<p>Because <code>chmod -r</code> would change the permissions of a file, <code>chmod</code> only uses <code>-R</code> for recursive action, so this is:</p>
+<pre><code>chmod -R g+w a_dir</code></pre>
+<p>for example, to give group write permissions to every file in a directory and that directory itself.</p>
+<blockquote>
+<p>When typing the command &quot;<code>ls /sh</code>&quot;, press the tab key after typing &quot;<code>/sh</code>&quot;. What happens?</p>
+</blockquote>
+<p>It should auto-complete as far as it can without being ambiguous. On Legion and Aristotle, this should expand to <code>/shared</code>.</p>
+</section><section id="exercise-5" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Create a &quot;Hello world&quot;-like script using command line tools and execute it.</p>
+<p>Copy and alter your script to redirect output to a file using <code>&gt;</code>.</p>
+<p>Alter your script to use <code>&gt;&gt;</code> instead of <code>&gt;</code>. What effect does this have on its behaviour?</p>
+</blockquote>
+<p>So, one file:</p>
+<p><code>hello_world.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="kw">echo</span> <span class="st">&quot;Hello World!&quot;</span></code></pre></div>
+<p>Then:</p>
+<p><code>hello_world_redirect_1.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="kw">echo</span> <span class="st">&quot;Hello world!&quot;</span> <span class="kw">&gt;</span> output.txt</code></pre></div>
+<p>Then:</p>
+<p><code>hello_world_redirect_2.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="kw">echo</span> <span class="st">&quot;Hello world!&quot;</span> <span class="kw">&gt;&gt;</span> output_append.txt</code></pre></div>
+<p><code>output.txt</code> will be overwritten each time, while <code>output_append.txt</code> will be appended to because of the difference between <code>&gt;</code> and <code>&gt;&gt;</code>.</p>
+</section><section id="exercise-6" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Use <code>seq 1 75 &gt; numbers.txt</code> to generate a file containing a list of numbers. Use the <code>head</code>, <code>tail</code>, and <code>less</code> commands to look at it, then use <code>grep</code> to search it for a number.</p>
+<p>Use a combination of <code>head</code> and <code>tail</code> to get an exact line number</p>
+</blockquote>
+<pre><code>$ seq 1 75 &gt; numbers.txt
+$ less numbers.txt
+$ head numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+$ tail numbers.txt
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+$ head -n 5 numbers.txt
+1
+2
+3
+4
+5
+$ head -n 5 numbers.txt | tail -n 1
+5
+$ grep 0 numbers.txt
+10
+20
+30
+40
+50
+60
+70</code></pre>
+</section><section id="exercise-7" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Using two nested scripts, show that the value of an exported variable in the environment where you launch the scripts, propagates all the way down to the second script.</p>
+</blockquote>
+<p>So, two files:</p>
+<p><code>parent.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+
+<span class="kw">echo</span> Setting variables in parent script:
+
+<span class="ot">variable_1=</span>ham
+<span class="ot">variable_2=</span>eggs
+
+<span class="kw">export</span> <span class="ot">variable_1</span>
+
+<span class="kw">echo</span> <span class="st">&quot;variable_1: </span><span class="ot">$variable_1</span><span class="st">&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;variable_2: </span><span class="ot">$variable_2</span><span class="st">&quot;</span>
+
+<span class="kw">echo</span> Running child script...
+
+<span class="kw">./child.sh</span>
+
+<span class="kw">echo</span> Child script finished, printing out parent script variable values again:
+<span class="kw">echo</span> <span class="st">&quot;variable_1: </span><span class="ot">$variable_1</span><span class="st">&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;variable_2: </span><span class="ot">$variable_2</span><span class="st">&quot;</span></code></pre></div>
+<p><code>child.sh</code></p>
+<pre><code>#!/bin/bash
+
+echo Child script variable values:
+echo &quot;variable_1: $variable_1&quot;
+echo &quot;variable_2: $variable_2&quot;</code></pre>
+<p>If you run these, you should see:</p>
+<pre><code>$ ./parent.sh
+Setting variables in parent script:
+variable_1: ham
+variable_2: eggs
+Running child script...
+Child script variable values:
+variable_1: ham
+variable_2:
+Child script finished, printing out parent script variable values again:
+variable_1: ham
+variable_2: eggs</code></pre>
+</section><section id="exercise-8" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Use the command <code>env</code> to discover more.</p>
+</blockquote>
+<p>You should see a long list of variables something like this:</p>
+<pre><code>LC_PAPER=en_GB.UTF-8
+MODULE_VERSION_STACK=3.2.6
+SSH_CONNECTION=128.41.10.106 61693 144.82.108.231 22
+MODULESHOME=/shared/ucl/apps/modules/3.2.6/Modules/3.2.6
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+CC=icc
+HOSTNAME=login06</code></pre>
+</section><section id="exercise-9" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Using <code>$1</code> and <code>$2</code>, write a script that print both variables to the screen.</p>
+</blockquote>
+<p>So, for bonus points and to show some other related variables, here's a little extra:</p>
+<p><code>cmd_args.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+
+<span class="kw">echo</span> <span class="st">&quot;This is the first argument:  </span><span class="ot">$1</span><span class="st">&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;This is the second argument: </span><span class="ot">$2</span><span class="st">&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;This is the number of arguments: </span><span class="ot">$#</span><span class="st">&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;And this is all the arguments: </span><span class="ot">$@</span><span class="st">&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;</span><span class="dt">\$</span><span class="st">* and </span><span class="dt">\$</span><span class="st">@ do almost the same thing, but you probably always want to use </span><span class="dt">\$</span><span class="st">@&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;</span><span class="dt">\$</span><span class="st">* gets expanded slightly differently and can break arguments&quot;</span></code></pre></div>
+</section></section>
+<section><section id="second-day" class="titleslide slide level1"><h1>Second Day</h1></section><section><section id="environment-within-a-job" class="titleslide slide level2"><h1>Environment within a Job</h1></section><section id="exercise-10" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>To see what environment variables are set by the scheduler, try making a job script that runs env and puts the output in a file.</p>
+</blockquote>
+<p>You can take the job script from earlier in the notes as a starting point here, which looks like this:</p>
+<p><code>calculate_pi.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">./calculate_pi</span></code></pre></div>
+<p>Then we just want to change it to run <code>env</code> and redirect the standard output (stdout) to a file, using the <code>&gt;</code> operator, like this:</p>
+<p><code>env_to_file.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">env</span> <span class="kw">&gt;</span>env.output.from_job</code></pre></div>
+<p>Submit this using <code>qsub</code> and you should have a file <code>env.output.from_job</code> containing all the environment variables defined in the shell the job is running as.</p>
+</section><section id="exercise-11" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Now <code>sort</code> the file, and compare it to your current environment to see what has changed.</p>
+</blockquote>
+<p>The method shown here is only one of a few possible ways to do this.</p>
+<p>Let’s first sort the file we got from the last step, by putting the file as an argument to the <code>sort</code> command, and redirecting the output into a new file:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sort</span> env.output.from_job <span class="kw">&gt;</span>env.output.from_job.sorted</code></pre></div>
+<p>Then get a sorted file containing your current environment:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">env</span> <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">&gt;</span>env.output.current.sorted</code></pre></div>
+<p>Now compare the two, side-by-side:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sdiff</span> env.output.from_job.sorted env.output.current.sorted</code></pre></div>
+</section></section><section><section id="requesting-threads" class="titleslide slide level2"><h1>Requesting Threads</h1></section><section id="exercise-12" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Try modifying the script from before to run the new program.</p>
+</blockquote>
+</section><section id="exercise-13" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Run versions with 1, 2, 3, and 4 cores, and compare the timings.</p>
+</blockquote>
+<p>As before, we can take the previous script and edit it a bit, adding in the new option to request some more cores, getting something like this:</p>
+<p><code>openmp_pi.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -pe smp 4</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">./openmp_pi</span></code></pre></div>
+<p>At this point you can just use 4 different jobs, setting the <code>smp</code> requested value for each.</p>
+<p>You should find that the time taken divides roughly as the number of cores you request.</p>
+</section></section><section><section id="multinode-jobs" class="titleslide slide level2"><h1>Multinode jobs</h1></section><section id="exercise-14" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Try modifying the script from before to run the new program, using 8 cores and the <code>mpi</code> parallel environment.</p>
+</blockquote>
+<p>Since you’re given the 4 core version, it’s just a matter of changing the 4 to an 8. This should give you:</p>
+<p><code>mpi_pi.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -pe mpi 8</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">gerun</span> ./mpi_pi</code></pre></div>
+<p>You should find again that increasing this number reduces the time taken, with diminishing returns past a certain point. The output will tell you which nodes your job runs on, so you can tell whether it’s run on more than one actual node or not.</p>
+</section></section><section><section id="requesting-an-array-job" class="titleslide slide level2"><h1>Requesting an Array Job</h1></section><section id="exercise-15" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Try modifying the serial job script for <code>calculate_pi</code> to run 4 jobs as an array.</p>
+</blockquote>
+<p>So, all we have to do is add in the array job option to the serial job script, to get:</p>
+<p><code>array_pi.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -t 1-4</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">./calculate_pi</span></code></pre></div>
+</section><section id="exercise-16" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p><code>calculate_pi</code> can take an argument to tell it how many steps to use. Try controlling this with <code>$SGE_TASK_ID</code>.</p>
+</blockquote>
+<p>We’re only using 4 jobs here, and 4 steps of calculating pi is hardly any calculation, so we can do more steps either by altering the way the array tasks are numbered:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Gives 100,200,300,400 in SGE_TASK_ID variable</span>
+<span class="co">#$ -t 100-400:100</span></code></pre></div>
+<p>Or by adding some zeroes onto the end of the variable where it's used in the script:</p>
+<p><code>array_pi-vary_steps.sh</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -t 1-4</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">./calculate_pi</span> <span class="ot">${SGE_TASK_ID}</span>00</code></pre></div>
+</section></section><section><section id="module-prerequisites" class="titleslide slide level2"><h1>Module Prerequisites</h1></section><section id="exercise-17" class="slide level3">
+<h1>Exercise</h1>
+<blockquote>
+<p>Successfully load the latest Graphviz module (<code>graphviz/2.38.0/gnu-4.9.2</code>).</p>
+</blockquote>
+<p>This is mostly just an exercise in recognising what the modules system is telling you in terms of what requires what. Once you work out all the dependencies, you end up having to have typed:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">module</span> unload compilers
+<span class="kw">module</span> load compilers/gnu/4.9.2
+<span class="kw">module</span> load swig/3.0.5/gnu-4.9.2
+<span class="kw">module</span> load qt/4.8.6/gnu-4.9.2
+<span class="kw">module</span> load ghostscript/9.16/gnu-4.9.2
+<span class="kw">module</span> load python/2.7.9
+<span class="kw">module</span> load lua/5.3.1
+<span class="kw">module</span> load perl/5.22.0
+<span class="kw">module</span> load graphviz/2.38.0/gnu-4.9.2</code></pre></div>
+</section></section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

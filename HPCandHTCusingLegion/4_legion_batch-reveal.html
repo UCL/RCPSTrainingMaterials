@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Legion environment and batch processing</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; } /* Keyword */
+code > span.dt { color: #dfdfbf; } /* DataType */
+code > span.dv { color: #dcdccc; } /* DecVal */
+code > span.bn { color: #dca3a3; } /* BaseN */
+code > span.fl { color: #c0bed1; } /* Float */
+code > span.ch { color: #dca3a3; } /* Char */
+code > span.st { color: #cc9393; } /* String */
+code > span.co { color: #7f9f7f; } /* Comment */
+code > span.ot { color: #efef8f; } /* Other */
+code > span.al { color: #ffcfaf; } /* Alert */
+code > span.fu { color: #efef8f; } /* Function */
+code > span.er { color: #c3bf9f; } /* Error */
+code > span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+code > span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code > span.sc { color: #dca3a3; } /* SpecialChar */
+code > span.vs { color: #cc9393; } /* VerbatimString */
+code > span.ss { color: #cc9393; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #f0dfaf; } /* ControlFlow */
+code > span.op { color: #f0efd0; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #7f9f7f; } /* Documentation */
+code > span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code > span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+  </style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/local_reveal.css"/>
+  <link rel="stylesheet" href="/RCPSTrainingMaterials/site-styles/reveal.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Legion environment and batch processing</h1>
+</section>
+
+<section><section id="legion-environment-and-batch-processing" class="titleslide slide level1"><h1>Legion Environment and Batch processing</h1></section><section id="a-simple-serial-job" class="slide level2">
+<h1>A Simple Serial Job</h1>
+<p><code>calculate_pi</code> - Calculates π by numerically integrating a curve.</p>
+<p><span class="math inline">\(\int_{0}^{1}\frac{4}{1+x^2}\text{d}x=\pi\)</span></p>
+<figure>
+<img src="../assets/pigraph-diagram.svg" />
+</figure>
+</section><section id="make-a-copy" class="slide level2">
+<h1>Make a Copy</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Scratch
+<span class="kw">cp</span> -r /shared/ucl/apps/examples/calculate_pi_dir ./
+<span class="kw">cd</span> calculate_pi_dir
+<span class="kw">make</span>
+<span class="kw">./calculate_pi</span></code></pre></div>
+</section><section id="job-script" class="slide level2">
+<h1>Job Script</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -cwd</span>
+<span class="kw">./calculate_pi</span></code></pre></div>
+</section><section id="job-script-defaults" class="slide level2">
+<h1>Job Script Defaults</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#$ -l h_rt=0:15:00</span>
+<span class="co">#$ -l memory=1M</span>
+<span class="co">#$ -l tmpfs=10G</span></code></pre></div>
+</section><section id="queue-commands" class="slide level2">
+<h1>Queue Commands</h1>
+<p>|:---:|:---| | <code>qsub</code> | submit job | | <code>qstat</code> | view queue status and job info | | <code>qdel</code> | stop &amp; delete a job | | <code>qrsh</code> | start an interactive session |</p>
+</section><section id="submitting-jobs-to-the-queue" class="slide level2">
+<h1>Submitting Jobs to the Queue</h1>
+<pre><code>$ qsub submit.sh
+Your job 3521045 (&quot;submit.sh&quot;) has been submitted
+
+$ qsub -terse submit.sh
+3521045</code></pre>
+</section><section id="submitting-jobs-to-the-queue-1" class="slide level2">
+<h1>Submitting Jobs to the Queue</h1>
+<p>Special comments are options for <code>qsub</code></p>
+<p>Check <code>man qsub</code> for full lists</p>
+<p>Every cluster is a little different</p>
+</section><section id="viewing-queue" class="slide level2">
+<h1>Viewing Queue</h1>
+<pre><code>$ qstat
+
+job-ID  prior   name       user         state submit/start at    
+-----------------------------------------------------------------
+3521045 0.00000 submit.sh  ccaaxxx      qw    01/14/2014 14:51:54</code></pre>
+</section><section id="job-states" class="slide level2">
+<h1>Job States</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Letter</th>
+<th style="text-align: left;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>q</code></td>
+<td style="text-align: left;">queued</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>w</code></td>
+<td style="text-align: left;">waiting</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>r</code></td>
+<td style="text-align: left;">running</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>E</code></td>
+<td style="text-align: left;">error</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>t</code></td>
+<td style="text-align: left;">transferring</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>h</code></td>
+<td style="text-align: left;">held</td>
+</tr>
+</tbody>
+</table>
+</section><section id="more-detailed-info" class="slide level2">
+<h1>More Detailed Info</h1>
+<pre><code>qstat -j 3521045</code></pre>
+<p>(gives a lot of output)</p>
+<p><em>(Demo)</em></p>
+</section><section id="job-states---errors" class="slide level2">
+<h1>Job States - Errors</h1>
+<p>Most common problems:</p>
+<ul>
+<li>Working directory does not exist</li>
+<li>Working directory is not in <code>~/Scratch</code> (and thus not writable)</li>
+</ul>
+<p>Note that <code>qstat -j</code> cuts off the end of the error message - try <em>e.g.</em> <code>qexplain 53893</code> to see full error message.</p>
+</section><section id="removing-jobs" class="slide level2">
+<h1>Removing Jobs</h1>
+<pre><code>$ qdel 3521045
+ccaaxxx has deleted job 3521045</code></pre>
+<ul>
+<li>removes a queued job</li>
+<li>stops and removes a running job</li>
+</ul>
+</section><section id="environment-within-a-job" class="slide level2">
+<h1>Environment Within a Job</h1>
+<p><strong>Exercise</strong>: Run the simple <code>calculate_pi</code> program as a job.</p>
+<p><strong>Exercise</strong>: To see what environment variables are set by the scheduler, try making a job script that runs <code>env</code> and puts the output in a file.</p>
+<p><strong>Exercise</strong>: <code>sort</code> the file, and compare it to your current environment to see what has changed.</p>
+</section><section id="multithreaded-jobs" class="slide level2">
+<h1>Multithreaded Jobs</h1>
+<figure>
+<img src="../assets/multithread-diagram.svg" />
+</figure>
+</section><section id="openmp" class="slide level2">
+<h1>OpenMP</h1>
+<figure>
+<img src="../assets/openmp-diagram.svg" />
+</figure>
+</section><section id="make-a-copy-1" class="slide level2">
+<h1>Make a Copy</h1>
+<ul>
+<li>Go into your <code>Scratch</code> directory</li>
+<li>Make a copy of the <code>/shared/ucl/apps/examples/openmp_pi_dir</code> directory</li>
+<li>Build the program using <code>make</code>, and try running it</li>
+</ul>
+</section><section id="something-like" class="slide level2">
+<h1>Something Like</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Scratch
+<span class="kw">cp</span> -r /shared/ucl/apps/examples/openmp_pi_dir ./
+<span class="kw">cd</span> openmp_pi_dir
+<span class="kw">make</span>
+<span class="kw">./openmp_pi</span></code></pre></div>
+</section><section id="requesting-threads" class="slide level2">
+<h1>Requesting Threads</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#$ -pe smp 4</span></code></pre></div>
+<ul>
+<li>tells scheduler to find you 4 cores and allocate them to your job</li>
+<li>sets <code>OMP_NUM_THREADS=4</code> to tell OpenMP you're only using 4 instead of all</li>
+</ul>
+</section><section id="requesting-threads-1" class="slide level2">
+<h1>Requesting Threads</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#$ -pe smp 4</span></code></pre></div>
+<p><strong>Exercise</strong>: Try modifying the script from before to run the new program.</p>
+<p><strong>Exercise</strong>: Run versions with 1, 2, 3, and 4 cores, and compare the timings.</p>
+</section><section id="job-script-1" class="slide level2">
+<h1>Job Script</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -pe smp 4</span>
+<span class="co">#$ -cwd</span>
+<span class="kw">./openmp_pi</span></code></pre></div>
+</section><section id="multi-node-jobs" class="slide level2">
+<h1>Multi-node Jobs</h1>
+<ul>
+<li>Need some method to communicate over the network</li>
+<li>Most common is <strong>MPI</strong></li>
+</ul>
+</section><section id="mpi" class="slide level2">
+<h1>MPI</h1>
+<figure>
+<img src="../assets/mpi-diagram.svg" />
+</figure>
+</section><section id="make-a-copy-2" class="slide level2">
+<h1>Make a Copy</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> ~/Scratch
+<span class="kw">cp</span> -r /shared/ucl/apps/examples/mpi_pi_dir ./
+<span class="kw">cd</span> mpi_pi_dir
+<span class="kw">make</span>
+<span class="kw">./mpi_pi</span>
+<span class="co"># This won&#39;t always work on clusters</span></code></pre></div>
+</section><section id="requesting-multinode-jobs" class="slide level2">
+<h1>Requesting Multinode Jobs</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#$ -pe mpi 36</span></code></pre></div>
+<ul>
+<li>makes space for multi-node job</li>
+<li>creates variables and <code>machines</code> file</li>
+</ul>
+<p>Note that each requested core gets the amount of memory requested.</p>
+</section><section id="job-script-2" class="slide level2">
+<h1>Job Script</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -pe mpi 4</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">gerun</span> ./mpi_pi</code></pre></div>
+<p><strong>Exercise</strong>: Try modifying the script from before to run the new program, using 4, 8, 12, and 24 cores and the <code>mpi</code> parallel environment.</p>
+</section><section id="requesting-an-array-job" class="slide level2">
+<h1>Requesting an Array Job</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#$ -t 3     &lt;- (only runs one job)</span>
+<span class="co">#$ -t 1-3</span>
+<span class="co">#$ -t 1-7:2</span></code></pre></div>
+<p>This queues an array of jobs which only differ in how the <code>$SGE_TASK_ID</code> variable is set.</p>
+<p><strong>Exercise</strong>: Try modifying the serial job script (<code>calculate_pi</code>) to run 4 jobs as an array.</p>
+<p><strong>Exercise</strong>: <code>calculate_pi</code> can take an argument to tell it how many steps to use. Try using this with <code>$SGE_TASK_ID</code> to run using 300, 500, and 700 steps.</p>
+</section><section id="job-script-3" class="slide level2">
+<h1>Job Script</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -t 1-4</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">./calculate_pi</span> <span class="ot">${SGE_TASK_ID}</span>0</code></pre></div>
+</section><section id="job-arrays-and-file-performance" class="slide level2">
+<h1>Job Arrays and File Performance</h1>
+<p>The Lustre parallel filesystem performs <strong><em>worst</em></strong> when creating and writing to lots of little files.</p>
+<p>Arrays of jobs often create files like this.</p>
+<p>To help performance, run this type of job using the local storage on the node, and copy the files over when the job is complete.</p>
+<p><strong>Local Storage</strong>: <code>$TMPDIR</code></p>
+</section><section id="job-script-4" class="slide level2">
+<h1>Job Script</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -t 1-40000</span>
+<span class="co">#$ -cwd</span>
+
+<span class="kw">cd</span> <span class="ot">$TMPDIR</span>
+<span class="ot">$HOME</span><span class="kw">/my_programs/make_lots_of_files</span> \
+  --some-option=<span class="ot">$SGE_TASK_ID</span></code></pre></div>
+</section><section id="job-script-5" class="slide level2">
+<h1>Job Script</h1>
+<p>Then either:</p>
+<pre><code>cp * $SGE_WORK_DIR</code></pre>
+<p>or</p>
+<pre><code>cp -r $TMPDIR $SGE_WORK_DIR</code></pre>
+</section><section id="job-script-6" class="slide level2">
+<h1>Job Script</h1>
+<p>Or, better for lots of files:</p>
+<pre><code>cd $SGE_O_WORK_DIR
+
+tar -czf $JOB_ID.$SGE_TASK_ID.tar.gz $TMPDIR
+zip -f   $JOB_ID.$SGE_TASK_ID.zip    $TMPDIR</code></pre>
+</section><section id="existing-applications" class="slide level2">
+<h1>Existing Applications</h1>
+<p><em>Modules</em> system helps to set up environment for applications.</p>
+<p>Check <code>module avail</code> to see what modules exist.</p>
+<pre><code>$ module avail
+--- /shared/ucl/apps/modulefiles/core ----
+gerun             rcps-core/1.0.0
+mrxvt/0.5.4       screen/4.2.1
+[...]</code></pre>
+</section><section id="existing-applications-1" class="slide level2">
+<h1>Existing Applications</h1>
+<p><em>(Demo)</em></p>
+</section><section id="using-modules" class="slide level2">
+<h1>Using Modules</h1>
+<p>Most modules add one or more programs to your <code>$PATH</code>.</p>
+<pre><code>$ htop
+bash: htop: command not found
+$ module load htop
+$ htop</code></pre>
+<p>You will see a colourful interactive process viewer.</p>
+<pre><code>$ module unload htop
+$ htop
+bash: htop: command not found</code></pre>
+</section><section id="module-contents" class="slide level2">
+<h1>Module Contents</h1>
+<pre><code>$ module show htop</code></pre>
+<p><em>(Demo)</em></p>
+</section><section id="prerequisites-and-conflicts" class="slide level2">
+<h1>Prerequisites and Conflicts</h1>
+<p>Some modules depend on or conflict with other modules</p>
+<pre><code>Module &#39;a&#39; depends on one of the module(s) &#39;b&#39;</code></pre>
+<pre><code>Module &#39;a&#39; conflicts with the 
+currently loaded module(s) &#39;b&#39;</code></pre>
+<p><em>(Demo)</em></p>
+</section><section id="recommended-bundles" class="slide level2">
+<h1>Recommended Bundles</h1>
+<p>e.g. <code>r/recommended</code> loads a collection of other modules and then the R module.</p>
+</section><section id="job-script-7" class="slide level2">
+<h1>Job Script</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash -l</span>
+<span class="co">#$ -l h_rt=0:10:00</span>
+<span class="co">#$ -cwd</span>
+<span class="kw">module</span> unload compilers mpi
+<span class="kw">module</span> load r/recommended
+<span class="kw">R</span> --no-save --slave &lt;&lt;EOF &gt;r.output.<span class="ot">$JOB_ID</span>
+runif(50,0,1)
+EOF</code></pre></div>
+<p>(generates a bunch of random numbers)</p>
+</section><section id="other-schedulers" class="slide level2">
+<h1>Other Schedulers</h1>
+<p>Other systems (e.g. Emerald) may use a slightly different scheduler system, so the scripts can be slightly different -- consult the relevant documentation.</p>
+<pre><code>#$ -pe mpi 24
+#PBS -l nodes=2:ppn=12
+
+#$ -pe smp 12
+#PBS -l nodes=1:ppn=12
+
+#$ -l h_rt=1:00:00
+#PBS -l walltime=1:00:00
+
+#$ -l memory=4G
+#PBS -l mem=4gb</code></pre>
+</section><section id="quick-reference-sheet" class="slide level2">
+<h1>Quick Reference Sheet</h1>
+<p>Legion: <a href="https://wiki.rc.ucl.ac.uk/mediawiki-1.23.9/images/a/ad/Legion_ref_sheet.pdf" class="uri">https://wiki.rc.ucl.ac.uk/mediawiki-1.23.9/images/a/ad/Legion_ref_sheet.pdf</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
